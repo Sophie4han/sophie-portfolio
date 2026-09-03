@@ -55,7 +55,7 @@ Career Positioning은 **0→1 Product Manager**를 중심으로 표현한다. Pr
 ### Primary flow
 
 1. **Welcome / Orientation (Light Mode)**
-   - 3단계 장면으로 MOVE ON과 오리지널 가이드 캐릭터 MOVECKO를 짧게 소개한다.
+   - 3단계 장면으로 MOVE ON과 오리지널 가이드 캐릭터 춘이를 짧게 소개한다.
    - `Enter portfolio`를 기본 CTA로 제공한다.
    - 최초 방문에만 기본 노출하며 `Skip intro`로 즉시 World Overview에 진입할 수 있다.
 2. **World Overview (Dark Mode)**
@@ -211,7 +211,7 @@ Career Positioning은 **0→1 Product Manager**를 중심으로 표현한다. Pr
 
 ## 9. Pixel asset rules
 
-- **MOVECKO**는 MOVE ON만의 오리지널 가이드 캐릭터로 제작한다.
+- **춘이**는 MOVE ON만의 오리지널 가이드 캐릭터로 제작한다. 영문 UI에서는 **CHOONI**로 표기한다.
 - MOVE ON 고유의 캐릭터, 섬, 배지, 커서, 환경 오브젝트만 새로 제작한다. 레퍼런스 자산을 트레이싱하거나 복제하지 않는다.
 - 동일 장면의 자산은 공통 pixel density와 제한된 팔레트를 사용한다.
 - 래스터 픽셀 아트는 정수 배율로 확대하고 보간으로 흐려지지 않게 한다.
@@ -418,7 +418,7 @@ Career Positioning은 **0→1 Product Manager**를 중심으로 표현한다. Pr
 5. **Pixel Adventure × Editorial Product Portfolio**를 최종 Visual Direction으로 사용한다.
 6. 현재 Foundation 및 Capability accent 컬러를 1차 디자인 토큰으로 사용하고 구현 QA에서 대비를 검증한다.
 7. Typography 역할 구조는 Pixel Display / Geist Sans / Geist Mono를 사용한다.
-8. MOVECKO는 MOVE ON의 오리지널 가이드 캐릭터로 제작한다.
+8. 춘이는 MOVE ON의 오리지널 가이드 캐릭터로 제작하며 영문 UI에서는 CHOONI로 표기한다.
 9. Case Study는 Light Mode를 기본으로 하고 Dark Mode는 Evidence Gallery 등 제한된 구간에만 사용한다.
 10. Progress와 Badge는 `localStorage` 기반 편의 기능으로 유지하며 프로젝트 접근을 제한하지 않는다.
 11. 반응형 breakpoint는 `<768px` / `768–1279px` / `≥1280px`을 1차 기준으로 사용한다.

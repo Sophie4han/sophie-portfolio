@@ -79,7 +79,7 @@ Case Study Detail에는 `Back to projects`, breadcrumb, 이전/다음 프로젝�
 
 ### 5.1 화면 목적
 
-최초 방문자에게 MOVE ON, MOVECKO, Sophie의 포지셔닝과 탐색 방식을 짧게 소개하고 World Map으로 안내한다.
+최초 방문자에게 MOVE ON, 춘이, Sophie의 포지셔닝과 탐색 방식을 짧게 소개하고 World Map으로 안내한다.
 
 ### 5.2 핵심 사용자 행동
 
@@ -91,7 +91,7 @@ Case Study Detail에는 `Back to projects`, breadcrumb, 이전/다음 프로젝�
 ### 5.3 콘텐츠 우선순위
 
 1. Step 1–3 번호와 순서
-2. MOVECKO의 안내 `[문구 확인 필요]`
+2. 춘이의 안내 `[문구 확인 필요]`
 3. `0→1 Product Manager` 포지셔닝
 4. Product × Brand × Commerce 보조 설명 `[문구 확인 필요]`
 5. Step 3 Portal과 `Enter MOVE ON WORLD`
@@ -100,7 +100,7 @@ Case Study Detail에는 `Back to projects`, breadcrumb, 이전/다음 프로젝�
 ### 5.4 주요 컴포넌트
 
 - `IntroStoryboard`, `IntroScene`, `IntroProgress`
-- `MoveckoCharacter`, `GuideDialogue`
+- `ChooniCharacter`, `GuideDialogue`
 - `PortalHero`, `EnterWorldButton`
 - `SkipIntroLink`, `NextButton`, `BackButton`
 - `PixelSceneDecoration`
@@ -123,7 +123,7 @@ Case Study Detail에는 `Back to projects`, breadcrumb, 이전/다음 프로젝�
 ### 5.7 Desktop layout
 
 - ≥1280px에서 Primary Reference처럼 연결된 3-column storyboard를 한 화면에 동시에 노출한다.
-- 각 column은 단계 번호, 안내 내용, 해당 MOVECKO 상태를 모두 포함한다.
+- 각 column은 단계 번호, 안내 내용, 해당 춘이 상태를 모두 포함한다.
 - Step 3 column 안에 Portal과 `Enter MOVE ON WORLD` CTA를 포함한다.
 - 연결선은 순서를 보조하지만 DOM과 키보드 순서는 Step 1 → Step 2 → Step 3을 따른다.
 - Portal을 위한 별도 화면이나 route를 만들지 않는다.
@@ -132,12 +132,12 @@ Case Study Detail에는 `Back to projects`, breadcrumb, 이전/다음 프로젝�
 
 - 8-column 안에서 한 장면씩 진행하는 stepper로 전환한다.
 - 현재 단계와 `1 of 3` 형태의 전체 진행 위치를 항상 보여준다.
-- 안내와 MOVECKO/Portal은 4/4 columns 또는 위아래로 배치하고 CTA 영역을 우선 보존한다.
+- 안내와 춘이/Portal은 4/4 columns 또는 위아래로 배치하고 CTA 영역을 우선 보존한다.
 
 ### 5.9 Mobile layout
 
 - 한 장면씩 진행하는 단일 열 stepper다.
-- step label → dialogue → MOVECKO 또는 Portal → actions 순으로 배치한다.
+- step label → dialogue → 춘이 또는 Portal → actions 순으로 배치한다.
 - swipe는 보조 입력일 수 있으나 `Next`와 `Back` 버튼을 대체하지 않는다.
 
 ### 5.10 접근성 고려사항
@@ -150,9 +150,9 @@ Case Study Detail에는 `Back to projects`, breadcrumb, 이전/다음 프로젝�
 
 ### 5.11 필요한 픽셀아트 에셋
 
-- `[MOVECKO Step 1 인사 포즈 제작 필요]`
-- `[MOVECKO Step 2 안내·걷기 포즈 제작 필요]`
-- `[MOVECKO Step 3 출발 포즈 제작 필요]`
+- `[춘이 Step 1 인사 포즈 제작 필요]`
+- `[춘이 Step 2 안내·걷기 포즈 제작 필요]`
+- `[춘이 Step 3 출발 포즈 제작 필요]`
 - `[Step 3 Portal 제작 필요]`
 - `[3-column 연결선·방향 marker 제작 필요]`
 - `[Light Mode 환경 장식과 말풍선 frame 제작 필요]`
@@ -178,7 +178,7 @@ Intro 완료 및 재방문의 기본 도착점이다. Sophie의 포지셔닝과 
 3. 선택 category의 프로젝트 카드 `[프로젝트명 확인 필요]`
 4. Role / Period / Contribution 또는 Impact placeholder
 5. `View all projects`
-6. Progress, Badge, MOVECKO tip
+6. Progress, Badge, CHOONI tip
 
 ### 6.4 주요 컴포넌트
 
@@ -234,7 +234,7 @@ Intro 완료 및 재방문의 기본 도착점이다. Sophie의 포지셔닝과 
 - `[UNDERSTAND island 제작 필요]`
 - `[World 지형·하늘·물 타일 제작 필요]`
 - `[Project Select panel frame 제작 필요]`
-- `[World 안내 MOVECKO 포즈와 Progress/Badge HUD 제작 필요]`
+- `[World 안내 춘이 포즈와 Progress/Badge HUD 제작 필요]`
 
 ## 7. Project Select
 
@@ -306,7 +306,7 @@ Intro 완료 및 재방문의 기본 도착점이다. Sophie의 포지셔닝과 
 - `[All filter 공통 frame 제작 필요]`
 - `[Project thumbnail placeholder 제작 필요]`
 - `[visited/completed marker 제작 필요]`
-- `[empty/error MOVECKO 포즈 제작 필요]`
+- `[empty/error 춘이 포즈 제작 필요]`
 
 ## 8. Case Study Detail
 
@@ -448,7 +448,7 @@ Sophie가 어떤 문제를 해결하는 0→1 Product Manager인지와 Product �
 
 ### 9.11 필요한 픽셀아트 에셋
 
-- `[About MOVECKO 포즈 제작 필요]`
+- `[About 춘이 포즈 제작 필요]`
 - `[0→1 journey 모티프 제작 필요]`
 - `[Product/Brand/Commerce icon 제작 필요]`
 - `[Profile visual 처리 사양 필요]`
@@ -544,7 +544,7 @@ Sophie가 어떤 문제를 해결하는 0→1 Product Manager인지와 Product �
 
 - `PixelHudHeader`, `ContactHero`, `PrimaryContactLink`
 - `CopyContactButton`, `ExternalProfileLinks`, `CopyConfirmation`
-- `MoveckoFarewell`, `Footer`
+- `ChooniFarewell`, `Footer`
 
 ### 11.5 화면 상태
 
@@ -579,7 +579,7 @@ Sophie가 어떤 문제를 해결하는 0→1 Product Manager인지와 Product �
 
 ### 11.11 필요한 픽셀아트 에셋
 
-- `[Contact MOVECKO 포즈 제작 필요]`
+- `[Contact 춘이 포즈 제작 필요]`
 - `[Email/External profile icon 제작 필요]`
 - `[Copy success indicator 제작 필요]`
 - `[Contact 환경 장식 제작 필요]`
@@ -665,7 +665,7 @@ Sophie가 어떤 문제를 해결하는 0→1 Product Manager인지와 Product �
 ## 15. Validation checklist
 
 - 독립 화면이 정확히 7개인가?
-- Prologue Desktop에서 3개 장면이 동시에 보이고 각 번호, 안내, MOVECKO 상태와 Step 3 Portal이 포함되는가?
+- Prologue Desktop에서 3개 장면이 동시에 보이고 각 번호, 안내, 춘이 상태와 Step 3 Portal이 포함되는가?
 - Tablet/Mobile Prologue가 한 장면씩 진행하는 stepper인가?
 - Portal과 Enter CTA가 Prologue Step 3에만 포함되고 별도 route가 없는가?
 - Desktop World Map이 왼쪽 7 columns + 오른쪽 Project Select 5 columns인가?
