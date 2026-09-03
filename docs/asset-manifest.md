@@ -15,8 +15,9 @@
 - 래스터 픽셀아트는 공통 pixel density와 제한된 팔레트를 사용하고 정수 배율로 확대한다. 기본 픽셀 단위는 4px 또는 8px다.
 - 아래 기준 크기는 화면 표시 크기가 아니라 **1× 원본 제작 크기**다.
 - `PNG 9-slice`는 래스터 질감이 의미상 반드시 필요한 예외에만 검토한다. 현재 기본 UI 컴포넌트에는 사용하지 않는다.
-- 애니메이션은 정보 이해에 필요한 짧은 동작만 사용한다. 지속적인 idle animation은 만들지 않는다.
+- 애니메이션은 정보 이해에 필요한 짧은 동작만 사용한다. idle/blink는 장면에 필요할 때만 선택적으로 반복하고, greeting·guide/point·departure·world guide는 한 번 재생한다.
 - `prefers-reduced-motion`에서는 각 항목에 지정된 정지 프레임만 사용한다.
+- sprite sheet는 제자리 character motion만 담고 화면상의 위치 이동은 character wrapper의 CSS `transform`이 담당한다.
 - 의미 있는 이미지에는 목적을 설명하는 alt를 제공하고, 장식 이미지는 빈 alt를 사용한다.
 
 ### 우선순위
@@ -33,12 +34,34 @@
 
 모든 춘이 에셋 ID는 `chooni-*`를 사용하며 UI에서는 `ChooniCharacter`가 렌더링한다.
 
-| 에셋 이름 | 사용 화면 | 역할 | 파일 형식 | 투명 배경 | 프레임당 캔버스 | 프레임 수 | Sprite sheet 배열 | 전체 sheet 크기 | 프레임 시간 | Loop | Reduced-motion 정지 프레임 | Desktop / Mobile variant | 우선순위 | 제작 상태 |
-|---|---|---|---|---|---:|---:|---|---:|---:|---|---|---|---|---|
-| `chooni-prologue-greeting` | Prologue Step 1 | 춘이와 안내 경험을 처음 소개 | PNG sprite sheet | 예 | 128×128px | 4 | 4×1 | 512×128px | 140ms | 아니오 | frame 4 | 불필요 | P0 | **미제작** |
-| `chooni-prologue-guide` | Prologue Step 2 | 다음 장면과 탐색 방향 안내 | PNG sprite sheet | 예 | 128×128px | 4 | 4×1 | 512×128px | 140ms | 아니오 | frame 4 | 필요: Mobile은 정면 방향 variant | P0 | **미제작** |
-| `chooni-prologue-departure` | Prologue Step 3 | Portal과 Enter CTA 방향 제시 | PNG sprite sheet | 예 | 128×128px | 4 | 4×1 | 512×128px | 140ms | 아니오 | frame 4 | 필요: Portal 배치 방향 variant | P0 | **미제작** |
-| `chooni-world-guide` | World Map | capability와 Project Select 맥락 안내 | PNG sprite sheet | 예 | 96×96px | 4 | 4×1 | 384×96px | 160ms | 아니오 | frame 1 | 필요: Mobile 80×80px/frame, 4×1, 320×80px | P0 | **미제작** |
+| 에셋 이름 | 포함 motion clip | 사용 화면 / 역할 | 파일 형식 | 투명 배경 | 프레임당 캔버스 | 총 프레임 수 | Sprite sheet 배열 | 전체 sheet 크기 | 프레임 시간 | Loop | Reduced-motion 정지 프레임 | Desktop / Mobile variant | 우선순위 | 제작 상태 |
+|---|---|---|---|---|---:|---:|---|---:|---|---|---|---|---|---|
+| `chooni-prologue-greeting` | idle/blink frames 1–6; greeting frames 7–14 | Prologue Step 1 / 춘이와 안내 경험 소개 | PNG sprite sheet | 예 | 128×128px | 14 | 7×2 | 896×256px | idle/blink 150ms; greeting 100ms | idle/blink 선택적 loop; greeting 1회 | greeting frame 12 | 불필요 | P0 | **미제작** |
+| `chooni-prologue-guide` | guide/point frames 1–6; walk frames 7–14 | Prologue Step 2 / 방향 안내와 장면 사이 이동 | PNG sprite sheet | 예 | 128×128px | 14 | 7×2 | 896×256px | guide/point 120ms; walk 90ms | guide/point 1회; walk seamless loop | guide/point frame 5 | 필요: Mobile은 같은 scale·anchor의 정면 방향 파생 파일 | P0 | **미제작** |
+| `chooni-prologue-departure` | departure/portal entry frames 1–10 | Prologue Step 3 / Portal과 Enter CTA 방향 제시 | PNG sprite sheet | 예 | 128×128px | 10 | 5×2 | 640×256px | 90ms | 1회 | frame 6 | 필요: Portal 배치 방향의 파생 파일 | P0 | **미제작** |
+| `chooni-world-guide` | world guide frames 1–8 | World Map / capability와 Project Select 맥락 안내 | PNG sprite sheet | 예 | 96×96px | 8 | 4×2 | 384×192px | 120ms | 1회 | frame 6 | 필요: Mobile 80×80px/frame, 4×2, 320×160px 파생 파일 | P0 | **미제작** |
+
+#### CHOONI sprite continuity rules
+
+- 모든 CHOONI clip과 파생 파일에서 동일한 frame canvas 기준, character scale과 silhouette 비율을 유지한다.
+- 발바닥의 ground anchor 좌표를 고정해 frame이나 clip 전환 시 수직으로 튀지 않게 한다.
+- 머리, 몸통, 손발과 꼬리의 volume을 frame마다 유지하며 squash/stretch가 필요하면 의도와 범위를 별도 표기한다.
+- spot placement와 palette index를 모든 frame에서 일관되게 유지한다.
+- 각 clip은 first transition pose와 last transition pose를 handoff 표에 명시한다.
+- walk의 마지막 frame에서 첫 contact pose로 돌아갈 때 발 위치, silhouette와 무게 중심이 자연스럽게 연결되어야 한다.
+- 움직이지 않는 투명 padding과 ground 아래 여백을 모든 frame에서 동일하게 유지한다.
+- 표시 배율은 정수 nearest-neighbor scaling만 사용하고 제작·export·브라우저 표시에서 anti-aliasing을 금지한다.
+- 모든 motion clip은 의미가 가장 분명한 reduced-motion static frame을 지정한다.
+
+#### Prologue clip transition contract
+
+다음 경계의 silhouette, character scale, facing direction과 ground anchor가 일치해야 한다.
+
+1. greeting의 마지막 neutral pose → guide/point의 첫 neutral pose
+2. guide/point의 마지막 transition pose → walk의 첫 contact pose
+3. walk의 첫 contact pose와 loop 복귀 contact pose → departure의 첫 contact pose
+
+전환용 중복 pose가 서로 다른 logical sheet에 포함되더라도 픽셀 좌표와 palette를 동일하게 export한다. 장면이 바뀔 때 별도 보간 frame을 런타임에서 생성하지 않는다.
 
 ### 2.2 Portal
 
@@ -151,6 +174,26 @@ P1에는 현재 승인된 화면 구조에서 실제 의미가 확인된 최소 
 | Frame duration | ms 단위; 가변 duration이면 frame별 기재 |
 | Loop 여부 | `yes/no`와 반복이 중단되는 조건 |
 | Reduced-motion static frame | 1부터 시작하는 대체 frame 번호 |
+| Motion clip range | 하나의 logical sheet에 clip이 여러 개면 각 시작/끝 frame |
+| First/last transition pose | 이전·다음 clip과 맞닿는 pose 이름, facing과 ground anchor 좌표 |
+| Ground anchor | 모든 frame에 공통인 발바닥 기준 x/y 좌표 |
+| Character scale/padding | 공통 bounding box와 움직이지 않는 투명 padding |
+
+### Sprite motion and screen movement separation
+
+- sprite frame은 제자리에서의 몸 동작만 표현하며 canvas 안에서 화면 이동 거리를 그리지 않는다.
+- 실제 walk와 Portal 진입의 화면상 이동은 고정 크기 character wrapper의 CSS `transform: translate(...)`가 담당한다.
+- walk 1 cycle의 총 시간(`8 frames × 80–100ms`)을 wrapper translate duration의 정수 배와 동기화해 발 미끄러짐을 줄인다.
+- 위치 이동에 layout을 다시 계산하는 `top`/`left` animation을 사용하지 않는다.
+- 이동 종료 시 wrapper를 정확한 최종 transform 위치에 정착시키고 sprite는 지정된 last/static frame으로 고정한다.
+- 균일한 frame timing은 CSS `steps()`를 우선한다. greeting이나 guide/point처럼 특정 pose의 hold가 필요하면 handoff에 frame timing table을 추가하고 작은 `requestAnimationFrame` controller를 사용할 수 있다. 새 라이브러리는 설치하지 않는다.
+
+### Reduced-motion behavior
+
+- `prefers-reduced-motion: reduce`에서는 walk와 Portal 진입의 wrapper 이동 transform을 제거한다.
+- 각 clip의 지정된 reduced-motion static frame 중 의미가 가장 잘 드러나는 frame을 표시한다.
+- 장면, 안내 문구와 CTA는 animation 완료를 기다리지 않고 즉시 노출한다.
+- 콘텐츠 접근, Enter/Skip과 route 이동은 그대로 유지한다.
 
 ## 9. 제작 전 확인 항목
 

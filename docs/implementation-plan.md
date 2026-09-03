@@ -524,20 +524,58 @@ export interface SpriteDescriptor {
   columns: number;
   rows: number;
   frameCount: number;
+  groundAnchor: { x: number; y: number };
+  clips: readonly SpriteClip[];
+}
+
+export interface SpriteClip {
+  name: 'idle-blink' | 'greeting' | 'guide-point' | 'walk' | 'departure' | 'world-guide';
+  startFrame: number;          // 1-based, inclusive
+  endFrame: number;            // 1-based, inclusive
   frameDurationMs: number;
+  frameDurationsMs?: readonly number[]; // frame별 hold가 필요할 때만 사용
   loop: boolean;
-  reducedMotionFrame: number; // 1-based, manifest와 일치
+  reducedMotionFrame: number;
+  firstPose: string;
+  lastPose: string;
 }
 ```
 
 - wrapper 크기를 per-frame canvas로 고정하고 `background-size`는 전체 sheet 크기를 사용한다.
 - frame index로 정수 `background-position`만 변경해 픽셀이 흐려지지 않게 한다.
-- 기본 애니메이션은 CSS `steps(frameCount)` 또는 짧은 `requestAnimationFrame` controller 중 프로토타입 QA에서 더 정확한 방식을 선택한다. 가변 frame duration이 없으므로 CSS animation을 우선한다.
-- Prologue 동작은 자동 반복하지 않고 scene 진입 시 한 번만 재생한다. World guide도 사용자 안내가 나타날 때 한 번만 재생한다.
-- `prefers-reduced-motion: reduce`에서는 animation을 만들지 않고 지정된 static frame의 background position을 즉시 적용한다.
+- 동일한 canvas, character scale, ground anchor, body-part volume, spot placement, palette와 움직이지 않는 padding을 모든 frame과 clip에서 유지한다.
+- 정수 배율과 nearest-neighbor rendering을 사용하고 anti-aliasing을 허용하지 않는다.
+- 균일한 timing은 CSS `steps()`를 우선한다. greeting과 guide/point의 특정 pose hold는 `frameDurationsMs` timing table 또는 작은 `requestAnimationFrame` controller로만 처리한다. 모션 라이브러리는 추가하지 않는다.
+- idle/blink만 장면 필요에 따라 선택적으로 반복한다. greeting, guide/point, departure와 world guide는 한 번 재생하며 walk만 seamless loop다.
+- 각 clip의 `firstPose`/`lastPose`와 `groundAnchor`를 manifest handoff 값과 대조한다.
 - alt가 필요한 경우 `role="img"`와 accessible label을 wrapper에 제공한다. 같은 정보가 인접 실제 텍스트에 있으면 장식으로 처리한다.
 - loading/error여도 dialogue와 CTA는 유지하며 layout shift를 막기 위해 frame box 공간을 예약한다.
 - `next/image`는 scene/background와 정지 PNG에 우선 검토한다. Sprite sheet의 background-position 방식에는 일반 CSS background를 사용하고 명시적 크기와 preload 필요성을 성능 QA에서 확인한다.
+
+### Internal sprite motion vs screen movement
+
+- sprite sheet는 제자리 character motion만 담당한다. 화면상 walk와 Portal 진입 경로는 `ChooniCharacter`의 고정 크기 wrapper에 적용하는 CSS `transform`이 담당한다.
+- `top`/`left`를 animation하지 않는다. wrapper translate는 layout flow를 바꾸지 않고, 시작점과 도착점은 responsive scene별 CSS custom property로 명시한다.
+- walk clip은 8 frames × 90ms를 기본 1 cycle로 삼고 translate duration을 720ms의 정수 배로 맞춘다. 최종 제작 timing이 80–100ms 범위에서 바뀌면 translate duration도 같은 cycle 기준으로 다시 계산한다.
+- 이동 종료 event에서 정확한 최종 transform을 적용한 뒤 walk를 중지하고 다음 clip의 first pose 또는 지정 static frame으로 정착시킨다.
+- animation 완료가 navigation이나 CTA 활성화의 조건이 되지 않게 한다.
+
+### Prologue scene transition contract
+
+`IntroExperience`는 아래 pose contract를 순서대로 사용한다.
+
+1. greeting 마지막 neutral pose와 guide/point 첫 neutral pose의 silhouette, scale, facing direction, ground anchor가 같다.
+2. guide/point 마지막 pose에서 walk 첫 contact pose로 바뀔 때 같은 ground anchor를 유지한다.
+3. walk의 첫 contact pose와 loop 마지막→첫 frame 경계가 자연스럽게 연결된다.
+4. walk에서 departure로 넘어갈 때 departure 첫 contact pose가 walk contact pose와 같은 silhouette, scale, facing direction, ground anchor를 사용한다.
+5. scene 전환 뒤 wrapper 위치와 sprite static frame을 명시적으로 확정해 hydration이나 resize 후에도 중간 위치가 남지 않게 한다.
+
+### Reduced-motion implementation
+
+- `prefers-reduced-motion: reduce`에서는 walk와 Portal 진입 wrapper의 translate transform을 실행하지 않는다.
+- 선택된 clip의 `reducedMotionFrame`을 즉시 표시하고 frame playback도 시작하지 않는다.
+- Prologue scene, dialogue와 CTA를 즉시 노출하며 animation timer를 기다리지 않는다.
+- Enter, Skip, Next/Back과 모든 콘텐츠·route 접근은 동일하게 유지한다.
 
 ## 12. Intro first-visit state
 
@@ -688,6 +726,8 @@ export default async function Page(props: PageProps<'/projects/[slug]'>) {
 - 일반 text 4.5:1, 큰 text와 필수 UI graphic 3:1 이상을 실제 token 조합별로 측정한다.
 - 200% zoom, text spacing override, Windows High Contrast/forced colors에서 핵심 정보와 focus를 확인한다.
 - `prefers-reduced-motion: reduce`에서 sprite static frame, transform 제거와 즉시/opacity 전환을 확인한다.
+- Prologue clip 경계에서 silhouette, scale, facing direction, ground anchor와 walk loop의 마지막→첫 frame 연속성을 frame-by-frame으로 확인한다.
+- walk cycle과 wrapper translate duration의 동기화, 종료 후 정확한 최종 transform/static frame 정착을 확인한다.
 - live region은 category 결과, copy 결과, 오류처럼 필요한 변화만 concise하게 알린다.
 
 ### Suggested tooling without installation
