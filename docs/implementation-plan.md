@@ -10,7 +10,7 @@
 이 문서는 승인된 7개 독립 화면과 embedded state를 구현하기 위한 route, component boundary, data model, browser state와 QA 방식을 정의한다. `app`, `components`, `data`, `types`, `lib`, `public`은 **향후 승인 후 만들 구조**이며 이 단계에서는 생성하지 않는다.
 
 - 페이지와 긴 콘텐츠는 Server Component를 기본값으로 유지한다.
-- 브라우저 API, URL을 바꾸는 control, dialog, accordion, sprite 재생처럼 상호작용이 필요한 최소 단위만 Client Component로 만든다.
+- 브라우저 API, URL을 바꾸는 control, dialog, accordion, CHOONI layer motion state처럼 상호작용이 필요한 최소 단위만 Client Component로 만든다.
 - 프로젝트 접근은 intro, progress, badge 상태와 무관하게 항상 허용한다.
 - 게임 엔진, canvas world, tile map, 계정, API route, 데이터베이스는 사용하지 않는다.
 - 새 라이브러리를 설치하지 않는다. 현재 요구사항은 React, Next.js, TypeScript와 CSS만으로 구현 가능하다.
@@ -183,7 +183,7 @@ lib/
 |---|---|---|
 | `IntroVisitGate` | `localStorage`, hydration 후 `router.replace` | replay 여부, world URL |
 | `IntroExperience` | Mobile step, Next/Back, Enter/Skip, keyboard focus | 세 scene의 직렬화 가능한 content props |
-| `ChooniCharacter` | sprite frame 재생, reduced-motion media query | sprite descriptor와 accessible name |
+| `ChooniCharacter` | static PNG layer 조합, motion state와 reduced-motion media query | layer bundle descriptor와 accessible name |
 | `WorldExplorer` | island 선택, query 갱신, embedded panel 교체 | categories와 project summaries |
 | `ProjectFilterController` | filter 선택, query 갱신, 결과 announce | projects와 initial category |
 | `ProgressPanel` / `BadgeCollection` | `localStorage` read와 storage-error fallback | project id/slug 목록 |
@@ -478,8 +478,9 @@ P0 파일 계획은 다음 기준으로 관리한다.
 
 - 승인된 P0 logical asset ID는 정확히 **10개**다.
 - Mobile variant는 별도 logical asset ID가 아니라 원본 ID에서 파생된 파일이다.
-- 현재 예상 실제 파일 수는 Desktop/Mobile 파생 파일을 포함해 최대 **17개**다.
-- 최종 variant와 실제 파일 수는 에셋 제작 승인 시 확정한다.
+- 하나의 logical CHOONI asset은 여러 static PNG layer 파일을 포함할 수 있으며 logical ID 수는 증가하지 않는다.
+- 기존 최대 17개 예상은 단일 sprite sheet를 전제로 한 값이므로 폐기한다. 비-CHOONI 파생 파일과 확정된 Step 1 layer 7개를 합친 최소 기준 이후의 실제 파일 수는 나머지 bundle 승인 시 확정한다.
+- 최종 layer 구성, Mobile variant와 실제 파일 수는 에셋 제작 승인 시 확정한다.
 
 구조는 `docs/asset-manifest.md`의 정확한 ID를 반영한다. 파일은 에셋 제작 및 Development 승인 뒤에만 추가한다.
 
@@ -488,13 +489,20 @@ public/
 └── images/
     └── pixel/
         ├── chooni/
-        │   ├── chooni-prologue-greeting.png
-        │   ├── chooni-prologue-guide.png
-        │   ├── chooni-prologue-guide-mobile.png
-        │   ├── chooni-prologue-departure.png
-        │   ├── chooni-prologue-departure-mobile.png
-        │   ├── chooni-world-guide.png
-        │   └── chooni-world-guide-mobile.png
+        │   ├── prologue-greeting/
+        │   │   ├── body-base.png
+        │   │   ├── arm-right-neutral.png
+        │   │   ├── arm-right-wave.png
+        │   │   ├── face-neutral.png
+        │   │   ├── face-smile.png
+        │   │   ├── face-blink-half.png
+        │   │   └── face-blink-closed.png
+        │   ├── prologue-guide/              # layer 파일 구성 승인 후 확정
+        │   ├── prologue-guide-mobile/       # 필요 layer만 파생
+        │   ├── prologue-departure/          # layer 파일 구성 승인 후 확정
+        │   ├── prologue-departure-mobile/   # 필요 layer만 파생
+        │   ├── world-guide/                  # layer 파일 구성 승인 후 확정
+        │   └── world-guide-mobile/           # 필요 layer만 파생
         ├── portal/
         │   ├── portal-step-3.png
         │   └── portal-step-3-mobile.png
@@ -512,68 +520,74 @@ public/
 
 Desktop/Tablet이 같은 원본을 안전 crop하는 배경에는 Tablet 파일을 따로 만들지 않는다. 섬의 hover/focus/selected/visited 이미지, selection outline, terrain/water tileset과 UI 9-slice 파일은 만들지 않는다.
 
-## 11. CHOONI sprite implementation
+## 11. CHOONI layered PNG implementation
 
-`ChooniCharacter`는 한 sprite sheet를 CSS `background-image`로 표시하는 작은 Client Component다.
+`ChooniCharacter`는 같은 canvas와 anchor를 공유하는 static transparent PNG를 겹쳐 표시하는 작은 Client Component다. Piskel에서 frame-by-frame animation이나 sprite sheet를 production용으로 만들지 않는다. 현재 제작된 Piskel 및 motion guide 이미지는 시각 참고 자료일 뿐 `public/`에 배포하지 않는다.
 
 ```ts
-export interface SpriteDescriptor {
+export type ChooniLayerGroup = 'body' | 'arm-right' | 'face' | 'pose-detail';
+
+export interface ChooniLayer {
+  id: string;
   src: string;
-  frameWidth: number;
-  frameHeight: number;
-  columns: number;
-  rows: number;
-  frameCount: number;
-  groundAnchor: { x: number; y: number };
-  clips: readonly SpriteClip[];
+  group: ChooniLayerGroup;
+  zIndex: number;
 }
 
-export interface SpriteClip {
-  name: 'idle-blink' | 'greeting' | 'guide-point' | 'walk' | 'departure' | 'world-guide';
-  startFrame: number;          // 1-based, inclusive
-  endFrame: number;            // 1-based, inclusive
-  frameDurationMs: number;
-  frameDurationsMs?: readonly number[]; // frame별 hold가 필요할 때만 사용
-  loop: boolean;
-  reducedMotionFrame: number;
-  firstPose: string;
-  lastPose: string;
+export interface ChooniLayerBundle {
+  logicalAssetId:
+    | 'chooni-prologue-greeting'
+    | 'chooni-prologue-guide'
+    | 'chooni-prologue-departure'
+    | 'chooni-world-guide';
+  canvasWidth: number;
+  canvasHeight: number;
+  groundAnchor: { x: number; y: number };
+  layers: readonly ChooniLayer[];
+  states: readonly ChooniMotionState[];
+}
+
+export interface ChooniMotionState {
+  id: string;
+  visibleLayerIds: readonly string[];
+  durationMs?: number;
+  nextStateId?: string;
+  reducedMotionLayerIds: readonly string[];
 }
 ```
 
-- wrapper 크기를 per-frame canvas로 고정하고 `background-size`는 전체 sheet 크기를 사용한다.
-- frame index로 정수 `background-position`만 변경해 픽셀이 흐려지지 않게 한다.
-- 동일한 canvas, character scale, ground anchor, body-part volume, spot placement, palette와 움직이지 않는 padding을 모든 frame과 clip에서 유지한다.
+- 각 layer를 같은 크기의 absolute element로 겹치고 descriptor의 `zIndex` 순서로 합성한다. 같은 group의 대체 layer는 동시에 하나만 표시한다.
+- wrapper를 bundle canvas 크기로 고정하고 모든 layer에서 character scale, ground anchor, body-part volume, spot placement, palette와 움직이지 않는 transparent padding을 유지한다.
 - 정수 배율과 nearest-neighbor rendering을 사용하고 anti-aliasing을 허용하지 않는다.
-- 균일한 timing은 CSS `steps()`를 우선한다. greeting과 guide/point의 특정 pose hold는 `frameDurationsMs` timing table 또는 작은 `requestAnimationFrame` controller로만 처리한다. 모션 라이브러리는 추가하지 않는다.
-- idle/blink만 장면 필요에 따라 선택적으로 반복한다. greeting, guide/point, departure와 world guide는 한 번 재생하며 walk만 seamless loop다.
-- 각 clip의 `firstPose`/`lastPose`와 `groundAnchor`를 manifest handoff 값과 대조한다.
+- React는 `ChooniMotionState` 전환과 layer visibility만 관리하고 CSS transition/keyframes가 opacity와 transform timing을 담당한다. frame-count 기반 단계형 재생, frame index와 frame timing table은 사용하지 않는다.
+- blink, wave, point처럼 불연속적인 상태 교체는 작은 React state/timer로 제어할 수 있다. 연속적인 bob, sway, arm transform과 wrapper 이동은 CSS로 처리한다. 모션 라이브러리는 추가하지 않는다.
+- 각 state의 start/end composition과 `groundAnchor`를 manifest handoff 값과 대조한다.
 - alt가 필요한 경우 `role="img"`와 accessible label을 wrapper에 제공한다. 같은 정보가 인접 실제 텍스트에 있으면 장식으로 처리한다.
-- loading/error여도 dialogue와 CTA는 유지하며 layout shift를 막기 위해 frame box 공간을 예약한다.
-- `next/image`는 scene/background와 정지 PNG에 우선 검토한다. Sprite sheet의 background-position 방식에는 일반 CSS background를 사용하고 명시적 크기와 preload 필요성을 성능 QA에서 확인한다.
+- loading/error여도 dialogue와 CTA는 유지하며 layout shift를 막기 위해 공통 canvas 공간을 예약한다.
+- static layer PNG에는 `next/image`를 우선 검토하고 동일 fill box, 명시적 `sizes`, integer scaling과 `image-rendering: pixelated`를 적용한다.
 
-### Internal sprite motion vs screen movement
+### Internal layer motion vs screen movement
 
-- sprite sheet는 제자리 character motion만 담당한다. 화면상 walk와 Portal 진입 경로는 `ChooniCharacter`의 고정 크기 wrapper에 적용하는 CSS `transform`이 담당한다.
+- layer transform은 제자리의 표정·팔·몸통 motion만 담당한다. 화면상 walk와 Portal 진입 경로는 `ChooniCharacter`의 고정 크기 wrapper에 적용하는 CSS `transform`이 담당한다.
 - `top`/`left`를 animation하지 않는다. wrapper translate는 layout flow를 바꾸지 않고, 시작점과 도착점은 responsive scene별 CSS custom property로 명시한다.
-- walk clip은 8 frames × 90ms를 기본 1 cycle로 삼고 translate duration을 720ms의 정수 배로 맞춘다. 최종 제작 timing이 80–100ms 범위에서 바뀌면 translate duration도 같은 cycle 기준으로 다시 계산한다.
-- 이동 종료 event에서 정확한 최종 transform을 적용한 뒤 walk를 중지하고 다음 clip의 first pose 또는 지정 static frame으로 정착시킨다.
+- wrapper translate와 body/leg layer motion은 하나의 named motion state에서 duration을 공유해 발 미끄러짐과 timing drift를 줄인다.
+- 이동 종료 event에서 정확한 최종 transform을 적용한 뒤 이동 state를 중지하고 다음 장면의 승인된 static composition으로 정착시킨다.
 - animation 완료가 navigation이나 CTA 활성화의 조건이 되지 않게 한다.
 
 ### Prologue scene transition contract
 
 `IntroExperience`는 아래 pose contract를 순서대로 사용한다.
 
-1. greeting 마지막 neutral pose와 guide/point 첫 neutral pose의 silhouette, scale, facing direction, ground anchor가 같다.
-2. guide/point 마지막 pose에서 walk 첫 contact pose로 바뀔 때 같은 ground anchor를 유지한다.
-3. walk의 첫 contact pose와 loop 마지막→첫 frame 경계가 자연스럽게 연결된다.
-4. walk에서 departure로 넘어갈 때 departure 첫 contact pose가 walk contact pose와 같은 silhouette, scale, facing direction, ground anchor를 사용한다.
-5. scene 전환 뒤 wrapper 위치와 sprite static frame을 명시적으로 확정해 hydration이나 resize 후에도 중간 위치가 남지 않게 한다.
+1. greeting 종료의 neutral layer composition과 guide 시작 composition의 silhouette, scale, facing direction, ground anchor가 같다.
+2. guide/point 종료 뒤 wrapper 이동을 시작할 때 layer 교체로 캐릭터의 위치나 anchor가 바뀌지 않는다.
+3. 이동 motion은 static leg/body layer의 제한된 교대 또는 CSS transform으로 표현하고 frame-by-frame walk cycle을 요구하지 않는다.
+4. departure 시작 composition은 이동 종료 composition과 같은 silhouette, scale, facing direction, ground anchor를 사용한다.
+5. scene 전환 뒤 wrapper 위치와 static layer composition을 명시적으로 확정해 hydration이나 resize 후에도 중간 상태가 남지 않게 한다.
 
 ### Reduced-motion implementation
 
 - `prefers-reduced-motion: reduce`에서는 walk와 Portal 진입 wrapper의 translate transform을 실행하지 않는다.
-- 선택된 clip의 `reducedMotionFrame`을 즉시 표시하고 frame playback도 시작하지 않는다.
+- 선택된 motion state의 `reducedMotionLayerIds` 조합을 즉시 표시하고 layer transition과 playback timer를 시작하지 않는다.
 - Prologue scene, dialogue와 CTA를 즉시 노출하며 animation timer를 기다리지 않는다.
 - Enter, Skip, Next/Back과 모든 콘텐츠·route 접근은 동일하게 유지한다.
 
@@ -725,9 +739,9 @@ export default async function Page(props: PageProps<'/projects/[slug]'>) {
 
 - 일반 text 4.5:1, 큰 text와 필수 UI graphic 3:1 이상을 실제 token 조합별로 측정한다.
 - 200% zoom, text spacing override, Windows High Contrast/forced colors에서 핵심 정보와 focus를 확인한다.
-- `prefers-reduced-motion: reduce`에서 sprite static frame, transform 제거와 즉시/opacity 전환을 확인한다.
-- Prologue clip 경계에서 silhouette, scale, facing direction, ground anchor와 walk loop의 마지막→첫 frame 연속성을 frame-by-frame으로 확인한다.
-- walk cycle과 wrapper translate duration의 동기화, 종료 후 정확한 최종 transform/static frame 정착을 확인한다.
+- `prefers-reduced-motion: reduce`에서 승인된 static layer 조합, transform 제거와 장면/CTA 즉시 노출을 확인한다.
+- Prologue state 경계에서 layer composition의 silhouette, scale, facing direction과 ground anchor 연속성을 확인한다.
+- internal layer motion과 wrapper translate duration의 동기화, 종료 후 정확한 최종 transform/static composition 정착을 확인한다.
 - live region은 category 결과, copy 결과, 오류처럼 필요한 변화만 concise하게 알린다.
 
 ### Suggested tooling without installation
@@ -776,7 +790,7 @@ export default async function Page(props: PageProps<'/projects/[slug]'>) {
 4. **Seven route skeletons** — `/`, `/world`, `/projects`, `/projects/[slug]`, `/about`, `/experience`, `/contact`를 모두 만들고 각 route에 하나의 `h1`, 목적, 기본 복귀 경로와 승인된 placeholder를 배치한다.
 5. **Embedded state placeholders** — Prologue Step 1–3/Portal, World embedded Project Select/Progress/Badge, Project filter states, Case Study TOC/Gallery/Completion, Experience disclosure, Contact feedback의 자리와 semantic container를 만든다. 이 단계에서는 상세 동작과 래스터 에셋을 연결하지 않는다.
 6. **Responsive skeleton verification** — 7개 route 전체에서 Desktop/Tablet/Mobile의 navigation, reading order, grid→stack/chapter 전환, 44px touch target, 200% zoom과 긴 placeholder를 먼저 검증한다.
-7. **P0 asset integration** — 승인된 10개 logical asset과 확정된 파생 파일을 Prologue/World 골격에 연결하고 fallback, dimensions, reduced-motion 정지 프레임을 확인한다.
+7. **P0 asset integration** — 승인된 10개 logical asset과 확정된 static layer/파생 파일을 Prologue/World 골격에 연결하고 fallback, shared canvas, anchor와 reduced-motion composition을 확인한다.
 8. **Approved project data integration** — `ProjectSummary`와 `CaseStudy`를 분리 입력하고 projectId/slug lookup, category, direct Case Study URL, pagination을 연결한다. 승인되지 않은 역할·KPI·성과는 생성하지 않는다.
 9. **Core interaction integration** — intro first-visit/replay, World와 Projects category URL query, Mobile menu, stepper, filter와 TOC를 연결한다.
 10. **Progress and Badge integration** — versioned localStorage, visited/completed, ProgressPanel과 Badge Completion을 연결한다. 완료는 명시적 버튼으로만 기록한다.
@@ -790,6 +804,6 @@ export default async function Page(props: PageProps<'/projects/[slug]'>) {
 - `/world`와 `/projects`에서 direct-query first paint를 위해 Server page가 `searchParams`를 읽어 request-time rendering하는 선택을 승인할지.
 - 실제 프로젝트 `id`, `slug`, tier와 primary category.
 - Case Study별 공개 콘텐츠, contribution, metric, Evidence와 순서.
-- P0 asset 최종 파일, Mobile variant와 sprite timing.
+- P0 asset 최종 layer 파일, Mobile variant와 code animation timing.
 - About, Experience, Contact의 승인 문구·연락처·외부 link.
 - 향후 axe/Playwright 같은 dev-only QA 도구가 필요한지. 현재 계획에는 설치하지 않는다.

@@ -15,9 +15,10 @@
 - 래스터 픽셀아트는 공통 pixel density와 제한된 팔레트를 사용하고 정수 배율로 확대한다. 기본 픽셀 단위는 4px 또는 8px다.
 - 아래 기준 크기는 화면 표시 크기가 아니라 **1× 원본 제작 크기**다.
 - `PNG 9-slice`는 래스터 질감이 의미상 반드시 필요한 예외에만 검토한다. 현재 기본 UI 컴포넌트에는 사용하지 않는다.
-- 애니메이션은 정보 이해에 필요한 짧은 동작만 사용한다. idle/blink는 장면에 필요할 때만 선택적으로 반복하고, greeting·guide/point·departure·world guide는 한 번 재생한다.
-- `prefers-reduced-motion`에서는 각 항목에 지정된 정지 프레임만 사용한다.
-- sprite sheet는 제자리 character motion만 담고 화면상의 위치 이동은 character wrapper의 CSS `transform`이 담당한다.
+- CHOONI 애니메이션은 Piskel에서 frame-by-frame으로 제작하지 않는다. 동일 canvas와 anchor를 공유하는 static transparent PNG layer를 조합한다.
+- layer의 timing, position, visibility, opacity, transform과 transition은 CSS/React 코드가 담당한다. 새 모션 라이브러리는 사용하지 않는다.
+- `prefers-reduced-motion`에서는 transform과 자동 전환을 제거하고, 각 동작에서 의미가 가장 분명한 승인된 static layer 조합을 즉시 표시한다.
+- 현재 제작된 Piskel 파일과 motion guide 이미지는 production asset이 아니라 외형·동작 검토용 참고 자료로만 취급하며 `public/` 전달물에 포함하지 않는다.
 - 의미 있는 이미지에는 목적을 설명하는 alt를 제공하고, 장식 이미지는 빈 alt를 사용한다.
 
 ### 우선순위
@@ -34,34 +35,46 @@
 
 모든 춘이 에셋 ID는 `chooni-*`를 사용하며 UI에서는 `ChooniCharacter`가 렌더링한다.
 
-| 에셋 이름 | 포함 motion clip | 사용 화면 / 역할 | 파일 형식 | 투명 배경 | 프레임당 캔버스 | 총 프레임 수 | Sprite sheet 배열 | 전체 sheet 크기 | 프레임 시간 | Loop | Reduced-motion 정지 프레임 | Desktop / Mobile variant | 우선순위 | 제작 상태 |
-|---|---|---|---|---|---:|---:|---|---:|---|---|---|---|---|---|
-| `chooni-prologue-greeting` | idle/blink frames 1–6; greeting frames 7–14 | Prologue Step 1 / 춘이와 안내 경험 소개 | PNG sprite sheet | 예 | 128×128px | 14 | 7×2 | 896×256px | idle/blink 150ms; greeting 100ms | idle/blink 선택적 loop; greeting 1회 | greeting frame 12 | 불필요 | P0 | **미제작** |
-| `chooni-prologue-guide` | guide/point frames 1–6; walk frames 7–14 | Prologue Step 2 / 방향 안내와 장면 사이 이동 | PNG sprite sheet | 예 | 128×128px | 14 | 7×2 | 896×256px | guide/point 120ms; walk 90ms | guide/point 1회; walk seamless loop | guide/point frame 5 | 필요: Mobile은 같은 scale·anchor의 정면 방향 파생 파일 | P0 | **미제작** |
-| `chooni-prologue-departure` | departure/portal entry frames 1–10 | Prologue Step 3 / Portal과 Enter CTA 방향 제시 | PNG sprite sheet | 예 | 128×128px | 10 | 5×2 | 640×256px | 90ms | 1회 | frame 6 | 필요: Portal 배치 방향의 파생 파일 | P0 | **미제작** |
-| `chooni-world-guide` | world guide frames 1–8 | World Map / capability와 Project Select 맥락 안내 | PNG sprite sheet | 예 | 96×96px | 8 | 4×2 | 384×192px | 120ms | 1회 | frame 6 | 필요: Mobile 80×80px/frame, 4×2, 320×160px 파생 파일 | P0 | **미제작** |
+| 에셋 이름 | Static layer bundle | 사용 화면 / 역할 | 파일 형식 | 투명 배경 | 공통 canvas | 코드 motion | Reduced-motion 조합 | Desktop / Mobile variant | 우선순위 | 제작 상태 |
+|---|---|---|---|---|---:|---|---|---|---|---|
+| `chooni-prologue-greeting` | body, right arm, face 상태 layer 7개 | Prologue Step 1 / idle·blink·wave·smile 조합으로 춘이와 안내 경험 소개 | static PNG layer bundle | 예 | 128×128px/layer | CSS/React가 blink, arm wave, smile의 visibility·transform·timing 담당 | `body-base` + `arm-right-neutral` + `face-smile` | 불필요 | P0 | **미제작** |
+| `chooni-prologue-guide` | guide/point와 이동에 필요한 static body-part·face layer; 파일 구성 승인 후 확정 | Prologue Step 2 / 방향 안내와 장면 사이 이동 | static PNG layer bundle | 예 | 128×128px/layer | CSS/React가 point, bob과 wrapper 이동 담당 | 의미가 분명한 guide/point 조합, 승인 후 확정 | 필요: Mobile은 같은 scale·anchor를 유지한 파생 layer bundle | P0 | **미제작** |
+| `chooni-prologue-departure` | Portal 방향 pose와 진입에 필요한 static layer; 파일 구성 승인 후 확정 | Prologue Step 3 / Portal과 Enter CTA 방향 제시 | static PNG layer bundle | 예 | 128×128px/layer | CSS/React가 pose 전환과 wrapper Portal 진입 담당 | Portal 방향 정지 조합, 승인 후 확정 | 필요: Portal 배치 방향의 파생 layer bundle | P0 | **미제작** |
+| `chooni-world-guide` | World 안내 pose에 필요한 static body-part·face layer; 파일 구성 승인 후 확정 | World Map / capability와 Project Select 맥락 안내 | static PNG layer bundle | 예 | 96×96px/layer | CSS/React가 point·blink·settle 담당 | World 안내 정지 조합, 승인 후 확정 | 필요: Mobile 80×80px/layer 파생 bundle | P0 | **미제작** |
 
-#### CHOONI sprite continuity rules
+#### `chooni-prologue-greeting` layer bundle
 
-- 모든 CHOONI clip과 파생 파일에서 동일한 frame canvas 기준, character scale과 silhouette 비율을 유지한다.
-- 발바닥의 ground anchor 좌표를 고정해 frame이나 clip 전환 시 수직으로 튀지 않게 한다.
-- 머리, 몸통, 손발과 꼬리의 volume을 frame마다 유지하며 squash/stretch가 필요하면 의도와 범위를 별도 표기한다.
-- spot placement와 palette index를 모든 frame에서 일관되게 유지한다.
-- 각 clip은 first transition pose와 last transition pose를 handoff 표에 명시한다.
-- walk의 마지막 frame에서 첫 contact pose로 돌아갈 때 발 위치, silhouette와 무게 중심이 자연스럽게 연결되어야 한다.
-- 움직이지 않는 투명 padding과 ground 아래 여백을 모든 frame에서 동일하게 유지한다.
+```text
+public/images/pixel/chooni/prologue-greeting/
+├── body-base.png
+├── arm-right-neutral.png
+├── arm-right-wave.png
+├── face-neutral.png
+├── face-smile.png
+├── face-blink-half.png
+└── face-blink-closed.png
+```
+
+7개 파일은 모두 128×128px의 동일한 transparent canvas, character scale, 원점과 ground anchor를 공유한다. `body-base.png`를 기준으로 팔 layer는 서로 배타적으로, face layer도 서로 배타적으로 표시한다. 빈 픽셀을 포함한 canvas bounds를 임의로 trim하지 않는다.
+
+#### CHOONI layer continuity rules
+
+- 하나의 logical CHOONI asset은 여러 static transparent PNG layer 파일을 포함할 수 있지만 P0 logical asset ID 수에는 영향을 주지 않는다.
+- 모든 CHOONI layer와 파생 파일에서 동일한 canvas, character scale, silhouette 비율과 발바닥 ground anchor 좌표를 유지한다.
+- 머리, 몸통, 손발, 꼬리의 volume과 spot placement, palette를 layer bundle과 장면 사이에서 일관되게 유지한다.
+- 움직이지 않는 transparent padding과 ground 아래 여백을 모든 layer에서 동일하게 유지하며 export 시 자동 trim하지 않는다.
+- layer가 겹치는 순서와 mutually exclusive group을 handoff metadata에 명시한다. 조합했을 때 경계 seam, 중복 윤곽선 또는 빈 영역이 없어야 한다.
+- 장면의 시작·종료 static composition을 명시하고, 다음 장면의 composition과 silhouette, scale, facing direction, ground anchor를 맞춘다.
 - 표시 배율은 정수 nearest-neighbor scaling만 사용하고 제작·export·브라우저 표시에서 anti-aliasing을 금지한다.
-- 모든 motion clip은 의미가 가장 분명한 reduced-motion static frame을 지정한다.
 
-#### Prologue clip transition contract
+#### Prologue layer transition contract
 
-다음 경계의 silhouette, character scale, facing direction과 ground anchor가 일치해야 한다.
+1. greeting 종료의 neutral composition과 guide 시작 composition은 silhouette, scale, facing direction과 ground anchor가 일치한다.
+2. guide/point 종료 뒤 이동 시작 시 body-part layer 전환으로 위치를 바꾸지 않고 동일 wrapper anchor를 유지한다.
+3. 이동 중 반복감은 static leg/body layer의 제한된 교대 또는 CSS transform으로 표현하며 frame-by-frame walk cycle을 제작하지 않는다.
+4. departure 시작 composition은 이동 종료 composition과 같은 scale, facing direction과 ground anchor를 사용한다.
 
-1. greeting의 마지막 neutral pose → guide/point의 첫 neutral pose
-2. guide/point의 마지막 transition pose → walk의 첫 contact pose
-3. walk의 첫 contact pose와 loop 복귀 contact pose → departure의 첫 contact pose
-
-전환용 중복 pose가 서로 다른 logical sheet에 포함되더라도 픽셀 좌표와 palette를 동일하게 export한다. 장면이 바뀔 때 별도 보간 frame을 런타임에서 생성하지 않는다.
+장면 전환 중간 이미지를 런타임에서 생성하지 않는다. 코드가 승인된 static layer의 visibility와 transform만 전환한다.
 
 ### 2.2 Portal
 
@@ -115,7 +128,7 @@ P1에는 현재 승인된 화면 구조에서 실제 의미가 확인된 최소 
 | `chooni-empty` | Project Select empty state | 실제 빈 상태에서만 사용하는 춘이 정지 포즈 | PNG | 예 | 승인 후 확정 | 승인 후 확정 | 정지 이미지 1개 | Deferred | **미제작** · 빈 상태 사용 필요성 확인 필요 |
 | `chooni-error` | 공통 error state | 복구 안내를 보조하는 춘이 정지 포즈 | PNG | 예 | 승인 후 확정 | 승인 후 확정 | 정지 이미지 1개 | Deferred | **미제작** · 오류 화면 사용 필요성 확인 필요 |
 | `chooni-about` | About | 소개 콘텐츠를 보조하는 춘이 포즈 | PNG | 예 | 승인 후 확정 | 승인 후 확정 | 정지 이미지 1개 | Deferred | **미제작** · About 콘텐츠 승인 필요 |
-| `chooni-contact-farewell` | Contact | 연락 CTA를 보조하는 작별 포즈 | PNG | 예 | 승인 후 확정 | 승인 후 확정 | 필요 시 4-frame non-loop; reduced-motion 마지막 frame | Deferred | **미제작** · Contact 콘텐츠 승인 필요 |
+| `chooni-contact-farewell` | Contact | 연락 CTA를 보조하는 작별 포즈 | static PNG layer bundle | 예 | 승인 후 확정 | 승인 후 확정 | 기본 static composition; motion 필요 시 layer와 code timing 별도 승인 | Deferred | **미제작** · Contact 콘텐츠 승인 필요 |
 | `environment-prologue-set` | Prologue | Light Mode의 저밀도 환경 장식 | PNG sprite sheet | 예 | 승인 후 확정 | 승인 후 확정 | 정지 오브젝트만 우선 | Deferred | **미제작** · 최종 scene composition 승인 필요 |
 | `environment-world-set` | World Map | 배경 scene 위 제한적 환경 장식 | PNG sprite sheet | 예 | 승인 후 확정 | 승인 후 확정 | 정지 오브젝트만 우선 | Deferred | **미제작** · 최종 scene composition 승인 필요 |
 | `environment-contact-set` | Contact | 연락 영역의 저밀도 환경 장식 | PNG sprite sheet | 예 | 승인 후 확정 | 승인 후 확정 | 정지 오브젝트만 우선 | Deferred | **미제작** · Contact composition 승인 필요 |
@@ -161,37 +174,37 @@ P1에는 현재 승인된 화면 구조에서 실제 의미가 확인된 최소 
 - progress bar, loading spinner, status label은 CSS-native다.
 - P1의 visited/completed 아이콘 외 info/success/warning/error 아이콘은 우선 시스템 또는 CSS icon으로 구현하고, 픽셀 래스터가 꼭 필요하다고 확인될 때만 Deferred 목록에 추가한다.
 
-## 8. Animation delivery checklist
+## 8. Layer animation delivery checklist
 
-모든 애니메이션 래스터 전달물에는 다음 정보를 파일 metadata 또는 handoff 문서에 동일하게 기록한다.
+모든 CHOONI static layer bundle은 다음 정보를 파일 metadata 또는 handoff 문서에 동일하게 기록한다.
 
 | 항목 | 필수 기록 내용 |
 |---|---|
-| Per-frame canvas size | 각 프레임의 정확한 width × height(px) |
-| Frame count | 중복 프레임을 포함한 총 프레임 수 |
-| Sprite sheet columns × rows | 읽기 순서는 왼쪽→오른쪽, 위→아래 |
-| Total sprite sheet size | per-frame size × columns/rows와 일치해야 함 |
-| Frame duration | ms 단위; 가변 duration이면 frame별 기재 |
-| Loop 여부 | `yes/no`와 반복이 중단되는 조건 |
-| Reduced-motion static frame | 1부터 시작하는 대체 frame 번호 |
-| Motion clip range | 하나의 logical sheet에 clip이 여러 개면 각 시작/끝 frame |
-| First/last transition pose | 이전·다음 clip과 맞닿는 pose 이름, facing과 ground anchor 좌표 |
-| Ground anchor | 모든 frame에 공통인 발바닥 기준 x/y 좌표 |
-| Character scale/padding | 공통 bounding box와 움직이지 않는 투명 padding |
+| Shared canvas size | bundle 안 모든 layer의 정확한 width × height(px) |
+| Layer file list | production에 포함되는 static transparent PNG 파일명 |
+| Layer order | 뒤에서 앞으로 합성하는 z-order |
+| Exclusive groups | arm/face처럼 동시에 하나만 보여야 하는 layer 묶음 |
+| Default composition | 첫 paint에서 표시할 layer 조합 |
+| Motion states | 상태별 visible layer, CSS transform/opacity와 duration/easing |
+| Reduced-motion composition | 모션 없이 의미를 전달하는 static layer 조합 |
+| Start/end composition | 이전·다음 장면과 맞닿는 layer 조합, facing과 ground anchor 좌표 |
+| Ground anchor | 모든 layer에 공통인 발바닥 기준 x/y 좌표 |
+| Character scale/padding | 공통 bounding box와 움직이지 않는 transparent padding |
 
-### Sprite motion and screen movement separation
+### Layer motion and screen movement separation
 
-- sprite frame은 제자리에서의 몸 동작만 표현하며 canvas 안에서 화면 이동 거리를 그리지 않는다.
+- static PNG layer는 자세와 표정의 시각 재료만 제공하며 timing이나 화면 이동 거리를 파일에 포함하지 않는다.
+- React는 현재 motion state와 layer visibility를 관리하고 CSS는 transform, opacity, transition과 keyframes를 담당한다.
 - 실제 walk와 Portal 진입의 화면상 이동은 고정 크기 character wrapper의 CSS `transform: translate(...)`가 담당한다.
-- walk 1 cycle의 총 시간(`8 frames × 80–100ms`)을 wrapper translate duration의 정수 배와 동기화해 발 미끄러짐을 줄인다.
 - 위치 이동에 layout을 다시 계산하는 `top`/`left` animation을 사용하지 않는다.
-- 이동 종료 시 wrapper를 정확한 최종 transform 위치에 정착시키고 sprite는 지정된 last/static frame으로 고정한다.
-- 균일한 frame timing은 CSS `steps()`를 우선한다. greeting이나 guide/point처럼 특정 pose의 hold가 필요하면 handoff에 frame timing table을 추가하고 작은 `requestAnimationFrame` controller를 사용할 수 있다. 새 라이브러리는 설치하지 않는다.
+- 이동과 body-part motion의 duration은 같은 motion state timeline에서 관리해 시각적으로 어긋나지 않게 한다.
+- 이동 종료 시 wrapper를 정확한 최종 transform 위치에 정착시키고 승인된 end composition으로 고정한다.
+- frame-count 기반 단계형 재생과 frame timing table은 사용하지 않는다. 연속적인 CSS transition/keyframes와 필요한 최소 React state/timer만 사용하며 새 라이브러리는 설치하지 않는다.
 
 ### Reduced-motion behavior
 
 - `prefers-reduced-motion: reduce`에서는 walk와 Portal 진입의 wrapper 이동 transform을 제거한다.
-- 각 clip의 지정된 reduced-motion static frame 중 의미가 가장 잘 드러나는 frame을 표시한다.
+- 각 motion state에 지정된 reduced-motion static composition을 표시한다.
 - 장면, 안내 문구와 CTA는 animation 완료를 기다리지 않고 즉시 노출한다.
 - 콘텐츠 접근, Enter/Skip과 route 이동은 그대로 유지한다.
 
@@ -200,7 +213,7 @@ P1에는 현재 승인된 화면 구조에서 실제 의미가 확인된 최소 
 1. 춘이의 외형, 표정 범위, 방향, 기준 팔레트와 공통 pixel density.
 2. 실제 프로젝트 목록과 각 프로젝트의 BUILD / ITERATE / UNDERSTAND primary category.
 3. 프로젝트별 고유 오브젝트와 배지에 사용할 수 있는 공개 모티프.
-4. Portal과 춘이 애니메이션의 최종 timing을 프로토타입에서 검증.
+4. Portal과 춘이 code animation의 layer 조합, transform과 최종 timing을 프로토타입에서 검증.
 5. 최종 scene composition에서 환경 장식이 실제로 필요한 위치와 수량.
 6. 각 의미 있는 에셋의 alt, 장식 에셋의 빈 alt, 원본·저작권·사용 허가·crop 기준.
 
@@ -208,7 +221,7 @@ P1에는 현재 승인된 화면 구조에서 실제 의미가 확인된 최소 
 
 | Raster asset | CSS-native UI | Real HTML text | Deferred until content approval |
 |---|---|---|---|
-| 춘이 핵심 포즈·짧은 non-loop 애니메이션 | 버튼·말풍선·카드·HUD frame | 캐릭터 안내 문구와 CTA | 프로젝트별 고유 오브젝트 |
+| 춘이 static transparent PNG layer bundle | 버튼·말풍선·카드·HUD frame 및 CHOONI motion timing/transform | 캐릭터 안내 문구와 CTA | 프로젝트별 고유 오브젝트 |
 | Step 3 Portal scene | focus ring과 hover/active/selected/visited | 프로젝트명, Role, Period, Contribution/Impact | 프로젝트별 배지 핵심 문양 |
 | BUILD / ITERATE / UNDERSTAND 섬 기본 이미지 | 섬의 outline·transform·overlay 상태 | capability 이름·설명·결과 수 | 추가 춘이 포즈와 상태 장면 |
 | Desktop/Tablet World background scene | progress bar, divider, status label | available/visited/completed/unavailable 상태와 사유 | About/Experience/Contact 모티프와 환경 장식 |
