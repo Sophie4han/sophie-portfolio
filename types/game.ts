@@ -69,6 +69,14 @@ export interface SceneState {
   cameraPreset: CameraPreset;
   requestedChooniIntent: ChooniIntent | null;
   transitionId: string | null;
+  pendingScene: PendingSceneState | null;
+}
+
+export interface PendingSceneState {
+  sceneId: SceneId;
+  focusedIslandId: ProjectId | null;
+  cameraPreset: CameraPreset;
+  requestedChooniIntent: ChooniIntent | null;
 }
 
 export interface WorldProgressV1 {
@@ -94,9 +102,10 @@ export interface ChooniController {
 
 export const INITIAL_SCENE_STATE: SceneState = {
   sceneId: "boot",
-  phase: "idle",
+  phase: "active",
   focusedIslandId: null,
   cameraPreset: "OVERVIEW",
   requestedChooniIntent: null,
   transitionId: null,
+  pendingScene: null,
 };
