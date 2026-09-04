@@ -1,0 +1,247 @@
+.worldScene {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: #071014;
+  color: #f4f0e7;
+}
+
+.worldViewport {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.cameraRig {
+  width: min(100vw, 1600px);
+  transform: translate(var(--camera-x), var(--camera-y)) scale(var(--camera-scale));
+  transform-origin: var(--camera-origin-x) var(--camera-origin-y);
+  transition: transform 420ms cubic-bezier(0.22, 0.7, 0.2, 1);
+  will-change: transform;
+}
+
+.cameraRig[data-reduced-motion="true"] { transition: none; }
+
+.worldCanvas {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(232, 245, 238, 0.2);
+  background: #10272b;
+}
+
+.environmentLayers,
+.environmentLayer,
+.interactionOverlay {
+  position: absolute;
+  inset: 0;
+}
+
+.environmentLayer { pointer-events: none; }
+
+.environmentLayer[data-layer-role="background"] {
+  background:
+    linear-gradient(rgba(225, 245, 236, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(225, 245, 236, 0.055) 1px, transparent 1px),
+    #10272b;
+  background-size: 4% 7.111%;
+}
+
+.environmentLayer[data-layer-role="terrain"] {
+  clip-path: polygon(0 67%, 18% 61%, 32% 69%, 48% 58%, 66% 66%, 83% 55%, 100% 63%, 100% 100%, 0 100%);
+  background: #173b38;
+}
+
+.environmentLayer[data-layer-role="path"] {
+  background:
+    linear-gradient(155deg, transparent 47%, rgba(216, 255, 62, 0.14) 48%, rgba(216, 255, 62, 0.14) 50%, transparent 51%);
+}
+
+.environmentLayer[data-layer-role="foreground"] {
+  border: 18px solid rgba(7, 16, 20, 0.35);
+}
+
+.islandVisual,
+.islandLabel,
+.chooniWorldStage {
+  position: absolute;
+  z-index: 25;
+  transform: translate(-50%, -50%);
+}
+
+.islandVisual {
+  display: grid;
+  width: 18%;
+  aspect-ratio: 1.55;
+  place-items: center;
+}
+
+.landMass {
+  width: 100%;
+  height: 100%;
+  border: 3px solid #c9d9c4;
+  border-radius: 48% 52% 45% 55% / 58% 48% 52% 42%;
+  background: #4d735c;
+  box-shadow: 0 18px 0 #0a2023, 0 25px 26px rgba(0, 0, 0, 0.3);
+  transform: rotate(-5deg) skewX(-8deg);
+}
+
+.islandVisual[data-island="project-02"] .landMass {
+  border-radius: 58% 42% 55% 45% / 44% 56% 46% 54%;
+  transform: rotate(6deg) skewX(7deg);
+}
+
+.islandVisual[data-island="fitmate"] .landMass {
+  border-radius: 42% 58% 48% 52% / 52% 42% 58% 48%;
+  transform: rotate(2deg) skewX(-4deg);
+}
+
+.islandVisual[data-status="locked"] { filter: grayscale(1); opacity: 0.48; }
+.islandVisual[data-status="active"] .landMass { border-color: #d8ff3e; }
+.islandVisual[data-status="completed"] .landMass { border-style: double; border-width: 6px; }
+
+.statusMarker {
+  position: absolute;
+  top: 7%;
+  right: 4%;
+  display: grid;
+  width: 30px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 2px solid #071014;
+  background: #f4f0e7;
+  color: #071014;
+  font-weight: 800;
+}
+
+.islandLabel {
+  display: grid;
+  min-width: 150px;
+  justify-items: center;
+  color: #f4f0e7;
+  text-align: center;
+  text-shadow: 0 2px 4px #071014;
+}
+
+.islandLabel small,
+.islandLabel span {
+  font: 700 clamp(7px, 0.7vw, 11px)/1.3 var(--font-geist-mono), monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.islandLabel strong { font-size: clamp(10px, 1.1vw, 17px); }
+.islandLabel span { margin-top: 3px; color: #d8ff3e; }
+
+.islandTarget {
+  position: absolute;
+  z-index: 35;
+  border: 0;
+  border-radius: 45%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.islandTarget[aria-disabled="true"] { cursor: not-allowed; }
+.islandTarget:focus-visible { outline: 4px solid #d8ff3e; outline-offset: 5px; }
+
+.chooniWorldStage {
+  z-index: 30;
+  display: grid;
+  width: clamp(42px, 5%, 72px);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 2px dashed #f4f0e7;
+  border-radius: 50%;
+  background: #071014;
+  font: 700 clamp(6px, 0.55vw, 9px)/1 var(--font-geist-mono), monospace;
+}
+
+.worldHud,
+.projectHud {
+  position: fixed;
+  z-index: 36;
+  border: 1px solid rgba(244, 240, 231, 0.66);
+  background: rgba(7, 16, 20, 0.9);
+  box-shadow: 6px 6px 0 rgba(216, 255, 62, 0.18);
+  backdrop-filter: blur(8px);
+}
+
+.worldHud {
+  top: max(18px, env(safe-area-inset-top));
+  left: max(18px, env(safe-area-inset-left));
+  display: grid;
+  gap: 3px;
+  padding: 12px 14px;
+  font: 650 11px/1.4 var(--font-geist-mono), monospace;
+}
+
+.projectHud {
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  width: min(360px, calc(100vw - 48px));
+  padding: 18px;
+}
+
+.projectHud p { margin: 0; color: #bdc8c4; font-size: 13px; line-height: 1.5; }
+.projectHud h2 { margin: 6px 0 12px; font-size: clamp(23px, 3vw, 36px); }
+.projectHud strong { display: block; margin-top: 14px; font: 700 11px/1.3 var(--font-geist-mono), monospace; text-transform: uppercase; }
+
+.projectActions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 18px; }
+.projectActions button {
+  min-height: 46px;
+  padding: 9px 10px;
+  border: 1px solid #f4f0e7;
+  background: transparent;
+  color: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.projectActions button:first-child { background: #d8ff3e; color: #071014; }
+.projectActions button:focus-visible { outline: 3px solid #8ab4ff; outline-offset: 3px; }
+
+.selectionAnnouncement {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 760px) {
+  .cameraRig {
+    width: max(900px, 180vw);
+    transform: translate(var(--camera-mobile-x), var(--camera-mobile-y)) scale(var(--camera-mobile-scale));
+    transform-origin: var(--camera-mobile-origin-x) var(--camera-mobile-origin-y);
+  }
+  .worldCanvas { border: 0; }
+  .worldHud { font-size: 10px; }
+  .projectHud {
+    right: max(14px, env(safe-area-inset-right));
+    bottom: max(14px, env(safe-area-inset-bottom));
+    left: max(14px, env(safe-area-inset-left));
+    width: auto;
+    padding: 15px;
+  }
+  .projectHud h2 { font-size: 24px; }
+  .islandTarget { min-width: 44px; min-height: 44px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cameraRig { transition: none; }
+}

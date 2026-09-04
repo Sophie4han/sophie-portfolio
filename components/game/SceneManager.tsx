@@ -32,6 +32,7 @@ export function SceneManager() {
       <SceneTransitionLayer runtime={transition}>
         <SceneViewport
           scene={scene}
+          worldProgress={state.worldProgress}
           transition={transition}
           dispatch={dispatchSceneEvent}
         />

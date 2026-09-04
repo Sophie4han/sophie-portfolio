@@ -20,6 +20,9 @@ export function SceneDebugPanel({ state, transition, dispatch }: SceneDebugPanel
   const { scene } = state;
   const progression = resolveProjectProgression(state.worldProgress.completedProjectIds);
   const allowedEvents = SCENE_DESCRIPTORS[scene.sceneId].allowedEvents;
+  const selectedStatus = scene.focusedIslandId
+    ? progression.statuses[scene.focusedIslandId]
+    : "none";
 
   return (
     <details
@@ -39,6 +42,9 @@ export function SceneDebugPanel({ state, transition, dispatch }: SceneDebugPanel
         <DebugValue label="Transition phase" value={transition.phase} />
         <DebugValue label="Reduced motion" value={String(transition.reducedMotion)} />
         <DebugValue label="Gate" value={transition.gateVisibility} />
+        <DebugValue label="Selected status" value={selectedStatus} />
+        <DebugValue label="Progress" value={`${progression.progress} / ${progression.total}`} />
+        <DebugValue label="World complete" value={String(progression.worldCompleted)} />
       </dl>
 
       <div className="mt-4 flex flex-wrap gap-2" aria-label="Allowed debug events">
