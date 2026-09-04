@@ -2,6 +2,7 @@ import { resolveProjectProgression } from "@/lib/project-progression";
 import { SCENE_DESCRIPTORS } from "@/lib/scene-descriptors";
 import type { ProjectId } from "@/types/game";
 import type { SceneEvent, SceneMachineState } from "@/types/scene";
+import type { TransitionRuntimeState } from "@/types/transition";
 
 const PROJECT_LABELS: Readonly<Record<ProjectId, string>> = {
   harubareun: "BUILD · harubareun",
@@ -11,10 +12,11 @@ const PROJECT_LABELS: Readonly<Record<ProjectId, string>> = {
 
 interface SceneDebugPanelProps {
   state: SceneMachineState;
+  transition: TransitionRuntimeState;
   dispatch: (event: SceneEvent) => void;
 }
 
-export function SceneDebugPanel({ state, dispatch }: SceneDebugPanelProps) {
+export function SceneDebugPanel({ state, transition, dispatch }: SceneDebugPanelProps) {
   const { scene } = state;
   const progression = resolveProjectProgression(state.worldProgress.completedProjectIds);
   const allowedEvents = SCENE_DESCRIPTORS[scene.sceneId].allowedEvents;
@@ -32,6 +34,11 @@ export function SceneDebugPanel({ state, dispatch }: SceneDebugPanelProps) {
         <DebugValue label="Camera" value={scene.cameraPreset} />
         <DebugValue label="Focused island" value={scene.focusedIslandId ?? "none"} />
         <DebugValue label="Chooni intent" value={scene.requestedChooniIntent ?? "none"} />
+        <DebugValue label="Pending scene" value={scene.pendingScene?.sceneId ?? "none"} />
+        <DebugValue label="Transition ID" value={transition.id} />
+        <DebugValue label="Transition phase" value={transition.phase} />
+        <DebugValue label="Reduced motion" value={String(transition.reducedMotion)} />
+        <DebugValue label="Gate" value={transition.gateVisibility} />
       </dl>
 
       <div className="mt-4 flex flex-wrap gap-2" aria-label="Allowed debug events">

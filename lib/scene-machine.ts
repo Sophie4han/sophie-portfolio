@@ -18,6 +18,7 @@ import type {
   SceneManagerEvent,
   TransitionRejectionReason,
 } from "../types/scene";
+import { resolveTransitionId } from "./transition-descriptors";
 
 export const INITIAL_WORLD_PROGRESS: WorldProgressV1 = {
   version: 1,
@@ -140,7 +141,7 @@ function beginTransition(
     scene: {
       ...state.scene,
       phase: "exiting",
-      transitionId: `${state.scene.sceneId}:${nextSceneId}`,
+      transitionId: resolveTransitionId(state.scene.sceneId, nextSceneId),
       pendingScene,
     },
     worldProgress: overrides.worldProgress ?? state.worldProgress,
@@ -153,7 +154,9 @@ function commitTransition(
   eventType: SceneManagerEvent["type"],
 ): SceneMachineState {
   const pending = state.scene.pendingScene;
-  if (state.scene.phase === "entering" && !pending) return state;
+  if (!pending && (state.scene.phase === "entering" || state.scene.phase === "active")) {
+    return state;
+  }
   if (state.scene.phase !== "exiting" || !pending) {
     return reject(state, eventType, "no-pending-transition");
   }

@@ -1,0 +1,49 @@
+.boundary {
+  position: relative;
+  min-height: 100dvh;
+  overflow: clip;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 40;
+  inset: 0;
+  background: #071014;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.boundary[data-transition-id="world-enter"][data-transition-phase="exiting"] .overlay {
+  animation: world-closes var(--transition-duration) ease-in both;
+}
+
+.boundary[data-transition-id="world-enter"][data-transition-phase="entering"] .overlay {
+  animation: world-opens var(--transition-duration) ease-out both;
+}
+
+.boundary[data-transition-id="gate-entry"][data-transition-phase="exiting"] .overlay {
+  animation: gate-threshold var(--transition-duration) ease-in both;
+  background: #eef0e8;
+}
+
+@keyframes world-closes {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes world-opens {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes gate-threshold {
+  from { opacity: 0; }
+  to { opacity: 0.26; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boundary[data-transition-id] .overlay { animation: none; }
+  .boundary[data-transition-id="world-enter"][data-transition-phase="exiting"] .overlay {
+    opacity: 1;
+  }
+}

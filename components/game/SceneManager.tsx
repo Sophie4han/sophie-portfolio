@@ -2,7 +2,9 @@
 
 import { useEffect, useReducer } from "react";
 import { SceneDebugPanel } from "@/components/game/SceneDebugPanel";
+import { SceneTransitionLayer } from "@/components/game/SceneTransitionLayer";
 import { SceneViewport } from "@/components/game/SceneViewport";
+import { useTransitionCoordinator } from "@/components/game/useTransitionCoordinator";
 import {
   INITIAL_SCENE_MACHINE_STATE,
   sceneMachineReducer,
@@ -15,22 +17,31 @@ export function SceneManager() {
     INITIAL_SCENE_MACHINE_STATE,
   );
   const { scene } = state;
+  const transition = useTransitionCoordinator(state, dispatch);
 
   useEffect(() => {
     if (scene.phase === "active" && scene.sceneId === "boot") {
       dispatch({ type: "BOOT_READY" });
     }
-    if (scene.phase === "exiting") dispatch({ type: "COMMIT_TRANSITION" });
-    if (scene.phase === "entering") dispatch({ type: "SETTLE_SCENE" });
   }, [scene.phase, scene.sceneId]);
 
   const dispatchSceneEvent = (event: SceneEvent) => dispatch(event);
 
   return (
     <>
-      <SceneViewport scene={scene} dispatch={dispatchSceneEvent} />
+      <SceneTransitionLayer runtime={transition}>
+        <SceneViewport
+          scene={scene}
+          transition={transition}
+          dispatch={dispatchSceneEvent}
+        />
+      </SceneTransitionLayer>
       {process.env.NODE_ENV === "development" && (
-        <SceneDebugPanel state={state} dispatch={dispatchSceneEvent} />
+        <SceneDebugPanel
+          state={state}
+          transition={transition}
+          dispatch={dispatchSceneEvent}
+        />
       )}
     </>
   );

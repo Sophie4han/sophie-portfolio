@@ -89,7 +89,8 @@
   top: 52%;
   left: 76%;
   width: clamp(140px, 19vw, 260px);
-  animation: actor-enters-gate 800ms ease-in both;
+  opacity: 0.18;
+  transform: translate(-10%, -58%) scale(0.58);
 }
 
 .scene[data-intro-scene="enter-world"] .conversation {
@@ -282,8 +283,12 @@
   transform: translateY(-50%);
 }
 
-.scene[data-intro-scene="intro-follow"] .gate {
+.gate[data-gate-visibility="revealing"] {
   animation: gate-reveals 700ms 180ms ease-out both;
+}
+
+.scene[data-transition-id="gate-entry"][data-transition-phase="exiting"] .actor {
+  animation: actor-enters-gate var(--transition-duration, 260ms) ease-in both;
 }
 
 .gate strong {

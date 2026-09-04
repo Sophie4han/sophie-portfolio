@@ -1,3 +1,5 @@
+import type { TransitionId } from "./transition";
+
 export const PROJECT_SEQUENCE = [
   "harubareun",
   "project-02",
@@ -68,7 +70,7 @@ export interface SceneState {
   focusedIslandId: ProjectId | null;
   cameraPreset: CameraPreset;
   requestedChooniIntent: ChooniIntent | null;
-  transitionId: string | null;
+  transitionId: TransitionId | null;
   pendingScene: PendingSceneState | null;
 }
 

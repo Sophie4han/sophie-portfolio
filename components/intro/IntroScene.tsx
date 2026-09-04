@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { ChooniIntent, SceneId } from "@/types/game";
 import type { SceneEvent } from "@/types/scene";
+import type { TransitionRuntimeState } from "@/types/transition";
 import styles from "./intro-scene.module.css";
 
 type ProloguePhase =
@@ -27,15 +28,9 @@ const ACTOR_STAGE_BY_PHASE: Readonly<Record<ProloguePhase, PrologueActorStage>> 
 interface IntroSceneProps {
   sceneId: ProloguePhase;
   chooniIntent: ChooniIntent | null;
+  transition: TransitionRuntimeState;
   dispatch: (event: SceneEvent) => void;
 }
-
-const PHASE_DURATION_MS: Readonly<Record<Exclude<ProloguePhase, "intro-greeting">, number>> = {
-  "intro-follow": 1_600,
-  "intro-gate": 900,
-  "enter-world": 800,
-};
-const REDUCED_MOTION_PHASE_DURATION_MS = 160;
 
 export function isProloguePhase(sceneId: SceneId): sceneId is ProloguePhase {
   return sceneId === "intro-greeting"
@@ -44,40 +39,29 @@ export function isProloguePhase(sceneId: SceneId): sceneId is ProloguePhase {
     || sceneId === "enter-world";
 }
 
-export function IntroScene({ sceneId, chooniIntent, dispatch }: IntroSceneProps) {
+export function IntroScene({ sceneId, chooniIntent, transition, dispatch }: IntroSceneProps) {
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const prefersReducedMotion = usePrefersReducedMotion();
   const [fastPathNoticeVisible, setFastPathNoticeVisible] = useState(false);
 
   useEffect(() => {
     headingRef.current?.focus({ preventScroll: true });
   }, [sceneId]);
 
-  useEffect(() => {
-    if (sceneId === "intro-greeting") return;
-
-    const event: SceneEvent = sceneId === "intro-follow"
-      ? { type: "FOLLOW_COMPLETE" }
-      : sceneId === "intro-gate"
-        ? { type: "ENTER_WORLD" }
-        : { type: "WORLD_ENTRY_COMPLETE" };
-
-    const timer = window.setTimeout(
-      () => dispatch(event),
-      prefersReducedMotion
-        ? REDUCED_MOTION_PHASE_DURATION_MS
-        : PHASE_DURATION_MS[sceneId],
-    );
-
-    return () => window.clearTimeout(timer);
-  }, [dispatch, prefersReducedMotion, sceneId]);
-
   return (
-    <main className={styles.scene} data-intro-scene={sceneId}>
-      <SceneEnvironment sceneId={sceneId} />
+    <main
+      className={styles.scene}
+      data-intro-scene={sceneId}
+      data-transition-id={transition.id}
+      data-transition-phase={transition.phase}
+    >
+      <SceneEnvironment gateVisibility={transition.gateVisibility} />
 
       <div className={styles.actor}>
-        <ChooniStage intent={chooniIntent} sceneId={sceneId} />
+        <ChooniStage
+          intent={chooniIntent}
+          sceneId={sceneId}
+          transition={transition}
+        />
       </div>
 
       <div className={styles.conversation}>
@@ -169,9 +153,11 @@ function ReplyChoices({ children }: { children: React.ReactNode }) {
 function ChooniStage({
   intent,
   sceneId,
+  transition,
 }: {
   intent: ChooniIntent | null;
   sceneId: ProloguePhase;
+  transition: TransitionRuntimeState;
 }) {
   return (
     <div
@@ -179,6 +165,8 @@ function ChooniStage({
       data-chooni-intent={intent ?? "none"}
       data-actor-stage={ACTOR_STAGE_BY_PHASE[sceneId]}
       data-scene-placement={sceneId}
+      data-transition-id={transition.id}
+      data-transition-phase={transition.phase}
       role="img"
       aria-label={`Chooni, the guide. Character artwork pending. Current action: ${ACTOR_STAGE_BY_PHASE[sceneId]}.`}
     >
@@ -190,31 +178,21 @@ function ChooniStage({
   );
 }
 
-function SceneEnvironment({ sceneId }: { sceneId: ProloguePhase }) {
+function SceneEnvironment({
+  gateVisibility,
+}: {
+  gateVisibility: TransitionRuntimeState["gateVisibility"];
+}) {
   return (
     <div className={styles.environment} aria-hidden="true">
       <span className={styles.horizon} />
       <span className={styles.path} />
-      {(sceneId === "intro-follow" || sceneId === "intro-gate" || sceneId === "enter-world") && (
-        <span className={styles.gate}>
+      {gateVisibility !== "hidden" && (
+        <span className={styles.gate} data-gate-visibility={gateVisibility}>
           <strong>MOVE ON</strong>
           <small>World gate</small>
         </span>
       )}
     </div>
   );
-}
-
-function usePrefersReducedMotion() {
-  const [reduced, setReduced] = useState(false);
-
-  useEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReduced(query.matches);
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
-
-  return reduced;
 }
