@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2170" height="1040" viewBox="0 0 2170 1040" role="img" aria-labelledby="title desc">
+  <title id="title">MOVE ON mobile camera preset correction validation</title>
+  <desc id="desc">Five 390 by 844 viewport diagrams validating mobile overview, project focus, and world complete camera framing against island bounds, Chooni anchors, raster edges, and fixed HUD reserves.</desc>
+  <defs>
+    <style>
+      text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#e2e8f0; }
+      .h1 { font-size:24px; font-weight:800; letter-spacing:.04em; }
+      .h2 { font-size:16px; font-weight:800; }
+      .small { font-size:11px; font-weight:650; }
+      .tiny { font-size:9px; }
+      .phone { fill:#08131b; stroke:#f8fafc; stroke-width:3; }
+      .raster { fill:#172033; stroke:#fb7185; stroke-width:4; stroke-dasharray:12 7; }
+      .logical { fill:none; stroke:#64748b; stroke-width:3; }
+      .island { fill:#38bdf8; fill-opacity:.24; stroke:#38bdf8; stroke-width:4; }
+      .interaction { fill:none; stroke:#facc15; stroke-width:3; stroke-dasharray:8 5; }
+      .anchor { fill:#071014; stroke-width:5; vector-effect:non-scaling-stroke; }
+      .hud { fill:#a78bfa; fill-opacity:.2; stroke:#c4b5fd; stroke-width:2; stroke-dasharray:6 4; }
+      .ok { fill:#4ade80; }
+      .bad { fill:#fb7185; }
+      .note { fill:#94a3b8; }
+    </style>
+    <clipPath id="p1"><rect x="30" y="120" width="390" height="844" rx="18"/></clipPath>
+    <clipPath id="p2"><rect x="460" y="120" width="390" height="844" rx="18"/></clipPath>
+    <clipPath id="p3"><rect x="890" y="120" width="390" height="844" rx="18"/></clipPath>
+    <clipPath id="p4"><rect x="1320" y="120" width="390" height="844" rx="18"/></clipPath>
+    <clipPath id="p5"><rect x="1750" y="120" width="390" height="844" rx="18"/></clipPath>
+  </defs>
+
+  <rect width="2170" height="1040" fill="#020617"/>
+  <text class="h1" x="30" y="42">MOBILE CAMERA PRESET CORRECTION · 390×844 VALIDATION</text>
+  <text class="small note" x="30" y="68">Geometric approval guide only · desktop presets and island coordinates unchanged · raster logical extent −160…1760 / −90…990</text>
+
+  <!-- OVERVIEW: best legible all-island fit. Raster top/bottom edges necessarily appear. -->
+  <g id="overview">
+    <text class="h2" x="30" y="104">OVERVIEW · FIT ALL ISLANDS</text>
+    <rect class="phone" x="30" y="120" width="390" height="844" rx="18"/>
+    <g clip-path="url(#p1)">
+      <g transform="translate(-22.5 262.34) scale(.309375)">
+        <rect class="raster" x="-160" y="-90" width="1920" height="1080"/>
+        <rect class="logical" x="0" y="0" width="1600" height="900"/>
+        <rect class="interaction" x="220" y="145" width="360" height="250" rx="18"/>
+        <rect class="island" x="245" y="170" width="300" height="205" rx="45"/>
+        <rect class="interaction" x="1025" y="140" width="360" height="250" rx="18"/>
+        <rect class="island" x="1055" y="165" width="305" height="205" rx="45"/>
+        <rect class="interaction" x="610" y="530" width="380" height="255" rx="18"/>
+        <rect class="island" x="640" y="555" width="330" height="205" rx="45"/>
+      </g>
+      <rect class="hud" x="48" y="138" width="280" height="84" rx="8"/>
+      <text class="tiny" x="60" y="158">WORLD HUD RESERVED</text>
+      <rect class="hud" x="44" y="684" width="362" height="266" rx="8"/>
+      <text class="tiny" x="56" y="706">PROJECT HUD RESERVED</text>
+      <path d="M30 235H420 M30 570H420" stroke="#fb7185" stroke-width="3"/>
+      <text class="small bad" x="42" y="250">RASTER EDGE VISIBLE</text>
+      <text class="small bad" x="42" y="563">RASTER EDGE VISIBLE</text>
+    </g>
+    <text class="small" x="42" y="990">0%, −27.74% · 0.55 · origin 50% 50%</text>
+    <text class="small bad" x="42" y="1012">NO VALID EDGE-SAFE TRANSFORM</text>
+  </g>
+
+  <!-- BUILD corrected: visible logical x194.9..615.1, y-68.2..841.1. -->
+  <g id="build">
+    <text class="h2" x="460" y="104">BUILD_FOCUS · VALID</text>
+    <rect class="phone" x="460" y="120" width="390" height="844" rx="18"/>
+    <g clip-path="url(#p2)">
+      <g transform="translate(279.11 183.31) scale(.928125)">
+        <rect class="raster" x="-160" y="-90" width="1920" height="1080"/>
+        <rect class="logical" x="0" y="0" width="1600" height="900"/>
+        <rect class="interaction" x="220" y="145" width="360" height="250" rx="18"/>
+        <rect class="island" x="245" y="170" width="300" height="205" rx="45"/>
+        <circle class="anchor" cx="390" cy="135" r="8" stroke="#67e8f9"/>
+        <rect class="anchor" x="512" y="167" width="16" height="16" stroke="#facc15"/>
+        <path d="M565 335v30 M550 350h30" stroke="#fb7185" stroke-width="5" vector-effect="non-scaling-stroke"/>
+      </g>
+      <rect class="hud" x="478" y="138" width="280" height="84" rx="8"/>
+      <text class="tiny" x="490" y="158">WORLD HUD RESERVED</text>
+      <rect class="hud" x="474" y="684" width="362" height="266" rx="8"/>
+      <text class="tiny" x="486" y="706">PROJECT HUD RESERVED</text>
+      <text class="small ok" x="482" y="554">46px SIDE MARGIN · CONTENT CLEAR</text>
+    </g>
+    <text class="small" x="472" y="990">+23.83%, −1.35% · 1.65 · origin 24% 30%</text>
+    <text class="small ok" x="472" y="1012">EDGE + ANCHOR + HUD PASS</text>
+  </g>
+
+  <!-- ITERATE corrected: visible logical x953.9..1416.1, y-80..920.3. -->
+  <g id="iterate">
+    <text class="h2" x="890" y="104">ITERATE_FOCUS · VALID</text>
+    <rect class="phone" x="890" y="120" width="390" height="844" rx="18"/>
+    <g clip-path="url(#p3)">
+      <g transform="translate(85.16 187.5) scale(.84375)">
+        <rect class="raster" x="-160" y="-90" width="1920" height="1080"/>
+        <rect class="logical" x="0" y="0" width="1600" height="900"/>
+        <rect class="interaction" x="1025" y="140" width="360" height="250" rx="18"/>
+        <rect class="island" x="1055" y="165" width="305" height="205" rx="45"/>
+        <circle class="anchor" cx="1200" cy="130" r="8" stroke="#67e8f9"/>
+        <rect class="anchor" x="1317" y="162" width="16" height="16" stroke="#facc15"/>
+        <path d="M1010 330v30 M995 345h30" stroke="#fb7185" stroke-width="5" vector-effect="non-scaling-stroke"/>
+      </g>
+      <rect class="hud" x="908" y="138" width="280" height="84" rx="8"/>
+      <text class="tiny" x="920" y="158">WORLD HUD RESERVED</text>
+      <rect class="hud" x="904" y="684" width="362" height="266" rx="8"/>
+      <text class="tiny" x="916" y="706">PROJECT HUD RESERVED</text>
+      <text class="small ok" x="912" y="554">47px SIDE MARGIN · CONTENT CLEAR</text>
+    </g>
+    <text class="small" x="902" y="990">−23.09%, −5.02% · 1.50 · origin 76% 30%</text>
+    <text class="small ok" x="902" y="1012">EDGE + ANCHOR + HUD PASS</text>
+  </g>
+
+  <!-- UNDERSTAND: horizontal fit and raster fit candidate; required anchor intersects HUD. -->
+  <g id="understand">
+    <text class="h2" x="1320" y="104">UNDERSTAND_FOCUS · CONSTRAINT</text>
+    <rect class="phone" x="1320" y="120" width="390" height="844" rx="18"/>
+    <g clip-path="url(#p4)">
+      <g transform="translate(842.28 160.78) scale(.815625)">
+        <rect class="raster" x="-160" y="-90" width="1920" height="1080"/>
+        <rect class="logical" x="0" y="0" width="1600" height="900"/>
+        <rect class="interaction" x="610" y="530" width="380" height="255" rx="18"/>
+        <rect class="island" x="640" y="555" width="330" height="205" rx="45"/>
+        <circle class="anchor" cx="800" cy="520" r="8" stroke="#67e8f9"/>
+        <rect class="anchor" x="927" y="552" width="16" height="16" stroke="#facc15"/>
+        <path d="M1010 705v30 M995 720h30" stroke="#fb7185" stroke-width="5" vector-effect="non-scaling-stroke"/>
+      </g>
+      <rect class="hud" x="1338" y="138" width="280" height="84" rx="8"/>
+      <text class="tiny" x="1350" y="158">WORLD HUD RESERVED</text>
+      <rect class="hud" x="1334" y="684" width="362" height="266" rx="8"/>
+      <text class="tiny" x="1346" y="706">PROJECT HUD RESERVED</text>
+      <rect x="1364" y="578" width="330" height="79" fill="#fb7185" fill-opacity=".18" stroke="#fb7185" stroke-width="2"/>
+      <text class="small bad" x="1376" y="603">ISLAND / POINT ANCHOR</text>
+      <text class="small bad" x="1376" y="622">ENTER HUD RESERVED ZONE</text>
+    </g>
+    <text class="small" x="1332" y="990">−2.27%, +7.10% · 1.45 · origin 50% 72%</text>
+    <text class="small bad" x="1332" y="1012">NO TRANSFORM SATISFIES ALL RULES</text>
+  </g>
+
+  <!-- WORLD COMPLETE reuses overview framing; independent zoom does not solve aspect constraint. -->
+  <g id="world-complete">
+    <text class="h2" x="1750" y="104">WORLD_COMPLETE · REUSE OVERVIEW</text>
+    <rect class="phone" x="1750" y="120" width="390" height="844" rx="18"/>
+    <g clip-path="url(#p5)">
+      <g transform="translate(1697.5 262.34) scale(.309375)">
+        <rect class="raster" x="-160" y="-90" width="1920" height="1080"/>
+        <rect class="logical" x="0" y="0" width="1600" height="900"/>
+        <rect class="island" x="245" y="170" width="300" height="205" rx="45"/>
+        <rect class="island" x="1055" y="165" width="305" height="205" rx="45"/>
+        <rect class="island" x="640" y="555" width="330" height="205" rx="45"/>
+        <circle cx="520" cy="175" r="18" fill="#4ade80"/>
+        <circle cx="1325" cy="170" r="18" fill="#4ade80"/>
+        <circle cx="935" cy="560" r="18" fill="#4ade80"/>
+      </g>
+      <rect class="hud" x="1768" y="138" width="280" height="84" rx="8"/>
+      <text class="tiny" x="1780" y="158">WORLD HUD RESERVED</text>
+      <rect class="hud" x="1764" y="684" width="362" height="266" rx="8"/>
+      <text class="tiny" x="1776" y="706">PROJECT HUD RESERVED</text>
+      <path d="M1750 235H2140 M1750 570H2140" stroke="#fb7185" stroke-width="3"/>
+      <text class="small bad" x="1762" y="250">RASTER EDGE VISIBLE</text>
+      <text class="small bad" x="1762" y="563">RASTER EDGE VISIBLE</text>
+    </g>
+    <text class="small" x="1762" y="990">0%, −27.74% · 0.55 · origin 50% 50%</text>
+    <text class="small bad" x="1762" y="1012">SAME OVERVIEW BLOCKER</text>
+  </g>
+</svg>

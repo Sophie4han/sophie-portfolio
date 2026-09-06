@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">MOVE ON World Asset Composition Blockout</title>
+  <desc id="desc">Asset-production approval guide showing the 1920 by 1080 raster canvas, 1600 by 900 logical area, island bounds and anchors, HUD reserves, desktop camera crops, and representative mobile camera crops.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#64748b" stroke-opacity=".13" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#f8fafc"/>
+    </marker>
+    <style>
+      text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #e2e8f0; }
+      .tiny { font-size: 12px; }
+      .small { font-size: 15px; font-weight: 650; }
+      .label { font-size: 18px; font-weight: 750; letter-spacing: .06em; }
+      .canvas-edge { fill: #0f172a; stroke: #f8fafc; stroke-width: 4; }
+      .logical { fill: url(#grid); stroke: #94a3b8; stroke-width: 3; }
+      .safe { fill: #22c55e; fill-opacity: .035; stroke: #4ade80; stroke-width: 2; stroke-dasharray: 12 8; }
+      .visual { fill: #38bdf8; fill-opacity: .14; stroke: #38bdf8; stroke-width: 4; }
+      .interaction { fill: none; stroke: #facc15; stroke-width: 3; stroke-dasharray: 10 7; }
+      .overlap { fill: #f97316; fill-opacity: .24; stroke: #fb923c; stroke-width: 2; stroke-dasharray: 5 5; }
+      .anchor { fill: #0f172a; stroke-width: 4; }
+      .desktop-crop { fill: none; stroke-width: 3; }
+      .mobile-crop { fill: none; stroke: #f472b6; stroke-width: 3; stroke-dasharray: 13 8; }
+      .hud { fill: #a78bfa; fill-opacity: .12; stroke: #c4b5fd; stroke-width: 3; stroke-dasharray: 7 5; }
+      .leader { stroke: #cbd5e1; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Production raster canvas: all coordinates below are raster-space. -->
+  <rect class="canvas-edge" x="2" y="2" width="1916" height="1076" rx="2"/>
+  <text id="raster-title" class="label" x="28" y="38">WORLD ASSET COMPOSITION BLOCKOUT · 1920×1080 RASTER</text>
+  <text class="tiny" x="28" y="61">GUIDE ONLY · GEOMETRIC BLOCKOUT · NOT FINAL ART / COLOR / SPRITE</text>
+
+  <!-- Logical canvas is offset by the approved raster overscan: +160,+90. -->
+  <rect class="logical" x="160" y="90" width="1600" height="900"/>
+  <text class="small" x="174" y="116">LOGICAL 1600×900</text>
+  <path d="M140 90H180 M160 70V110" stroke="#f8fafc" stroke-width="3"/>
+  <circle cx="160" cy="90" r="6" fill="#f8fafc"/>
+  <text class="tiny" x="18" y="86">LOGICAL ORIGIN</text>
+  <text class="small" x="18" y="105">(160,90)</text>
+  <rect class="safe" x="240" y="150" width="1440" height="780"/>
+  <text class="small" x="252" y="177" fill="#4ade80">SAFE VISUAL ZONE · logical x80–1520 / y60–840</text>
+
+  <!-- HUD reservations remain viewport-fixed and are not camera children. -->
+  <rect class="hud" x="184" y="114" width="320" height="120" rx="10"/>
+  <text class="small" x="198" y="207">WORLD HUD SAFE · 320×120</text>
+  <rect class="hud" x="1352" y="700" width="384" height="266" rx="10"/>
+  <text class="small" x="1366" y="730">PROJECT HUD SAFE · 384×266</text>
+
+  <!-- BUILD: all source contract coordinates translated by (+160,+90). -->
+  <g id="build-blockout">
+    <rect class="interaction" x="380" y="235" width="360" height="250" rx="18"/>
+    <rect class="visual" x="405" y="260" width="300" height="205" rx="55"/>
+    <text class="label" x="423" y="292">BUILD VISUAL</text>
+    <text class="tiny" x="393" y="476">INTERACTION 360×250</text>
+    <circle class="anchor" cx="550" cy="225" r="8" stroke="#67e8f9"/>
+    <path class="leader" d="M550 225V196"/>
+    <text class="tiny" x="486" y="190">LABEL (390,135)</text>
+    <rect class="anchor" x="673" y="258" width="14" height="14" stroke="#facc15"/>
+    <text class="tiny" x="691" y="270">STATE (520,175)</text>
+    <circle class="anchor" cx="695" cy="465" r="9" stroke="#4ade80"/>
+    <text class="tiny" x="616" y="507">IDLE (535,375)</text>
+    <path d="M725 428v24 M713 440h24" stroke="#fb7185" stroke-width="4"/>
+    <text class="tiny" x="712" y="425">POINT (565,350)</text>
+    <rect class="overlap" x="625" y="390" width="100" height="110"/>
+    <text class="tiny" transform="translate(638 488) rotate(-90)">FOREGROUND OVERLAP</text>
+  </g>
+
+  <!-- ITERATE / Project 02 remains intentionally unnamed. -->
+  <g id="iterate-blockout">
+    <rect class="interaction" x="1185" y="230" width="360" height="250" rx="18"/>
+    <rect class="visual" x="1215" y="255" width="305" height="205" rx="55"/>
+    <text class="label" x="1233" y="287">ITERATE VISUAL</text>
+    <text class="tiny" x="1198" y="471">INTERACTION 360×250</text>
+    <circle class="anchor" cx="1360" cy="220" r="8" stroke="#67e8f9"/>
+    <path class="leader" d="M1360 220V191"/>
+    <text class="tiny" x="1290" y="185">LABEL (1200,130)</text>
+    <rect class="anchor" x="1478" y="253" width="14" height="14" stroke="#facc15"/>
+    <text class="tiny" x="1372" y="246">STATE (1325,170)</text>
+    <circle class="anchor" cx="1195" cy="465" r="9" stroke="#4ade80"/>
+    <text class="tiny" x="1185" y="510">IDLE (1035,375)</text>
+    <path d="M1170 423v24 M1158 435h24" stroke="#fb7185" stroke-width="4"/>
+    <text class="tiny" x="1042" y="421">POINT (1010,345)</text>
+    <rect class="overlap" x="1160" y="390" width="110" height="110"/>
+    <text class="tiny" transform="translate(1174 489) rotate(-90)">FOREGROUND OVERLAP</text>
+  </g>
+
+  <!-- UNDERSTAND -->
+  <g id="understand-blockout">
+    <rect class="interaction" x="770" y="620" width="380" height="255" rx="18"/>
+    <rect class="visual" x="800" y="645" width="330" height="205" rx="55"/>
+    <text class="label" x="818" y="677">UNDERSTAND VISUAL</text>
+    <text class="tiny" x="784" y="866">INTERACTION 380×255</text>
+    <circle class="anchor" cx="960" cy="610" r="8" stroke="#67e8f9"/>
+    <path class="leader" d="M960 610V581"/>
+    <text class="tiny" x="886" y="575">LABEL (800,520)</text>
+    <rect class="anchor" x="1088" y="643" width="14" height="14" stroke="#facc15"/>
+    <text class="tiny" x="1108" y="657">STATE (935,560)</text>
+    <circle class="anchor" cx="1145" cy="845" r="9" stroke="#4ade80"/>
+    <text class="tiny" x="1128" y="914">IDLE (985,755)</text>
+    <path d="M1170 798v24 M1158 810h24" stroke="#fb7185" stroke-width="4"/>
+    <text class="tiny" x="1179" y="808">POINT (1010,720)</text>
+    <rect class="overlap" x="1065" y="780" width="125" height="110"/>
+    <text class="tiny" transform="translate(1079 881) rotate(-90)">FOREGROUND OVERLAP</text>
+  </g>
+
+  <!-- World overview CHOONI ground anchor. -->
+  <circle class="anchor" cx="960" cy="520" r="11" stroke="#4ade80"/>
+  <path class="leader" d="M960 509V486"/>
+  <text class="small" x="850" y="479">OVERVIEW CHOONI (800,430)</text>
+
+  <!-- Desktop camera crops derived from current CSS translate/scale/origin presets. -->
+  <g id="desktop-camera-crops">
+    <rect class="desktop-crop" x="160" y="90" width="1600" height="900" stroke="#e2e8f0"/>
+    <text class="tiny" x="1610" y="982">D · OVERVIEW</text>
+    <rect class="desktop-crop" x="111" y="81" width="1032" height="581" stroke="#22d3ee"/>
+    <text class="small" x="122" y="139" fill="#22d3ee">D · BUILD_FOCUS</text>
+    <rect class="desktop-crop" x="777" y="81" width="1032" height="581" stroke="#f59e0b"/>
+    <text class="small" x="1586" y="139" fill="#f59e0b">D · ITERATE_FOCUS</text>
+    <rect class="desktop-crop" x="444" y="425" width="1032" height="581" stroke="#34d399"/>
+    <text class="small" x="459" y="986" fill="#34d399">D · UNDERSTAND_FOCUS</text>
+    <rect class="desktop-crop" x="219" y="123" width="1482" height="833" stroke="#a78bfa"/>
+    <text class="small" x="1457" y="948" fill="#a78bfa">D · WORLD_COMPLETE</text>
+  </g>
+
+  <!-- Representative portrait viewport: 390×844, current 900px-wide mobile rig. -->
+  <g id="mobile-camera-crops">
+    <rect class="mobile-crop" x="721" y="17" width="478" height="1035"/>
+    <text class="small" x="733" y="1041" fill="#f472b6">M · OVERVIEW / WORLD_COMPLETE</text>
+    <rect class="mobile-crop" x="336" y="-15" width="338" height="732"/>
+    <text class="tiny" x="348" y="704" fill="#f472b6">M · BUILD_FOCUS</text>
+    <rect class="mobile-crop" x="1246" y="-15" width="338" height="732"/>
+    <text class="tiny" x="1258" y="704" fill="#f472b6">M · ITERATE_FOCUS</text>
+    <rect class="mobile-crop" x="791" y="403" width="338" height="732"/>
+    <text class="tiny" x="803" y="426" fill="#f472b6">M · UNDERSTAND_FOCUS</text>
+    <path d="M350 14V68 M1570 14V68 M808 1066V1012" stroke="#fb7185" stroke-width="4" marker-start="url(#arrow)"/>
+    <text class="tiny" x="366" y="28" fill="#fb7185">TOP EDGE EXPOSED</text>
+    <text class="tiny" x="1412" y="28" fill="#fb7185">TOP EDGE EXPOSED</text>
+    <text class="tiny" x="819" y="1067" fill="#fb7185">BOTTOM EDGE EXPOSED</text>
+  </g>
+
+  <!-- Compact legend in raster overscan. -->
+  <g id="legend" transform="translate(20 735)">
+    <rect x="0" y="0" width="132" height="308" rx="8" fill="#020617" fill-opacity=".9" stroke="#475569"/>
+    <text class="small" x="12" y="25">LEGEND</text>
+    <rect class="visual" x="12" y="40" width="30" height="18"/>
+    <text class="tiny" x="49" y="54">visual</text>
+    <rect class="interaction" x="12" y="70" width="30" height="18"/>
+    <text class="tiny" x="49" y="84">interaction</text>
+    <circle class="anchor" cx="27" cy="110" r="7" stroke="#67e8f9"/>
+    <text class="tiny" x="49" y="115">label</text>
+    <rect class="anchor" x="20" y="132" width="14" height="14" stroke="#facc15"/>
+    <text class="tiny" x="49" y="144">state</text>
+    <circle class="anchor" cx="27" cy="170" r="7" stroke="#4ade80"/>
+    <text class="tiny" x="49" y="175">idle</text>
+    <path d="M27 190v18 M18 199h18" stroke="#fb7185" stroke-width="3"/>
+    <text class="tiny" x="49" y="204">point</text>
+    <rect class="overlap" x="12" y="220" width="30" height="18"/>
+    <text class="tiny" x="49" y="234">overlap</text>
+    <rect class="hud" x="12" y="250" width="30" height="18"/>
+    <text class="tiny" x="49" y="264">HUD</text>
+    <path d="M12 288H42" class="mobile-crop"/>
+    <text class="tiny" x="49" y="293">mobile</text>
+  </g>
+</svg>
