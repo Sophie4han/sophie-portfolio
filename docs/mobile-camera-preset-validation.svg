@@ -30,7 +30,7 @@
   <text class="h1" x="30" y="42">MOBILE CAMERA PRESET CORRECTION · 390×844 VALIDATION</text>
   <text class="small note" x="30" y="68">Geometric approval guide only · desktop presets and island coordinates unchanged · raster logical extent −160…1760 / −90…990</text>
 
-  <!-- OVERVIEW: best legible all-island fit. Raster top/bottom edges necessarily appear. -->
+  <!-- OVERVIEW: approved contained diorama framing with environmental extension above and below. -->
   <g id="overview">
     <text class="h2" x="30" y="104">OVERVIEW · FIT ALL ISLANDS</text>
     <rect class="phone" x="30" y="120" width="390" height="844" rx="18"/>
@@ -47,14 +47,13 @@
       </g>
       <rect class="hud" x="48" y="138" width="280" height="84" rx="8"/>
       <text class="tiny" x="60" y="158">WORLD HUD RESERVED</text>
-      <rect class="hud" x="44" y="684" width="362" height="266" rx="8"/>
-      <text class="tiny" x="56" y="706">PROJECT HUD RESERVED</text>
-      <path d="M30 235H420 M30 570H420" stroke="#fb7185" stroke-width="3"/>
-      <text class="small bad" x="42" y="250">RASTER EDGE VISIBLE</text>
-      <text class="small bad" x="42" y="563">RASTER EDGE VISIBLE</text>
+      <path d="M30 235H420 M30 570H420" stroke="#4ade80" stroke-width="3" stroke-dasharray="8 5"/>
+      <text class="small ok" x="42" y="250">CONTAINED DIORAMA TOP</text>
+      <text class="small ok" x="42" y="563">CONTAINED DIORAMA BOTTOM</text>
+      <text class="small note" x="42" y="660">ENVIRONMENTAL EXTENSION</text>
     </g>
     <text class="small" x="42" y="990">0%, −27.74% · 0.55 · origin 50% 50%</text>
-    <text class="small bad" x="42" y="1012">NO VALID EDGE-SAFE TRANSFORM</text>
+    <text class="small ok" x="42" y="1012">3 ISLANDS + PROGRESSION PASS</text>
   </g>
 
   <!-- BUILD corrected: visible logical x194.9..615.1, y-68.2..841.1. -->
@@ -73,8 +72,8 @@
       </g>
       <rect class="hud" x="478" y="138" width="280" height="84" rx="8"/>
       <text class="tiny" x="490" y="158">WORLD HUD RESERVED</text>
-      <rect class="hud" x="474" y="684" width="362" height="266" rx="8"/>
-      <text class="tiny" x="486" y="706">PROJECT HUD RESERVED</text>
+      <rect class="hud" x="474" y="818" width="362" height="112" rx="8"/>
+      <text class="tiny" x="486" y="840">COMPACT PROJECT HUD · 362×112</text>
       <text class="small ok" x="482" y="554">46px SIDE MARGIN · CONTENT CLEAR</text>
     </g>
     <text class="small" x="472" y="990">+23.83%, −1.35% · 1.65 · origin 24% 30%</text>
@@ -97,17 +96,17 @@
       </g>
       <rect class="hud" x="908" y="138" width="280" height="84" rx="8"/>
       <text class="tiny" x="920" y="158">WORLD HUD RESERVED</text>
-      <rect class="hud" x="904" y="684" width="362" height="266" rx="8"/>
-      <text class="tiny" x="916" y="706">PROJECT HUD RESERVED</text>
+      <rect class="hud" x="904" y="818" width="362" height="112" rx="8"/>
+      <text class="tiny" x="916" y="840">COMPACT PROJECT HUD · 362×112</text>
       <text class="small ok" x="912" y="554">47px SIDE MARGIN · CONTENT CLEAR</text>
     </g>
     <text class="small" x="902" y="990">−23.09%, −5.02% · 1.50 · origin 76% 30%</text>
     <text class="small ok" x="902" y="1012">EDGE + ANCHOR + HUD PASS</text>
   </g>
 
-  <!-- UNDERSTAND: horizontal fit and raster fit candidate; required anchor intersects HUD. -->
+  <!-- UNDERSTAND: compact HUD resolves the former desktop-HUD collision. -->
   <g id="understand">
-    <text class="h2" x="1320" y="104">UNDERSTAND_FOCUS · CONSTRAINT</text>
+    <text class="h2" x="1320" y="104">UNDERSTAND_FOCUS · VALID</text>
     <rect class="phone" x="1320" y="120" width="390" height="844" rx="18"/>
     <g clip-path="url(#p4)">
       <g transform="translate(842.28 160.78) scale(.815625)">
@@ -121,14 +120,13 @@
       </g>
       <rect class="hud" x="1338" y="138" width="280" height="84" rx="8"/>
       <text class="tiny" x="1350" y="158">WORLD HUD RESERVED</text>
-      <rect class="hud" x="1334" y="684" width="362" height="266" rx="8"/>
-      <text class="tiny" x="1346" y="706">PROJECT HUD RESERVED</text>
-      <rect x="1364" y="578" width="330" height="79" fill="#fb7185" fill-opacity=".18" stroke="#fb7185" stroke-width="2"/>
-      <text class="small bad" x="1376" y="603">ISLAND / POINT ANCHOR</text>
-      <text class="small bad" x="1376" y="622">ENTER HUD RESERVED ZONE</text>
+      <rect class="hud" x="1334" y="818" width="362" height="112" rx="8"/>
+      <text class="tiny" x="1346" y="840">COMPACT PROJECT HUD · 362×112</text>
+      <path d="M1334 801H1696" stroke="#4ade80" stroke-width="2"/>
+      <text class="small ok" x="1346" y="793">17px MIN GAP · 34px SAFE INSET</text>
     </g>
     <text class="small" x="1332" y="990">−2.27%, +7.10% · 1.45 · origin 50% 72%</text>
-    <text class="small bad" x="1332" y="1012">NO TRANSFORM SATISFIES ALL RULES</text>
+    <text class="small ok" x="1332" y="1012">EDGE + ANCHOR + COMPACT HUD PASS</text>
   </g>
 
   <!-- WORLD COMPLETE reuses overview framing; independent zoom does not solve aspect constraint. -->
@@ -148,13 +146,12 @@
       </g>
       <rect class="hud" x="1768" y="138" width="280" height="84" rx="8"/>
       <text class="tiny" x="1780" y="158">WORLD HUD RESERVED</text>
-      <rect class="hud" x="1764" y="684" width="362" height="266" rx="8"/>
-      <text class="tiny" x="1776" y="706">PROJECT HUD RESERVED</text>
-      <path d="M1750 235H2140 M1750 570H2140" stroke="#fb7185" stroke-width="3"/>
-      <text class="small bad" x="1762" y="250">RASTER EDGE VISIBLE</text>
-      <text class="small bad" x="1762" y="563">RASTER EDGE VISIBLE</text>
+      <path d="M1750 235H2140 M1750 570H2140" stroke="#4ade80" stroke-width="3" stroke-dasharray="8 5"/>
+      <text class="small ok" x="1762" y="250">CONTAINED DIORAMA TOP</text>
+      <text class="small ok" x="1762" y="563">CONTAINED DIORAMA BOTTOM</text>
+      <text class="small note" x="1762" y="660">ENVIRONMENTAL EXTENSION</text>
     </g>
     <text class="small" x="1762" y="990">0%, −27.74% · 0.55 · origin 50% 50%</text>
-    <text class="small bad" x="1762" y="1012">SAME OVERVIEW BLOCKER</text>
+    <text class="small ok" x="1762" y="1012">OVERVIEW FRAMING REUSE PASS</text>
   </g>
 </svg>
