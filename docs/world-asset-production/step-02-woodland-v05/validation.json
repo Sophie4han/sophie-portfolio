@@ -1,0 +1,26 @@
+{
+  "raster": [
+    1920,
+    1080
+  ],
+  "alphaBoundsRaster": {
+    "x": 425,
+    "y": 260,
+    "width": 260,
+    "height": 205
+  },
+  "alphaBoundsLogical": {
+    "x": 265,
+    "y": 170,
+    "width": 260,
+    "height": 205
+  },
+  "greenPixelRatio": 0.6227172609919982,
+  "anchorDistanceToOpaquePixels": {
+    "label": 46.8187996428785,
+    "state": 56.61271941887265,
+    "idle": 57.0087712549569,
+    "pointing": 63.63175307973214
+  },
+  "preservedFilesVerified": 57
+}
