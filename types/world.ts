@@ -36,6 +36,9 @@ export interface IslandRegion {
   outcome: string;
   category: string;
   focusCategory: string;
+  productionAsset?: string;
+  visualBounds?: WorldBounds;
+  stateAnchor?: WorldPoint;
   position: WorldPoint;
   interactionBounds: WorldBounds;
   labelAnchor: WorldPoint;
@@ -51,6 +54,7 @@ export interface WorldEnvironmentLayer {
 }
 
 export interface WorldManifest {
+  productionRaster: { width: number; height: number; logicalOrigin: WorldPoint; background: string };
   canvas: {
     width: number;
     height: number;

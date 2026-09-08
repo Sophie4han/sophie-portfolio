@@ -320,3 +320,33 @@
   .cameraRig, .chooniWorldStage { transition: none; }
 }
 .cameraRig[data-reduced-motion="true"] .chooniWorldStage { transition: none; }
+
+/* STEP 06: canonical raster layers share the logical world/camera transform. */
+.worldScene { background: #b8c6ca; color: #172b30; }
+.productionRaster { position: absolute; max-width: none; pointer-events: none; user-select: none; }
+.productionIsland { z-index: 24; }
+.islandVisual[data-production="true"] { transform: none; aspect-ratio: auto; }
+.productionIsland[data-status="active"] { filter: drop-shadow(0 0 5px #f7f4cc); }
+.worldCanvas:has(.islandTarget[data-island="harubareun"]:is(:hover, :focus-visible):not([aria-disabled="true"])) .productionIsland { filter: drop-shadow(0 0 4px #fff8d4); }
+.islandTarget[data-island="harubareun"]:focus-visible { outline: 2px dashed #244952; outline-offset: -4px; border-radius: 14%; }
+.islandVisual:not([data-production="true"]) .landMass { background: #859997; border-color: #526c70; box-shadow: 0 8px 0 #758b89; }
+.islandVisual:not([data-production="true"])[data-status="locked"] { opacity: 0.5; }
+.islandLabel { color: #172b30; text-shadow: 0 1px 3px #eef2e8; }
+.islandLabel small, .islandLabel span { color: #273f43; }
+.worldHud span, .worldHud small, .utilityNav [aria-disabled="true"] { color: #334c52; }
+.utilityNav :focus-visible { outline-color: #244952; }
+.projectHud { background: #edf0e6e8; padding: 16px; }
+.projectHud p, .projectHud > small { color: #334c52; }
+.projectHud > p:nth-of-type(2) { color: #172b30; }
+.projectActions button:first-child { background: #294c46; color: #fff; border-color: #294c46; }
+.projectActions button:focus-visible { outline-color: #244952; }
+.chooniWorldStage { color: #f4f0e7; }
+[data-muted="true"] .productionIsland { opacity: 0.15; }
+@media (max-width: 760px) {
+  .projectHud { padding: 12px; }
+}
+.worldViewport[data-focused="true"] [data-muted="true"] .islandVisual { opacity: 0.08; }
+@media (max-width: 480px) {
+  /* Increase overview legibility while keeping all destination art/labels in view. */
+  .worldViewport[data-focused="false"] .cameraRig { width: 136vw; }
+}

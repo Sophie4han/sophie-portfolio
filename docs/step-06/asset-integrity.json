@@ -1,0 +1,10 @@
+{
+  "public/images/pixel/world/shared/world-background-floating-v02.png": {
+    "sha256": "7b8d24cac30f24a51f362fcbfa416aec8450ab24a7716c988e84a26166ab5339",
+    "unchangedFromCheckpoint": true
+  },
+  "public/images/pixel/world/islands/harubareun/island-harubareun-base.png": {
+    "sha256": "3520383354937b99565f64f7d36a9e247ccdcb5fa1761e284952103fd255a56e",
+    "unchangedFromCheckpoint": true
+  }
+}

@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Image from "next/image";
 import { WORLD_MANIFEST, worldPointToPercent } from "@/lib/world-manifest";
 import type {
   CameraPreset,
@@ -78,15 +79,16 @@ export function WorldRenderer({
 function WorldEnvironmentLayers() {
   return (
     <div className={styles.environmentLayers} aria-hidden="true">
-      {WORLD_MANIFEST.layers.map((layer) => (
-        <div
-          key={layer.id}
-          className={styles.environmentLayer}
-          data-layer-id={layer.id}
-          data-layer-role={layer.role}
-          style={{ zIndex: layer.zIndex }}
-        />
-      ))}
+      <Image
+        src={WORLD_MANIFEST.productionRaster.background}
+        alt=""
+        width={WORLD_MANIFEST.productionRaster.width}
+        height={WORLD_MANIFEST.productionRaster.height}
+        unoptimized
+        loading="eager"
+        className={styles.productionRaster}
+        style={productionRasterStyle()}
+      />
     </div>
   );
 }
@@ -107,14 +109,37 @@ function IslandVisuals({
 
     return (
       <div key={island.projectId} aria-hidden="true" data-destination={island.projectId} data-muted={Boolean(focusedIslandId && focusedIslandId !== island.projectId)}>
+        {island.productionAsset && (
+          <Image
+            src={island.productionAsset}
+            alt=""
+            width={WORLD_MANIFEST.productionRaster.width}
+            height={WORLD_MANIFEST.productionRaster.height}
+            unoptimized
+            loading="eager"
+            className={`${styles.productionRaster} ${styles.productionIsland}`}
+            data-status={status}
+            style={productionRasterStyle()}
+          />
+        )}
         <div
           className={styles.islandVisual}
           data-island={island.projectId}
           data-status={status}
-          style={positionStyle(position)}
+          data-production={Boolean(island.productionAsset)}
+          style={island.visualBounds ? {
+            left: `${island.visualBounds.x / WORLD_MANIFEST.canvas.width * 100}%`,
+            top: `${island.visualBounds.y / WORLD_MANIFEST.canvas.height * 100}%`,
+            width: `${island.visualBounds.width / WORLD_MANIFEST.canvas.width * 100}%`,
+            height: `${island.visualBounds.height / WORLD_MANIFEST.canvas.height * 100}%`,
+          } : positionStyle(position)}
         >
-          <span className={styles.landMass} />
-          <span className={styles.statusMarker}>{statusSymbol(status)}</span>
+          {!island.productionAsset && <span className={styles.landMass} />}
+          <span className={styles.statusMarker} style={island.stateAnchor && island.visualBounds ? {
+            left: `${(island.stateAnchor.x - island.visualBounds.x) / island.visualBounds.width * 100}%`,
+            top: `${(island.stateAnchor.y - island.visualBounds.y) / island.visualBounds.height * 100}%`,
+            transform: "translate(-50%, -50%)",
+          } : undefined}>{statusSymbol(status)}</span>
         </div>
         <div className={styles.islandLabel} data-island={island.projectId} style={positionStyle(label)}>
           <small>{String(island.sequence).padStart(2, "0")} · {island.capability}</small>
@@ -208,4 +233,15 @@ function statusSymbol(status: JourneyProjectStatus) {
   if (status === "completed") return "✓";
   if (status === "active") return "◆";
   return "↗";
+}
+
+/** Preserve the full production raster: logical (0, 0) is raster (160, 90). */
+function productionRasterStyle(): CSSProperties {
+  const { productionRaster: raster, canvas } = WORLD_MANIFEST;
+  return {
+    left: `${-raster.logicalOrigin.x / canvas.width * 100}%`,
+    top: `${-raster.logicalOrigin.y / canvas.height * 100}%`,
+    width: `${raster.width / canvas.width * 100}%`,
+    height: `${raster.height / canvas.height * 100}%`,
+  };
 }

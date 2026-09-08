@@ -3,6 +3,10 @@ import type { IslandRegion, WorldManifest, WorldPoint } from "../types/world";
 
 export const WORLD_MANIFEST: WorldManifest = {
   canvas: { width: 1600, height: 900 },
+  productionRaster: {
+    width: 1920, height: 1080, logicalOrigin: { x: 160, y: 90 },
+    background: "/images/pixel/world/shared/world-background-floating-v02.png",
+  },
   layers: [
     { id: "world-background", role: "background", zIndex: 0 },
     { id: "world-terrain", role: "terrain", zIndex: 10 },
@@ -18,10 +22,13 @@ export const WORLD_MANIFEST: WorldManifest = {
       outcome: "From Product Opportunity to Launch-ready",
       category: "Consumer Product",
       focusCategory: "Consumer Product · New Business",
+      productionAsset: "/images/pixel/world/islands/harubareun/island-harubareun-base.png",
+      visualBounds: { x: 245, y: 170, width: 300, height: 205 },
+      stateAnchor: { x: 520, y: 175 },
       position: { x: 390, y: 275 },
       interactionBounds: { x: 220, y: 145, width: 360, height: 250 },
       labelAnchor: { x: 390, y: 135 },
-      chooniAnchor: { x: 555, y: 365 },
+      chooniAnchor: { x: 535, y: 375 },
       chooniPlacement: "world-current-node",
       focusPreset: "BUILD_FOCUS",
     },

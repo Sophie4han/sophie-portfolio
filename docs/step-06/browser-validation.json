@@ -1,0 +1,383 @@
+{
+  "images": [
+    {
+      "src": "/images/pixel/world/shared/world-background-floating-v02.png",
+      "width": 1920,
+      "height": 1080,
+      "loaded": true
+    },
+    {
+      "src": "/images/pixel/world/islands/harubareun/island-harubareun-base.png",
+      "width": 1920,
+      "height": 1080,
+      "loaded": true
+    }
+  ],
+  "desktopOverview": {
+    "camera": "OVERVIEW",
+    "chooni": {
+      "x": 684,
+      "y": 396,
+      "width": 72,
+      "height": 72,
+      "top": 396,
+      "right": 756,
+      "bottom": 468,
+      "left": 684
+    },
+    "width": 1440,
+    "overflow": 1440,
+    "labels": [
+      {
+        "text": "01 · BUILD\nHARUBAREUN\nConsumer Product",
+        "rect": {
+          "x": 263.28125,
+          "y": 128.8671875,
+          "width": 175.4375,
+          "height": 75.265625,
+          "top": 128.8671875,
+          "right": 438.71875,
+          "bottom": 204.1328125,
+          "left": 263.28125
+        }
+      },
+      {
+        "text": "02 · ITERATE\nINVADER\nContent Product",
+        "rect": {
+          "x": 1017.78125,
+          "y": 127.0703125,
+          "width": 124.4375,
+          "height": 69.859375,
+          "top": 127.0703125,
+          "right": 1142.21875,
+          "bottom": 196.9296875,
+          "left": 1017.78125
+        }
+      },
+      {
+        "text": "03 · UNDERSTAND\nFitMate\nDigital Product",
+        "rect": {
+          "x": 642.2265625,
+          "y": 478.0703125,
+          "width": 155.546875,
+          "height": 69.859375,
+          "top": 478.0703125,
+          "right": 797.7734375,
+          "bottom": 547.9296875,
+          "left": 642.2265625
+        }
+      }
+    ]
+  },
+  "moving": {
+    "camera": "BUILD_FOCUS",
+    "chooni": {
+      "x": 846.5499877929688,
+      "y": 489.9572448730469,
+      "width": 105.00653076171875,
+      "height": 105.00650024414062,
+      "top": 489.9572448730469,
+      "right": 951.5565185546875,
+      "bottom": 594.9637451171875,
+      "left": 846.5499877929688
+    },
+    "width": 1440,
+    "overflow": 1440,
+    "labels": [
+      {
+        "text": "",
+        "rect": {
+          "x": 441.58685302734375,
+          "y": 143.68423461914062,
+          "width": 255.8621826171875,
+          "height": 109.76913452148438,
+          "top": 143.68423461914062,
+          "right": 697.4490356445312,
+          "bottom": 253.453369140625,
+          "left": 441.58685302734375
+        }
+      },
+      {
+        "text": "",
+        "rect": {
+          "x": 1541.96728515625,
+          "y": 141.06362915039062,
+          "width": 181.4825439453125,
+          "height": 101.88453674316406,
+          "top": 141.06362915039062,
+          "right": 1723.4498291015625,
+          "bottom": 242.9481658935547,
+          "left": 1541.96728515625
+        }
+      },
+      {
+        "text": "",
+        "rect": {
+          "x": 994.2495727539062,
+          "y": 652.97021484375,
+          "width": 226.85321044921875,
+          "height": 101.88458251953125,
+          "top": 652.97021484375,
+          "right": 1221.102783203125,
+          "bottom": 754.8547973632812,
+          "left": 994.2495727539062
+        }
+      }
+    ]
+  },
+  "desktopFocus": {
+    "camera": "BUILD_FOCUS",
+    "chooni": {
+      "x": 759.64501953125,
+      "y": 483.9749755859375,
+      "width": 111.60003662109375,
+      "height": 111.5999755859375,
+      "top": 483.9749755859375,
+      "right": 871.2450561523438,
+      "bottom": 595.574951171875,
+      "left": 759.64501953125
+    },
+    "hud": {
+      "x": 1092,
+      "y": 562.5,
+      "width": 310,
+      "height": 299.5,
+      "top": 562.5,
+      "right": 1402,
+      "bottom": 862,
+      "left": 1092
+    },
+    "width": 1440,
+    "overflow": 1440,
+    "labels": [
+      {
+        "text": "",
+        "rect": {
+          "x": 477.20599365234375,
+          "y": 146.64413452148438,
+          "width": 271.9281005859375,
+          "height": 116.66171264648438,
+          "top": 146.64413452148438,
+          "right": 749.1340942382812,
+          "bottom": 263.30584716796875,
+          "left": 477.20599365234375
+        }
+      },
+      {
+        "text": "",
+        "rect": {
+          "x": 1646.680908203125,
+          "y": 143.85897827148438,
+          "width": 192.878173828125,
+          "height": 108.28202819824219,
+          "top": 143.85897827148438,
+          "right": 1839.55908203125,
+          "bottom": 252.14100646972656,
+          "left": 1646.680908203125
+        }
+      },
+      {
+        "text": "",
+        "rect": {
+          "x": 1064.5711669921875,
+          "y": 687.908935546875,
+          "width": 241.0977783203125,
+          "height": 108.2821044921875,
+          "top": 687.908935546875,
+          "right": 1305.6689453125,
+          "bottom": 796.1910400390625,
+          "left": 1064.5711669921875
+        }
+      }
+    ]
+  },
+  "back": {
+    "camera": "OVERVIEW",
+    "chooni": {
+      "x": 684,
+      "y": 396,
+      "width": 72,
+      "height": 72,
+      "top": 396,
+      "right": 756,
+      "bottom": 468,
+      "left": 684
+    },
+    "width": 1440,
+    "overflow": 1440,
+    "labels": [
+      {
+        "text": "01 · BUILD\nHARUBAREUN\nConsumer Product",
+        "rect": {
+          "x": 263.28125,
+          "y": 128.8671875,
+          "width": 175.4375,
+          "height": 75.265625,
+          "top": 128.8671875,
+          "right": 438.71875,
+          "bottom": 204.1328125,
+          "left": 263.28125
+        }
+      },
+      {
+        "text": "02 · ITERATE\nINVADER\nContent Product",
+        "rect": {
+          "x": 1017.78125,
+          "y": 127.0703125,
+          "width": 124.4375,
+          "height": 69.859375,
+          "top": 127.0703125,
+          "right": 1142.21875,
+          "bottom": 196.9296875,
+          "left": 1017.78125
+        }
+      },
+      {
+        "text": "03 · UNDERSTAND\nFitMate\nDigital Product",
+        "rect": {
+          "x": 642.2265625,
+          "y": 478.0703125,
+          "width": 155.546875,
+          "height": 69.859375,
+          "top": 478.0703125,
+          "right": 797.7734375,
+          "bottom": 547.9296875,
+          "left": 642.2265625
+        }
+      }
+    ]
+  },
+  "mobileOverview": {
+    "camera": "OVERVIEW",
+    "chooni": {
+      "x": 181.7421875,
+      "y": 367.1015625,
+      "width": 26.515625,
+      "height": 26.515625,
+      "top": 367.1015625,
+      "right": 208.2578125,
+      "bottom": 393.6171875,
+      "left": 181.7421875
+    },
+    "width": 390,
+    "overflow": 390,
+    "labels": [
+      {
+        "text": "01 · BUILD\nHARUBAREUN\nConsumer Product",
+        "rect": {
+          "x": 8.921875,
+          "y": 232.578125,
+          "width": 100.34375,
+          "height": 50,
+          "top": 232.578125,
+          "right": 109.265625,
+          "bottom": 282.578125,
+          "left": 8.921875
+        }
+      },
+      {
+        "text": "02 · ITERATE\nINVADER\nContent Product",
+        "rect": {
+          "x": 286.9609375,
+          "y": 233.921875,
+          "width": 81.265625,
+          "height": 47,
+          "top": 233.921875,
+          "right": 368.2265625,
+          "bottom": 280.921875,
+          "left": 286.9609375
+        }
+      },
+      {
+        "text": "03 · UNDERSTAND\nFitMate\nDigital Product",
+        "rect": {
+          "x": 148.4921875,
+          "y": 483.0531311035156,
+          "width": 93.015625,
+          "height": 46.999969482421875,
+          "top": 483.0531311035156,
+          "right": 241.5078125,
+          "bottom": 530.0531005859375,
+          "left": 148.4921875
+        }
+      }
+    ]
+  },
+  "lockedCamera": "OVERVIEW",
+  "mobileFocus": {
+    "camera": "BUILD_FOCUS",
+    "chooni": {
+      "x": 210.84375,
+      "y": 394.25,
+      "width": 39,
+      "height": 39,
+      "top": 394.25,
+      "right": 249.84375,
+      "bottom": 433.25,
+      "left": 210.84375
+    },
+    "hud": {
+      "x": 22,
+      "y": 583,
+      "width": 346,
+      "height": 243,
+      "top": 583,
+      "right": 368,
+      "bottom": 826,
+      "left": 22
+    },
+    "width": 390,
+    "overflow": 390,
+    "labels": [
+      {
+        "text": "",
+        "rect": {
+          "x": 109.484375,
+          "y": 246.75,
+          "width": 100.34375,
+          "height": 50,
+          "top": 246.75,
+          "right": 209.828125,
+          "bottom": 296.75,
+          "left": 109.484375
+        }
+      },
+      {
+        "text": "",
+        "rect": {
+          "x": 513.8984375,
+          "y": 247.3125,
+          "width": 81.265625,
+          "height": 47,
+          "top": 247.3125,
+          "right": 595.1640625,
+          "bottom": 294.3125,
+          "left": 513.8984375
+        }
+      },
+      {
+        "text": "",
+        "rect": {
+          "x": 313.0234375,
+          "y": 557.2874755859375,
+          "width": 93.015625,
+          "height": 47,
+          "top": 557.2874755859375,
+          "right": 406.0390625,
+          "bottom": 604.2874755859375,
+          "left": 313.0234375
+        }
+      }
+    ]
+  },
+  "reducedMotion": {
+    "camera": "0s",
+    "chooni": "0s"
+  },
+  "errors": [],
+  "keyboard": {
+    "visible": true,
+    "outline": "dashed",
+    "cameraAfterEnter": "BUILD_FOCUS"
+  }
+}
