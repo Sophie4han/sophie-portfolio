@@ -30,25 +30,35 @@ export function WorldScene({
     ? progression.statuses[focusedIsland.projectId]
     : null;
 
+  const worldTarget = scene.pendingScene &&
+    (scene.pendingScene.sceneId === "island-focus" || scene.pendingScene.sceneId === "world-overview")
+    ? scene.pendingScene : scene;
+
   return (
     <main className={styles.worldScene}>
       <h1 className={styles.visuallyHidden}>MOVE ON World</h1>
       <WorldRenderer
-        cameraPreset={scene.cameraPreset}
-        focusedIslandId={scene.focusedIslandId}
+        cameraPreset={worldTarget.cameraPreset}
+        focusedIslandId={worldTarget.focusedIslandId}
         statuses={progression.statuses}
         reducedMotion={transition.reducedMotion}
+        durationMs={transition.durationMs}
+        interactive={scene.phase === "active"}
         onSelectIsland={(projectId) => dispatch({ type: "SELECT_ISLAND", projectId })}
       />
       <WorldHud
         progress={progression.progress}
         total={progression.total}
-        completed={progression.completedProjectIds.length}
       />
-      {focusedIsland && focusedStatus && (
+      <nav className={styles.utilityNav} aria-label="Portfolio">
+        <button type="button" aria-current={!focusedIsland ? "page" : undefined} disabled={scene.phase !== "active"} onClick={() => { if (focusedIsland) dispatch({ type: "BACK_TO_WORLD" }); }}>WORLD</button>
+        <span aria-disabled="true" title="Projects page is not available yet">PROJECTS · SOON</span>
+        <span aria-disabled="true" title="About page is not available yet">ABOUT</span>
+        <span aria-disabled="true" title="Experience page is not available yet">EXPERIENCE</span>
+      </nav>
+      {focusedIsland && focusedStatus && scene.phase === "active" && (
         <ProjectHud
           island={focusedIsland}
-          status={focusedStatus}
           onEnter={() => dispatch({ type: "ENTER_ISLAND" })}
           onBack={() => dispatch({ type: "BACK_TO_WORLD" })}
         />
@@ -65,31 +75,25 @@ export function WorldScene({
 function WorldHud({
   progress,
   total,
-  completed,
 }: {
   progress: number;
   total: number;
-  completed: number;
 }) {
   return (
     <aside className={styles.worldHud} aria-label="World progress">
-      <strong>MOVE ON WORLD</strong>
-      <span>Progress {progress} / {total}</span>
-      <span aria-label={`${completed} of ${total} badges collected`}>
-        Badges {Array.from({ length: total }, (_, index) => index < completed ? "●" : "○").join(" ")}
-      </span>
+      <strong>MOVE ON</strong>
+      <span>Select a project to explore</span>
+      <small>{progress === total ? "WORLD COMPLETE" : `${String(progress).padStart(2, "0")} / ${String(total).padStart(2, "0")} completed`}</small>
     </aside>
   );
 }
 
 function ProjectHud({
   island,
-  status,
   onEnter,
   onBack,
 }: {
   island: ReturnType<typeof getIslandRegion>;
-  status: string;
   onEnter: () => void;
   onBack: () => void;
 }) {
@@ -98,10 +102,10 @@ function ProjectHud({
       <p>{String(island.sequence).padStart(2, "0")} · {island.capability}</p>
       <h2 id="focused-project-title">{island.projectName}</h2>
       <p>{island.outcome}</p>
-      <strong>Status · {status}</strong>
+      <small>{island.focusCategory}</small>
       <div className={styles.projectActions}>
-        <button type="button" onClick={onEnter}>Enter island</button>
-        <button type="button" onClick={onBack}>Back to world</button>
+        <button type="button" onClick={onEnter}>ENTER PROJECT ↗</button>
+        <button type="button" onClick={onBack}>← BACK TO WORLD</button>
       </div>
     </aside>
   );

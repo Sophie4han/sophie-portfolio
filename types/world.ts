@@ -34,6 +34,8 @@ export interface IslandRegion {
   capability: "BUILD" | "ITERATE" | "UNDERSTAND";
   projectName: string;
   outcome: string;
+  category: string;
+  focusCategory: string;
   position: WorldPoint;
   interactionBounds: WorldBounds;
   labelAnchor: WorldPoint;

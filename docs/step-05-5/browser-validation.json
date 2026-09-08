@@ -1,0 +1,369 @@
+{
+  "desktopOverview": {
+    "camera": "OVERVIEW",
+    "chooni": {
+      "x": 684,
+      "y": 396,
+      "width": 72,
+      "height": 72,
+      "top": 396,
+      "right": 756,
+      "bottom": 468,
+      "left": 684
+    },
+    "width": 1440,
+    "overflow": 1440,
+    "labels": [
+      {
+        "text": "01 · BUILD\nHARUBAREUN\nConsumer Product",
+        "rect": {
+          "x": 263.28125,
+          "y": 128.8671875,
+          "width": 175.4375,
+          "height": 75.265625,
+          "top": 128.8671875,
+          "right": 438.71875,
+          "bottom": 204.1328125,
+          "left": 263.28125
+        }
+      },
+      {
+        "text": "02 · ITERATE\nINVADER\nContent Product",
+        "rect": {
+          "x": 1017.78125,
+          "y": 127.0703125,
+          "width": 124.4375,
+          "height": 69.859375,
+          "top": 127.0703125,
+          "right": 1142.21875,
+          "bottom": 196.9296875,
+          "left": 1017.78125
+        }
+      },
+      {
+        "text": "03 · UNDERSTAND\nFitMate\nDigital Product",
+        "rect": {
+          "x": 642.2265625,
+          "y": 478.0703125,
+          "width": 155.546875,
+          "height": 69.859375,
+          "top": 478.0703125,
+          "right": 797.7734375,
+          "bottom": 547.9296875,
+          "left": 642.2265625
+        }
+      }
+    ]
+  },
+  "moving": {
+    "camera": "BUILD_FOCUS",
+    "chooni": {
+      "x": 684,
+      "y": 396,
+      "width": 72,
+      "height": 72,
+      "top": 396,
+      "right": 756,
+      "bottom": 468,
+      "left": 684
+    },
+    "width": 1440,
+    "overflow": 1440,
+    "labels": [
+      {
+        "text": "",
+        "rect": {
+          "x": 263.28125,
+          "y": 128.8671875,
+          "width": 175.4375,
+          "height": 75.265625,
+          "top": 128.8671875,
+          "right": 438.71875,
+          "bottom": 204.1328125,
+          "left": 263.28125
+        }
+      },
+      {
+        "text": "",
+        "rect": {
+          "x": 1017.78125,
+          "y": 127.0703125,
+          "width": 124.4375,
+          "height": 69.859375,
+          "top": 127.0703125,
+          "right": 1142.21875,
+          "bottom": 196.9296875,
+          "left": 1017.78125
+        }
+      },
+      {
+        "text": "",
+        "rect": {
+          "x": 642.2265625,
+          "y": 478.0703125,
+          "width": 155.546875,
+          "height": 69.859375,
+          "top": 478.0703125,
+          "right": 797.7734375,
+          "bottom": 547.9296875,
+          "left": 642.2265625
+        }
+      }
+    ]
+  },
+  "desktopFocus": {
+    "camera": "BUILD_FOCUS",
+    "chooni": {
+      "x": 787.5450439453125,
+      "y": 470.0249938964844,
+      "width": 111.5999755859375,
+      "height": 111.60000610351562,
+      "top": 470.0249938964844,
+      "right": 899.14501953125,
+      "bottom": 581.625,
+      "left": 787.5450439453125
+    },
+    "hud": {
+      "x": 1092,
+      "y": 558.5,
+      "width": 310,
+      "height": 303.5,
+      "top": 558.5,
+      "right": 1402,
+      "bottom": 862,
+      "left": 1092
+    },
+    "width": 1440,
+    "overflow": 1440,
+    "labels": [
+      {
+        "text": "",
+        "rect": {
+          "x": 477.20599365234375,
+          "y": 146.64413452148438,
+          "width": 271.9281005859375,
+          "height": 116.66171264648438,
+          "top": 146.64413452148438,
+          "right": 749.1340942382812,
+          "bottom": 263.30584716796875,
+          "left": 477.20599365234375
+        }
+      },
+      {
+        "text": "",
+        "rect": {
+          "x": 1646.680908203125,
+          "y": 143.85897827148438,
+          "width": 192.878173828125,
+          "height": 108.28202819824219,
+          "top": 143.85897827148438,
+          "right": 1839.55908203125,
+          "bottom": 252.14100646972656,
+          "left": 1646.680908203125
+        }
+      },
+      {
+        "text": "",
+        "rect": {
+          "x": 1064.5711669921875,
+          "y": 687.908935546875,
+          "width": 241.0977783203125,
+          "height": 108.2821044921875,
+          "top": 687.908935546875,
+          "right": 1305.6689453125,
+          "bottom": 796.1910400390625,
+          "left": 1064.5711669921875
+        }
+      }
+    ]
+  },
+  "back": {
+    "camera": "OVERVIEW",
+    "chooni": {
+      "x": 684,
+      "y": 396,
+      "width": 72,
+      "height": 72,
+      "top": 396,
+      "right": 756,
+      "bottom": 468,
+      "left": 684
+    },
+    "width": 1440,
+    "overflow": 1440,
+    "labels": [
+      {
+        "text": "01 · BUILD\nHARUBAREUN\nConsumer Product",
+        "rect": {
+          "x": 263.28125,
+          "y": 128.8671875,
+          "width": 175.4375,
+          "height": 75.265625,
+          "top": 128.8671875,
+          "right": 438.71875,
+          "bottom": 204.1328125,
+          "left": 263.28125
+        }
+      },
+      {
+        "text": "02 · ITERATE\nINVADER\nContent Product",
+        "rect": {
+          "x": 1017.78125,
+          "y": 127.0703125,
+          "width": 124.4375,
+          "height": 69.859375,
+          "top": 127.0703125,
+          "right": 1142.21875,
+          "bottom": 196.9296875,
+          "left": 1017.78125
+        }
+      },
+      {
+        "text": "03 · UNDERSTAND\nFitMate\nDigital Product",
+        "rect": {
+          "x": 642.2265625,
+          "y": 478.0703125,
+          "width": 155.546875,
+          "height": 69.859375,
+          "top": 478.0703125,
+          "right": 797.7734375,
+          "bottom": 547.9296875,
+          "left": 642.2265625
+        }
+      }
+    ]
+  },
+  "mobileOverview": {
+    "camera": "OVERVIEW",
+    "chooni": {
+      "x": 182.5,
+      "y": 369.625,
+      "width": 25,
+      "height": 25,
+      "top": 369.625,
+      "right": 207.5,
+      "bottom": 394.625,
+      "left": 182.5
+    },
+    "width": 390,
+    "overflow": 390,
+    "labels": [
+      {
+        "text": "01 · BUILD\nHARUBAREUN\nConsumer Product",
+        "rect": {
+          "x": 44.890625,
+          "y": 260.21875,
+          "width": 100.34375,
+          "height": 50,
+          "top": 260.21875,
+          "right": 145.234375,
+          "bottom": 310.21875,
+          "left": 44.890625
+        }
+      },
+      {
+        "text": "02 · ITERATE\nINVADER\nContent Product",
+        "rect": {
+          "x": 251.8671875,
+          "y": 262,
+          "width": 81.265625,
+          "height": 47,
+          "top": 262,
+          "right": 333.1328125,
+          "bottom": 309,
+          "left": 251.8671875
+        }
+      },
+      {
+        "text": "03 · UNDERSTAND\nFitMate\nDigital Product",
+        "rect": {
+          "x": 148.4921875,
+          "y": 476.9125061035156,
+          "width": 93.015625,
+          "height": 46.999969482421875,
+          "top": 476.9125061035156,
+          "right": 241.5078125,
+          "bottom": 523.9124755859375,
+          "left": 148.4921875
+        }
+      }
+    ]
+  },
+  "lockedCamera": "OVERVIEW",
+  "mobileFocus": {
+    "camera": "BUILD_FOCUS",
+    "chooni": {
+      "x": 215.71875,
+      "y": 391.8125,
+      "width": 39,
+      "height": 39,
+      "top": 391.8125,
+      "right": 254.71875,
+      "bottom": 430.8125,
+      "left": 215.71875
+    },
+    "hud": {
+      "x": 22,
+      "y": 607,
+      "width": 346,
+      "height": 219,
+      "top": 607,
+      "right": 368,
+      "bottom": 826,
+      "left": 22
+    },
+    "width": 390,
+    "overflow": 390,
+    "labels": [
+      {
+        "text": "",
+        "rect": {
+          "x": 104.609375,
+          "y": 249.1875,
+          "width": 100.34375,
+          "height": 50,
+          "top": 249.1875,
+          "right": 204.953125,
+          "bottom": 299.1875,
+          "left": 104.609375
+        }
+      },
+      {
+        "text": "",
+        "rect": {
+          "x": 509.0234375,
+          "y": 249.75,
+          "width": 81.265625,
+          "height": 47,
+          "top": 249.75,
+          "right": 590.2890625,
+          "bottom": 296.75,
+          "left": 509.0234375
+        }
+      },
+      {
+        "text": "",
+        "rect": {
+          "x": 308.1484375,
+          "y": 559.7249755859375,
+          "width": 93.015625,
+          "height": 47,
+          "top": 559.7249755859375,
+          "right": 401.1640625,
+          "bottom": 606.7249755859375,
+          "left": 308.1484375
+        }
+      }
+    ]
+  },
+  "reducedMotion": {
+    "camera": "0s",
+    "chooni": "0s"
+  },
+  "errors": [],
+  "keyboard": {
+    "visible": true,
+    "outline": "solid",
+    "cameraAfterEnter": "BUILD_FOCUS"
+  }
+}
