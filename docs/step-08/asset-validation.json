@@ -1,0 +1,78 @@
+{
+  "source": {
+    "path": "docs/step-08/water/source-v01.png",
+    "width": 1429,
+    "height": 1101,
+    "channels": 3,
+    "alphaBounds": {
+      "x": 73,
+      "y": 85,
+      "width": 1278,
+      "height": 932
+    }
+  },
+  "processing": {
+    "method": "Edge-connected near-white removal (min RGB >=238, spread <=12), aspect-preserving downsample, no color grading or texture edits",
+    "removedPixelCount": 752578,
+    "fit": {
+      "left": 1227,
+      "top": 255,
+      "width": 281,
+      "height": 205
+    }
+  },
+  "production": {
+    "path": "public/images/pixel/world/islands/invader/island-invader-base.png",
+    "width": 1920,
+    "height": 1080,
+    "channels": 4,
+    "sha256": "69bc3c15c9b0d97f2d454f03cd6963c9624a8ef268c52d2680acc6da9d7ca2a6",
+    "alphaBounds": {
+      "x": 1227,
+      "y": 255,
+      "width": 281,
+      "height": 205
+    },
+    "logicalBounds": {
+      "x": 1067,
+      "y": 165,
+      "width": 281,
+      "height": 205
+    }
+  },
+  "master": {
+    "path": "public/images/pixel/world/islands/harubareun/island-harubareun-base.png",
+    "width": 1920,
+    "height": 1080,
+    "channels": 4,
+    "sha256": "3520383354937b99565f64f7d36a9e247ccdcb5fa1761e284952103fd255a56e",
+    "alphaBounds": {
+      "x": 425,
+      "y": 260,
+      "width": 260,
+      "height": 205
+    },
+    "logicalBounds": {
+      "x": 265,
+      "y": 170,
+      "width": 260,
+      "height": 205
+    }
+  },
+  "landing": {
+    "anchor": {
+      "x": 1035,
+      "y": 375
+    },
+    "rgba": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "distanceToOpaqueArt": 86.45229898620394,
+    "clearOfOcclusion": true,
+    "onTerrain": false,
+    "note": "The fixed anchor is outside the fixed visual bbox. A dry entrance clearing exists on the island, but terrain under the prescribed anchor cannot be created without an approved contract change. No character or anchor moved to conceal this."
+  }
+}

@@ -1,0 +1,464 @@
+{
+  "method": "Production Overview via normal Prologue flow. INVADER Focus via development-only isolated WorldScene fixture. No unlock-rule or app timer overrides.",
+  "desktopOverview": {
+    "url": "http://localhost:3025/",
+    "width": 1440,
+    "height": 900,
+    "camera": "OVERVIEW",
+    "focused": "false",
+    "islands": [
+      {
+        "id": "harubareun",
+        "status": "available",
+        "loaded": true,
+        "raster": {
+          "x": -144,
+          "y": -36,
+          "width": 1728,
+          "height": 972,
+          "top": -36,
+          "right": 1584,
+          "bottom": 936,
+          "left": -144
+        },
+        "visibleArt": {
+          "x": 238.5,
+          "y": 198,
+          "width": 233.99999999999997,
+          "height": 184.5
+        },
+        "filter": "none",
+        "opacity": "1",
+        "label": {
+          "x": 263.28125,
+          "y": 128.8671875,
+          "width": 175.4375,
+          "height": 75.265625,
+          "top": 128.8671875,
+          "right": 438.71875,
+          "bottom": 204.1328125,
+          "left": 263.28125
+        }
+      },
+      {
+        "id": "project-02",
+        "status": "locked",
+        "loaded": true,
+        "raster": {
+          "x": -144,
+          "y": -36,
+          "width": 1728,
+          "height": 972,
+          "top": -36,
+          "right": 1584,
+          "bottom": 936,
+          "left": -144
+        },
+        "visibleArt": {
+          "x": 894.6000000000001,
+          "y": 193.5,
+          "width": 318.6,
+          "height": 224.10000000000002
+        },
+        "filter": "none",
+        "opacity": "1",
+        "label": {
+          "x": 1017.78125,
+          "y": 127.0703125,
+          "width": 124.4375,
+          "height": 69.859375,
+          "top": 127.0703125,
+          "right": 1142.21875,
+          "bottom": 196.9296875,
+          "left": 1017.78125
+        }
+      },
+      {
+        "id": "fitmate",
+        "visibleArt": null,
+        "filter": null,
+        "opacity": null,
+        "label": {
+          "x": 642.2265625,
+          "y": 478.0703125,
+          "width": 155.546875,
+          "height": 69.859375,
+          "top": 478.0703125,
+          "right": 797.7734375,
+          "bottom": 547.9296875,
+          "left": 642.2265625
+        }
+      }
+    ],
+    "actor": {
+      "x": 684,
+      "y": 396,
+      "width": 72,
+      "height": 72,
+      "top": 396,
+      "right": 756,
+      "bottom": 468,
+      "left": 684
+    },
+    "overflow": false,
+    "targets": [
+      {
+        "id": "harubareun",
+        "disabled": "false",
+        "rect": {
+          "x": 198,
+          "y": 175.5,
+          "width": 324,
+          "height": 225,
+          "top": 175.5,
+          "right": 522,
+          "bottom": 400.5,
+          "left": 198
+        }
+      },
+      {
+        "id": "project-02",
+        "disabled": "true",
+        "rect": {
+          "x": 922.5,
+          "y": 171,
+          "width": 324,
+          "height": 225,
+          "top": 171,
+          "right": 1246.5,
+          "bottom": 396,
+          "left": 922.5
+        }
+      },
+      {
+        "id": "fitmate",
+        "disabled": "true",
+        "rect": {
+          "x": 549,
+          "y": 522,
+          "width": 342,
+          "height": 229.5,
+          "top": 522,
+          "right": 891,
+          "bottom": 751.5,
+          "left": 549
+        }
+      }
+    ]
+  },
+  "buildHover": {
+    "url": "http://localhost:3025/",
+    "width": 1440,
+    "height": 900,
+    "camera": "OVERVIEW",
+    "focused": "false",
+    "islands": [
+      {
+        "id": "harubareun",
+        "status": "available",
+        "loaded": true,
+        "raster": {
+          "x": -144,
+          "y": -36,
+          "width": 1728,
+          "height": 972,
+          "top": -36,
+          "right": 1584,
+          "bottom": 936,
+          "left": -144
+        },
+        "visibleArt": {
+          "x": 238.5,
+          "y": 198,
+          "width": 233.99999999999997,
+          "height": 184.5
+        },
+        "filter": "drop-shadow(rgb(255, 248, 212) 0px 0px 4px)",
+        "opacity": "1",
+        "label": {
+          "x": 263.28125,
+          "y": 128.8671875,
+          "width": 175.4375,
+          "height": 75.265625,
+          "top": 128.8671875,
+          "right": 438.71875,
+          "bottom": 204.1328125,
+          "left": 263.28125
+        }
+      },
+      {
+        "id": "project-02",
+        "status": "locked",
+        "loaded": true,
+        "raster": {
+          "x": -144,
+          "y": -36,
+          "width": 1728,
+          "height": 972,
+          "top": -36,
+          "right": 1584,
+          "bottom": 936,
+          "left": -144
+        },
+        "visibleArt": {
+          "x": 894.6000000000001,
+          "y": 193.5,
+          "width": 318.6,
+          "height": 224.10000000000002
+        },
+        "filter": "none",
+        "opacity": "1",
+        "label": {
+          "x": 1017.78125,
+          "y": 127.0703125,
+          "width": 124.4375,
+          "height": 69.859375,
+          "top": 127.0703125,
+          "right": 1142.21875,
+          "bottom": 196.9296875,
+          "left": 1017.78125
+        }
+      },
+      {
+        "id": "fitmate",
+        "visibleArt": null,
+        "filter": null,
+        "opacity": null,
+        "label": {
+          "x": 642.2265625,
+          "y": 478.0703125,
+          "width": 155.546875,
+          "height": 69.859375,
+          "top": 478.0703125,
+          "right": 797.7734375,
+          "bottom": 547.9296875,
+          "left": 642.2265625
+        }
+      }
+    ],
+    "actor": {
+      "x": 684,
+      "y": 396,
+      "width": 72,
+      "height": 72,
+      "top": 396,
+      "right": 756,
+      "bottom": 468,
+      "left": 684
+    },
+    "overflow": false,
+    "targets": [
+      {
+        "id": "harubareun",
+        "disabled": "false",
+        "rect": {
+          "x": 198,
+          "y": 175.5,
+          "width": 324,
+          "height": 225,
+          "top": 175.5,
+          "right": 522,
+          "bottom": 400.5,
+          "left": 198
+        }
+      },
+      {
+        "id": "project-02",
+        "disabled": "true",
+        "rect": {
+          "x": 922.5,
+          "y": 171,
+          "width": 324,
+          "height": 225,
+          "top": 171,
+          "right": 1246.5,
+          "bottom": 396,
+          "left": 922.5
+        }
+      },
+      {
+        "id": "fitmate",
+        "disabled": "true",
+        "rect": {
+          "x": 549,
+          "y": 522,
+          "width": 342,
+          "height": 229.5,
+          "top": 522,
+          "right": 891,
+          "bottom": 751.5,
+          "left": 549
+        }
+      }
+    ]
+  },
+  "desktopInvaderFocus": {
+    "url": "http://localhost:3022/dev/invader-island",
+    "width": 1440,
+    "height": 900,
+    "camera": "ITERATE_FOCUS",
+    "focused": "true",
+    "islands": [
+      {
+        "id": "harubareun",
+        "status": "completed",
+        "loaded": true,
+        "raster": {
+          "x": -1084.3199462890625,
+          "y": -108.9000015258789,
+          "width": 2678.39990234375,
+          "height": 1506.5999755859375,
+          "top": -108.9000015258789,
+          "right": 1594.0799560546875,
+          "bottom": 1397.6999740600586,
+          "left": -1084.3199462890625
+        },
+        "visibleArt": {
+          "x": -491.4449679056804,
+          "y": 253.79999259666158,
+          "width": 362.6999867757161,
+          "height": 285.9749953658493
+        },
+        "filter": "none",
+        "opacity": "0.15",
+        "label": {
+          "x": -453.03399658203125,
+          "y": 146.64413452148438,
+          "width": 271.9281005859375,
+          "height": 116.66171264648438,
+          "top": 146.64413452148438,
+          "right": -181.10589599609375,
+          "bottom": 263.30584716796875,
+          "left": -453.03399658203125
+        }
+      },
+      {
+        "id": "project-02",
+        "status": "active",
+        "loaded": true,
+        "raster": {
+          "x": -1084.3199462890625,
+          "y": -108.9000015258789,
+          "width": 2678.39990234375,
+          "height": 1506.5999755859375,
+          "top": -108.9000015258789,
+          "right": 1594.0799560546875,
+          "bottom": 1397.6999740600586,
+          "left": -1084.3199462890625
+        },
+        "visibleArt": {
+          "x": 525.5099950154622,
+          "y": 246.82499270968964,
+          "width": 493.82998199462895,
+          "height": 347.3549943712023
+        },
+        "filter": "drop-shadow(rgb(247, 244, 204) 0px 0px 5px)",
+        "opacity": "1",
+        "label": {
+          "x": 716.4409790039062,
+          "y": 143.85897827148438,
+          "width": 192.8780517578125,
+          "height": 108.28202819824219,
+          "top": 143.85897827148438,
+          "right": 909.3190307617188,
+          "bottom": 252.14100646972656,
+          "left": 716.4409790039062
+        }
+      },
+      {
+        "id": "fitmate",
+        "visibleArt": null,
+        "filter": null,
+        "opacity": null,
+        "label": {
+          "x": 134.3311767578125,
+          "y": 687.908935546875,
+          "width": 241.09771728515625,
+          "height": 108.2821044921875,
+          "top": 687.908935546875,
+          "right": 375.42889404296875,
+          "bottom": 796.1910400390625,
+          "left": 134.3311767578125
+        }
+      }
+    ],
+    "actor": {
+      "x": 526.9049682617188,
+      "y": 483.9749755859375,
+      "width": 111.60009765625,
+      "height": 111.5999755859375,
+      "top": 483.9749755859375,
+      "right": 638.5050659179688,
+      "bottom": 595.574951171875,
+      "left": 526.9049682617188
+    },
+    "hud": {
+      "x": 1092,
+      "y": 562.5,
+      "width": 310,
+      "height": 299.5,
+      "top": 562.5,
+      "right": 1402,
+      "bottom": 862,
+      "left": 1092
+    },
+    "overflow": false,
+    "targets": [
+      {
+        "id": "harubareun",
+        "disabled": "false",
+        "rect": {
+          "x": -554.219970703125,
+          "y": 218.92498779296875,
+          "width": 502.20001220703125,
+          "height": 348.74993896484375,
+          "top": 218.92498779296875,
+          "right": -52.01995849609375,
+          "bottom": 567.6749267578125,
+          "left": -554.219970703125
+        }
+      },
+      {
+        "id": "project-02",
+        "disabled": "false",
+        "rect": {
+          "x": 568.7550659179688,
+          "y": 211.94998168945312,
+          "width": 502.20001220703125,
+          "height": 348.7499694824219,
+          "top": 211.94998168945312,
+          "right": 1070.955078125,
+          "bottom": 560.699951171875,
+          "left": 568.7550659179688
+        }
+      },
+      {
+        "id": "fitmate",
+        "disabled": "true",
+        "rect": {
+          "x": -10.16998291015625,
+          "y": 756,
+          "width": 530.0999755859375,
+          "height": 355.7249755859375,
+          "top": 756,
+          "right": 519.9299926757812,
+          "bottom": 1111.7249755859375,
+          "left": -10.16998291015625
+        }
+      }
+    ]
+  },
+  "landing": {
+    "logical": {
+      "x": 1035,
+      "y": 375
+    },
+    "screen": {
+      "x": 582.7049929300945,
+      "y": 539.7749879625109
+    },
+    "method": "Unchanged manifest anchor projected through actual image transform. Circle placeholder hidden only in diagnostic screenshot."
+  },
+  "productionFixtureStatus": 404,
+  "exceptions": []
+}

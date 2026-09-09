@@ -327,8 +327,10 @@
 .productionIsland { z-index: 24; }
 .islandVisual[data-production="true"] { transform: none; aspect-ratio: auto; }
 .productionIsland[data-status="active"] { filter: drop-shadow(0 0 5px #f7f4cc); }
-.worldCanvas:has(.islandTarget[data-island="harubareun"]:is(:hover, :focus-visible):not([aria-disabled="true"])) .productionIsland { filter: drop-shadow(0 0 4px #fff8d4); }
-.islandTarget[data-island="harubareun"]:focus-visible { outline: 2px dashed #244952; outline-offset: -4px; border-radius: 14%; }
+.worldCanvas:has(.islandTarget[data-island="harubareun"]:is(:hover, :focus-visible):not([aria-disabled="true"])) [data-destination="harubareun"] .productionIsland,
+.worldCanvas:has(.islandTarget[data-island="project-02"]:is(:hover, :focus-visible):not([aria-disabled="true"])) [data-destination="project-02"] .productionIsland { filter: drop-shadow(0 0 4px #fff8d4); }
+.islandTarget[data-island="harubareun"]:focus-visible,
+.islandTarget[data-island="project-02"]:focus-visible { outline: 2px dashed #244952; outline-offset: -4px; border-radius: 14%; }
 .islandVisual:not([data-production="true"]) .landMass { background: #859997; border-color: #526c70; box-shadow: 0 8px 0 #758b89; }
 .islandVisual:not([data-production="true"])[data-status="locked"] { opacity: 0.5; }
 .islandLabel { color: #172b30; text-shadow: 0 1px 3px #eef2e8; }

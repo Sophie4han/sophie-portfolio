@@ -1,0 +1,49 @@
+{
+  "output": "public/images/pixel/world/islands/invader/island-invader-base.png",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "scale": 0.16,
+  "origin": {
+    "x": 1107,
+    "y": 355
+  },
+  "anchor": {
+    "logical": {
+      "x": 1035,
+      "y": 375
+    },
+    "raster": {
+      "x": 1195,
+      "y": 465
+    },
+    "rgba": [
+      245,
+      229,
+      187,
+      255
+    ],
+    "opaqueFootprint": {
+      "width": 29,
+      "height": 15,
+      "passed": true
+    },
+    "distanceToTransparentEdge": 19.235384061671347
+  },
+  "connectedToOriginalShore": true,
+  "changedOriginalOpaquePixels": 2131,
+  "addedOpaquePixels": 5809,
+  "originalOpaquePixels": 39713,
+  "addedAreaPercent": 14.627451967869465,
+  "alphaBounds": {
+    "x": 1154,
+    "y": 255,
+    "width": 354,
+    "height": 249
+  },
+  "rendering": {
+    "foregroundAtAnchor": "No tall vegetation, landmark or waterfall; flat dry stone clearing. Short edge stones are outside the landing footprint.",
+    "note": "Current circle placeholder is not a feet-based final renderer. Diagnostic screenshot hides it only to expose the actual landing surface."
+  }
+}

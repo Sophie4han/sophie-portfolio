@@ -1,0 +1,26 @@
+{
+  "lint": {
+    "command": "npm run lint",
+    "exitCode": 0
+  },
+  "typescript": {
+    "command": "npx --no-install tsc --noEmit",
+    "exitCode": 0
+  },
+  "build": {
+    "command": "npm run build -- --webpack",
+    "exitCode": 0
+  },
+  "browser": {
+    "screenshots": [
+      "desktop-overview.png",
+      "desktop-invader-focus.png",
+      "mobile-overview.png"
+    ],
+    "exceptions": 0,
+    "productionFixtureStatus": 404
+  },
+  "limitation": "Fixed CHOONI anchor is outside visual bbox; no terrain contact at that point.",
+  "committed": false,
+  "pushed": false
+}

@@ -1,0 +1,725 @@
+{
+  "checkpoint": "a2b8c398ad2d7b8130ea766a1a7313c31a755dcc",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "207e265ff4901f9ad9f96d8ce08530e04f9fc600815472a66d0a446096d654cd",
+      "unchanged": true
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "09908cdca8a0363b16a9f3792164d365ac743fc01ec9fda8de451063b7cb5346",
+      "unchanged": true
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+      "unchanged": true
+    },
+    {
+      "path": "README.md",
+      "sha256": "60b55ff7df79af72590f9524208e46642bc32bdc175cdad41349681c0e2f958f",
+      "unchanged": true
+    },
+    {
+      "path": "app/dev/chooni-motion/ChooniMotionTest.tsx",
+      "sha256": "d9738b396855ce66a81458cc53374793d341349275742fbedede30c0d1db05e9",
+      "unchanged": true
+    },
+    {
+      "path": "app/dev/chooni-motion/chooni-motion.module.css",
+      "sha256": "55f2e7196a8d2c722a114068beab61ccbdea61f037909030a2a42292eaf06191",
+      "unchanged": true
+    },
+    {
+      "path": "app/dev/chooni-motion/page.tsx",
+      "sha256": "8f730c75eff618759d86b9d669bc0ecfa6b0d8f1a464c28bab808f3a964ab798",
+      "unchanged": true
+    },
+    {
+      "path": "app/favicon.ico",
+      "sha256": "2b8ad2d33455a8f736fc3a8ebf8f0bdea8848ad4c0db48a2833bd0f9cd775932",
+      "unchanged": true
+    },
+    {
+      "path": "app/globals.css",
+      "sha256": "769edf77bd0d101a2d26e6c5656defba8cd885ff37d92279fa293a2756fe5651",
+      "unchanged": true
+    },
+    {
+      "path": "app/layout.tsx",
+      "sha256": "ac0a51f726d23d255be241c5f37e47119736c2c3cdf5feac57f85de677686ee5",
+      "unchanged": true
+    },
+    {
+      "path": "app/page.tsx",
+      "sha256": "4c7f5e092a0bcdf78062c3ec8c4c3b6cf0f8caaa7032f858d1e8bfc92482ad11",
+      "unchanged": true
+    },
+    {
+      "path": "components/game/GameShell.tsx",
+      "sha256": "37749660288713d5bcf375ecaed16533f8ad908a4f49c9af69660900de2e97ca",
+      "unchanged": true
+    },
+    {
+      "path": "components/game/SceneDebugPanel.tsx",
+      "sha256": "30877433c7bcde5d3408dbe042d4e2b8f64482ed2345ce29ff4066f06eea7f25",
+      "unchanged": true
+    },
+    {
+      "path": "components/game/SceneManager.tsx",
+      "sha256": "00eda3da398710a71384b23e1f9ad7a7fb37df9bda368111629dc233b62b609f",
+      "unchanged": true
+    },
+    {
+      "path": "components/game/SceneTransitionLayer.tsx",
+      "sha256": "d22e5474a574461d0dce82ed8279665670379ba8d18745950047460db015e20a",
+      "unchanged": true
+    },
+    {
+      "path": "components/game/SceneViewport.tsx",
+      "sha256": "6f07f3ebcbbb3555eb466f7d7a261832026879f35168ef7fc53803635f439990",
+      "unchanged": true
+    },
+    {
+      "path": "components/game/scene-transition.module.css",
+      "sha256": "757f1c4bbc94243684e889b60094618617121667aab5f40e2b98e7f44bbb30a2",
+      "unchanged": true
+    },
+    {
+      "path": "components/game/useTransitionCoordinator.ts",
+      "sha256": "d72195835c14e78bcf194cd2dc1de31e299a9b81e1ec593515d1cf518edd577b",
+      "unchanged": true
+    },
+    {
+      "path": "components/intro/IntroScene.tsx",
+      "sha256": "dac0ea97da240803f76c1bd36f4bc663072f78f21642b208eba6373d30636065",
+      "unchanged": true
+    },
+    {
+      "path": "components/intro/WoodlandStage.tsx",
+      "sha256": "2ee56a033715bb8e6d2254054e4d2cfe553b93917013b5537f7cc088580d55aa",
+      "unchanged": true
+    },
+    {
+      "path": "components/intro/intro-scene.module.css",
+      "sha256": "b57482bae87b69ab26e3f341600f47577727a7b65470c976e65509d172cc1d12",
+      "unchanged": true
+    },
+    {
+      "path": "components/world/WorldRenderer.tsx",
+      "sha256": "8025a48e9eafa98319f44830ffcb4747edd9154fd657e4cd4b72ef18b77f65da",
+      "unchanged": true
+    },
+    {
+      "path": "components/world/WorldScene.tsx",
+      "sha256": "4c5924e30ad2d087296db58f28fb17e803e915bac29c69bf5969ff9b1d333d3a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/asset-manifest.md",
+      "sha256": "6f6cd631b5a267c9443c065f8459d4132db3fab481b5185616e0c6ff2125b9a5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/design-system.md",
+      "sha256": "a5402e11387db6902367d7efb01539bb73b2bd84515da2e60c0e51b292a7da0d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/implementation-plan.md",
+      "sha256": "ec3687f5b5c3d2b38de0d55890d8856d3e85fbed920a458f861f67f35d5e85ce",
+      "unchanged": true
+    },
+    {
+      "path": "docs/mobile-camera-preset-validation.svg",
+      "sha256": "7899d66cd4a23496d0538c7c6b8fc60e62d8e714f1058668c2458dd35ca0388d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-05-5/README.md",
+      "sha256": "54f123b1c91bb22b8caea8bba179c6d8c55211a922c41efc4bf7c1dd06f6a506",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-05-5/browser-validation.json",
+      "sha256": "f27a4e564fd16054294932c4729652ee2c72e0e5564c63942559a4f165d39a7d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-05-5/desktop-build-focus.png",
+      "sha256": "44585b9fac1dc62a6d1cc2cbf7fff18b298b1de90a41ec12e0fe85e7892c36e5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-05-5/desktop-keyboard-focus.png",
+      "sha256": "5e178b36bdebc1914f03e5024576949603a784d2ae51d48e5d1c2122bb18d0bb",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-05-5/desktop-overview.png",
+      "sha256": "ec21691c3d8068098d5ea73c7d35915434a1ca72c28bdd5f3426e001331028b9",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-05-5/mobile-build-focus.png",
+      "sha256": "dd24aac5e1aefe82c03ceb49152d3f0c47be7c200c22177d21935ec4dd7de341",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-05-5/mobile-overview.png",
+      "sha256": "93e368fb434be2f3a2cf16aebe883e8dc8bc3cf948a19f60747c1241b50bccbe",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-06/README.md",
+      "sha256": "7b245cfdf0bba222ab6e4a5786a223c3fb557e70fa5bf93ffae0718f297eb4f1",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-06/asset-integrity.json",
+      "sha256": "f640f805b38d6d20a68c80c477a811b970df429add7a6bfd8bf207e5370e6888",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-06/browser-validation.json",
+      "sha256": "df0203354db0e8fef1537a6b8627f64deebb8306af09e25b743b5a2f85b04735",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-06/desktop-build-focus.png",
+      "sha256": "891d48d449cdd0564a10dcb0aff0d0e5a4ee1e96ad03a58f294afbd8f80fec89",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-06/desktop-keyboard-focus.png",
+      "sha256": "0893961f7ed1fdb0a3b120756b5e612803620c3fa2837eac8c04a5c7088dbf2a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-06/desktop-overview.png",
+      "sha256": "7f5a8eec2f2ca75b857973398590417427894f080dc763131d456e5ae2c3b45c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-06/mobile-build-focus.png",
+      "sha256": "5f759f4c437b260f69b6c2321657285c2a7dec1f477dcdfb24a44055d9f9f612",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-06/mobile-overview.png",
+      "sha256": "3084a35371dfe5acfa8848b2e2613f1fbf44583cc27c198d0ffbfc73a559a166",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/README.md",
+      "sha256": "034d4e8b31deb61ce68b3e6c9f5348be3d0b10bbe33c30662d65045b5957f441",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/after/browser-validation.json",
+      "sha256": "53a95eccf5f008c2aa77068ed95822e4ced99cabdbc2a40d573c3f66c318a2ea",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/after/desktop-before-gate-entry.png",
+      "sha256": "22e6b644eb047a629285eeb66027c3023d603f070ca5b6d7ee644ba56c32602a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/after/desktop-gate-revealed.png",
+      "sha256": "22e6b644eb047a629285eeb66027c3023d603f070ca5b6d7ee644ba56c32602a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/after/desktop-greeting.png",
+      "sha256": "e490bcaa366192bd972fa2196577f68b38b3fdb57a0a9ae3443ee67d144d9738",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/after/mobile-gate-revealed.png",
+      "sha256": "219eb13eef4764db052d9585abe8ee935e620b8175ddef52d293edd1b366322f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/after/mobile-greeting.png",
+      "sha256": "55b94d7bf23d39d702daed5b00b65c69099a3c77a1cb3eb316eb0f702ce367a9",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/asset-metadata.json",
+      "sha256": "f81a765dad17e01d32dfd6ffa4406516856234899c406d9dc7f2009dd1a4a5b2",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/asset-prompts.md",
+      "sha256": "cefe83794f45c172dd4162d407f7dacaa3f1bffa2e3f6cc74a62e53c3ebb1041",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/automatic-flow-validation.json",
+      "sha256": "210c9f256417639ac1f9c33ef8e6f704ab6e73129bd097deb1685150c7c9c2d3",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/baseline-hashes.json",
+      "sha256": "49c2e0bf54bcf4a978e1723062c9e2fca07c8f9b20bfac5c5e0173b9bc93d695",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/before/desktop-before-gate-entry.png",
+      "sha256": "44f811a7b7686715e5828de27c298e650a2b8d8e897ace7306fba91a0de00a18",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/before/desktop-gate-revealed.png",
+      "sha256": "44f811a7b7686715e5828de27c298e650a2b8d8e897ace7306fba91a0de00a18",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/before/desktop-greeting.png",
+      "sha256": "75d487adc22e613b481ef05136803a9421f1a3c85bedcc2b0dae2f4639e6b040",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/before/mobile-gate-revealed.png",
+      "sha256": "6e4a615853e9caa77b22eaee5dd150cbb8029b978d4fc89ecc9ea243973d089b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/before/mobile-greeting.png",
+      "sha256": "83d3f4736a65957392faddae2fdc906751c1a63e5c6c630249bb5ae2a1eb20e7",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/scope-integrity.json",
+      "sha256": "dc07e18d0370e4b54bf0451f715de91d3a99bf934c4eebfbdcaf8e0cdca1674f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-1/served-image-metadata.json",
+      "sha256": "f7d616f6d34b7bdbb64029334fc7722188b84957436e061aa4c76bfed535f8dd",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/README.md",
+      "sha256": "3d85c99e5525cf2d177f41139b65725b8c5712875b07252257f3a4a5fb6b022c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/after/browser-validation.json",
+      "sha256": "62387c66ffef0aa776f03b950463891474d22a8ff33b206871e6e5b01f9d8eb0",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/after/desktop-before-gate-entry.png",
+      "sha256": "6e441092fdcf4c9235cdd6641c02eddadfc20ae7a2a91f593ed1bc982d02ea99",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/after/desktop-gate-revealed.png",
+      "sha256": "6e441092fdcf4c9235cdd6641c02eddadfc20ae7a2a91f593ed1bc982d02ea99",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/after/desktop-greeting.png",
+      "sha256": "31d65a8f6468d518202ae785d31b99194fc59a45be44ba091b01c77d62bcf975",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/after/mobile-gate-revealed.png",
+      "sha256": "01cfcaccc99270f51a87307f3a1a3513f28e9427a793adab035c1812474c4bf1",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/after/mobile-greeting.png",
+      "sha256": "02155b0b1815ab4e3f2b57779cc66106ca91442271afe3b1c176f565890ce26e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/asset-metadata.json",
+      "sha256": "67d7fecafa870c6a5eb12ea00ad5a2b42951731eeb4c93c7d32fa5e20929c818",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/asset-prompts.md",
+      "sha256": "5fcaa4f3adc001ceb98420f218399ee31d0df58e0bae0ff334a475d3e4996574",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/before/desktop-before-gate-entry.png",
+      "sha256": "22e6b644eb047a629285eeb66027c3023d603f070ca5b6d7ee644ba56c32602a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/before/desktop-gate-revealed.png",
+      "sha256": "22e6b644eb047a629285eeb66027c3023d603f070ca5b6d7ee644ba56c32602a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/before/desktop-greeting.png",
+      "sha256": "e490bcaa366192bd972fa2196577f68b38b3fdb57a0a9ae3443ee67d144d9738",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/before/mobile-gate-revealed.png",
+      "sha256": "219eb13eef4764db052d9585abe8ee935e620b8175ddef52d293edd1b366322f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/before/mobile-greeting.png",
+      "sha256": "55b94d7bf23d39d702daed5b00b65c69099a3c77a1cb3eb316eb0f702ce367a9",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/build.log",
+      "sha256": "c5ad5d493fbc34fd19e287fc2eb20460e4d96b30fa62cf4fb3d48a55c8a8170d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/capture.log",
+      "sha256": "bd0c4faaabb5b9bb1bc312d5add35e2e98e51d17835b828d85b5d2c050c9eaa1",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/capture.mjs",
+      "sha256": "c1f4e100c25c33f3b81daa8ff3c235e2db88352bc25261fc5cfd6c9bc9ae86ca",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/geometry-comparison.json",
+      "sha256": "11d3682f6cae0d6a1e471840169ead1f726d14d4e574da4edf8ff972a87e7ad8",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/lint.log",
+      "sha256": "f1f257adb996ceedf4f64aaf87129fc82c8effbf533b18ae40b9a3e77b786ffd",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/protected-before.sha256",
+      "sha256": "b3d35267d119092c62a481ba2bb008a09d6bccfa49f0f9a604c55765ba0434df",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/reveal-frame-validation.json",
+      "sha256": "6694921ba57fce50c99273d46e4befc9f08d6ad3efd103ad6cdc49b748f71dcd",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/typescript.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07-2/validate-reveal.mjs",
+      "sha256": "dec4b60c10ba5cba657d22fd741ce26ff0612c2b14d18bb09842ad2018e9d0a8",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07/README.md",
+      "sha256": "240937cc3490941393c583a441578552dec0e16194f45d0ef1d8b530da0e0d32",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07/asset-prompts.md",
+      "sha256": "020ebdfd433d6c6889e2201a7a448a7f13f5b5a6f77dcc3171763d532a2e31a5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07/automatic-flow-validation.json",
+      "sha256": "3263cae11250cbe71780aebcb16c902ba8b876c0f56505a82f268ba2f6a7ea61",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07/browser-validation.json",
+      "sha256": "53faea44da51a1d3a4747adc010951c41aa08f7a18e379b62e71173a3976044d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07/desktop-before-gate-entry.png",
+      "sha256": "44f811a7b7686715e5828de27c298e650a2b8d8e897ace7306fba91a0de00a18",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07/desktop-gate-revealed.png",
+      "sha256": "44f811a7b7686715e5828de27c298e650a2b8d8e897ace7306fba91a0de00a18",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07/desktop-greeting.png",
+      "sha256": "75d487adc22e613b481ef05136803a9421f1a3c85bedcc2b0dae2f4639e6b040",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07/interaction-validation.json",
+      "sha256": "445d6798b85d9b8a9466df8571e52b5bbd788032beb8cb84ba0351b6eabab65f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07/mobile-gate-revealed.png",
+      "sha256": "6e4a615853e9caa77b22eaee5dd150cbb8029b978d4fc89ecc9ea243973d089b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07/mobile-greeting.png",
+      "sha256": "83d3f4736a65957392faddae2fdc906751c1a63e5c6c630249bb5ae2a1eb20e7",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07/mobile-keyboard-focus.png",
+      "sha256": "113eb407caab87626c700c0807c6106b818165ee29b9d0803681c922a331db8d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/step-07/scope-integrity.json",
+      "sha256": "f7eae92f4ab32c4319ea835550f3ec6aba8db1aa37bec509a2c8256e4f5492a2",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ui-architecture.md",
+      "sha256": "936e0935c0aacdf4df1e6237e07db2f09c63037c18cdfdd0326c8bbfd0de219a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/world-asset-composition-blockout.svg",
+      "sha256": "bb6360e02832e0fdc22a6031d9a03d4d4f08827e4145df5053917fe23b257e4e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/world-asset-production/build-production-final.md",
+      "sha256": "98785999170f8c29f4d69dd627a7f679edf5ccc5273938d25c14f1d49ea66db8",
+      "unchanged": true
+    },
+    {
+      "path": "docs/world-asset-production/cleanup-report.md",
+      "sha256": "6ca6ca7530bf94d40a387b2082aa1984a725a79d3d50574ca3def80079ed7c16",
+      "unchanged": true
+    },
+    {
+      "path": "docs/world-asset-production/step-02-correction/provenance.md",
+      "sha256": "08e1983e0ba06c1e2ed91679305a6c6b36c489efb6c9751b7d0f8acad50a715b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/world-asset-production/step-02-forest-v03/provenance.md",
+      "sha256": "afcdeed4e3f30a73c390e12a02dd14ab2b65fefedba1373a5f9bd9e42a747a7e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/world-asset-production/step-02-forest-v04/generation-prompt.txt",
+      "sha256": "984a23f60c29cef6418988a23a96a917210cb2f46001c29bf4fb89227a993d1b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/world-asset-production/step-02-forest-v04/provenance.md",
+      "sha256": "8cf4d5cdc5b07f048d2fe64995fddca3959a264aea0ca14bb155f7990945999d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/world-asset-production/step-02-forest-v04/validation.json",
+      "sha256": "a56157cfe3afa9c6dab931ebaeae6a9fb4efef8a20376fdee450bccc0fcb00e7",
+      "unchanged": true
+    },
+    {
+      "path": "docs/world-asset-production/step-02-woodland-v05/composite-desktop-build-focus-build-woodland-v05.png",
+      "sha256": "917a4f6af36e6887e10e896cc87d6318b8969469518e5c85b37db64b8b6b2463",
+      "unchanged": true
+    },
+    {
+      "path": "docs/world-asset-production/step-02-woodland-v05/composite-desktop-overview-build-woodland-v05.png",
+      "sha256": "38fc5dccc6f93af1095938dd92babd1c8756c6848a5126292a4db53a0d2a171b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/world-asset-production/step-02-woodland-v05/generation-prompt.txt",
+      "sha256": "8b88dd958220b158c6b38d26eb8407a5ff83dd634d49a82982fca7d5df7c2a69",
+      "unchanged": true
+    },
+    {
+      "path": "docs/world-asset-production/step-02-woodland-v05/provenance.md",
+      "sha256": "e3a2be28509389ee23c74c2a2fa38c9d49fede01e121863dfca06241b2ff6084",
+      "unchanged": true
+    },
+    {
+      "path": "docs/world-asset-production/step-02-woodland-v05/validation.json",
+      "sha256": "ae1473876a80af297a2197a9c35753fa2784f6d040990be0df553165603b8761",
+      "unchanged": true
+    },
+    {
+      "path": "docs/world-asset-production/step-02/provenance.md",
+      "sha256": "00a65054e747a82dc542a486a781151e60e6bed56ac0fa88f407c87a2cf79484",
+      "unchanged": true
+    },
+    {
+      "path": "eslint.config.mjs",
+      "sha256": "870f1adccecf3051cbcd9fd307cef51d7633cf510979c181a81f4b1797273493",
+      "unchanged": true
+    },
+    {
+      "path": "lib/project-progression.ts",
+      "sha256": "e0647f4ef75e2a640e99a28a9154dd07fafb89f5d841638ed7dc064cd74b459a",
+      "unchanged": true
+    },
+    {
+      "path": "lib/prologue-visual.ts",
+      "sha256": "f7a6554842805edab41b2dd04dafb55997467e80190c9d077ac7f997d9e4e651",
+      "unchanged": true
+    },
+    {
+      "path": "lib/scene-descriptors.ts",
+      "sha256": "be556d44a88bf4639c96b238ac9f65c3913e5d3091cee679615136927a91daf7",
+      "unchanged": true
+    },
+    {
+      "path": "lib/scene-machine.ts",
+      "sha256": "e8c301dfbf7c6d18c323d718e18d3ecfef748d0f36a93eb473ca58820f298c24",
+      "unchanged": true
+    },
+    {
+      "path": "lib/transition-descriptors.ts",
+      "sha256": "ed550224a630494c19292c2ab4e37676f7d9b516b85810c3b2cc830b06746b9e",
+      "unchanged": true
+    },
+    {
+      "path": "next.config.ts",
+      "sha256": "614bce25b089c3f19b1e17a6346c74b858034040154c6621e7d35303004767cc",
+      "unchanged": true
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "992aec9902b773f8db15520f31fee7f394753fbd688f264524838a45133b554b",
+      "unchanged": true
+    },
+    {
+      "path": "package.json",
+      "sha256": "6187c0d9e60ce702e94bff5cb06cb0e68596298dbb64f3fc0cd4edffbeb904ab",
+      "unchanged": true
+    },
+    {
+      "path": "postcss.config.mjs",
+      "sha256": "dfac7ac2d86d326a0e5adb024e7943c181393ed17a5fcb8f0315b24c7da6ddde",
+      "unchanged": true
+    },
+    {
+      "path": "public/file.svg",
+      "sha256": "2b67812c325c199a02536cdbeea0c593a72f707d323b72ee3e08dbab06753bd4",
+      "unchanged": true
+    },
+    {
+      "path": "public/globe.svg",
+      "sha256": "b614b9bf183925957661ac851498fe1d8029fd43a62fbfed86f9e2624a57e7cf",
+      "unchanged": true
+    },
+    {
+      "path": "public/images/pixel/chooni/prologue-greeting/arm-right-wave.png",
+      "sha256": "c2aa040b8238171ede605e0af7054c8e6fba91e6f8d25a5afb3751e5c0948e1a",
+      "unchanged": true
+    },
+    {
+      "path": "public/images/pixel/chooni/prologue-greeting/body-base.png",
+      "sha256": "6ff017f36ca0dc5f36a9724c610eebeeea379c5093fa67fa8cd4994a73123588",
+      "unchanged": true
+    },
+    {
+      "path": "public/images/pixel/chooni/prologue-greeting/face-blink-closed.png",
+      "sha256": "826fe603406adeadf65872f6c4b1a0b0fa7cf240c17fbe0f2d356ec0abe3aeed",
+      "unchanged": true
+    },
+    {
+      "path": "public/images/pixel/chooni/prologue-greeting/face-blink-half.png",
+      "sha256": "747368fc8d1052393839a17a6c0b9f28b808feadbe95da5bc68148f6c86be9eb",
+      "unchanged": true
+    },
+    {
+      "path": "public/images/pixel/chooni/prologue-greeting/face-smile.png",
+      "sha256": "98975581b99ecdff2025fbdd511742794f1afdbc431aa84e6373c528ecc0303c",
+      "unchanged": true
+    },
+    {
+      "path": "public/images/pixel/prologue/woodland-clearing-v01.png",
+      "sha256": "3e9c67b12b59caea21d96f84f63f56a5a724035dad3138b95f88c8d39b9af2a0",
+      "unchanged": true
+    },
+    {
+      "path": "public/images/pixel/prologue/woodland-clearing-v02.png",
+      "sha256": "48b61f57a912fb3ec6a0de2e70f234ff0ca630afd1143d65fa14a6656b5d73d8",
+      "unchanged": true
+    },
+    {
+      "path": "public/images/pixel/prologue/woodland-clearing-v03.png",
+      "sha256": "5e9cca9f6f52be6ed7ebe9bb3b3dfa357d2f7114a51e23335acd911222cc91ae",
+      "unchanged": true
+    },
+    {
+      "path": "public/images/pixel/prologue/woodland-gate-v01.png",
+      "sha256": "5286864602bdcbe0e993e57cbe91a625576e46e96cc67715b725a4bd871f4717",
+      "unchanged": true
+    },
+    {
+      "path": "public/images/pixel/prologue/woodland-gate-v02.png",
+      "sha256": "d18e66eaba065a4b8728254a7019fdde44b0c8f9fbb8f85d5a02d0012da9c33b",
+      "unchanged": true
+    },
+    {
+      "path": "public/images/pixel/prologue/woodland-gate-v03.png",
+      "sha256": "5e9a769da1fc47fe6138f23d5bc14f60302a8033d6c4268cff0b1cd2c15261d2",
+      "unchanged": true
+    },
+    {
+      "path": "public/images/pixel/world/islands/harubareun/island-harubareun-base.png",
+      "sha256": "3520383354937b99565f64f7d36a9e247ccdcb5fa1761e284952103fd255a56e",
+      "unchanged": true
+    },
+    {
+      "path": "public/images/pixel/world/shared/world-background-floating-v02.png",
+      "sha256": "7b8d24cac30f24a51f362fcbfa416aec8450ab24a7716c988e84a26166ab5339",
+      "unchanged": true
+    },
+    {
+      "path": "public/next.svg",
+      "sha256": "55995dfad6ecb4945a1e856ddca03c5e16aa5bf13fd21b4df6a74ae79357bcfc",
+      "unchanged": true
+    },
+    {
+      "path": "public/vercel.svg",
+      "sha256": "f081337b2fee635b455b63275406a3e7f39d6a014e25ad90dab5a67e62a12ac4",
+      "unchanged": true
+    },
+    {
+      "path": "public/window.svg",
+      "sha256": "644768c4aaeb4767bce293344eeb0c125fb804a94d801440424072202d85e3a1",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/world-assets/prepare-build-island-woodland-v05.mjs",
+      "sha256": "7b86b2ec392da5b11e6b8ddd156a2ef6ede3348f4acde2df892003b00c1b9703",
+      "unchanged": true
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "be18523b23b78b6e1a876ddd107d330f0168bddf09d751b57e0b5edce69c66f3",
+      "unchanged": true
+    },
+    {
+      "path": "types/game.ts",
+      "sha256": "c39a6a7af9f966339991bd5868d74ae04a078efe1cc92a89ac09492210d2dccd",
+      "unchanged": true
+    },
+    {
+      "path": "types/scene.ts",
+      "sha256": "06d080fc7380d22e5d7f577b4244a346e114e0c59216dcb70f8ccde746ba57ee",
+      "unchanged": true
+    },
+    {
+      "path": "types/transition.ts",
+      "sha256": "0c941e5071ac82e4cca88db54de5054f04d8aa5de117a3f5763e8b0e7f808e60",
+      "unchanged": true
+    },
+    {
+      "path": "types/world.ts",
+      "sha256": "32c2c43f3e3902bcdb57584965e5bb05d3da615f9f8e4d3f83e683ab330ac896",
+      "unchanged": true
+    }
+  ]
+}
