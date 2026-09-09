@@ -1,0 +1,16 @@
+{
+  "unchangedFromHEAD": {
+    "app/dev/chooni-motion": true,
+    "components/game/SceneManager.tsx": true,
+    "components/game/SceneViewport.tsx": true,
+    "components/game/useTransitionCoordinator.ts": true,
+    "lib/transition-descriptors.ts": true,
+    "lib/scene-machine.ts": true,
+    "components/world/WorldRenderer.tsx": true,
+    "public/images/pixel/world/shared/world-background-floating-v02.png": true
+  },
+  "assets": {
+    "public/images/pixel/prologue/woodland-clearing-v01.png": "3e9c67b12b59caea21d96f84f63f56a5a724035dad3138b95f88c8d39b9af2a0",
+    "public/images/pixel/prologue/woodland-gate-v01.png": "5286864602bdcbe0e993e57cbe91a625576e46e96cc67715b725a4bd871f4717"
+  }
+}

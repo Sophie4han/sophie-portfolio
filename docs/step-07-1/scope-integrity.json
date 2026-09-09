@@ -1,0 +1,13 @@
+{
+  "components/intro/IntroScene.tsx": true,
+  "components/intro/intro-scene.module.css": true,
+  "lib/prologue-visual.ts": true,
+  "components/game/SceneManager.tsx": true,
+  "components/game/SceneViewport.tsx": true,
+  "components/game/useTransitionCoordinator.ts": true,
+  "lib/transition-descriptors.ts": true,
+  "components/game/scene-transition.module.css": true,
+  "app/dev/chooni-motion/chooni-motion.module.css": true,
+  "app/dev/chooni-motion/ChooniMotionTest.tsx": true,
+  "app/dev/chooni-motion/page.tsx": true
+}

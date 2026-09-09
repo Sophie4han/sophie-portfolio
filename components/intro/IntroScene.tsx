@@ -5,25 +5,13 @@ import type { ChooniIntent, SceneId } from "@/types/game";
 import type { SceneEvent } from "@/types/scene";
 import type { TransitionRuntimeState } from "@/types/transition";
 import styles from "./intro-scene.module.css";
+import { WoodlandStage } from "./WoodlandStage";
 
-type ProloguePhase =
+export type ProloguePhase =
   | "intro-greeting"
   | "intro-follow"
   | "intro-gate"
   | "enter-world";
-
-type PrologueActorStage =
-  | "front-facing"
-  | "turn-and-walk-to-gate"
-  | "approach-gate"
-  | "enter-gate";
-
-const ACTOR_STAGE_BY_PHASE: Readonly<Record<ProloguePhase, PrologueActorStage>> = {
-  "intro-greeting": "front-facing",
-  "intro-follow": "turn-and-walk-to-gate",
-  "intro-gate": "approach-gate",
-  "enter-world": "enter-gate",
-};
 
 interface IntroSceneProps {
   sceneId: ProloguePhase;
@@ -54,15 +42,11 @@ export function IntroScene({ sceneId, chooniIntent, transition, dispatch }: Intr
       data-transition-id={transition.id}
       data-transition-phase={transition.phase}
     >
-      <SceneEnvironment gateVisibility={transition.gateVisibility} />
-
-      <div className={styles.actor}>
-        <ChooniStage
-          intent={chooniIntent}
-          sceneId={sceneId}
-          transition={transition}
-        />
-      </div>
+      <WoodlandStage sceneId={sceneId} intent={chooniIntent} transition={transition} />
+      <header className={styles.sceneHud} aria-label="MOVE ON prologue">
+        <strong>MOVE ON</strong>
+        <span>PROLOGUE · WOODLAND GATEWAY</span>
+      </header>
 
       <div className={styles.conversation}>
         <SpeechBubble sceneId={sceneId}>
@@ -72,7 +56,7 @@ export function IntroScene({ sceneId, chooniIntent, transition, dispatch }: Intr
               <h1 ref={headingRef} tabIndex={-1}>Hi! 👋 I’m Chooni, your little guide.</h1>
               <p>Want me to show you around?</p>
               <ReplyChoices>
-                <button type="button" onClick={() => dispatch({ type: "INTRO_ACCEPTED" })}>
+                <button type="button" disabled={transition.phase !== "idle"} onClick={() => dispatch({ type: "INTRO_ACCEPTED" })}>
                   Sounds good!
                 </button>
                 <button
@@ -146,53 +130,6 @@ function ReplyChoices({ children }: { children: React.ReactNode }) {
     <div className={styles.replies} aria-label="Choose your reply">
       <p className={styles.replyPrompt}>Your reply</p>
       {children}
-    </div>
-  );
-}
-
-function ChooniStage({
-  intent,
-  sceneId,
-  transition,
-}: {
-  intent: ChooniIntent | null;
-  sceneId: ProloguePhase;
-  transition: TransitionRuntimeState;
-}) {
-  return (
-    <div
-      className={styles.chooniStage}
-      data-chooni-intent={intent ?? "none"}
-      data-actor-stage={ACTOR_STAGE_BY_PHASE[sceneId]}
-      data-scene-placement={sceneId}
-      data-transition-id={transition.id}
-      data-transition-phase={transition.phase}
-      role="img"
-      aria-label={`Chooni, the guide. Character artwork pending. Current action: ${ACTOR_STAGE_BY_PHASE[sceneId]}.`}
-    >
-      <div className={styles.chooniPlaceholder} aria-hidden="true">
-        <span>CHOONI</span>
-        <small>actor boundary</small>
-      </div>
-    </div>
-  );
-}
-
-function SceneEnvironment({
-  gateVisibility,
-}: {
-  gateVisibility: TransitionRuntimeState["gateVisibility"];
-}) {
-  return (
-    <div className={styles.environment} aria-hidden="true">
-      <span className={styles.horizon} />
-      <span className={styles.path} />
-      {gateVisibility !== "hidden" && (
-        <span className={styles.gate} data-gate-visibility={gateVisibility}>
-          <strong>MOVE ON</strong>
-          <small>World gate</small>
-        </span>
-      )}
     </div>
   );
 }

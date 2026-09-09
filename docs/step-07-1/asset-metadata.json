@@ -1,0 +1,22 @@
+{
+  "woodland-clearing-v01.png": {
+    "width": 1536,
+    "height": 1024,
+    "alpha": false
+  },
+  "woodland-clearing-v02.png": {
+    "width": 1536,
+    "height": 1024,
+    "alpha": false
+  },
+  "woodland-gate-v01.png": {
+    "width": 1254,
+    "height": 1254,
+    "alpha": true
+  },
+  "woodland-gate-v02.png": {
+    "width": 1254,
+    "height": 1254,
+    "alpha": true
+  }
+}

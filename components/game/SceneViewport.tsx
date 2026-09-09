@@ -33,7 +33,6 @@ export function SceneViewport({
   if (isProloguePhase(scene.sceneId)) {
     return (
       <IntroScene
-        key={scene.sceneId}
         sceneId={scene.sceneId}
         chooniIntent={scene.requestedChooniIntent}
         transition={transition}

@@ -1,0 +1,14 @@
+{
+  "background": {
+    "status": 200,
+    "width": 1536,
+    "height": 1024,
+    "bytes": 1190467
+  },
+  "gate": {
+    "status": 200,
+    "width": 384,
+    "height": 384,
+    "bytes": 67049
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "greeting": {
+    "noGate": true,
+    "buttons": [
+      {
+        "text": "Sounds good!",
+        "height": 44
+      },
+      {
+        "text": "I’ll explore myself",
+        "height": 44
+      }
+    ],
+    "animations": [
+      "none",
+      "none",
+      "none"
+    ]
+  },
+  "keyboard": {
+    "text": "Sounds good!",
+    "outline": "solid"
+  },
+  "fastPath": {
+    "notice": "The project index will open here once the approved `/projects` route is implemented.",
+    "scene": "intro-greeting",
+    "gate": false
+  },
+  "reducedMotionWorld": true,
+  "errors": []
+}

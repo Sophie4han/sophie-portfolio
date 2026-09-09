@@ -1,0 +1,13 @@
+{
+  "components/intro/IntroScene.tsx": "dac0ea97da240803f76c1bd36f4bc663072f78f21642b208eba6373d30636065",
+  "components/intro/intro-scene.module.css": "ac8a0852b7915f5e557c18bc616ec7be97f7636f7316e685f10bd35d121b715e",
+  "lib/prologue-visual.ts": "f7a6554842805edab41b2dd04dafb55997467e80190c9d077ac7f997d9e4e651",
+  "components/game/SceneManager.tsx": "00eda3da398710a71384b23e1f9ad7a7fb37df9bda368111629dc233b62b609f",
+  "components/game/SceneViewport.tsx": "d7a301a4f70d27331db55f6a1d8f3859681176ecf2ee2dc990eb244effd6d8bd",
+  "components/game/useTransitionCoordinator.ts": "d72195835c14e78bcf194cd2dc1de31e299a9b81e1ec593515d1cf518edd577b",
+  "lib/transition-descriptors.ts": "ed550224a630494c19292c2ab4e37676f7d9b516b85810c3b2cc830b06746b9e",
+  "components/game/scene-transition.module.css": "757f1c4bbc94243684e889b60094618617121667aab5f40e2b98e7f44bbb30a2",
+  "app/dev/chooni-motion/chooni-motion.module.css": "55f2e7196a8d2c722a114068beab61ccbdea61f037909030a2a42292eaf06191",
+  "app/dev/chooni-motion/ChooniMotionTest.tsx": "d9738b396855ce66a81458cc53374793d341349275742fbedede30c0d1db05e9",
+  "app/dev/chooni-motion/page.tsx": "8f730c75eff618759d86b9d669bc0ecfa6b0d8f1a464c28bab808f3a964ab798"
+}

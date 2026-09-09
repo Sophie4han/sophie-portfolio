@@ -1,0 +1,11 @@
+{
+  "world": true,
+  "flow": [
+    "intro-greeting",
+    "intro-follow",
+    "intro-gate",
+    "enter-world",
+    "OVERVIEW"
+  ],
+  "errors": []
+}

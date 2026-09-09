@@ -1,0 +1,37 @@
+{
+  "desktopGreeting": {
+    "actor": true,
+    "dialogue": true,
+    "gate": true,
+    "overflow": false,
+    "imagesLoaded": true
+  },
+  "desktopGate": {
+    "actor": true,
+    "dialogue": true,
+    "gate": true,
+    "overflow": false,
+    "imagesLoaded": true
+  },
+  "desktopPreEntry": {
+    "actor": true,
+    "dialogue": true,
+    "gate": true,
+    "overflow": false,
+    "imagesLoaded": true
+  },
+  "mobileGreeting": {
+    "actor": true,
+    "dialogue": true,
+    "gate": true,
+    "overflow": false,
+    "imagesLoaded": true
+  },
+  "mobileGate": {
+    "actor": false,
+    "dialogue": true,
+    "gate": true,
+    "overflow": false,
+    "imagesLoaded": true
+  }
+}

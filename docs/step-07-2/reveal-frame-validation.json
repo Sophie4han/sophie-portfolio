@@ -1,0 +1,3532 @@
+{
+  "results": [
+    {
+      "frames": [
+        {
+          "t": 0.09999999962747097,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 2.599999999627471,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 11.599999999627471,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 28.40000000037253,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 45.19999999925494,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 62.5,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 79.09999999962747,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 95.69999999925494,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 112.40000000037253,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 128.30000000074506,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 145.80000000074506,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 161.59999999962747,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 178.09999999962747,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 195.80000000074506,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 212.30000000074506,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 228.40000000037253,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 245.80000000074506,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 262.5,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 279.09999999962747,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 294.80000000074506,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 311.59999999962747,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 329.09999999962747,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 345,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 361.59999999962747,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 378.5,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 395.80000000074506,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 412.5,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 429.09999999962747,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 445.80000000074506,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 462.59999999962747,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 478.09999999962747,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 495,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 511.59999999962747,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 528.5,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 545.1999999992549,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 562.4000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 579,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 594.9000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 611.6999999992549,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 629.1999999992549,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 646,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 662.6999999992549,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 678.4000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 696,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 712,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 728.1999999992549,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 744.9000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 761.6999999992549,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 778.1999999992549,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 795.3000000007451,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 812.1999999992549,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 828.5999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 845.4000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 861.6999999992549,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 878.0999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 895.3000000007451,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 912,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 928.0999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 945.5,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 962.5,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 978.0999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 995.8000000007451,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1011.9000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1028.0999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1044.800000000745,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1062.4000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1078.0999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1095.800000000745,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1112.4000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1128.0999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1145.800000000745,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1162.4000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1178.0999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1195.699999999255,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1211.5,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1228,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1245,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1262.4000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1278.0999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1295.699999999255,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1311.5,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1328.0999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1345.5999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1362.4000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1378.4000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1395,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1412.5,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1428.300000000745,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1446,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1462.699999999255,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 1478.300000000745,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1494.9000000003725,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1512,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1528.0999999996275,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1545.4000000003725,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1562.0999999996275,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1578.0999999996275,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.0177534,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1595.4000000003725,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.164279,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1612,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.308375,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1628.0999999996275,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.437852,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1645.300000000745,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.548121,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1661.699999999255,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.638325,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1678.0999999996275,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.710139,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1694.699999999255,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.766848,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1711.5,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.812431,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1728.0999999996275,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.849132,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1745.0999999996275,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.878763,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1762.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.903138,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1778.199999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.923044,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1794.699999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.939539,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1811.699999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.953121,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1828.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.964279,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1845.699999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.973395,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1862.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.980738,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1878.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.98664,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1895.800000000745,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.991256,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1912.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.994733,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1928.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.997238,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1944.9000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.998896,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1961.5999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.999785,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1979,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 1995,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 2011.5999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 2028.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 2045.800000000745,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 2062.5,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 2078.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 2095.300000000745,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 2112.5999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 2128.800000000745,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 2145.9000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 2162.199999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 2178.699999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 2194.9000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 866.859375
+        },
+        {
+          "t": 2212,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 870.46875
+        },
+        {
+          "t": 2228.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 874.078125
+        },
+        {
+          "t": 2245.699999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 877.671875
+        },
+        {
+          "t": 2262.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 881.265625
+        },
+        {
+          "t": 2278.199999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 884.859375
+        },
+        {
+          "t": 2294.699999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 888.46875
+        },
+        {
+          "t": 2312.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 892.078125
+        },
+        {
+          "t": 2328.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 895.671875
+        },
+        {
+          "t": 2345.199999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 899.265625
+        },
+        {
+          "t": 2362.5,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 902.875
+        },
+        {
+          "t": 2379,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 906.453125
+        },
+        {
+          "t": 2395.699999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 910.0625
+        },
+        {
+          "t": 2411.9000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 913.671875
+        },
+        {
+          "t": 2428.699999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 917.28125
+        },
+        {
+          "t": 2445.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 920.859375
+        },
+        {
+          "t": 2461.699999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 924.46875
+        },
+        {
+          "t": 2478.199999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 928.0625
+        },
+        {
+          "t": 2494.699999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 931.671875
+        },
+        {
+          "t": 2511.5,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 935.265625
+        },
+        {
+          "t": 2528.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 938.875
+        },
+        {
+          "t": 2545.699999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 942.46875
+        },
+        {
+          "t": 2562.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 946.046875
+        },
+        {
+          "t": 2578.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 949.65625
+        },
+        {
+          "t": 2594.9000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 953.265625
+        },
+        {
+          "t": 2612.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 956.875
+        },
+        {
+          "t": 2628.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 960.484375
+        },
+        {
+          "t": 2644.800000000745,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 964.0625
+        },
+        {
+          "t": 2661.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 967.671875
+        },
+        {
+          "t": 2678.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 971.25
+        },
+        {
+          "t": 2694.9000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 974.859375
+        },
+        {
+          "t": 2711.5999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 978.46875
+        },
+        {
+          "t": 2728.199999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 982.078125
+        },
+        {
+          "t": 2745.699999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 985.671875
+        },
+        {
+          "t": 2762.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 989.265625
+        },
+        {
+          "t": 2778.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 992.859375
+        },
+        {
+          "t": 2794.800000000745,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 2812.5,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 2828.300000000745,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 2845.9000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 2862.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 2878.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 2895.800000000745,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 2912.5,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 2928.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 2945.9000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 2961.5999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 2978.199999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 2995.800000000745,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 3011.5,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 3028.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 3045.699999999255,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 3062.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 3078.4000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.625
+        },
+        {
+          "t": 3095.5999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.734375
+        },
+        {
+          "t": 3112.300000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.90625
+        },
+        {
+          "t": 3128.199999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 994.140625
+        },
+        {
+          "t": 3145.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 994.421875
+        },
+        {
+          "t": 3162.4000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 994.765625
+        },
+        {
+          "t": 3178.300000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 995.171875
+        },
+        {
+          "t": 3195.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 995.609375
+        },
+        {
+          "t": 3212.4000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 996.09375
+        },
+        {
+          "t": 3228.0999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 996.625
+        },
+        {
+          "t": 3245.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 997.203125
+        },
+        {
+          "t": 3261.5999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 997.8125
+        },
+        {
+          "t": 3278.4000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 998.46875
+        },
+        {
+          "t": 3295.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 999.171875
+        },
+        {
+          "t": 3312.300000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 999.890625
+        },
+        {
+          "t": 3328.199999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1000.640625
+        },
+        {
+          "t": 3345.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1001.4375
+        },
+        {
+          "t": 3362.300000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1002.265625
+        },
+        {
+          "t": 3378.0999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1003.125
+        },
+        {
+          "t": 3394.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1004
+        },
+        {
+          "t": 3411.5999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1004.90625
+        },
+        {
+          "t": 3428.0999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1005.859375
+        },
+        {
+          "t": 3444.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1006.828125
+        },
+        {
+          "t": 3462.4000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1007.8125
+        },
+        {
+          "t": 3478.199999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1008.84375
+        },
+        {
+          "t": 3494.9000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1009.890625
+        },
+        {
+          "t": 3511.4000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1010.953125
+        },
+        {
+          "t": 3528.199999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1012.046875
+        },
+        {
+          "t": 3544.800000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1013.15625
+        },
+        {
+          "t": 3561.4000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1014.3125
+        },
+        {
+          "t": 3578.0999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1015.46875
+        },
+        {
+          "t": 3595.199999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1016.65625
+        },
+        {
+          "t": 3611.5,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1017.859375
+        },
+        {
+          "t": 3629.0999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1019.078125
+        },
+        {
+          "t": 3644.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1020.328125
+        },
+        {
+          "t": 3662.0999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1021.609375
+        },
+        {
+          "t": 3678.199999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1022.890625
+        },
+        {
+          "t": 3695.5999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1024.203125
+        },
+        {
+          "t": 3711.4000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1025.546875
+        },
+        {
+          "t": 3728.5,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1026.90625
+        },
+        {
+          "t": 3745.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1028.28125
+        },
+        {
+          "t": 3762.199999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1029.6875
+        },
+        {
+          "t": 3778.0999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1031.109375
+        },
+        {
+          "t": 3795.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1032.5625
+        },
+        {
+          "t": 3812.300000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1034.046875
+        },
+        {
+          "t": 3828.0999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1035.546875
+        },
+        {
+          "t": 3845.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 3862.300000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 3878.0999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 3895.0999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 3911.300000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 3928.0999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 3944.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 3962.300000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 3979,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 3994.9000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4012.300000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4028.0999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4045.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4062.300000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4078.199999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4095.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4112.300000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4128.4000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4144.9000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4161.5,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4178.199999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4194.699999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4212.199999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4228.5999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4244.9000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4261.5,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4279.0999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 4295.5,
+          "scene": "world",
+          "gate": false,
+          "opacity": null,
+          "loaded": null
+        },
+        {
+          "t": 4312.800000000745,
+          "scene": "world",
+          "gate": false,
+          "opacity": null,
+          "loaded": null
+        },
+        {
+          "t": 4328.5999999996275,
+          "scene": "world",
+          "gate": false,
+          "opacity": null,
+          "loaded": null
+        },
+        {
+          "t": 4345.0999999996275,
+          "scene": "world",
+          "gate": false,
+          "opacity": null,
+          "loaded": null
+        },
+        {
+          "t": 4362.300000000745,
+          "scene": "world",
+          "gate": false,
+          "opacity": null,
+          "loaded": null
+        },
+        {
+          "t": 4378.4000000003725,
+          "scene": "world",
+          "gate": false,
+          "opacity": null,
+          "loaded": null
+        }
+      ],
+      "replaced": 0,
+      "world": true,
+      "name": "desktop",
+      "opacityRegressions": 0,
+      "unloadedVisibleFrames": 0,
+      "greetingGateFrames": 0
+    },
+    {
+      "frames": [
+        {
+          "t": 0,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 2.700000001117587,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 32.80000000074506,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 49.70000000111759,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 99.59999999962747,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 99.90000000037253,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 133,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 149.80000000074506,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 183.5,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 199.59999999962747,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 222.59999999962747,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 350.5,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 400.2000000011176,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 400.80000000074506,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 416.80000000074506,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 449.80000000074506,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 451.5,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 475,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 483.7000000011176,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 500.2000000011176,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 516.5999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 534.3000000007451,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 550.2000000011176,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 699.7000000011176,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 700.7000000011176,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 733,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 783.2000000011176,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 784.5999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 800.2000000011176,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 816.2000000011176,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 849.4000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 849.8000000007451,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 866.5999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1006.0999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1033.2000000011176,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1050.2000000011176,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1133.800000000745,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1135.7000000011176,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1150.0999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1166.7000000011176,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1199.4000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1199.5999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1229.0999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1356.2000000011176,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1382.9000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1399.5999999996275,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1399.9000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1449.4000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1449.7000000011176,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1449.9000000003725,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1499.5,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1499.800000000745,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 147
+        },
+        {
+          "t": 1533.5,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 1551,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 1580,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 1706.9000000003725,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.437336,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 1732.800000000745,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.548295,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 1750,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.709868,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 1799.4000000003725,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.766937,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 1800.2000000011176,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 0.848992,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 1833.800000000745,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.87881,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 1850.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.923075,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 1883.5,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.939565,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 1899.5,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.953143,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 1899.9000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.964236,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 1933.5,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.97336,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 1944.5999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 0.980749,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 2101.5999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 2149.7000000011176,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 2150.7000000011176,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 2219.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 147
+        },
+        {
+          "t": 2250.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 151.328125
+        },
+        {
+          "t": 2283.5,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 153.71875
+        },
+        {
+          "t": 2300,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 158.515625
+        },
+        {
+          "t": 2342.7000000011176,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 160.921875
+        },
+        {
+          "t": 2501.7000000011176,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 187.3125
+        },
+        {
+          "t": 2533.7000000011176,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 189.71875
+        },
+        {
+          "t": 2550.2000000011176,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 194.515625
+        },
+        {
+          "t": 2632.800000000745,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 204.109375
+        },
+        {
+          "t": 2650,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 208.90625
+        },
+        {
+          "t": 2672.5999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 211.296875
+        },
+        {
+          "t": 2699.7000000011176,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 216.109375
+        },
+        {
+          "t": 2743.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 218.515625
+        },
+        {
+          "t": 2902.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 233.390625
+        },
+        {
+          "t": 2932.9000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 233.390625
+        },
+        {
+          "t": 2949.5,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 233.390625
+        },
+        {
+          "t": 3049.800000000745,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 233.390625
+        },
+        {
+          "t": 3050.7000000011176,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 233.390625
+        },
+        {
+          "t": 3083.5999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 233.390625
+        },
+        {
+          "t": 3099.4000000003725,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 233.390625
+        },
+        {
+          "t": 3100.0999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 233.390625
+        },
+        {
+          "t": 3132.5999999996275,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 233.390625
+        },
+        {
+          "t": 3149.7000000011176,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 233.390625
+        },
+        {
+          "t": 3178.4000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 233.390625
+        },
+        {
+          "t": 3306.4000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 234.734375
+        },
+        {
+          "t": 3333.5999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 235.0625
+        },
+        {
+          "t": 3349.9000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 235.796875
+        },
+        {
+          "t": 3382.5999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 236.203125
+        },
+        {
+          "t": 3482.5999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 239.171875
+        },
+        {
+          "t": 3500.800000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 240.328125
+        },
+        {
+          "t": 3532.5999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 240.9375
+        },
+        {
+          "t": 3549.7000000011176,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 242.203125
+        },
+        {
+          "t": 3582.7000000011176,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 242.875
+        },
+        {
+          "t": 3749.7000000011176,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 250.375
+        },
+        {
+          "t": 3751.0999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 251.21875
+        },
+        {
+          "t": 3799.5,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 252.0625
+        },
+        {
+          "t": 3883.5,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 257.453125
+        },
+        {
+          "t": 3900.4000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 259.359375
+        },
+        {
+          "t": 3933.4000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 260.359375
+        },
+        {
+          "t": 3949.9000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 262.1875
+        },
+        {
+          "t": 3982.5999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 262.1875
+        },
+        {
+          "t": 3992.800000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 262.1875
+        },
+        {
+          "t": 4151.700000001118,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 262.1875
+        },
+        {
+          "t": 4182.5999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 262.1875
+        },
+        {
+          "t": 4200.0999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 262.1875
+        },
+        {
+          "t": 4299.5999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 262.1875
+        },
+        {
+          "t": 4300.5,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 262.1875
+        },
+        {
+          "t": 4332.9000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 262.1875
+        },
+        {
+          "t": 4349.700000001118,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 262.1875
+        },
+        {
+          "t": 4350.300000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 262.1875
+        },
+        {
+          "t": 4399.4000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 262.1875
+        },
+        {
+          "t": 4399.9000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 262.1875
+        },
+        {
+          "t": 4433.4000000003725,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 262.1875
+        },
+        {
+          "t": 4446.800000000745,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 262.1875
+        },
+        {
+          "t": 4581.9000000003725,
+          "scene": "world",
+          "gate": false,
+          "opacity": null,
+          "loaded": null
+        },
+        {
+          "t": 4590.700000001118,
+          "scene": "world",
+          "gate": false,
+          "opacity": null,
+          "loaded": null
+        },
+        {
+          "t": 4599.700000001118,
+          "scene": "world",
+          "gate": false,
+          "opacity": null,
+          "loaded": null
+        },
+        {
+          "t": 4615.9000000003725,
+          "scene": "world",
+          "gate": false,
+          "opacity": null,
+          "loaded": null
+        }
+      ],
+      "replaced": 0,
+      "world": true,
+      "name": "mobile",
+      "opacityRegressions": 0,
+      "unloadedVisibleFrames": 0,
+      "greetingGateFrames": 0
+    },
+    {
+      "frames": [
+        {
+          "t": 0.09999999962747097,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 36.79999999888241,
+          "scene": "intro-greeting",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 69.69999999925494,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 87.19999999925494,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 119.59999999962747,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 136.89999999850988,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 169.5,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 186.39999999850988,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 236.19999999925494,
+          "scene": "intro-follow",
+          "gate": false,
+          "opacity": null,
+          "loaded": null,
+          "actor": 864
+        },
+        {
+          "t": 237.5,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 269.8999999985099,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 286.2999999988824,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 286.3999999985099,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 336.19999999925494,
+          "scene": "intro-follow",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 864
+        },
+        {
+          "t": 337.19999999925494,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 386.19999999925494,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 386.3999999985099,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 436.69999999925494,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 437.3999999985099,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 469.19999999925494,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 486.19999999925494,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 486.5,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 533.5,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 533.6999999992549,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 786.2999999988824,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 787.8999999985099,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 836.7999999988824,
+          "scene": "intro-gate",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 993.59375
+        },
+        {
+          "t": 840.5999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 870,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 886.5,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 936.1999999992549,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 936.8999999985099,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 986.1999999992549,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 986.2999999988824,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 1019.1999999992549,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 1036.3999999985099,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 1086.199999999255,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 1086.8999999985099,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 1119.7999999988824,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 1136.5999999996275,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 1169.2999999988824,
+          "scene": "enter-world",
+          "gate": true,
+          "opacity": 1,
+          "loaded": true,
+          "actor": 1036.796875
+        },
+        {
+          "t": 1188.699999999255,
+          "scene": "world",
+          "gate": false,
+          "opacity": null,
+          "loaded": null
+        },
+        {
+          "t": 1202.699999999255,
+          "scene": "world",
+          "gate": false,
+          "opacity": null,
+          "loaded": null
+        },
+        {
+          "t": 1238.3999999985099,
+          "scene": "world",
+          "gate": false,
+          "opacity": null,
+          "loaded": null
+        },
+        {
+          "t": 1240.0999999996275,
+          "scene": "world",
+          "gate": false,
+          "opacity": null,
+          "loaded": null
+        },
+        {
+          "t": 1326.5,
+          "scene": "world",
+          "gate": false,
+          "opacity": null,
+          "loaded": null
+        }
+      ],
+      "replaced": 0,
+      "world": true,
+      "name": "reduced",
+      "opacityRegressions": 0,
+      "unloadedVisibleFrames": 0,
+      "greetingGateFrames": 0
+    }
+  ],
+  "errors": []
+}

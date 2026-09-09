@@ -1,0 +1,305 @@
+{
+  "desktopGreeting": {
+    "scene": "intro-greeting",
+    "phase": "idle",
+    "actor": {
+      "x": 864,
+      "y": 594,
+      "width": 0,
+      "height": 0,
+      "top": 594,
+      "right": 864,
+      "bottom": 594,
+      "left": 864
+    },
+    "dialogue": {
+      "x": 172.796875,
+      "y": 342,
+      "width": 340,
+      "height": 328.359375,
+      "top": 342,
+      "right": 512.796875,
+      "bottom": 670.359375,
+      "left": 172.796875
+    },
+    "overflow": false,
+    "images": [
+      {
+        "loaded": true,
+        "src": "http://localhost:3019/_next/image?url=%2Fimages%2Fpixel%2Fprologue%2Fwoodland-clearing-v02.png&w=1920&q=75",
+        "naturalWidth": 1152,
+        "naturalHeight": 768,
+        "rect": {
+          "x": 0,
+          "y": -30,
+          "width": 1440,
+          "height": 960,
+          "top": -30,
+          "right": 1440,
+          "bottom": 930,
+          "left": 0
+        },
+        "sizes": "(max-width: 760px) 960px, (max-height: 640px) max(100vw, 960px), max(100vw, 150dvh)"
+      }
+    ]
+  },
+  "desktopGate": {
+    "scene": "intro-gate",
+    "phase": "idle",
+    "gate": {
+      "x": 900,
+      "y": 222.953125,
+      "width": 273.59375,
+      "height": 273.59375,
+      "top": 222.953125,
+      "right": 1173.59375,
+      "bottom": 496.546875,
+      "left": 900
+    },
+    "actor": {
+      "x": 993.59375,
+      "y": 517.1875,
+      "width": 0,
+      "height": 0,
+      "top": 517.1875,
+      "right": 993.59375,
+      "bottom": 517.1875,
+      "left": 993.59375
+    },
+    "dialogue": {
+      "x": 172.796875,
+      "y": 342,
+      "width": 340,
+      "height": 143.578125,
+      "top": 342,
+      "right": 512.796875,
+      "bottom": 485.578125,
+      "left": 172.796875
+    },
+    "overflow": false,
+    "images": [
+      {
+        "loaded": true,
+        "src": "http://localhost:3019/_next/image?url=%2Fimages%2Fpixel%2Fprologue%2Fwoodland-clearing-v02.png&w=1920&q=75",
+        "naturalWidth": 1152,
+        "naturalHeight": 768,
+        "rect": {
+          "x": 0,
+          "y": -30,
+          "width": 1440,
+          "height": 960,
+          "top": -30,
+          "right": 1440,
+          "bottom": 930,
+          "left": 0
+        },
+        "sizes": "(max-width: 760px) 960px, (max-height: 640px) max(100vw, 960px), max(100vw, 150dvh)"
+      },
+      {
+        "loaded": true,
+        "src": "http://localhost:3019/_next/image?url=%2Fimages%2Fpixel%2Fprologue%2Fwoodland-gate-v02.png&w=384&q=75",
+        "naturalWidth": 316,
+        "naturalHeight": 316,
+        "rect": {
+          "x": 900,
+          "y": 222.953125,
+          "width": 273.59375,
+          "height": 273.59375,
+          "top": 222.953125,
+          "right": 1173.59375,
+          "bottom": 496.546875,
+          "left": 900
+        },
+        "sizes": "(max-width: 760px) 220px, 22vw"
+      }
+    ]
+  },
+  "desktopPreEntry": {
+    "scene": "intro-gate",
+    "phase": "idle",
+    "gate": {
+      "x": 900,
+      "y": 222.953125,
+      "width": 273.59375,
+      "height": 273.59375,
+      "top": 222.953125,
+      "right": 1173.59375,
+      "bottom": 496.546875,
+      "left": 900
+    },
+    "actor": {
+      "x": 993.59375,
+      "y": 517.1875,
+      "width": 0,
+      "height": 0,
+      "top": 517.1875,
+      "right": 993.59375,
+      "bottom": 517.1875,
+      "left": 993.59375
+    },
+    "dialogue": {
+      "x": 172.796875,
+      "y": 342,
+      "width": 340,
+      "height": 143.578125,
+      "top": 342,
+      "right": 512.796875,
+      "bottom": 485.578125,
+      "left": 172.796875
+    },
+    "overflow": false,
+    "images": [
+      {
+        "loaded": true,
+        "src": "http://localhost:3019/_next/image?url=%2Fimages%2Fpixel%2Fprologue%2Fwoodland-clearing-v02.png&w=1920&q=75",
+        "naturalWidth": 1152,
+        "naturalHeight": 768,
+        "rect": {
+          "x": 0,
+          "y": -30,
+          "width": 1440,
+          "height": 960,
+          "top": -30,
+          "right": 1440,
+          "bottom": 930,
+          "left": 0
+        },
+        "sizes": "(max-width: 760px) 960px, (max-height: 640px) max(100vw, 960px), max(100vw, 150dvh)"
+      },
+      {
+        "loaded": true,
+        "src": "http://localhost:3019/_next/image?url=%2Fimages%2Fpixel%2Fprologue%2Fwoodland-gate-v02.png&w=384&q=75",
+        "naturalWidth": 316,
+        "naturalHeight": 316,
+        "rect": {
+          "x": 900,
+          "y": 222.953125,
+          "width": 273.59375,
+          "height": 273.59375,
+          "top": 222.953125,
+          "right": 1173.59375,
+          "bottom": 496.546875,
+          "left": 900
+        },
+        "sizes": "(max-width: 760px) 220px, 22vw"
+      }
+    ]
+  },
+  "mobileGreeting": {
+    "scene": "intro-greeting",
+    "phase": "idle",
+    "actor": {
+      "x": 147,
+      "y": 385.90625,
+      "width": 0,
+      "height": 0,
+      "top": 385.90625,
+      "right": 147,
+      "bottom": 385.90625,
+      "left": 147
+    },
+    "dialogue": {
+      "x": 22,
+      "y": 502.234375,
+      "width": 346,
+      "height": 313.765625,
+      "top": 502.234375,
+      "right": 368,
+      "bottom": 816,
+      "left": 22
+    },
+    "overflow": false,
+    "images": [
+      {
+        "loaded": true,
+        "src": "http://localhost:3019/_next/image?url=%2Fimages%2Fpixel%2Fprologue%2Fwoodland-clearing-v02.png&w=1080&q=75",
+        "naturalWidth": 960,
+        "naturalHeight": 640,
+        "rect": {
+          "x": -429,
+          "y": -30.09375,
+          "width": 960,
+          "height": 640,
+          "top": -30.09375,
+          "right": 531,
+          "bottom": 609.90625,
+          "left": -429
+        },
+        "sizes": "(max-width: 760px) 960px, (max-height: 640px) max(100vw, 960px), max(100vw, 150dvh)"
+      }
+    ]
+  },
+  "mobileGate": {
+    "scene": "intro-gate",
+    "phase": "idle",
+    "gate": {
+      "x": 170.9921875,
+      "y": 138.5515594482422,
+      "width": 182.390625,
+      "height": 182.39064025878906,
+      "top": 138.5515594482422,
+      "right": 353.3828125,
+      "bottom": 320.94219970703125,
+      "left": 170.9921875
+    },
+    "actor": {
+      "x": 233.390625,
+      "y": 334.703125,
+      "width": 0,
+      "height": 0,
+      "top": 334.703125,
+      "right": 233.390625,
+      "bottom": 334.703125,
+      "left": 233.390625
+    },
+    "dialogue": {
+      "x": 22,
+      "y": 681.71875,
+      "width": 346,
+      "height": 134.28125,
+      "top": 681.71875,
+      "right": 368,
+      "bottom": 816,
+      "left": 22
+    },
+    "overflow": false,
+    "images": [
+      {
+        "loaded": true,
+        "src": "http://localhost:3019/_next/image?url=%2Fimages%2Fpixel%2Fprologue%2Fwoodland-clearing-v02.png&w=1080&q=75",
+        "naturalWidth": 960,
+        "naturalHeight": 640,
+        "rect": {
+          "x": -429,
+          "y": -30.09375,
+          "width": 960,
+          "height": 640,
+          "top": -30.09375,
+          "right": 531,
+          "bottom": 609.90625,
+          "left": -429
+        },
+        "sizes": "(max-width: 760px) 960px, (max-height: 640px) max(100vw, 960px), max(100vw, 150dvh)"
+      },
+      {
+        "loaded": true,
+        "src": "http://localhost:3019/_next/image?url=%2Fimages%2Fpixel%2Fprologue%2Fwoodland-gate-v02.png&w=256&q=75",
+        "naturalWidth": 220,
+        "naturalHeight": 220,
+        "rect": {
+          "x": 170.9921875,
+          "y": 138.5515594482422,
+          "width": 182.390625,
+          "height": 182.39064025878906,
+          "top": 138.5515594482422,
+          "right": 353.3828125,
+          "bottom": 320.94219970703125,
+          "left": 170.9921875
+        },
+        "sizes": "(max-width: 760px) 220px, 22vw"
+      }
+    ]
+  },
+  "errors": [],
+  "captureMethod": "Production Chrome; only automatic dwell timers held by browser harness for stable visual review, app source and scene events unchanged. Normal automatic flow separately verified in ../automatic-flow-validation.json."
+}
