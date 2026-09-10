@@ -17,8 +17,8 @@ interface WorldRendererProps {
   durationMs: number;
   interactive: boolean;
   onSelectIsland: (projectId: ProjectId) => void;
+  onBackToWorld: () => void;
 }
-
 export function WorldRenderer({
   cameraPreset,
   focusedIslandId,
@@ -27,31 +27,41 @@ export function WorldRenderer({
   durationMs,
   interactive,
   onSelectIsland,
+  onBackToWorld,
 }: WorldRendererProps) {
   const camera = WORLD_MANIFEST.cameraPresets[cameraPreset];
+  const focusScale = focusedIslandId ? 1.2 : 1;
+  const focusTranslateX = focusedIslandId ? -8 : 0;
   const destination = WORLD_MANIFEST.islands.find((island) => island.projectId === focusedIslandId);
   const focusCenter = destination ? worldPointToPercent({
-    x: (destination.position.x + destination.chooniAnchor.x) / 2,
-    y: (destination.position.y + destination.chooniAnchor.y) / 2,
+    x: destination.position.x - (focusedIslandId ? 70 : 0),
+    y: destination.position.y,
   }) : { x: 50, y: 50 };
   const cameraStyle = {
     "--world-motion-duration": `${durationMs}ms`,
     "--focus-x": `${50 - focusCenter.x}%`,
     "--focus-y": `${50 - focusCenter.y}%`,
-    "--camera-x": `${camera.desktop.translateX}%`,
+    "--camera-x": `${camera.desktop.translateX + focusTranslateX}%`,
     "--camera-y": `${camera.desktop.translateY}%`,
-    "--camera-scale": camera.desktop.scale,
+    "--camera-scale": camera.desktop.scale * focusScale,
     "--camera-origin-x": `${camera.desktop.originX}%`,
     "--camera-origin-y": `${camera.desktop.originY}%`,
     "--camera-mobile-x": `${camera.mobile.translateX}%`,
     "--camera-mobile-y": `${camera.mobile.translateY}%`,
-    "--camera-mobile-scale": camera.mobile.scale,
+    "--camera-mobile-scale": camera.mobile.scale * focusScale,
     "--camera-mobile-origin-x": `${camera.mobile.originX}%`,
     "--camera-mobile-origin-y": `${camera.mobile.originY}%`,
   } as CSSProperties;
 
   return (
-    <div className={styles.worldViewport} data-camera-preset={cameraPreset} data-focused={Boolean(focusedIslandId)}>
+    <div
+      className={styles.worldViewport}
+      data-camera-preset={cameraPreset}
+      data-focused={Boolean(focusedIslandId)}
+      onClick={() => {
+        if (focusedIslandId && interactive) onBackToWorld();
+      }}
+    >
       <div
         className={styles.cameraRig}
         data-reduced-motion={reducedMotion}
@@ -63,7 +73,6 @@ export function WorldRenderer({
         >
           <WorldEnvironmentLayers />
           <IslandVisuals statuses={statuses} focusedIslandId={focusedIslandId} />
-          {focusedIslandId && <ChooniWorldStage focusedIslandId={focusedIslandId} />}
           <SemanticInteractionOverlay
             statuses={statuses}
             focusedIslandId={focusedIslandId}
@@ -142,7 +151,7 @@ function IslandVisuals({
           } : undefined}>{statusSymbol(status)}</span>
         </div>
         <div className={styles.islandLabel} data-island={island.projectId} style={positionStyle(label)}>
-          <small>{String(island.sequence).padStart(2, "0")} · {island.capability}</small>
+          <small>{island.capability}</small>
           <strong>{island.projectName}</strong>
           <span>{island.category}</span>
         </div>
@@ -168,7 +177,6 @@ function SemanticInteractionOverlay({
         const status = focusedIslandId === island.projectId
           ? "active"
           : statuses[island.projectId];
-        const locked = status === "locked";
         const bounds = island.interactionBounds;
         const style = {
           left: `${(bounds.x / WORLD_MANIFEST.canvas.width) * 100}%`,
@@ -184,42 +192,20 @@ function SemanticInteractionOverlay({
             className={styles.islandTarget}
             style={style}
             data-island={island.projectId}
-            tabIndex={focusedIslandId && focusedIslandId !== island.projectId ? -1 : 0}
-            aria-disabled={locked || !interactive}
+            tabIndex={0}
             aria-pressed={status === "active"}
-            aria-label={`${island.sequence} ${island.capability}. ${island.projectName}. ${island.category}. ${locked ? "Locked until the previous project is completed" : status}.`}
-            onClick={() => {
-              if (!locked && interactive) onSelectIsland(island.projectId);
+            aria-label={`${island.capability}. ${island.projectName}. ${island.category}. ${status}.`}
+            onClick={(event) => {
+              event.stopPropagation();
+              if (interactive) onSelectIsland(island.projectId);
             }}
           >
             <span className={styles.visuallyHidden}>
-              {locked
-                ? `${island.projectName} is locked until the previous island is completed.`
-                : `Focus ${island.projectName} island.`}
+              Focus {island.projectName} island.
             </span>
           </button>
         );
       })}
-    </div>
-  );
-}
-
-function ChooniWorldStage({ focusedIslandId }: { focusedIslandId: ProjectId | null }) {
-  const anchor = focusedIslandId
-    ? WORLD_MANIFEST.islands.find(({ projectId }) => projectId === focusedIslandId)?.chooniAnchor
-    : WORLD_MANIFEST.overviewChooniAnchor;
-  const position = worldPointToPercent(anchor ?? WORLD_MANIFEST.overviewChooniAnchor);
-
-  return (
-    <div
-      className={styles.chooniWorldStage}
-      data-chooni-intent="world-idle"
-      data-focused-island={focusedIslandId ?? "none"}
-      style={positionStyle(position)}
-      role="img"
-      aria-label={`Chooni world character placeholder. ${focusedIslandId ? "Travels with you to the selected project." : "Waiting at the center of the world."}`}
-    >
-      <span aria-hidden="true">CHOONI</span>
     </div>
   );
 }
@@ -248,7 +234,6 @@ function islandRasterStyle(island: IslandRegion): CSSProperties {
 }
 
 function statusSymbol(status: JourneyProjectStatus) {
-  if (status === "locked") return "Ⅱ";
   if (status === "completed") return "✓";
   if (status === "active") return "◆";
   return "↗";

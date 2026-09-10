@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { resolveProjectProgression } from "@/lib/project-progression";
 import { getIslandRegion } from "@/lib/world-manifest";
 import type { SceneState, WorldProgressV1 } from "@/types/game";
@@ -45,6 +46,7 @@ export function WorldScene({
         durationMs={transition.durationMs}
         interactive={scene.phase === "active"}
         onSelectIsland={(projectId) => dispatch({ type: "SELECT_ISLAND", projectId })}
+        onBackToWorld={() => dispatch({ type: "BACK_TO_WORLD" })}
       />
       <WorldHud
         progress={progression.progress}
@@ -60,7 +62,6 @@ export function WorldScene({
         <ProjectHud
           island={focusedIsland}
           onEnter={() => dispatch({ type: "ENTER_ISLAND" })}
-          onBack={() => dispatch({ type: "BACK_TO_WORLD" })}
         />
       )}
       <p className={styles.selectionAnnouncement} aria-live="polite">
@@ -91,21 +92,25 @@ function WorldHud({
 function ProjectHud({
   island,
   onEnter,
-  onBack,
 }: {
   island: ReturnType<typeof getIslandRegion>;
   onEnter: () => void;
-  onBack: () => void;
 }) {
+  const projectImage: string | null = null;
+
   return (
     <aside className={styles.projectHud} aria-labelledby="focused-project-title">
-      <p>{String(island.sequence).padStart(2, "0")} · {island.capability}</p>
+      <p>{island.capability}</p>
       <h2 id="focused-project-title">{island.projectName}</h2>
       <p>{island.outcome}</p>
       <small>{island.focusCategory}</small>
+      {projectImage && (
+        <div className={styles.projectImageSlot}>
+          <Image src={projectImage} alt={`${island.projectName} product`} width={640} height={480} />
+        </div>
+      )}
       <div className={styles.projectActions}>
-        <button type="button" onClick={onEnter}>ENTER PROJECT ↗</button>
-        <button type="button" onClick={onBack}>← BACK TO WORLD</button>
+        <button type="button" onClick={onEnter}>VIEW PROJECT ↗</button>
       </div>
     </aside>
   );
