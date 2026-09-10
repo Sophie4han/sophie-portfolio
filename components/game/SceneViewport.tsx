@@ -60,8 +60,18 @@ export function SceneViewport({
         </p>
         <h1 className="mt-2 text-2xl font-semibold">{scene.sceneId}</h1>
         <p className="mt-3 text-sm leading-6 text-zinc-300">
-          The World Map begins in a later approved implementation step.
+          Case Study content is not available yet.
         </p>
+        <div className="mt-6 flex gap-4">
+          {scene.sceneId === "island-entry" && (
+            <button type="button" disabled={scene.phase !== "active"} onClick={() => dispatch({ type: "START_CASE_STUDY" })}>
+              OPEN CASE STUDY
+            </button>
+          )}
+          <button type="button" disabled={scene.phase !== "active"} onClick={() => dispatch({ type: "BACK_TO_WORLD" })}>
+            BACK TO WORLD
+          </button>
+        </div>
       </section>
     </main>
   );

@@ -6,7 +6,7 @@ import type {
   JourneyProjectStatus,
   ProjectId,
 } from "@/types/game";
-import type { IslandStatuses } from "@/types/world";
+import type { IslandRegion, IslandStatuses } from "@/types/world";
 import styles from "./world.module.css";
 
 interface WorldRendererProps {
@@ -63,7 +63,7 @@ export function WorldRenderer({
         >
           <WorldEnvironmentLayers />
           <IslandVisuals statuses={statuses} focusedIslandId={focusedIslandId} />
-          <ChooniWorldStage focusedIslandId={focusedIslandId} />
+          {focusedIslandId && <ChooniWorldStage focusedIslandId={focusedIslandId} />}
           <SemanticInteractionOverlay
             statuses={statuses}
             focusedIslandId={focusedIslandId}
@@ -119,7 +119,7 @@ function IslandVisuals({
             loading="eager"
             className={`${styles.productionRaster} ${styles.productionIsland}`}
             data-status={status}
-            style={productionRasterStyle()}
+            style={islandRasterStyle(island)}
           />
         )}
         <div
@@ -226,6 +226,25 @@ function ChooniWorldStage({ focusedIslandId }: { focusedIslandId: ProjectId | nu
 
 function positionStyle(point: { x: number; y: number }): CSSProperties {
   return { left: `${point.x}%`, top: `${point.y}%` };
+}
+
+/** Source pixel density is independent of logical placement and camera zoom. */
+function islandRasterStyle(island: IslandRegion): CSSProperties {
+  const source = island.productionSourceBounds;
+  const bounds = island.visualBounds;
+  if (!source || !bounds) return productionRasterStyle();
+  const scale = island.renderedScale ?? 1;
+  const width = bounds.width * scale;
+  const height = bounds.height * scale;
+  const left = bounds.x + (bounds.width - width) / 2;
+  const top = bounds.y + (bounds.height - height) / 2;
+  const { canvas, productionRaster } = WORLD_MANIFEST;
+  return {
+    left: `${(left - source.x * width / source.width) / canvas.width * 100}%`,
+    top: `${(top - source.y * height / source.height) / canvas.height * 100}%`,
+    width: `${productionRaster.width * width / source.width / canvas.width * 100}%`,
+    height: `${productionRaster.height * height / source.height / canvas.height * 100}%`,
+  };
 }
 
 function statusSymbol(status: JourneyProjectStatus) {

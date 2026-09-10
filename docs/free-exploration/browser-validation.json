@@ -1,0 +1,528 @@
+{
+  "desktop": {
+    "overview": {
+      "url": "http://localhost:3034/",
+      "width": 1440,
+      "height": 900,
+      "camera": "OVERVIEW",
+      "focused": "false",
+      "islands": [
+        {
+          "id": "harubareun",
+          "status": "available",
+          "loaded": true,
+          "raster": {
+            "x": 156.65625,
+            "y": 189.0625,
+            "width": 398.765625,
+            "height": 224.15625,
+            "top": 189.0625,
+            "right": 555.421875,
+            "bottom": 413.21875,
+            "left": 156.65625
+          },
+          "visibleArt": {
+            "x": 224.9864013671875,
+            "y": 197.98723958333335,
+            "width": 261.8976318359375,
+            "height": 206.09921874999998
+          },
+          "filter": "none",
+          "opacity": "1",
+          "label": {
+            "x": 263.28125,
+            "y": 128.8671875,
+            "width": 175.4375,
+            "height": 75.265625,
+            "top": 128.8671875,
+            "right": 438.71875,
+            "bottom": 204.1328125,
+            "left": 263.28125
+          }
+        },
+        {
+          "id": "project-02",
+          "status": "available",
+          "loaded": true,
+          "raster": {
+            "x": 873.78125,
+            "y": 177.0625,
+            "width": 425.90625,
+            "height": 239.859375,
+            "top": 177.0625,
+            "right": 1299.6875,
+            "bottom": 416.921875,
+            "left": 873.78125
+          },
+          "visibleArt": {
+            "x": 944.987451171875,
+            "y": 193.4973090277778,
+            "width": 283.49384765625,
+            "height": 206.98975694444442
+          },
+          "filter": "none",
+          "opacity": "1",
+          "label": {
+            "x": 1017.78125,
+            "y": 127.0703125,
+            "width": 124.4375,
+            "height": 69.859375,
+            "top": 127.0703125,
+            "right": 1142.21875,
+            "bottom": 196.9296875,
+            "left": 1017.78125
+          }
+        },
+        {
+          "id": "fitmate",
+          "status": "available",
+          "loaded": true,
+          "raster": {
+            "x": 509.03125,
+            "y": 522.9375,
+            "width": 440.8125,
+            "height": 247.40625,
+            "top": 522.9375,
+            "right": 949.84375,
+            "bottom": 770.34375,
+            "left": 509.03125
+          },
+          "visibleArt": {
+            "x": 602.93349609375,
+            "y": 548.3653645833333,
+            "width": 253.0080078125,
+            "height": 196.5505208333333
+          },
+          "filter": "none",
+          "opacity": "1",
+          "label": {
+            "x": 642.2265625,
+            "y": 478.0703125,
+            "width": 155.546875,
+            "height": 69.859375,
+            "top": 478.0703125,
+            "right": 797.7734375,
+            "bottom": 547.9296875,
+            "left": 642.2265625
+          }
+        }
+      ],
+      "overflow": false,
+      "targets": [
+        {
+          "id": "harubareun",
+          "disabled": "false",
+          "rect": {
+            "x": 198,
+            "y": 175.5,
+            "width": 324,
+            "height": 225,
+            "top": 175.5,
+            "right": 522,
+            "bottom": 400.5,
+            "left": 198
+          }
+        },
+        {
+          "id": "project-02",
+          "disabled": "false",
+          "rect": {
+            "x": 922.5,
+            "y": 171,
+            "width": 324,
+            "height": 225,
+            "top": 171,
+            "right": 1246.5,
+            "bottom": 396,
+            "left": 922.5
+          }
+        },
+        {
+          "id": "fitmate",
+          "disabled": "false",
+          "rect": {
+            "x": 549,
+            "y": 522,
+            "width": 342,
+            "height": 229.5,
+            "top": 522,
+            "right": 891,
+            "bottom": 751.5,
+            "left": 549
+          }
+        }
+      ]
+    },
+    "journeys": [
+      {
+        "id": "fitmate",
+        "focusBack": true,
+        "caseStudyPlaceholderBack": true,
+        "completedCount": 0
+      },
+      {
+        "id": "project-02",
+        "focusBack": true,
+        "caseStudyPlaceholderBack": true,
+        "completedCount": 0
+      },
+      {
+        "id": "harubareun",
+        "focusBack": true,
+        "caseStudyPlaceholderBack": true,
+        "completedCount": 0
+      }
+    ]
+  },
+  "mobile": {
+    "overview": {
+      "url": "http://localhost:3034/",
+      "width": 390,
+      "height": 844,
+      "camera": "OVERVIEW",
+      "focused": "false",
+      "islands": [
+        {
+          "id": "harubareun",
+          "status": "available",
+          "loaded": true,
+          "raster": {
+            "x": -12.484375,
+            "y": 290.890625,
+            "width": 146.875,
+            "height": 82.5625,
+            "top": 290.890625,
+            "right": 134.390625,
+            "bottom": 373.453125,
+            "left": -12.484375
+          },
+          "visibleArt": {
+            "x": 12.683268229166668,
+            "y": 294.1778356481482,
+            "width": 96.46321614583333,
+            "height": 75.91163194444444
+          },
+          "filter": "none",
+          "opacity": "1",
+          "label": {
+            "x": 8.921875,
+            "y": 232.578125,
+            "width": 100.34375,
+            "height": 50,
+            "top": 232.578125,
+            "right": 109.265625,
+            "bottom": 282.578125,
+            "left": 8.921875
+          }
+        },
+        {
+          "id": "project-02",
+          "status": "available",
+          "loaded": true,
+          "raster": {
+            "x": 251.640625,
+            "y": 286.46875,
+            "width": 156.875,
+            "height": 88.34375,
+            "top": 286.46875,
+            "right": 408.515625,
+            "bottom": 374.8125,
+            "left": 251.640625
+          },
+          "visibleArt": {
+            "x": 277.8681640625,
+            "y": 292.5219328703704,
+            "width": 104.419921875,
+            "height": 76.23738425925926
+          },
+          "filter": "none",
+          "opacity": "1",
+          "label": {
+            "x": 286.9609375,
+            "y": 233.921875,
+            "width": 81.265625,
+            "height": 47,
+            "top": 233.921875,
+            "right": 368.2265625,
+            "bottom": 280.921875,
+            "left": 286.9609375
+          }
+        },
+        {
+          "id": "fitmate",
+          "status": "available",
+          "loaded": true,
+          "raster": {
+            "x": 117.296875,
+            "y": 413.859375,
+            "width": 162.359375,
+            "height": 91.125,
+            "top": 413.859375,
+            "right": 279.65625,
+            "bottom": 504.984375,
+            "left": 117.296875
+          },
+          "visibleArt": {
+            "x": 151.88280436197917,
+            "y": 423.225,
+            "width": 93.18751627604166,
+            "height": 72.39375
+          },
+          "filter": "none",
+          "opacity": "1",
+          "label": {
+            "x": 148.4921875,
+            "y": 515.953125,
+            "width": 93.015625,
+            "height": 47,
+            "top": 515.953125,
+            "right": 241.5078125,
+            "bottom": 562.953125,
+            "left": 148.4921875
+          }
+        }
+      ],
+      "overflow": false,
+      "targets": [
+        {
+          "id": "harubareun",
+          "disabled": "false",
+          "rect": {
+            "x": 2.734375,
+            "y": 285.890625,
+            "width": 119.328125,
+            "height": 82.859375,
+            "top": 285.890625,
+            "right": 122.0625,
+            "bottom": 368.75,
+            "left": 2.734375
+          }
+        },
+        {
+          "id": "project-02",
+          "disabled": "false",
+          "rect": {
+            "x": 269.59375,
+            "y": 284.234375,
+            "width": 119.328125,
+            "height": 82.859375,
+            "top": 284.234375,
+            "right": 388.921875,
+            "bottom": 367.09375,
+            "left": 269.59375
+          }
+        },
+        {
+          "id": "fitmate",
+          "disabled": "false",
+          "rect": {
+            "x": 132.015625,
+            "y": 413.515625,
+            "width": 125.953125,
+            "height": 84.515625,
+            "top": 413.515625,
+            "right": 257.96875,
+            "bottom": 498.03125,
+            "left": 132.015625
+          }
+        }
+      ]
+    },
+    "journeys": [
+      {
+        "id": "fitmate",
+        "focusBack": true,
+        "caseStudyPlaceholderBack": true,
+        "completedCount": 0
+      },
+      {
+        "id": "project-02",
+        "focusBack": true,
+        "caseStudyPlaceholderBack": true,
+        "completedCount": 0
+      },
+      {
+        "id": "harubareun",
+        "focusBack": true,
+        "caseStudyPlaceholderBack": true,
+        "completedCount": 0
+      }
+    ]
+  },
+  "keyboard": {
+    "overview": {
+      "url": "http://localhost:3034/",
+      "width": 1440,
+      "height": 900,
+      "camera": "OVERVIEW",
+      "focused": "false",
+      "islands": [
+        {
+          "id": "harubareun",
+          "status": "available",
+          "loaded": true,
+          "raster": {
+            "x": 156.65625,
+            "y": 189.0625,
+            "width": 398.765625,
+            "height": 224.15625,
+            "top": 189.0625,
+            "right": 555.421875,
+            "bottom": 413.21875,
+            "left": 156.65625
+          },
+          "visibleArt": {
+            "x": 224.9864013671875,
+            "y": 197.98723958333335,
+            "width": 261.8976318359375,
+            "height": 206.09921874999998
+          },
+          "filter": "none",
+          "opacity": "1",
+          "label": {
+            "x": 263.28125,
+            "y": 128.8671875,
+            "width": 175.4375,
+            "height": 75.265625,
+            "top": 128.8671875,
+            "right": 438.71875,
+            "bottom": 204.1328125,
+            "left": 263.28125
+          }
+        },
+        {
+          "id": "project-02",
+          "status": "available",
+          "loaded": true,
+          "raster": {
+            "x": 873.78125,
+            "y": 177.0625,
+            "width": 425.90625,
+            "height": 239.859375,
+            "top": 177.0625,
+            "right": 1299.6875,
+            "bottom": 416.921875,
+            "left": 873.78125
+          },
+          "visibleArt": {
+            "x": 944.987451171875,
+            "y": 193.4973090277778,
+            "width": 283.49384765625,
+            "height": 206.98975694444442
+          },
+          "filter": "none",
+          "opacity": "1",
+          "label": {
+            "x": 1017.78125,
+            "y": 127.0703125,
+            "width": 124.4375,
+            "height": 69.859375,
+            "top": 127.0703125,
+            "right": 1142.21875,
+            "bottom": 196.9296875,
+            "left": 1017.78125
+          }
+        },
+        {
+          "id": "fitmate",
+          "status": "available",
+          "loaded": true,
+          "raster": {
+            "x": 509.03125,
+            "y": 522.9375,
+            "width": 440.8125,
+            "height": 247.40625,
+            "top": 522.9375,
+            "right": 949.84375,
+            "bottom": 770.34375,
+            "left": 509.03125
+          },
+          "visibleArt": {
+            "x": 602.93349609375,
+            "y": 548.3653645833333,
+            "width": 253.0080078125,
+            "height": 196.5505208333333
+          },
+          "filter": "none",
+          "opacity": "1",
+          "label": {
+            "x": 642.2265625,
+            "y": 478.0703125,
+            "width": 155.546875,
+            "height": 69.859375,
+            "top": 478.0703125,
+            "right": 797.7734375,
+            "bottom": 547.9296875,
+            "left": 642.2265625
+          }
+        }
+      ],
+      "overflow": false,
+      "targets": [
+        {
+          "id": "harubareun",
+          "disabled": "false",
+          "rect": {
+            "x": 198,
+            "y": 175.5,
+            "width": 324,
+            "height": 225,
+            "top": 175.5,
+            "right": 522,
+            "bottom": 400.5,
+            "left": 198
+          }
+        },
+        {
+          "id": "project-02",
+          "disabled": "false",
+          "rect": {
+            "x": 922.5,
+            "y": 171,
+            "width": 324,
+            "height": 225,
+            "top": 171,
+            "right": 1246.5,
+            "bottom": 396,
+            "left": 922.5
+          }
+        },
+        {
+          "id": "fitmate",
+          "disabled": "false",
+          "rect": {
+            "x": 549,
+            "y": 522,
+            "width": 342,
+            "height": 229.5,
+            "top": 522,
+            "right": 891,
+            "bottom": 751.5,
+            "left": 549
+          }
+        }
+      ]
+    },
+    "journeys": [
+      {
+        "id": "fitmate",
+        "focusBack": true,
+        "caseStudyPlaceholderBack": true,
+        "completedCount": 0
+      },
+      {
+        "id": "project-02",
+        "focusBack": true,
+        "caseStudyPlaceholderBack": true,
+        "completedCount": 0
+      },
+      {
+        "id": "harubareun",
+        "focusBack": true,
+        "caseStudyPlaceholderBack": true,
+        "completedCount": 0
+      }
+    ]
+  },
+  "exceptions": []
+}

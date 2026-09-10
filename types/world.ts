@@ -37,6 +37,9 @@ export interface IslandRegion {
   category: string;
   focusCategory: string;
   productionAsset?: string;
+  /** Occupied pixels in the source PNG, mapped to visualBounds in world space. */
+  productionSourceBounds?: WorldBounds;
+  renderedScale?: number;
   visualBounds?: WorldBounds;
   stateAnchor?: WorldPoint;
   position: WorldPoint;

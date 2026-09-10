@@ -1,0 +1,38 @@
+[
+  {
+    "view": "desktopOverview",
+    "id": "harubareun",
+    "renderedWidthRatio": 0.9999909577546297,
+    "labelUnchanged": true
+  },
+  {
+    "view": "desktopOverview",
+    "id": "project-02",
+    "renderedWidthRatio": 0.9999782986111112,
+    "labelUnchanged": true
+  },
+  {
+    "view": "desktopOverview",
+    "id": "fitmate",
+    "renderedWidthRatio": 1.1200000345838867,
+    "labelUnchanged": true
+  },
+  {
+    "view": "mobileOverview",
+    "id": "harubareun",
+    "renderedWidthRatio": 0.9999836336557503,
+    "labelUnchanged": true
+  },
+  {
+    "view": "mobileOverview",
+    "id": "project-02",
+    "renderedWidthRatio": 0.9999929858524644,
+    "labelUnchanged": true
+  },
+  {
+    "view": "mobileOverview",
+    "id": "fitmate",
+    "renderedWidthRatio": 1.119974562397535,
+    "labelUnchanged": true
+  }
+]

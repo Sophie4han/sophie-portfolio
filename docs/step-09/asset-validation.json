@@ -1,0 +1,82 @@
+{
+  "source": {
+    "path": "docs/step-09/source-v02.png",
+    "width": 1536,
+    "height": 1024
+  },
+  "processing": {
+    "scale": 0.31,
+    "origin": {
+      "x": 792,
+      "y": 623
+    },
+    "method": "Chroma alpha extraction/decontamination, uniform downsample, full-world transparent raster"
+  },
+  "islands": {
+    "harubareun": {
+      "file": "public/images/pixel/world/islands/harubareun/island-harubareun-base.png",
+      "width": 1920,
+      "height": 1080,
+      "channels": 4,
+      "sha256": "3520383354937b99565f64f7d36a9e247ccdcb5fa1761e284952103fd255a56e",
+      "alphaBounds": {
+        "x": 425,
+        "y": 260,
+        "width": 260,
+        "height": 205
+      },
+      "opaquePixels": 35867
+    },
+    "project-02": {
+      "file": "public/images/pixel/world/islands/invader/island-invader-base.png",
+      "width": 1920,
+      "height": 1080,
+      "channels": 4,
+      "sha256": "1b6adca890e06372043202055d9c616b9f07c5bf148d3fa821ec52d943fa3976",
+      "alphaBounds": {
+        "x": 1154,
+        "y": 255,
+        "width": 354,
+        "height": 249
+      },
+      "opaquePixels": 45522
+    },
+    "fitmate": {
+      "file": "public/images/pixel/world/islands/fitmate/island-fitmate-base.png",
+      "width": 1920,
+      "height": 1080,
+      "channels": 4,
+      "sha256": "497245b1de739a664ff7167a7fa162f8261b045e934678460985103ce0bf9ed6",
+      "alphaBounds": {
+        "x": 858,
+        "y": 661,
+        "width": 345,
+        "height": 235
+      },
+      "opaquePixels": 34152
+    }
+  },
+  "landing": {
+    "logical": {
+      "x": 985,
+      "y": 755
+    },
+    "raster": {
+      "x": 1145,
+      "y": 845
+    },
+    "rgba": [
+      241,
+      239,
+      238,
+      255
+    ],
+    "footprint": {
+      "width": 37,
+      "height": 21,
+      "opaque": true
+    },
+    "distanceToTransparentEdge": 27.459060435491963,
+    "connectedToMain": true
+  }
+}

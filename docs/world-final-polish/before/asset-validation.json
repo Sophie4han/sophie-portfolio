@@ -1,0 +1,73 @@
+{
+  "islands": {
+    "harubareun": {
+      "file": "public/images/pixel/world/islands/harubareun/island-harubareun-base.png",
+      "alphaBounds": {
+        "x": 410,
+        "y": 260,
+        "width": 291,
+        "height": 229
+      },
+      "sourceBounds": {
+        "x": 425,
+        "y": 260,
+        "width": 260,
+        "height": 205
+      }
+    },
+    "project-02": {
+      "file": "public/images/pixel/world/islands/invader/island-invader-base.png",
+      "alphaBounds": {
+        "x": 1210,
+        "y": 255,
+        "width": 315,
+        "height": 230
+      },
+      "sourceBounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1278,
+        "height": 932
+      }
+    },
+    "fitmate": {
+      "file": "public/images/pixel/world/islands/fitmate/island-fitmate-base.png",
+      "alphaBounds": {
+        "x": 845,
+        "y": 661,
+        "width": 251,
+        "height": 195
+      },
+      "sourceBounds": {
+        "x": 211,
+        "y": 70,
+        "width": 1102,
+        "height": 858
+      }
+    }
+  },
+  "landing": {
+    "project-02": {
+      "logical": {
+        "x": 1130,
+        "y": 305
+      },
+      "footprint": {
+        "width": 25,
+        "height": 17,
+        "opaque": true
+      }
+    },
+    "fitmate": {
+      "logical": {
+        "x": 850,
+        "y": 710
+      },
+      "footprint": {
+        "width": 25,
+        "height": 17,
+        "opaque": true
+      }
+    }
+  }
+}

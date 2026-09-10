@@ -1,0 +1,31 @@
+{
+  "islands": {
+    "harubareun": {
+      "file": "public/images/pixel/world/islands/harubareun/island-harubareun-base.png",
+      "alphaBounds": {
+        "x": 329,
+        "y": 43,
+        "width": 1261,
+        "height": 993
+      }
+    },
+    "project-02": {
+      "file": "public/images/pixel/world/islands/invader/island-invader-base.png",
+      "alphaBounds": {
+        "x": 321,
+        "y": 74,
+        "width": 1278,
+        "height": 932
+      }
+    },
+    "fitmate": {
+      "file": "public/images/pixel/world/islands/fitmate/island-fitmate-base.png",
+      "alphaBounds": {
+        "x": 409,
+        "y": 111,
+        "width": 1102,
+        "height": 858
+      }
+    }
+  }
+}

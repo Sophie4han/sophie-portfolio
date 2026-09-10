@@ -1,4 +1,3 @@
-import { resolveProjectProgression } from "./project-progression";
 import {
   PROJECT_CAMERA_PRESETS,
   SCENE_DESCRIPTORS,
@@ -96,15 +95,6 @@ function selectIsland(
   state: SceneMachineState,
   projectId: ProjectId,
 ): SceneMachineState {
-  const progression = resolveProjectProgression(
-    state.worldProgress.completedProjectIds,
-  );
-  const status = progression.statuses[projectId];
-
-  if (status === "locked") {
-    return reject(state, "SELECT_ISLAND", "project-locked");
-  }
-
   return beginTransition(state, "island-focus", {
     focusedIslandId: projectId,
     cameraPreset: PROJECT_CAMERA_PRESETS[projectId],
