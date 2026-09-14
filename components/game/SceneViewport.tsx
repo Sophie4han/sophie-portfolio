@@ -1,5 +1,10 @@
 import { IntroScene, isProloguePhase } from "@/components/intro/IntroScene";
 import { WorldScene } from "@/components/world/WorldScene";
+import { HarubareunProjectDetail } from "@/components/project/HarubareunProjectDetail";
+import { InvaderProjectDetail } from "@/components/project/InvaderProjectDetail";
+import { FitMateProjectDetail } from "@/components/project/FitMateProjectDetail";
+import { ProjectDetailNavigation } from "@/components/project/ProjectDetailNavigation";
+import { getIslandRegion } from "@/lib/world-manifest";
 import type { SceneState, WorldProgressV1 } from "@/types/game";
 import type { SceneEvent } from "@/types/scene";
 import type { TransitionRuntimeState } from "@/types/transition";
@@ -52,9 +57,47 @@ export function SceneViewport({
     );
   }
 
+  if (scene.sceneId === "island-entry" && scene.focusedIslandId === "harubareun") {
+    return (
+      <HarubareunProjectDetail
+        transition={transition}
+        onBackToWorld={() => dispatch({ type: "BACK_TO_WORLD" })}
+        onBackToFocus={() => dispatch({ type: "BACK_TO_FOCUS" })}
+      />
+    );
+  }
+
+  if (scene.sceneId === "island-entry" && scene.focusedIslandId === "project-02") {
+    return (
+      <InvaderProjectDetail
+        transition={transition}
+        onBackToFocus={() => dispatch({ type: "BACK_TO_FOCUS" })}
+        onBackToWorld={() => dispatch({ type: "BACK_TO_WORLD" })}
+      />
+    );
+  }
+
+  if (scene.sceneId === "island-entry" && scene.focusedIslandId === "fitmate") {
+    return (
+      <FitMateProjectDetail
+        transition={transition}
+        onBackToFocus={() => dispatch({ type: "BACK_TO_FOCUS" })}
+        onBackToWorld={() => dispatch({ type: "BACK_TO_WORLD" })}
+      />
+    );
+  }
+
   return (
-    <main className="grid min-h-dvh place-items-center bg-zinc-950 px-6 py-12 text-zinc-50">
-      <section className="w-full max-w-xl border border-dashed border-zinc-600 p-6">
+    <main className="min-h-dvh bg-zinc-950 text-zinc-50">
+      {scene.focusedIslandId && (
+        <ProjectDetailNavigation
+          projectName={getIslandRegion(scene.focusedIslandId).projectName}
+          disabled={scene.phase !== "active"}
+          onBackToFocus={() => dispatch({ type: "BACK_TO_FOCUS" })}
+          onBackToWorld={() => dispatch({ type: "BACK_TO_WORLD" })}
+        />
+      )}
+      <section className="mx-auto w-full max-w-xl px-6 py-20">
         <p className="font-mono text-xs uppercase tracking-wider text-zinc-400">
           Foundation scene
         </p>

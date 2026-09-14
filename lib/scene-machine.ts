@@ -72,6 +72,14 @@ function transitionForEvent(
       return selectIsland(state, event.projectId);
     case "BACK_TO_WORLD":
       return beginTransition(state, "world-overview", { focusedIslandId: null });
+    case "BACK_TO_FOCUS":
+      if (!state.scene.focusedIslandId) {
+        return reject(state, event.type, "missing-focused-island");
+      }
+      return beginTransition(state, "island-focus", {
+        focusedIslandId: state.scene.focusedIslandId,
+        cameraPreset: PROJECT_CAMERA_PRESETS[state.scene.focusedIslandId],
+      });
     case "ENTER_ISLAND":
       if (!state.scene.focusedIslandId) {
         return reject(state, event.type, "missing-focused-island");

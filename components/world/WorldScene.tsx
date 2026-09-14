@@ -35,6 +35,8 @@ export function WorldScene({
     (scene.pendingScene.sceneId === "island-focus" || scene.pendingScene.sceneId === "world-overview")
     ? scene.pendingScene : scene;
 
+  const enterProject = () => dispatch({ type: "ENTER_ISLAND" });
+
   return (
     <main className={styles.worldScene}>
       <h1 className={styles.visuallyHidden}>MOVE ON World</h1>
@@ -45,7 +47,13 @@ export function WorldScene({
         reducedMotion={transition.reducedMotion}
         durationMs={transition.durationMs}
         interactive={scene.phase === "active"}
-        onSelectIsland={(projectId) => dispatch({ type: "SELECT_ISLAND", projectId })}
+        onSelectIsland={(projectId) => {
+          if (scene.sceneId === "island-focus" && scene.focusedIslandId === projectId) {
+            enterProject();
+          } else {
+            dispatch({ type: "SELECT_ISLAND", projectId });
+          }
+        }}
         onBackToWorld={() => dispatch({ type: "BACK_TO_WORLD" })}
       />
       <WorldHud
@@ -59,10 +67,12 @@ export function WorldScene({
         <span aria-disabled="true" title="Experience page is not available yet">EXPERIENCE</span>
       </nav>
       {focusedIsland && focusedStatus && scene.phase === "active" && (
-        <ProjectHud
-          island={focusedIsland}
-          onEnter={() => dispatch({ type: "ENTER_ISLAND" })}
-        />
+        <>
+          <ProjectHud
+            island={focusedIsland}
+            onEnter={enterProject}
+          />
+        </>
       )}
       <p className={styles.selectionAnnouncement} aria-live="polite">
         {focusedIsland

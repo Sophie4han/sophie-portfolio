@@ -46,6 +46,7 @@ export interface IslandRegion {
   interactionBounds: WorldBounds;
   labelAnchor: WorldPoint;
   chooniAnchor: WorldPoint;
+  focusChooniSpawn: WorldPoint;
   chooniPlacement: ChooniPlacement;
   focusPreset: CameraPreset;
 }

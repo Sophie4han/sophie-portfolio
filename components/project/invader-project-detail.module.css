@@ -1,0 +1,330 @@
+.atmosphere {
+  z-index: 0;
+}
+
+.atmosphere::after {
+  z-index: 3;
+}
+
+.navigationActions {
+  gap: 24px;
+}
+
+.signalNarrative {
+  max-width: 800px;
+  margin: 72px 0 0 80px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.signalSection {
+  padding: 28px 0 64px;
+  border-top: 1px solid rgba(243, 240, 229, 0.28);
+}
+
+.signalSection h3 {
+  margin: 0;
+  color: #f3f0e5;
+  font-size: clamp(24px, 2.4vw, 36px);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.signalSection p {
+  max-width: 740px;
+  margin: 22px 0 0;
+  color: #d0dbd1;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.signalFunnel,
+.signalLifecycle {
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.signalFunnel li {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  padding: 20px 0 20px 32px;
+  border-bottom: 1px solid rgba(243, 240, 229, 0.18);
+}
+
+.signalFunnel li + li::before {
+  position: absolute;
+  left: 0;
+  content: "↓";
+  color: #91a99b;
+}
+
+.signalFunnel strong {
+  min-width: 120px;
+  font-size: clamp(30px, 3vw, 44px);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.signalFunnel span {
+  color: #b9cbbd;
+  font: 500 14px/1.6 var(--font-geist-mono), monospace;
+}
+
+.signalSection .signalConversion {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px 22px;
+  margin-top: 36px;
+  color: #d8ff3e;
+}
+
+.signalConversion strong {
+  font-size: clamp(32px, 3.4vw, 48px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.signalConversion span {
+  font: 500 14px/1.6 var(--font-geist-mono), monospace;
+}
+
+.signalLifecycle li {
+  padding: 10px 0;
+  font: 500 16px/1.6 var(--font-geist-mono), monospace;
+}
+
+.signalLifecycle li + li::before {
+  display: block;
+  margin-bottom: 14px;
+  content: "↓";
+  color: #91a99b;
+}
+
+.signalLifecycle li:last-child {
+  color: #d8ff3e;
+}
+
+.signalOutcomes {
+  margin: 28px 0 0;
+  padding-left: 20px;
+  color: #d0dbd1;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.signalOutcomes li + li {
+  margin-top: 14px;
+}
+
+.signalLearning {
+  padding-top: 24px;
+  border-top: 1px solid rgba(243, 240, 229, 0.28);
+}
+
+.signalLearning h3 {
+  margin: 0;
+}
+
+.signalLearning p {
+  margin: 24px 0 0;
+  color: #d8ff3e;
+  font-size: clamp(22px, 2.2vw, 34px);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .signalNarrative {
+    margin: 56px 0 0;
+  }
+
+  .signalFunnel li {
+    flex-wrap: wrap;
+    gap: 8px 18px;
+  }
+}
+
+.experienceTitle {
+  word-break: keep-all;
+}
+
+.experienceNarrative {
+  max-width: 800px;
+  margin: 72px 0 0 80px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.experienceCaseTitle {
+  margin: 0;
+  padding-top: 28px;
+  border-top: 1px solid rgba(243, 240, 229, 0.28);
+  color: #f3f0e5;
+  font-size: clamp(24px, 2.4vw, 36px);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.experienceContext {
+  max-width: 640px;
+  margin: 22px 0 0;
+  color: #d0dbd1;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.experienceSteps {
+  margin: 44px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experienceSteps li {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 24px;
+  padding: 26px 0;
+  border-top: 1px solid rgba(243, 240, 229, 0.18);
+}
+
+.experienceSteps h4 {
+  margin: 0;
+  color: #f3f0e5;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.experienceSteps p {
+  margin: 0;
+  color: #d0dbd1;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.experienceSteps p span {
+  margin-right: 12px;
+  color: #91a99b;
+}
+
+.experienceLoop {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(243, 240, 229, 0.28);
+}
+
+.experienceLoop h3 {
+  margin: 0;
+}
+
+.experienceConclusion {
+  margin: 64px 0 0;
+  color: #d8ff3e;
+  font-size: clamp(22px, 2.2vw, 34px);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .experienceNarrative {
+    margin: 56px 0 0;
+  }
+
+  .experienceSteps li {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+.valueTitle {
+  word-break: keep-all;
+}
+
+.valueNarrative {
+  max-width: 800px;
+  margin: 72px 0 0 80px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.valueChapter {
+  padding: 28px 0 64px;
+  border-top: 1px solid rgba(243, 240, 229, 0.28);
+}
+
+.valueChapter h3 {
+  margin: 0;
+  color: #f3f0e5;
+  font-size: clamp(24px, 2.4vw, 36px);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.valueChapter p {
+  margin: 22px 0 0;
+  color: #d0dbd1;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.valueFlow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+  color: #f3f0e5;
+  font: 500 14px/1.6 var(--font-geist-mono), monospace;
+}
+
+.valueFlow li + li::before {
+  content: "→";
+  margin-right: 18px;
+  color: #91a99b;
+}
+
+.valueFlow li:last-child {
+  color: #d8ff3e;
+}
+
+.valuePrinciple {
+  margin-top: 12px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(243, 240, 229, 0.28);
+}
+
+.valuePrinciple h3 {
+  margin: 0;
+}
+
+.valuePrinciple p {
+  margin: 24px 0 0;
+  color: #d8ff3e;
+  font-size: clamp(22px, 2.2vw, 34px);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .valueNarrative {
+    margin: 56px 0 0;
+  }
+
+  .valueFlow {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .valueFlow li + li::before {
+    display: block;
+    content: "↓";
+    margin: 0 0 10px;
+  }
+}

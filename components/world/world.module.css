@@ -23,7 +23,9 @@
   will-change: transform;
 }
 
-.cameraRig[data-reduced-motion="true"] { transition: none; }
+.cameraRig[data-reduced-motion="true"] {
+  transition: none;
+}
 
 .worldCanvas {
   position: relative;
@@ -40,7 +42,9 @@
   inset: 0;
 }
 
-.environmentLayer { pointer-events: none; }
+.environmentLayer {
+  pointer-events: none;
+}
 
 .environmentLayer[data-layer-role="background"] {
   background:
@@ -99,8 +103,14 @@
   transform: rotate(2deg) skewX(-4deg);
 }
 
-.islandVisual[data-status="active"] .landMass { border-color: #d8ff3e; }
-.islandVisual[data-status="completed"] .landMass { border-style: double; border-width: 6px; }
+.islandVisual[data-status="active"] .landMass {
+  border-color: #d8ff3e;
+}
+
+.islandVisual[data-status="completed"] .landMass {
+  border-style: double;
+  border-width: 6px;
+}
 
 .statusMarker {
   position: absolute;
@@ -132,8 +142,14 @@
   text-transform: uppercase;
 }
 
-.islandLabel strong { font-size: clamp(10px, 1.1vw, 17px); }
-.islandLabel span { margin-top: 3px; color: #d8ff3e; }
+.islandLabel strong {
+  font-size: clamp(10px, 1.1vw, 17px);
+}
+
+.islandLabel span {
+  margin-top: 3px;
+  color: #d8ff3e;
+}
 
 .islandTarget {
   position: absolute;
@@ -144,7 +160,10 @@
   cursor: pointer;
 }
 
-.islandTarget:focus-visible { outline: 4px solid #d8ff3e; outline-offset: 5px; }
+.islandTarget:focus-visible {
+  outline: 4px solid #d8ff3e;
+  outline-offset: 5px;
+}
 
 .chooniWorldStage {
   z-index: 30;
@@ -184,11 +203,32 @@
   padding: 18px;
 }
 
-.projectHud p { margin: 0; color: #bdc8c4; font-size: 13px; line-height: 1.5; }
-.projectHud h2 { margin: 6px 0 12px; font-size: clamp(23px, 3vw, 36px); }
-.projectHud strong { display: block; margin-top: 14px; font: 700 11px/1.3 var(--font-geist-mono), monospace; text-transform: uppercase; }
+.projectHud p {
+  margin: 0;
+  color: #bdc8c4;
+  font-size: 13px;
+  line-height: 1.5;
+}
 
-.projectActions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 18px; }
+.projectHud h2 {
+  margin: 6px 0 12px;
+  font-size: clamp(23px, 3vw, 36px);
+}
+
+.projectHud strong {
+  display: block;
+  margin-top: 14px;
+  font: 700 11px/1.3 var(--font-geist-mono), monospace;
+  text-transform: uppercase;
+}
+
+.projectActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 18px;
+}
+
 .projectActions button {
   min-height: 46px;
   padding: 9px 10px;
@@ -198,8 +238,210 @@
   font-weight: 700;
   cursor: pointer;
 }
-.projectActions button:first-child { background: #d8ff3e; color: #071014; }
-.projectActions button:focus-visible { outline: 3px solid #8ab4ff; outline-offset: 3px; }
+
+.projectActions button:first-child {
+  background: #d8ff3e;
+  color: #071014;
+}
+
+.projectActions button:focus-visible {
+  outline: 3px solid #8ab4ff;
+  outline-offset: 3px;
+}
+
+@keyframes focusChooniSummon {
+
+  0%,
+  16% {
+    opacity: 0;
+    transform: translate(-50%, -92%);
+  }
+
+  48% {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+}
+
+@keyframes focusChooniAssemble {
+  0% {
+    opacity: 0;
+    clip-path: inset(100% 0 0);
+  }
+
+  46% {
+    opacity: 0.5;
+    clip-path: inset(52% 0 0);
+  }
+
+  78% {
+    opacity: 0.85;
+    clip-path: inset(14% 0 0);
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: inset(0);
+  }
+}
+
+@keyframes focusChooniFragment {
+
+  0%,
+  24% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  55% {
+    opacity: 0.8;
+    transform: translateY(-3px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes focusChooniSparkle {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  24% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+
+  70% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.7);
+  }
+}
+
+@keyframes focusChooniDust {
+  0% {
+    opacity: 0;
+    transform: translateY(2px) scaleX(0.5);
+  }
+
+  28% {
+    opacity: 0.55;
+    transform: translateY(0) scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-5px) scaleX(1.35);
+  }
+}
+
+.focusChooni {
+  position: absolute;
+  z-index: 32;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+  transform-origin: 50% 100%;
+  animation: focusChooniSummon 820ms cubic-bezier(0.2, 0.8, 0.25, 1) both;
+}
+
+.focusChooniSprite,
+.focusChooniLayer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.focusChooniSprite {
+  overflow: hidden;
+  clip-path: inset(100% 0 0);
+  animation: focusChooniAssemble 820ms steps(7, end) both;
+}
+
+.focusChooniFragments {
+  position: absolute;
+  inset: 8% 14% 0;
+  z-index: 2;
+}
+
+.focusChooniFragments i {
+  position: absolute;
+  width: 8%;
+  aspect-ratio: 1;
+  background: #d9e2ba;
+  opacity: 0;
+  animation: focusChooniFragment 820ms steps(5, end) both;
+}
+
+.focusChooniFragments i:nth-child(1) {
+  left: 18%;
+  bottom: 10%;
+  animation-delay: 70ms;
+}
+
+.focusChooniFragments i:nth-child(2) {
+  left: 42%;
+  bottom: 28%;
+  animation-delay: 150ms;
+}
+
+.focusChooniFragments i:nth-child(3) {
+  left: 68%;
+  bottom: 16%;
+  animation-delay: 230ms;
+}
+
+.focusChooniFragments i:nth-child(4) {
+  left: 34%;
+  bottom: 54%;
+  animation-delay: 310ms;
+}
+
+.focusChooniFragments i:nth-child(5) {
+  left: 58%;
+  bottom: 68%;
+  animation-delay: 390ms;
+}
+
+.focusChooniSparkle,
+.focusChooniDust {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  pointer-events: none;
+}
+
+.focusChooniSparkle {
+  right: 10px;
+  top: 18px;
+  width: 7px;
+  height: 7px;
+  background: #f4f0e7;
+  box-shadow: -22px 20px 0 #d8ff3e, 16px 28px 0 #d9e2ba;
+  animation: focusChooniSparkle 720ms ease-out both;
+}
+
+.focusChooniDust {
+  left: 12px;
+  bottom: 3px;
+  width: 72px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(217, 226, 186, 0.42);
+  filter: blur(1px);
+  animation: focusChooniDust 620ms ease-out both;
+}
 
 .selectionAnnouncement {
   position: fixed;
@@ -228,8 +470,15 @@
     transform: translate(var(--camera-mobile-x), var(--camera-mobile-y)) scale(var(--camera-mobile-scale));
     transform-origin: var(--camera-mobile-origin-x) var(--camera-mobile-origin-y);
   }
-  .worldCanvas { border: 0; }
-  .worldHud { font-size: 10px; }
+
+  .worldCanvas {
+    border: 0;
+  }
+
+  .worldHud {
+    font-size: 10px;
+  }
+
   .projectHud {
     right: max(14px, env(safe-area-inset-right));
     bottom: max(14px, env(safe-area-inset-bottom));
@@ -237,57 +486,250 @@
     width: auto;
     padding: 15px;
   }
-  .projectHud h2 { font-size: 24px; }
-  .islandTarget { min-width: 44px; min-height: 44px; }
+
+  .projectHud h2 {
+    font-size: 24px;
+  }
+
+  .islandTarget {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .focusChooni {
+    transform: translate(-50%, -100%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cameraRig { transition: none; }
+
+  .focusChooni,
+  .focusChooniFragments i,
+  .focusChooniSparkle,
+  .focusChooniDust {
+    animation: none;
+  }
+
+  .focusChooniSprite {
+    animation: none;
+    clip-path: inset(0);
+  }
 }
 
 /* STEP 05.5: presentation only; all world anchors remain manifest-owned. */
-.worldScene { --world-accent: #d8ff3e; background: #0c1c20; }
-.cameraRig { transition-duration: var(--world-motion-duration, 240ms); }
-.worldCanvas { border: 0; background: transparent; overflow: visible; }
+.worldScene {
+  --world-accent: #d8ff3e;
+  background: #0c1c20;
+}
+
+.cameraRig {
+  transition-duration: var(--world-motion-duration, 240ms);
+}
+
+.worldCanvas {
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+
 .environmentLayer[data-layer-role="background"] {
   background: radial-gradient(ellipse at 28% 30%, #29413b 0, #132d30 42%, #0c1c20 76%);
 }
-.environmentLayer[data-layer-role="terrain"] { opacity: 0; }
-.environmentLayer[data-layer-role="path"] { opacity: 0.2; }
-.environmentLayer[data-layer-role="foreground"] { border: 0; }
-.islandVisual { width: 18%; }
-.islandVisual[data-island="harubareun"] { width: 21.6%; aspect-ratio: 1.85; }
-.landMass { border-width: 2px; background: #527765; box-shadow: 0 14px 0 #213c36, 0 21px 0 #142b2b, 0 34px 30px #07101480; }
-.islandVisual[data-island="harubareun"] .landMass { background: #708666; border-color: #d9e2ba; }
-.islandVisual[data-status="active"] .landMass { outline: 2px solid var(--world-accent); outline-offset: 7px; }
-.statusMarker { width: clamp(20px, 2vw, 30px); font-size: 12px; border: 0; border-radius: 50%; }
-.islandLabel { min-width: 0; width: max-content; pointer-events: none; }
-.islandLabel small { font-size: clamp(10px, 1vw, 15px); color: #d9e2ba; letter-spacing: 0.12em; }
-.islandLabel strong { font-size: clamp(13px, 1.45vw, 23px); }
-.islandLabel[data-island="harubareun"] strong { font-size: clamp(15px, 1.7vw, 27px); }
-.islandLabel span { color: #d1dcd5; text-transform: none; font-family: inherit; font-weight: 400; font-size: clamp(10px, 0.9vw, 14px); }
-[data-muted="true"] .islandVisual { opacity: 0.08; }
-.worldViewport[data-focused="true"] .islandLabel { visibility: hidden; }
+
+.environmentLayer[data-layer-role="terrain"] {
+  opacity: 0;
+}
+
+.environmentLayer[data-layer-role="path"] {
+  opacity: 0.2;
+}
+
+.environmentLayer[data-layer-role="foreground"] {
+  border: 0;
+}
+
+.islandVisual {
+  width: 18%;
+}
+
+.islandVisual[data-island="harubareun"] {
+  width: 21.6%;
+  aspect-ratio: 1.85;
+}
+
+.landMass {
+  border-width: 2px;
+  background: #527765;
+  box-shadow: 0 14px 0 #213c36, 0 21px 0 #142b2b, 0 34px 30px #07101480;
+}
+
+.islandVisual[data-island="harubareun"] .landMass {
+  background: #708666;
+  border-color: #d9e2ba;
+}
+
+.islandVisual[data-status="active"] .landMass {
+  outline: 2px solid var(--world-accent);
+  outline-offset: 7px;
+}
+
+.statusMarker {
+  width: clamp(20px, 2vw, 30px);
+  font-size: 12px;
+  border: 0;
+  border-radius: 50%;
+}
+
+.islandLabel {
+  min-width: 0;
+  width: max-content;
+  pointer-events: none;
+}
+
+.islandLabel small {
+  font-size: clamp(10px, 1vw, 15px);
+  color: #d9e2ba;
+  letter-spacing: 0.12em;
+}
+
+.islandLabel strong {
+  font-size: clamp(13px, 1.45vw, 23px);
+}
+
+.islandLabel[data-island="harubareun"] strong {
+  font-size: clamp(15px, 1.7vw, 27px);
+}
+
+.islandLabel span {
+  color: #d1dcd5;
+  text-transform: none;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: clamp(10px, 0.9vw, 14px);
+}
+
+[data-muted="true"] .islandVisual {
+  opacity: 0.08;
+}
+
+.worldViewport[data-focused="true"] .islandLabel {
+  visibility: hidden;
+}
+
 .worldCanvas:has(.islandTarget[data-island="harubareun"]:is(:hover, :focus-visible)) [data-destination="harubareun"] .landMass,
 .worldCanvas:has(.islandTarget[data-island="project-02"]:is(:hover, :focus-visible)) [data-destination="project-02"] .landMass,
-.worldCanvas:has(.islandTarget[data-island="fitmate"]:is(:hover, :focus-visible)) [data-destination="fitmate"] .landMass { outline: 2px solid #f4f0e7; outline-offset: 6px; }
-.chooniWorldStage { width: 5%; min-width: 25px; border: 1px solid #e8e7dc; font-size: clamp(5px, 0.55vw, 9px); box-shadow: 0 7px 14px #07101466; transition: left var(--world-motion-duration, 240ms) ease, top var(--world-motion-duration, 240ms) ease; }
-.worldHud, .projectHud { border: 0; box-shadow: none; backdrop-filter: none; background: transparent; }
-.worldHud { top: max(24px, env(safe-area-inset-top)); left: max(28px, env(safe-area-inset-left)); padding: 0; gap: 7px; }
-.worldHud strong { letter-spacing: 0.18em; font-size: 14px; }
-.worldHud span { color: #c1cfc8; font-family: Arial, sans-serif; font-weight: 400; }
-.worldHud small { color: #b3c5ba; font-size: 10px; }
-.utilityNav { position: absolute; z-index: 36; top: max(20px, env(safe-area-inset-top)); right: 24px; display: flex; align-items: center; gap: 22px; font: 600 10px/1.3 var(--font-geist-mono), monospace; }
-.utilityNav button, .utilityNav a { display: grid; align-items: center; min-height: 44px; background: none; border: 0; color: inherit; cursor: pointer; }
-.utilityNav [aria-disabled="true"] { color: #b0bdb7; }
-.utilityNav :focus-visible { outline: 2px solid var(--world-accent); outline-offset: 4px; }
-.projectHud { width: 310px; bottom: 38px; right: 38px; }
-.projectHud h2 { font-size: 27px; margin: 8px 0 10px; }
-.projectHud > p:nth-of-type(2) { font-size: 17px; color: #f4f0e7; }
-.projectHud > small { display: block; margin-top: 10px; color: #c1cfc8; font-size: 11px; }
-.projectActions { grid-template-columns: 1fr; gap: 4px; margin-top: 16px; }
-.projectActions button { font-size: 11px; }
-.projectActions button:last-child { border-color: transparent; }
+.worldCanvas:has(.islandTarget[data-island="fitmate"]:is(:hover, :focus-visible)) [data-destination="fitmate"] .landMass {
+  outline: 2px solid #f4f0e7;
+  outline-offset: 6px;
+}
+
+.chooniWorldStage {
+  width: 5%;
+  min-width: 25px;
+  border: 1px solid #e8e7dc;
+  font-size: clamp(5px, 0.55vw, 9px);
+  box-shadow: 0 7px 14px #07101466;
+  transition: left var(--world-motion-duration, 240ms) ease, top var(--world-motion-duration, 240ms) ease;
+}
+
+.worldHud,
+.projectHud {
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  background: transparent;
+}
+
+.worldHud {
+  top: max(24px, env(safe-area-inset-top));
+  left: max(28px, env(safe-area-inset-left));
+  padding: 0;
+  gap: 7px;
+}
+
+.worldHud strong {
+  letter-spacing: 0.18em;
+  font-size: 14px;
+}
+
+.worldHud span {
+  color: #c1cfc8;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+}
+
+.worldHud small {
+  color: #b3c5ba;
+  font-size: 10px;
+}
+
+.utilityNav {
+  position: absolute;
+  z-index: 36;
+  top: max(20px, env(safe-area-inset-top));
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font: 600 10px/1.3 var(--font-geist-mono), monospace;
+}
+
+.utilityNav button,
+.utilityNav a {
+  display: grid;
+  align-items: center;
+  min-height: 44px;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+.utilityNav [aria-disabled="true"] {
+  color: #b0bdb7;
+}
+
+.utilityNav :focus-visible {
+  outline: 2px solid var(--world-accent);
+  outline-offset: 4px;
+}
+
+.projectHud {
+  width: 310px;
+  bottom: 38px;
+  right: 38px;
+}
+
+.projectHud h2 {
+  font-size: 27px;
+  margin: 8px 0 10px;
+}
+
+.projectHud>p:nth-of-type(2) {
+  font-size: 17px;
+  color: #f4f0e7;
+}
+
+.projectHud>small {
+  display: block;
+  margin-top: 10px;
+  color: #c1cfc8;
+  font-size: 11px;
+}
+
+.projectActions {
+  grid-template-columns: 1fr;
+  gap: 4px;
+  margin-top: 16px;
+}
+
+.projectActions button {
+  font-size: 11px;
+}
+
+.projectActions button:last-child {
+  border-color: transparent;
+}
 
 .worldScene:has(.worldViewport[data-focused="true"]) .projectHud {
   top: calc(50% + 15px);
@@ -302,34 +744,41 @@
   box-shadow: none;
   backdrop-filter: none;
 }
+
 .worldScene:has(.worldViewport[data-focused="true"]) .projectHud p,
 .worldScene:has(.worldViewport[data-focused="true"]) .projectHud h2,
 .worldScene:has(.worldViewport[data-focused="true"]) .projectHud small {
   text-shadow: 0 2px 14px rgba(7, 16, 20, 0.22);
 }
+
 .worldScene:has(.worldViewport[data-focused="true"]) .projectHud h2 {
   margin: 10px 0 16px;
   font-size: clamp(28px, 3.4vw, 48px);
   letter-spacing: 0.02em;
 }
+
 .worldScene:has(.worldViewport[data-focused="true"]) .projectHud p:nth-of-type(2) {
   max-width: 220px;
   font-size: clamp(16px, 1.35vw, 21px);
   line-height: 1.45;
 }
+
 .projectImageSlot {
   width: 100%;
   margin-top: 22px;
 }
+
 .projectImageSlot img {
   display: block;
   width: 100%;
   height: auto;
 }
+
 .worldScene:has(.worldViewport[data-focused="true"]) .projectActions {
   display: block;
   margin-top: 24px;
 }
+
 .worldScene:has(.worldViewport[data-focused="true"]) .projectActions button {
   min-height: auto;
   padding: 0;
@@ -340,29 +789,101 @@
   letter-spacing: 0.08em;
   text-align: left;
 }
+
 .worldScene:has(.worldViewport[data-focused="true"]) .projectActions button:focus-visible {
   outline: 2px solid var(--world-accent);
   outline-offset: 6px;
 }
+
 @media (max-width: 760px) {
-  .worldHud { top: 76px; left: 22px; }
-  .utilityNav { top: max(12px, env(safe-area-inset-top)); left: 22px; right: 22px; justify-content: space-between; gap: 8px; font-size: 9px; }
-  .worldViewport { inset: 170px 0 240px; }
-  .cameraRig { width: 100vw; transform: none; transform-origin: center; }
-  .worldViewport[data-focused="true"] .cameraRig { width: 200vw; transform: translate(var(--focus-x), var(--focus-y)); }
-  .worldViewport[data-focused="true"] .islandLabel { opacity: 0; }
-  .worldViewport[data-focused="true"] .chooniWorldStage { font-size: 6px; }
-  .islandLabel { transform: translate(-50%, -100%); }
-  .islandLabel[data-island="fitmate"] { transform: translate(-50%, 225%); }
-  .islandLabel small { font-size: 10px; letter-spacing: 0.02em; }
-  .islandLabel strong { font-size: 12px; }
-  .islandLabel[data-island="harubareun"] strong { font-size: 14px; }
-  .islandLabel span { font-size: 10px; }
-  .statusMarker { width: 17px; font-size: 10px; }
-  .projectHud { left: 22px; right: 22px; bottom: max(18px, env(safe-area-inset-bottom)); padding: 0; width: auto; }
-  .projectHud h2 { font-size: 23px; margin: 5px 0; }
-  .projectHud > p:nth-of-type(2) { font-size: 15px; }
-  .projectActions { margin-top: 10px; }
+  .worldHud {
+    top: 76px;
+    left: 22px;
+  }
+
+  .utilityNav {
+    top: max(12px, env(safe-area-inset-top));
+    left: 22px;
+    right: 22px;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 9px;
+  }
+
+  .worldViewport {
+    inset: 170px 0 240px;
+  }
+
+  .cameraRig {
+    width: 100vw;
+    transform: none;
+    transform-origin: center;
+  }
+
+  .worldViewport[data-focused="true"] .cameraRig {
+    width: 200vw;
+    transform: translate(var(--focus-x), var(--focus-y));
+  }
+
+  .worldViewport[data-focused="true"] .islandLabel {
+    opacity: 0;
+  }
+
+  .worldViewport[data-focused="true"] .chooniWorldStage {
+    font-size: 6px;
+  }
+
+  .islandLabel {
+    transform: translate(-50%, -100%);
+  }
+
+  .islandLabel[data-island="fitmate"] {
+    transform: translate(-50%, 225%);
+  }
+
+  .islandLabel small {
+    font-size: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  .islandLabel strong {
+    font-size: 12px;
+  }
+
+  .islandLabel[data-island="harubareun"] strong {
+    font-size: 14px;
+  }
+
+  .islandLabel span {
+    font-size: 10px;
+  }
+
+  .statusMarker {
+    width: 17px;
+    font-size: 10px;
+  }
+
+  .projectHud {
+    left: 22px;
+    right: 22px;
+    bottom: max(18px, env(safe-area-inset-bottom));
+    padding: 0;
+    width: auto;
+  }
+
+  .projectHud h2 {
+    font-size: 23px;
+    margin: 5px 0;
+  }
+
+  .projectHud>p:nth-of-type(2) {
+    font-size: 15px;
+  }
+
+  .projectActions {
+    margin-top: 10px;
+  }
+
   .worldScene:has(.worldViewport[data-focused="true"]) .projectHud {
     top: auto;
     right: 22px;
@@ -371,72 +892,202 @@
     width: auto;
     transform: none;
   }
-  .worldScene:has(.worldViewport[data-focused="true"]) .projectHud h2 { font-size: 30px; }
+
+  .worldScene:has(.worldViewport[data-focused="true"]) .projectHud h2 {
+    font-size: 30px;
+  }
 }
+
 @media (max-height: 650px) and (max-width: 760px) {
-  .worldScene { min-height: 720px; }
-  .worldHud, .projectHud { position: absolute; }
+  .worldScene {
+    min-height: 720px;
+  }
+
+  .worldHud,
+  .projectHud {
+    position: absolute;
+  }
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .cameraRig, .chooniWorldStage { transition: none; }
+
+  .cameraRig,
+  .chooniWorldStage {
+    transition: none;
+  }
 }
-.cameraRig[data-reduced-motion="true"] .chooniWorldStage { transition: none; }
+
+.cameraRig[data-reduced-motion="true"] .chooniWorldStage {
+  transition: none;
+}
 
 /* STEP 06: canonical raster layers share the logical world/camera transform. */
-.worldScene { background: #b8c6ca; color: #172b30; }
-.productionRaster { position: absolute; max-width: none; pointer-events: none; user-select: none; }
-.productionIsland { z-index: 24; }
+.worldScene {
+  background: #b8c6ca;
+  color: #172b30;
+}
+
+.productionRaster {
+  position: absolute;
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
+}
+
+.productionIsland {
+  z-index: 24;
+}
 
 /* Drift only the island artwork; labels, targets and the camera stay anchored. */
 @keyframes islandIdleFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(var(--island-drift)); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(var(--island-drift));
+  }
 }
+
 [data-destination="harubareun"] .productionIsland {
   --island-drift: -3px;
   --island-period: 7s;
   --island-phase: -1s;
 }
+
 [data-destination="project-02"] .productionIsland {
   --island-drift: -4px;
   --island-period: 8.5s;
   --island-phase: -4s;
 }
+
 [data-destination="fitmate"] .productionIsland {
   --island-drift: -2px;
   --island-period: 6.5s;
   --island-phase: -2.5s;
 }
+
 @media (prefers-reduced-motion: no-preference) {
   .worldViewport[data-focused="false"] .cameraRig[data-reduced-motion="false"] .productionIsland {
     animation: islandIdleFloat var(--island-period) ease-in-out var(--island-phase) infinite;
   }
 }
-.islandVisual[data-production="true"] { transform: none; aspect-ratio: auto; }
-.productionIsland[data-status="active"] { filter: drop-shadow(0 0 5px #f7f4cc); }
+
+.islandVisual[data-production="true"] {
+  transform: none;
+  aspect-ratio: auto;
+}
+
+.productionIsland[data-status="active"] {
+  filter: drop-shadow(0 0 5px #f7f4cc);
+}
+
 .worldCanvas:has(.islandTarget[data-island="harubareun"]:is(:hover, :focus-visible):not([aria-disabled="true"])) [data-destination="harubareun"] .productionIsland,
 .worldCanvas:has(.islandTarget[data-island="project-02"]:is(:hover, :focus-visible):not([aria-disabled="true"])) [data-destination="project-02"] .productionIsland,
-.worldCanvas:has(.islandTarget[data-island="fitmate"]:is(:hover, :focus-visible):not([aria-disabled="true"])) [data-destination="fitmate"] .productionIsland { filter: drop-shadow(0 0 4px #fff8d4); }
+.worldCanvas:has(.islandTarget[data-island="fitmate"]:is(:hover, :focus-visible):not([aria-disabled="true"])) [data-destination="fitmate"] .productionIsland {
+  filter: drop-shadow(0 0 4px #fff8d4);
+}
+
 .islandTarget[data-island="harubareun"]:focus-visible,
 .islandTarget[data-island="project-02"]:focus-visible,
-.islandTarget[data-island="fitmate"]:focus-visible { outline: 2px dashed #244952; outline-offset: -4px; border-radius: 14%; }
-.islandVisual:not([data-production="true"]) .landMass { background: #859997; border-color: #526c70; box-shadow: 0 8px 0 #758b89; }
-.islandLabel { color: #172b30; text-shadow: 0 1px 3px #eef2e8; }
-.islandLabel small, .islandLabel span { color: #273f43; }
-.worldHud span, .worldHud small, .utilityNav [aria-disabled="true"] { color: #334c52; }
-.utilityNav :focus-visible { outline-color: #244952; }
-.projectHud { background: #edf0e6e8; padding: 16px; }
-.projectHud p, .projectHud > small { color: #334c52; }
-.projectHud > p:nth-of-type(2) { color: #172b30; }
-.projectActions button:first-child { background: #294c46; color: #fff; border-color: #294c46; }
-.projectActions button:focus-visible { outline-color: #244952; }
-.chooniWorldStage { color: #f4f0e7; }
-[data-muted="true"] .productionIsland { opacity: 0.15; }
-@media (max-width: 760px) {
-  .projectHud { padding: 12px; }
+.islandTarget[data-island="fitmate"]:focus-visible {
+  outline: 2px dashed #244952;
+  outline-offset: -4px;
+  border-radius: 14%;
 }
-.worldViewport[data-focused="true"] [data-muted="true"] .islandVisual { opacity: 0.08; }
+
+.islandVisual:not([data-production="true"]) .landMass {
+  background: #859997;
+  border-color: #526c70;
+  box-shadow: 0 8px 0 #758b89;
+}
+
+.islandLabel {
+  color: #172b30;
+  text-shadow: 0 1px 3px #eef2e8;
+}
+
+.islandLabel small,
+.islandLabel span {
+  color: #273f43;
+}
+
+.worldHud span,
+.worldHud small,
+.utilityNav [aria-disabled="true"] {
+  color: #334c52;
+}
+
+.utilityNav :focus-visible {
+  outline-color: #244952;
+}
+
+.projectHud {
+  background: #edf0e6e8;
+  padding: 16px;
+}
+
+.projectHud p,
+.projectHud>small {
+  color: #334c52;
+}
+
+.projectHud>p:nth-of-type(2) {
+  color: #172b30;
+}
+
+.projectActions button:first-child {
+  background: #294c46;
+  color: #fff;
+  border-color: #294c46;
+}
+
+.projectActions button:focus-visible {
+  outline-color: #244952;
+}
+
+.chooniWorldStage {
+  color: #f4f0e7;
+}
+
+[data-muted="true"] .productionIsland {
+  opacity: 0.15;
+}
+
+@media (max-width: 760px) {
+  .projectHud {
+    padding: 12px;
+  }
+}
+
+.worldViewport[data-focused="true"] [data-muted="true"] .islandVisual {
+  opacity: 0.08;
+}
+
 @media (max-width: 480px) {
+
   /* Increase overview legibility while keeping all destination art/labels in view. */
-  .worldViewport[data-focused="false"] .cameraRig { width: 136vw; }
+  .worldViewport[data-focused="false"] .cameraRig {
+    width: 136vw;
+  }
+}
+
+/* Project Focus: the full island opens the project; Chooni stays separate. */
+.islandTarget[data-opens-detail="true"] {
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.focusChooni[data-block-island-entry="true"] {
+  z-index: 36;
+  pointer-events: auto;
+  cursor: default;
+}
+
+.worldCanvas:has(.islandTarget[data-island="harubareun"][data-opens-detail="true"]:is(:hover, :focus-visible)) [data-destination="harubareun"] .productionIsland,
+.worldCanvas:has(.islandTarget[data-island="project-02"][data-opens-detail="true"]:is(:hover, :focus-visible)) [data-destination="project-02"] .productionIsland,
+.worldCanvas:has(.islandTarget[data-island="fitmate"][data-opens-detail="true"]:is(:hover, :focus-visible)) [data-destination="fitmate"] .productionIsland {
+  filter: brightness(1.025) drop-shadow(0 0 5px #f7f4cc);
 }

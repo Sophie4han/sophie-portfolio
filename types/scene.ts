@@ -8,6 +8,7 @@ export type SceneEventType =
   | "WORLD_ENTRY_COMPLETE"
   | "SELECT_ISLAND"
   | "BACK_TO_WORLD"
+  | "BACK_TO_FOCUS"
   | "ENTER_ISLAND"
   | "START_CASE_STUDY";
 
@@ -19,6 +20,7 @@ export type SceneEvent =
   | { type: "WORLD_ENTRY_COMPLETE" }
   | { type: "SELECT_ISLAND"; projectId: ProjectId }
   | { type: "BACK_TO_WORLD" }
+  | { type: "BACK_TO_FOCUS" }
   | { type: "ENTER_ISLAND" }
   | { type: "START_CASE_STUDY" };
 

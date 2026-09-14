@@ -58,7 +58,8 @@ export function WorldRenderer({
       className={styles.worldViewport}
       data-camera-preset={cameraPreset}
       data-focused={Boolean(focusedIslandId)}
-      onClick={() => {
+      onClick={(event) => {
+        if (event.target instanceof Element && event.target.closest('[data-block-island-entry="true"]')) return;
         if (focusedIslandId && interactive) onBackToWorld();
       }}
     >
@@ -73,6 +74,7 @@ export function WorldRenderer({
         >
           <WorldEnvironmentLayers />
           <IslandVisuals statuses={statuses} focusedIslandId={focusedIslandId} />
+          {destination && <FocusChooni key={destination.projectId} island={destination} />}
           <SemanticInteractionOverlay
             statuses={statuses}
             focusedIslandId={focusedIslandId}
@@ -177,7 +179,15 @@ function SemanticInteractionOverlay({
         const status = focusedIslandId === island.projectId
           ? "active"
           : statuses[island.projectId];
-        const bounds = island.interactionBounds;
+        const opensDetail = focusedIslandId === island.projectId;
+        const visual = island.visualBounds;
+        const scale = island.renderedScale ?? 1;
+        const bounds = opensDetail && visual ? {
+          x: visual.x + visual.width * (1 - scale) / 2,
+          y: visual.y + visual.height * (1 - scale) / 2,
+          width: visual.width * scale,
+          height: visual.height * scale,
+        } : island.interactionBounds;
         const style = {
           left: `${(bounds.x / WORLD_MANIFEST.canvas.width) * 100}%`,
           top: `${(bounds.y / WORLD_MANIFEST.canvas.height) * 100}%`,
@@ -192,16 +202,17 @@ function SemanticInteractionOverlay({
             className={styles.islandTarget}
             style={style}
             data-island={island.projectId}
+            data-opens-detail={opensDetail}
             tabIndex={0}
             aria-pressed={status === "active"}
-            aria-label={`${island.capability}. ${island.projectName}. ${island.category}. ${status}.`}
+            aria-label={opensDetail ? `View ${island.projectName} project` : `${island.capability}. ${island.projectName}. ${island.category}. ${status}.`}
             onClick={(event) => {
               event.stopPropagation();
               if (interactive) onSelectIsland(island.projectId);
             }}
           >
             <span className={styles.visuallyHidden}>
-              Focus {island.projectName} island.
+              {opensDetail ? `View ${island.projectName} project` : `Focus ${island.projectName} island.`}
             </span>
           </button>
         );
@@ -212,6 +223,32 @@ function SemanticInteractionOverlay({
 
 function positionStyle(point: { x: number; y: number }): CSSProperties {
   return { left: `${point.x}%`, top: `${point.y}%` };
+}
+
+function FocusChooni({ island }: { island: IslandRegion }) {
+  const spawnPoint = worldPointToPercent(island.focusChooniSpawn);
+  const size = `${((island.visualBounds?.width ?? 280) * 0.18 / WORLD_MANIFEST.canvas.width) * 100}%`;
+
+  return (
+    <div
+      className={styles.focusChooni}
+      data-block-island-entry="true"
+      role="img"
+      aria-label="Chooni has arrived at this project island."
+      style={{ left: `${spawnPoint.x}%`, top: `${spawnPoint.y}%`, width: size, aspectRatio: "1" }}
+    >
+      <span className={styles.focusChooniSparkle} aria-hidden="true" />
+      <span className={styles.focusChooniDust} aria-hidden="true" />
+      <span className={styles.focusChooniFragments} aria-hidden="true">
+        <i /><i /><i /><i /><i />
+      </span>
+      <span className={styles.focusChooniSprite} aria-hidden="true">
+        <Image src="/images/pixel/chooni/prologue-greeting/body-base.png" alt="" width={128} height={128} className={styles.focusChooniLayer} />
+        <Image src="/images/pixel/chooni/prologue-greeting/arm-right-wave.png" alt="" width={128} height={128} className={styles.focusChooniLayer} />
+        <Image src="/images/pixel/chooni/prologue-greeting/face-smile.png" alt="" width={128} height={128} className={styles.focusChooniLayer} />
+      </span>
+    </div>
+  );
 }
 
 /** Source pixel density is independent of logical placement and camera zoom. */
