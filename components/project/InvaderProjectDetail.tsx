@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { INVADER_PROJECT, type InvaderSectionId } from "@/lib/invader-project";
+import { loadDetailSection, saveDetailSection } from "@/lib/scene-persistence";
 import type { TransitionRuntimeState } from "@/types/transition";
 import styles from "./harubareun-project-detail.module.css";
 import navigation from "./project-detail-navigation.module.css";
@@ -15,9 +16,16 @@ interface InvaderProjectDetailProps {
 }
 
 export function InvaderProjectDetail({ transition, onBackToFocus, onBackToWorld }: InvaderProjectDetailProps) {
-  const [activeSection, setActiveSection] = useState<InvaderSectionId | null>(null);
+  const sectionIds = INVADER_PROJECT.sections.map((section) => section.id);
+  const [activeSection, setActiveSection] = useState<InvaderSectionId | null>(() =>
+    loadDetailSection("project-02", sectionIds),
+  );
   const section = INVADER_PROJECT.sections.find((item) => item.id === activeSection);
   const disabled = transition.phase !== "idle";
+  const selectSection = (sectionId: InvaderSectionId | null) => {
+    setActiveSection(sectionId);
+    saveDetailSection("project-02", sectionId);
+  };
 
   return (
     <main className={styles.detailScene} data-transition-phase={transition.phase} aria-labelledby="invader-detail-title">
@@ -39,7 +47,7 @@ export function InvaderProjectDetail({ transition, onBackToFocus, onBackToWorld 
       <div className={styles.detailContent}>
         {section ? (
           <section className={styles.strategyDetail} aria-labelledby="invader-detail-title">
-            <button type="button" className={styles.summaryReturn} onClick={() => setActiveSection(null)}>← PROJECT SUMMARY</button>
+            <button type="button" className={styles.summaryReturn} onClick={() => selectSection(null)}>← PROJECT SUMMARY</button>
             <div className={styles.strategyHeading}>
               <span className={styles.eyebrow}>{section.number}</span>
               <h1 id="invader-detail-title">{section.title}</h1>
@@ -62,7 +70,7 @@ export function InvaderProjectDetail({ transition, onBackToFocus, onBackToWorld 
               <div className={styles.explorationHeader}>EXPLORE THE PROJECT</div>
               <div className={styles.sectionList}>
                 {INVADER_PROJECT.sections.map((item) => (
-                  <button type="button" key={item.id} className={styles.sectionItem} onClick={() => setActiveSection(item.id)}>
+                  <button type="button" key={item.id} className={styles.sectionItem} onClick={() => selectSection(item.id)}>
                     <span className={styles.sectionNumber}>{item.number}</span>
                     <span className={styles.sectionCopy}><strong>{item.title}</strong><span>{item.summary}</span></span>
                     <span className={styles.sectionArrow} aria-hidden="true">↗</span>

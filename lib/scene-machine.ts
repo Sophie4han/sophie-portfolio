@@ -36,6 +36,28 @@ export function sceneMachineReducer(
   state: SceneMachineState,
   event: SceneManagerEvent,
 ): SceneMachineState {
+  if (event.type === "RESTORE_SESSION") {
+    const descriptor = SCENE_DESCRIPTORS[event.sceneId];
+    return {
+      scene: {
+        sceneId: event.sceneId,
+        phase: "active",
+        focusedIslandId: event.projectId,
+        cameraPreset: event.projectId
+          ? PROJECT_CAMERA_PRESETS[event.projectId]
+          : descriptor.cameraPreset,
+        requestedChooniIntent: descriptor.chooniIntent,
+        transitionId: null,
+        pendingScene: null,
+      },
+      worldProgress: {
+        ...state.worldProgress,
+        introCompleted: event.sceneId === "world-overview" || event.sceneId === "island-focus" || event.sceneId === "island-entry",
+      },
+      lastRejectedEvent: null,
+    };
+  }
+
   if (event.type === "COMMIT_TRANSITION") return commitTransition(state, event.type);
   if (event.type === "SETTLE_SCENE") return settleScene(state, event.type);
 

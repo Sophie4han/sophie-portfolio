@@ -26,6 +26,7 @@ export type SceneEvent =
 
 export type SceneManagerEvent =
   | SceneEvent
+  | { type: "RESTORE_SESSION"; sceneId: SceneState["sceneId"]; projectId: ProjectId | null }
   | { type: "COMMIT_TRANSITION" }
   | { type: "SETTLE_SCENE" };
 

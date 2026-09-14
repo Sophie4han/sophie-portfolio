@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { loadDetailSection, saveDetailSection } from "@/lib/scene-persistence";
 import type { TransitionRuntimeState } from "@/types/transition";
 import { ProjectDetailNavigation } from "./ProjectDetailNavigation";
 import styles from "./harubareun-project-detail.module.css";
@@ -40,7 +41,9 @@ const sections: Array<{
             contribution: "Collaborated",
             detail: "제품 전략부터 D2C 판매환경까지 연결해 Product에서 Sales-ready 단계로 실행했습니다.",
         },
-    ];
+];
+
+const sectionIds = sections.map((section) => section.id);
 
 interface HarubareunProjectDetailProps {
     transition: TransitionRuntimeState;
@@ -53,12 +56,39 @@ export function HarubareunProjectDetail({
     onBackToWorld,
     onBackToFocus,
 }: HarubareunProjectDetailProps) {
-    const [activeSection, setActiveSection] = useState<SectionId | null>(null);
+    const [activeSection, setActiveSection] = useState<SectionId | null>(() =>
+        loadDetailSection("harubareun", sectionIds),
+    );
+    const detailSceneRef = useRef<HTMLElement>(null);
     const activeDetail = sections.find((section) => section.id === activeSection);
     const projectImages: string[] = [];
 
+    const selectSection = (section: SectionId | null) => {
+        setActiveSection(section);
+        saveDetailSection("harubareun", section);
+    };
+
+    useEffect(() => {
+        const scene = detailSceneRef.current;
+        if (!scene) return;
+
+        const readingBlocks = scene.querySelectorAll<HTMLElement>("[data-reading-focus]");
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    entry.target.classList.toggle(styles.isReading, entry.isIntersecting);
+                });
+            },
+            { rootMargin: "-60% 0px -30% 0px", threshold: 0 },
+        );
+
+        readingBlocks.forEach((block) => observer.observe(block));
+        return () => observer.disconnect();
+    }, [activeSection]);
+
     return (
         <main
+            ref={detailSceneRef}
             className={styles.detailScene}
             data-transition-phase={transition.phase}
             aria-labelledby="harubareun-detail-title"
@@ -93,7 +123,7 @@ export function HarubareunProjectDetail({
                         className={`${styles.islandHotspot} ${styles[`islandHotspot${section.number}`]}`}
                         data-active={activeSection === section.id}
                         aria-label={`${section.number} ${section.title}`}
-                        onClick={() => setActiveSection(section.id)}
+                        onClick={() => selectSection(section.id)}
                     >
                         <span className={styles.hotspotLabel} aria-hidden="true">
                             <strong>{section.number}</strong>
@@ -112,28 +142,75 @@ export function HarubareunProjectDetail({
 
             <div className={styles.detailContent}>
                 {activeSection === "strategy" ? (
-                    <StrategyDetail onBack={() => setActiveSection(null)} />
+                    <StrategyDetail onBack={() => selectSection(null)} />
                 ) : activeSection === "product" ? (
-                    <ProductDetail onBack={() => setActiveSection(null)} />
+                    <ProductDetail onBack={() => selectSection(null)} />
                 ) : activeSection === "launch" ? (
-                    <LaunchDetail onBack={() => setActiveSection(null)} />
+                    <LaunchDetail onBack={() => selectSection(null)} />
                 ) : (
                     <>
                         <div className={styles.eyebrow}>01 / BUILD</div>
                         <h1 id="harubareun-detail-title">HARUBAREUN</h1>
-                        <p className={styles.lead}>From Product Opportunity to Launch-ready</p>
-                        <p className={styles.introduction}>
+                        <p className={styles.lead} data-reading-focus>From Product Opportunity to Launch-ready</p>
+                        <p className={styles.introduction} data-reading-focus>
                             시장성이 확인된 제품 후보를 차별화된 Consumer Product로 구체화하고,
                             제품 전략부터 D2C 판매환경까지 구축했습니다.
                         </p>
 
-                        <dl className={styles.projectFacts}>
+                        <dl className={styles.projectFacts} data-reading-focus>
                             <div><dt>기간</dt><dd>2026.06–08</dd></div>
                             <div><dt>역할</dt><dd>New Business TF<br />Product Planning &amp; Commerce Execution</dd></div>
                             <div><dt>범위</dt><dd>4 Consumer Products<br />Product → Sales-ready</dd></div>
                         </dl>
 
-                        <SectionNavigation activeSection={activeSection} onSelect={setActiveSection} />
+                        <section className={styles.summaryEvidence} aria-label="HARUBAREUN project evidence">
+                            <figure className={styles.brandIdentity}>
+                                <figcaption className={styles.evidenceLabel}>BRAND IDENTITY</figcaption>
+                                <div className={styles.brandIdentityFrame}>
+                                    <Image
+                                        src="/images/projects/harubareun/summary/harubareun-brand-identity.jpg"
+                                        alt="HARUBAREUN 로고가 적용된 공간 외관 목업"
+                                        width={3000}
+                                        height={4000}
+                                        sizes="(max-width: 760px) calc(100vw - 44px), min(1320px, calc(100vw - 96px))"
+                                        className={styles.brandIdentityImage}
+                                    />
+                                </div>
+                            </figure>
+
+                            <section className={styles.finalProduction} aria-labelledby="final-production-title">
+                                <div className={styles.productionHeading} data-reading-focus>
+                                    <div>
+                                        <h2 id="final-production-title" className={styles.evidenceLabel}>FINAL PRODUCTION</h2>
+                                        <p className={styles.evidenceSubLabel}>4 CONSUMER PRODUCTS</p>
+                                    </div>
+                                    <p className={styles.productionCopy}>
+                                        브랜드 전략과 제품별 포지셔닝을 실제 패키지와 판매 준비 단계까지 연결했습니다.
+                                    </p>
+                                </div>
+                                <div className={styles.productEvidenceGrid}>
+                                    {[
+                                        ["recellvine", "Recellvine 최종 생산 패키지"],
+                                        ["babi-cut", "BABI CUT 최종 생산 패키지"],
+                                        ["lemonde-oli", "LEMONDE OLI 최종 생산 패키지"],
+                                        ["sori-black", "SORI BLACK 최종 생산 패키지"],
+                                    ].map(([fileName, alt]) => (
+                                        <div className={styles.productEvidenceCard} key={fileName}>
+                                            <Image
+                                                className={fileName === "sori-black" ? styles.soriBlackImage : styles.productionImage}
+                                                src={`/images/projects/harubareun/summary/${fileName}.jpeg`}
+                                                alt={alt}
+                                                width={3024}
+                                                height={4032}
+                                                sizes="(max-width: 760px) calc((100vw - 56px) / 2), calc((min(1320px, 100vw - 96px) - 36px) / 4)"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        </section>
+
+                        <SectionNavigation activeSection={activeSection} onSelect={selectSection} />
 
                         {activeDetail && (
                             <section className={styles.detailReveal} aria-live="polite" aria-labelledby={`detail-${activeDetail.id}`}>
@@ -166,7 +243,7 @@ function SectionNavigation({
     onSelect: (section: SectionId) => void;
 }) {
     return (
-        <div className={styles.exploration} aria-label="HARUBAREUN detailed sections">
+        <div className={styles.exploration} aria-label="HARUBAREUN detailed sections" data-reading-focus>
             <div className={styles.explorationHeader}>EXPLORE THE PROJECT</div>
             <div className={styles.sectionList}>
                 {sections.map((section) => (
@@ -190,13 +267,13 @@ function StrategyDetail({ onBack }: { onBack: () => void }) {
                 <h1 id="strategy-detail-title">전략과 판단</h1>
             </div>
             <span className={styles.strategyLabel}>PROJECT CONTEXT</span>
-            <p className={styles.strategyContext}>
+            <p className={styles.strategyContext} data-reading-focus>
                 시장성이 확인된 제품 후보를 차별화된 Consumer Product로 구체화하고, 제품 전략부터 D2C 판매환경까지 구축했습니다.
             </p>
-            <div className={styles.strategyQuestion}>
+            <div className={styles.strategyQuestion} data-reading-focus>
                 어떤 제품을 사업화하고,<br />무엇을 다르게 만들며,<br />그 차이를 고객에게 어떻게 전달할 것인가
             </div>
-            <div className={styles.decisionBlock}>
+            <div className={styles.decisionBlock} data-reading-focus>
                 <span className={styles.eyebrow}>KEY DECISION 01</span>
                 <h2>Business Model 변화에 맞춰 Brand Architecture를 변경</h2>
                 <div className={styles.beforeAfter}>
@@ -220,15 +297,15 @@ function ProductDetail({ onBack }: { onBack: () => void }) {
                 <span className={styles.eyebrow}>02</span>
                 <h1 id="product-detail-title">제품 구체화</h1>
             </div>
-            <h2 className={styles.productLead}>Evidence를 Customer Value로 전환</h2>
-            <p className={styles.productIntro}>
+            <h2 className={styles.productLead} data-reading-focus>Evidence를 Customer Value로 전환</h2>
+            <p className={styles.productIntro} data-reading-focus>
                 제품의 원료정보를 단순 나열하지 않고,<br />
                 Evidence → USP → Customer Benefit → Commerce Communication<br />
                 구조로 재설계했다.
             </p>
 
             <div className={styles.productFlow}>
-                <div className={styles.productFlowStep}>
+                <div className={styles.productFlowStep} data-reading-focus>
                     <span className={styles.eyebrow}>01</span>
                     <h3>Evidence</h3>
                     {evidenceImages.length > 0 && (
@@ -238,7 +315,7 @@ function ProductDetail({ onBack }: { onBack: () => void }) {
                     )}
                 </div>
                 <div className={styles.flowConnector} aria-hidden="true">↓</div>
-                <div className={styles.productFlowStep}>
+                <div className={styles.productFlowStep} data-reading-focus>
                     <span className={styles.eyebrow}>02</span>
                     <h3>USP / Customer Language</h3>
                     <p className={styles.productBody}>
@@ -253,7 +330,7 @@ function ProductDetail({ onBack }: { onBack: () => void }) {
                     </div>
                 </div>
                 <div className={styles.flowConnector} aria-hidden="true">↓</div>
-                <div className={styles.productFlowStep}>
+                <div className={styles.productFlowStep} data-reading-focus>
                     <span className={styles.eyebrow}>03</span>
                     <h3>Product Output</h3>
                     {productImages.length > 0 && (
@@ -292,15 +369,15 @@ function LaunchDetail({ onBack }: { onBack: () => void }) {
                 <span className={styles.eyebrow}>03</span>
                 <h1 id="launch-detail-title">출시 실행</h1>
             </div>
-            <h2 className={styles.launchLead}>Product Strategy에서 실제 판매환경까지 연결</h2>
-            <p className={styles.launchIntro}>
+            <h2 className={styles.launchLead} data-reading-focus>Product Strategy에서 실제 판매환경까지 연결</h2>
+            <p className={styles.launchIntro} data-reading-focus>
                 제품 전략을 문서로 끝내지 않고<br />
                 고객이 실제로 제품을 발견하고 구매할 수 있는 환경까지 연결했습니다.
             </p>
 
             <ol className={styles.launchTimeline} role="list" aria-label="Product launch execution timeline">
                 {steps.map((step) => (
-                    <li className={styles.timelineStep} key={step.number}>
+                    <li className={styles.timelineStep} key={step.number} data-reading-focus>
                         <div className={styles.timelineMarker}>{step.number}</div>
                         <div className={styles.timelineContent}>
                             <h3>{step.title}</h3>
@@ -315,7 +392,7 @@ function LaunchDetail({ onBack }: { onBack: () => void }) {
                 ))}
             </ol>
 
-            <section className={styles.launchOutcome} aria-labelledby="launch-outcome-title">
+            <section className={styles.launchOutcome} aria-labelledby="launch-outcome-title" data-reading-focus>
                 <h2 id="launch-outcome-title" className={styles.eyebrow}>OUTCOME</h2>
                 <strong>4 Consumer Products</strong>
                 <strong>~3 Months</strong>
@@ -323,7 +400,7 @@ function LaunchDetail({ onBack }: { onBack: () => void }) {
                 <p>약 3개월 동안 제품 차별화부터 브랜드·패키지,<br />커머스 콘텐츠, D2C/CRM 판매환경까지 구축했다.</p>
                 <p>제품 실물 생산 및 시딩까지 진행됐으며<br />퇴사 시점에는 판매 개시를 앞둔 상태였다.</p>
             </section>
-            <section className={styles.learningSlot} aria-labelledby="launch-learning-title">
+            <section className={styles.learningSlot} aria-labelledby="launch-learning-title" data-reading-focus>
                 <h2 id="launch-learning-title" className={styles.eyebrow}>LEARNING</h2>
                 <p>신사업에서는 처음 세운 구조를 고수하는 것보다 사업모델과 시장조건에 따라 빠르게 방향을 수정하고, 실제 고객이 제품을 선택할 수 있는 상태까지 구현하는 것이 중요하다는 것을 배웠습니다.</p>
             </section>
