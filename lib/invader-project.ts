@@ -10,7 +10,7 @@ export const INVADER_PROJECT = {
     { label: "고객 Funnel", value: "상세페이지 · CRM · Live Sales · 본강의" },
   ],
   sections: [
-    { id: "value", number: "01", title: "Product Value", summary: "강사의 실제 자산을 Product Value로 만들었다" },
+    { id: "value", number: "01", title: "Product Planning", summary: "강사의 전문성을 ‘팔리는 교육상품’으로 구체화하다" },
     { id: "experience", number: "02", title: "구매 경험", summary: "시장을 바꿀 수 없다면 구매 경험을 바꿨다" },
     { id: "signal", number: "03", title: "Funnel Signal", summary: "Funnel Signal을 Product Perception 문제로 해석" },
   ],

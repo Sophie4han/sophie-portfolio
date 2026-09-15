@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { loadDetailSection, saveDetailSection } from "@/lib/scene-persistence";
 import type { TransitionRuntimeState } from "@/types/transition";
 import { ProjectDetailNavigation } from "./ProjectDetailNavigation";
+import { useReadingFocus } from "./use-reading-focus";
 import styles from "./harubareun-project-detail.module.css";
 
 type SectionId = "strategy" | "product" | "commerce" | "go-to-market" | "final-overview";
@@ -75,7 +76,7 @@ export function HarubareunProjectDetail({
     const [activeSection, setActiveSection] = useState<SectionId | null>(() =>
         loadDetailSection("harubareun", sectionIds),
     );
-    const detailSceneRef = useRef<HTMLElement>(null);
+    const detailSceneRef = useReadingFocus<HTMLElement>(activeSection, styles.isReading);
     const activeDetail = sections.find((section) => section.id === activeSection);
     const projectImages: string[] = [];
 
@@ -83,24 +84,6 @@ export function HarubareunProjectDetail({
         setActiveSection(section);
         saveDetailSection("harubareun", section);
     };
-
-    useEffect(() => {
-        const scene = detailSceneRef.current;
-        if (!scene) return;
-
-        const readingBlocks = scene.querySelectorAll<HTMLElement>("[data-reading-focus]");
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    entry.target.classList.toggle(styles.isReading, entry.isIntersecting);
-                });
-            },
-            { rootMargin: "-60% 0px -30% 0px", threshold: 0 },
-        );
-
-        readingBlocks.forEach((block) => observer.observe(block));
-        return () => observer.disconnect();
-    }, [activeSection]);
 
     return (
         <main
