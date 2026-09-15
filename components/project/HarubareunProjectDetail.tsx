@@ -153,14 +153,14 @@ export function HarubareunProjectDetail({
                 ) : (
                     <>
                         <div className={styles.eyebrow}>01 / BUILD</div>
-                        <h1 id="harubareun-detail-title">HARUBAREUN</h1>
-                        <p className={styles.lead} data-reading-focus>From Product Opportunity to Launch-ready</p>
-                        <p className={`${styles.introduction} ${styles.bodyCopy} ${styles.readableOnVisual}`} data-reading-focus>
+                        <h1 id="harubareun-detail-title" className={styles.summaryTitle}>HARUBAREUN</h1>
+                        <p className={styles.lead}>From Product Opportunity to Launch-ready</p>
+                        <p className={`${styles.introduction} ${styles.summaryIntroduction} ${styles.bodyCopy} ${styles.readableOnVisual}`} data-reading-focus>
                             시장성이 확인된 제품 후보를 차별화된 Consumer Product로 구체화하고,
                             제품 전략부터 D2C 판매환경까지 구축했습니다.
                         </p>
 
-                        <dl className={styles.projectFacts} data-reading-focus>
+                        <dl className={styles.projectFacts}>
                             <div><dt>기간</dt><dd>2026.06–08</dd></div>
                             <div><dt>역할</dt><dd>New Business TF<br />Product Planning &amp; Commerce Execution</dd></div>
                             <div><dt>범위</dt><dd>4 Consumer Products<br />Product → Sales-ready</dd></div>
@@ -182,7 +182,7 @@ export function HarubareunProjectDetail({
                             </figure>
 
                             <section className={styles.finalProduction} aria-labelledby="final-production-title">
-                                <div className={styles.productionHeading} data-reading-focus>
+                                <div className={styles.productionHeading}>
                                     <div>
                                         <h2 id="final-production-title" className={styles.evidenceLabel}>FINAL PRODUCTION</h2>
                                         <p className={styles.evidenceSubLabel}>4 CONSUMER PRODUCTS</p>
@@ -246,7 +246,7 @@ function SectionNavigation({
     onSelect: (section: SectionId) => void;
 }) {
     return (
-        <div className={styles.exploration} aria-label="HARUBAREUN detailed sections" data-reading-focus>
+        <div className={styles.exploration} aria-label="HARUBAREUN detailed sections">
             <div className={styles.explorationHeader}>EXPLORE THE PROJECT</div>
             <div className={styles.sectionList}>
                 {sections.map((section) => (
