@@ -172,7 +172,7 @@ export function HarubareunProjectDetail({
                         <div className={styles.eyebrow}>01 / BUILD</div>
                         <h1 id="harubareun-detail-title">HARUBAREUN</h1>
                         <p className={styles.lead} data-reading-focus>From Product Opportunity to Launch-ready</p>
-                        <p className={styles.introduction} data-reading-focus>
+                        <p className={`${styles.introduction} ${styles.bodyCopy} ${styles.readableOnVisual}`} data-reading-focus>
                             시장성이 확인된 제품 후보를 차별화된 Consumer Product로 구체화하고,
                             제품 전략부터 D2C 판매환경까지 구축했습니다.
                         </p>
@@ -204,7 +204,7 @@ export function HarubareunProjectDetail({
                                         <h2 id="final-production-title" className={styles.evidenceLabel}>FINAL PRODUCTION</h2>
                                         <p className={styles.evidenceSubLabel}>4 CONSUMER PRODUCTS</p>
                                     </div>
-                                    <p className={styles.productionCopy}>
+                                    <p className={`${styles.productionCopy} ${styles.bodyCopy} ${styles.readableOnVisual}`}>
                                         브랜드 전략과 제품별 포지셔닝을 실제 패키지와 판매 준비 단계까지 연결했습니다.
                                     </p>
                                 </div>
@@ -287,7 +287,7 @@ function StrategyDetail({ onBack }: { onBack: () => void }) {
                 <h1 id="strategy-detail-title">전략과 판단</h1>
             </div>
             <span className={styles.strategyLabel}>PROJECT CONTEXT</span>
-            <p className={styles.strategyContext} data-reading-focus>
+            <p className={`${styles.strategyContext} ${styles.bodyCopy} ${styles.readableOnVisual}`} data-reading-focus>
                 시장성이 확인된 제품 후보를 차별화된 Consumer Product로 구체화하고, 제품 전략부터 D2C 판매환경까지 구축했습니다.
             </p>
             <div className={styles.strategyQuestion} data-reading-focus>
@@ -297,8 +297,8 @@ function StrategyDetail({ onBack }: { onBack: () => void }) {
                 <div data-reading-focus>
                     <span className={styles.eyebrow}>KEY DECISION 01</span>
                     <h2>Business Model 변화에 맞춰 Brand Architecture를 변경</h2>
-                    <p className={styles.decisionContext}>
-                        초기에는 HARUBAREUN을 중심으로 Master Brand 기반 확장 구조를 설계했습니다.<br />
+                    <p className={`${styles.decisionContext} ${styles.bodyCopy} ${styles.readableOnVisual}`}>
+                        초기에는 HARUBAREUN을 중심으로 Master Brand 기반 확장 구조를 설계했습니다.
                         이후 사업전략이 SKU별 시장성을 검증하고 성과에 따라 선택적으로 확장하는 방식으로 변경되면서 기존 Brand Architecture를 재검토했습니다.
                     </p>
                 </div>
@@ -418,12 +418,12 @@ function ProductDetail({ onBack }: { onBack: () => void }) {
                     <article>
                         <h3>BABI CUT</h3>
                         <span>Alpha-CD · Diet</span>
-                        <p>날씬한 이미지를 연상시키는 ‘Barbie’와 ‘밥을 Cut한다’는 직관적인 의미를 결합해, 다이어트 제품의 성격이 빠르게 인지되는 이름으로 설계했습니다.</p>
+                        <p className={`${styles.bodyCopy} ${styles.readableOnVisual}`}>날씬한 이미지를 연상시키는 ‘Barbie’와 ‘밥을 Cut한다’는 직관적인 의미를 결합해, 다이어트 제품의 성격이 빠르게 인지되는 이름으로 설계했습니다.</p>
                     </article>
                     <article>
                         <h3>LEMONDE OLI</h3>
                         <span>Lemon · Olive Leaf</span>
-                        <p>핵심 원료인 Lemon + Olive를 기반으로 하되, 지중해의 밝고 건강한 라이프스타일이 연상되는 어감으로 조합해 원료와 브랜드 무드를 함께 전달하도록 설계했습니다.</p>
+                        <p className={`${styles.bodyCopy} ${styles.readableOnVisual}`}>핵심 원료인 Lemon + Olive를 기반으로 하되, 지중해의 밝고 건강한 라이프스타일이 연상되는 어감으로 조합해 원료와 브랜드 무드를 함께 전달하도록 설계했습니다.</p>
                     </article>
                 </div>
             </section>
@@ -431,7 +431,7 @@ function ProductDetail({ onBack }: { onBack: () => void }) {
             <section className={styles.communicationRule} aria-labelledby="communication-rule-title" data-reading-focus>
                 <span className={styles.eyebrow}>COMMUNICATION RULE</span>
                 <h2 id="communication-rule-title">Specification과 효능을 구분해, 확인 가능한 근거를 고객의 언어로 전환</h2>
-                <p>원료 Specification과 완제품 효능을 구분하고, 일반식품의 표현 가능 범위 안에서 확인 가능한 근거를 Customer Benefit과 Commerce Message로 전환했습니다.</p>
+                <p className={`${styles.bodyCopy} ${styles.readableOnVisual}`}>원료 Specification과 완제품 효능을 구분하고, 일반식품의 표현 가능 범위 안에서 확인 가능한 근거를 Customer Benefit과 Commerce Message로 전환했습니다.</p>
             </section>
         </section>
     );
@@ -529,8 +529,8 @@ function CommerceDetail({ onBack }: { onBack: () => void }) {
                 <span className={styles.eyebrow}>03 / COMMERCE</span>
                 <h1 id="commerce-detail-title">판매환경 구축</h1>
             </div>
-            <p className={styles.commerceIntro} data-reading-focus>
-                제품별 포지셔닝을 실제 구매 경험으로 연결하기 위해<br />
+            <p className={`${styles.commerceIntro} ${styles.bodyCopy} ${styles.readableOnVisual}`} data-reading-focus>
+                제품별 포지셔닝을 실제 구매 경험으로 연결하기 위해
                 4개 D2C 자사몰과 Commerce Infrastructure를 구축했습니다.
             </p>
 
@@ -559,8 +559,8 @@ function CommerceDetail({ onBack }: { onBack: () => void }) {
                         </figure>
                     ))}
                 </div>
-                <p className={styles.storefrontStatement}>
-                    제품별 Positioning과 Visual Direction을<br />
+                <p className={`${styles.storefrontStatement} ${styles.bodyCopy} ${styles.readableOnVisual}`}>
+                    제품별 Positioning과 Visual Direction을
                     실제 구매 가능한 D2C Storefront까지 연결했습니다.
                 </p>
             </section>
@@ -584,7 +584,7 @@ function CommerceDetail({ onBack }: { onBack: () => void }) {
                         </div>
                         <span className={styles.evidenceRole}>KAKAO SOCIAL LOGIN</span>
                         <h3>Developer Collaboration</h3>
-                        <p>Kakao Developers 설정 및 개발 협업을 통해<br />자사몰 간편 로그인 환경을 구축했습니다.</p>
+                        <p className={`${styles.bodyCopy} ${styles.readableOnVisual}`}>Kakao Developers 설정 및 개발 협업을 통해 자사몰 간편 로그인 환경을 구축했습니다.</p>
                     </article>
                     <article>
                         <div className={`${styles.infrastructureMedia} ${styles.channelMedia}`}>
@@ -599,7 +599,7 @@ function CommerceDetail({ onBack }: { onBack: () => void }) {
                         </div>
                         <span className={styles.evidenceRole}>KAKAO CHANNEL · ALIMTALK</span>
                         <h3>Cafe24 Integration</h3>
-                        <p>Cafe24와 Kakao Channel을 연결하고<br />구매 플로우 기반 메시지 발송 환경을 설정했습니다.</p>
+                        <p className={`${styles.bodyCopy} ${styles.readableOnVisual}`}>Cafe24와 Kakao Channel을 연결하고 구매 플로우 기반 메시지 발송 환경을 설정했습니다.</p>
                     </article>
                 </div>
             </section>
@@ -622,18 +622,18 @@ function GoToMarketDetail({ onBack }: { onBack: () => void }) {
                 <span className={styles.eyebrow}>04 / GO-TO-MARKET</span>
                 <h1 id="go-to-market-title">제품 출시 이후,<br />고객에게 도달하는 방법까지 설계</h1>
             </header>
-            <p className={styles.goToMarketIntro} data-reading-focus>
-                제품별 타깃과 판매 구조를 기반으로 초기 고객 유입을 만들기 위한<br />
+            <p className={`${styles.goToMarketIntro} ${styles.bodyCopy} ${styles.readableOnVisual}`} data-reading-focus>
+                제품별 타깃과 판매 구조를 기반으로 초기 고객 유입을 만들기 위한
                 마케팅 채널과 운영 방향을 검토했습니다.
             </p>
 
             <section className={styles.goToMarketSection} aria-labelledby="go-to-market-strategy" data-reading-focus>
                 <span className={styles.eyebrow}>STRATEGY</span>
                 <h2 id="go-to-market-strategy" className={styles.visuallyHidden}>초기 고객 유입 채널 전략</h2>
-                <p className={styles.goToMarketBody}>
-                    초기 유입과 Creative Test를 위한 핵심 채널로 Meta를 설정하고,<br />
-                    블로그 시딩을 통한 검색 노출 확보, 인플루언서 시딩을 통한 제품 경험 확산,<br />
-                    YouTube PPL을 통한 장기적인 콘텐츠 노출을 연결하는 방향으로<br />
+                <p className={`${styles.goToMarketBody} ${styles.bodyCopy} ${styles.readableOnVisual}`}>
+                    초기 유입과 Creative Test를 위한 핵심 채널로 Meta를 설정하고,
+                    블로그 시딩을 통한 검색 노출 확보, 인플루언서 시딩을 통한 제품 경험 확산,
+                    YouTube PPL을 통한 장기적인 콘텐츠 노출을 연결하는 방향으로
                     채널별 역할을 구분했습니다.
                 </p>
                 <figure className={styles.strategyEvidence}>
@@ -653,7 +653,7 @@ function GoToMarketDetail({ onBack }: { onBack: () => void }) {
             <section className={styles.goToMarketSection} aria-labelledby="partner-alignment-title" data-reading-focus>
                 <span className={styles.eyebrow}>PARTNER ALIGNMENT</span>
                 <h2 id="partner-alignment-title" className={styles.visuallyHidden}>외부 마케팅 파트너 협의</h2>
-                <div className={styles.partnerCopy}>
+                <div className={`${styles.partnerCopy} ${styles.bodyCopy} ${styles.readableOnVisual}`}>
                     <p>이후 외부 마케팅 파트너와의 미팅을 통해 Meta 중심의 퍼포먼스 운영 구조와 바이럴·시딩 전략, 소재 제작 역할과 비용 구조를 구체적으로 검토했습니다.</p>
                     <p>초기 Meta 집행 이후에는 성과와 지표에 따라 Google·GFA 등으로 매체를 확장하는 방향까지 논의했습니다.</p>
                 </div>
@@ -677,7 +677,7 @@ function GoToMarketDetail({ onBack }: { onBack: () => void }) {
                     <li>VIRAL / SEEDING</li>
                     <li>CHANNEL EXPANSION</li>
                 </ol>
-                <p>채널 전략과 실행 구조를 구체화하고 외부 파트너 협의까지 진행했으며,<br />Meta 광고 · Influencer / Blog Seeding · YouTube PPL은<br />제품 출시 일정에 맞춰 순차적으로 이행할 예정이었습니다.</p>
+                <p className={`${styles.bodyCopy} ${styles.readableOnVisual}`}>채널 전략과 실행 구조를 구체화하고 외부 파트너 협의까지 진행했으며, Meta 광고 · Influencer / Blog Seeding · YouTube PPL은 제품 출시 일정에 맞춰 순차적으로 이행할 예정이었습니다.</p>
             </section>
 
             <blockquote className={styles.goToMarketPrinciple} data-reading-focus>
@@ -698,10 +698,10 @@ const finalProducts = [
         width: 1565,
         height: 1005,
         alt: "검은콩 원료와 서리블랙 제품 패키지를 함께 연출한 대표 이미지",
-        copy: <>
-            서리태라는 익숙한 원료를 단순한 전통 식품이 아닌 <strong>프리미엄 데일리 케어 제품</strong>으로 재해석했습니다.<br /><br />
-            블랙을 중심으로 절제된 패키지와 원료 비주얼을 구축하고, 기존 서리태 제품에서 흔히 보이는 전통적 이미지를 줄여 <strong>원료의 신뢰감과 현대적인 프리미엄 인상</strong>이 함께 전달되도록 차별화했습니다.
-        </>,
+        paragraphs: [
+            <>서리태라는 익숙한 원료를 단순한 전통 식품이 아닌 <strong>프리미엄 데일리 케어 제품</strong>으로 재해석했습니다.</>,
+            <>블랙을 중심으로 절제된 패키지와 원료 비주얼을 구축하고, 기존 서리태 제품에서 흔히 보이는 전통적 이미지를 줄여 <strong>원료의 신뢰감과 현대적인 프리미엄 인상</strong>이 함께 전달되도록 차별화했습니다.</>,
+        ],
     },
     {
         number: "02",
@@ -712,10 +712,10 @@ const finalProducts = [
         width: 1536,
         height: 1024,
         alt: "레몬과 올리브 원료 사이에 배치된 레몽드올리 제품 대표 이미지",
-        copy: <>
-            레몬과 올리브라는 서로 다른 두 원료의 조합을 제품의 가장 직관적인 브랜드 자산으로 설정했습니다.<br /><br />
-            옐로와 딥그린의 강한 컬러 대비와 풍부한 원료 이미지를 활용해 건강식품 특유의 기능 중심 표현에서 벗어나 <strong>신선하고 감각적인 Mediterranean mood</strong>로 제품 경험을 차별화했습니다.
-        </>,
+        paragraphs: [
+            <>레몬과 올리브라는 서로 다른 두 원료의 조합을 제품의 가장 직관적인 브랜드 자산으로 설정했습니다.</>,
+            <>옐로와 딥그린의 강한 컬러 대비와 풍부한 원료 이미지를 활용해 건강식품 특유의 기능 중심 표현에서 벗어나 <strong>신선하고 감각적인 Mediterranean mood</strong>로 제품 경험을 차별화했습니다.</>,
+        ],
     },
     {
         number: "03",
@@ -726,10 +726,10 @@ const finalProducts = [
         width: 1073,
         height: 1466,
         alt: "식사와 운동 루틴 속에 배치된 바비컷 제품 대표 이미지",
-        copy: <>
-            다이어트를 극단적인 제한이 아니라 <strong>일상에서 지속할 수 있는 하나의 루틴</strong>으로 정의했습니다.<br /><br />
-            운동, 식사, 수분 섭취 등 실제 소비자의 생활 장면 안에 제품을 배치해 기능만 강조하는 기존 다이어트 제품과 거리를 두고, <strong>가볍고 친근한 여성 라이프스타일 브랜드</strong>로 차별화했습니다.
-        </>,
+        paragraphs: [
+            <>다이어트를 극단적인 제한이 아니라 <strong>일상에서 지속할 수 있는 하나의 루틴</strong>으로 정의했습니다.</>,
+            <>운동, 식사, 수분 섭취 등 실제 소비자의 생활 장면 안에 제품을 배치해 기능만 강조하는 기존 다이어트 제품과 거리를 두고, <strong>가볍고 친근한 여성 라이프스타일 브랜드</strong>로 차별화했습니다.</>,
+        ],
     },
     {
         number: "04",
@@ -740,10 +740,10 @@ const finalProducts = [
         width: 1214,
         height: 1295,
         alt: "화이트와 아쿠아 색상의 정제된 공간에 배치된 리셀바인 제품 대표 이미지",
-        copy: <>
-            NMN이라는 다소 어렵고 기술적인 소재를 소비자가 부담 없이 접근할 수 있는 <strong>클린 데일리 케어</strong>로 풀어냈습니다.<br /><br />
-            화이트와 아쿠아 컬러, 투명한 소재와 정제된 공간감을 활용해 과도한 의학적·실험실 이미지를 피하면서도 <strong>성분의 전문성과 현대적인 신뢰감</strong>이 유지되도록 차별화했습니다.
-        </>,
+        paragraphs: [
+            <>NMN이라는 다소 어렵고 기술적인 소재를 소비자가 부담 없이 접근할 수 있는 <strong>클린 데일리 케어</strong>로 풀어냈습니다.</>,
+            <>화이트와 아쿠아 컬러, 투명한 소재와 정제된 공간감을 활용해 과도한 의학적·실험실 이미지를 피하면서도 <strong>성분의 전문성과 현대적인 신뢰감</strong>이 유지되도록 차별화했습니다.</>,
+        ],
     },
 ] as const;
 
@@ -754,7 +754,7 @@ function FinalOverviewDetail({ onBack }: { onBack: () => void }) {
             <header className={styles.finalOverviewHeading} data-reading-focus>
                 <span className={styles.eyebrow}>FINAL OVERVIEW</span>
                 <h1 id="final-overview-title">하나의 기준으로 묶고,<br />제품마다 다른 이유를 설계했습니다.</h1>
-                <p>동일한 카테고리 안에서도 타깃과 제품 특성에 따라<br />포지셔닝, 비주얼 언어, 커뮤니케이션 방향을 각각 다르게 설계했습니다.</p>
+                <p className={`${styles.bodyCopy} ${styles.readableOnVisual}`}>동일한 카테고리 안에서도 타깃과 제품 특성에 따라 포지셔닝, 비주얼 언어, 커뮤니케이션 방향을 각각 다르게 설계했습니다.</p>
             </header>
 
             <div className={styles.finalProductList}>
@@ -767,7 +767,11 @@ function FinalOverviewDetail({ onBack }: { onBack: () => void }) {
                             <span className={styles.eyebrow}>{product.number}</span>
                             <h2>{product.name} <small>/ {product.koreanName}</small></h2>
                             <div className={styles.finalProductDescriptor}>{product.descriptor}</div>
-                            <p>{product.copy}</p>
+                            <div className={`${styles.finalProductParagraphs} ${styles.readableOnVisual}`}>
+                                {product.paragraphs.map((paragraph, paragraphIndex) => (
+                                    <p className={styles.bodyCopy} key={paragraphIndex}>{paragraph}</p>
+                                ))}
+                            </div>
                         </div>
                     </article>
                 ))}
