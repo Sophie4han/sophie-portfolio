@@ -1787,6 +1787,409 @@
   }
 }
 
+.performanceDetail {
+  width: 100%;
+}
+
+.performanceDetail > .performanceTitle {
+  width: 100%;
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.performanceNarrative {
+  width: 100%;
+  margin-top: 64px;
+  word-break: keep-all;
+}
+
+.performanceIntro,
+.performanceClosing {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(243, 240, 229, 0.28);
+}
+
+.performanceIntro p,
+.performanceClosing p,
+.diagramSummary p {
+  margin: 0;
+}
+
+.performanceBlock,
+.performanceEnding {
+  margin-top: 112px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(243, 240, 229, 0.28);
+}
+
+.performanceBlock > div:first-child {
+  display: grid;
+  gap: 8px;
+}
+
+.performanceBlock small {
+  color: #b9cbbd;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.performanceBlock > h3 {
+  max-width: 940px;
+  margin: 20px 0 0;
+  color: #f3f0e5;
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+.diagramSummary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 42px;
+  color: #e3e8e2;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.loopDiagram {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, 130px);
+  gap: 18px;
+  margin-top: 52px;
+}
+
+.loopCenter,
+.loopNode {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid rgba(243, 240, 229, 0.2);
+  background: rgba(15, 25, 20, 0.16);
+}
+
+.loopCenter {
+  grid-area: 2 / 2;
+  border-color: rgba(216, 255, 62, 0.5);
+  text-align: center;
+}
+
+.loopNode[data-position="1"] { grid-area: 1 / 1; }
+.loopNode[data-position="2"] { grid-area: 1 / 2; }
+.loopNode[data-position="3"] { grid-area: 1 / 3; }
+.loopNode[data-position="4"] { grid-area: 2 / 3; }
+.loopNode[data-position="5"] { grid-area: 3 / 2; }
+
+.loopNode::after {
+  justify-self: end;
+  content: "→";
+  color: #d8ff3e;
+}
+
+.loopNode[data-position="4"]::after,
+.loopNode[data-position="5"]::after {
+  content: "↺";
+}
+
+.loopCenter strong,
+.loopNode strong,
+.caseComparison header strong,
+.comparisonSignal strong,
+.signalBranch strong {
+  color: #d8ff3e;
+  font: 700 11px/1.45 var(--font-geist-mono), monospace;
+  letter-spacing: 0.05em;
+}
+
+.loopCenter span,
+.loopNode span,
+.caseComparison header span,
+.comparisonSignal span,
+.signalBranch span {
+  color: #d0dbd1;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.caseComparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.caseComparison article {
+  border-top: 1px solid rgba(243, 240, 229, 0.22);
+  border-left: 1px solid rgba(243, 240, 229, 0.18);
+  background: rgba(15, 25, 20, 0.16);
+}
+
+.caseComparison header {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+  border-right: 1px solid rgba(243, 240, 229, 0.18);
+  border-bottom: 1px solid rgba(243, 240, 229, 0.18);
+}
+
+.caseComparison dl {
+  margin: 0;
+}
+
+.caseComparison dl > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 16px 20px;
+  border-right: 1px solid rgba(243, 240, 229, 0.18);
+  border-bottom: 1px solid rgba(243, 240, 229, 0.18);
+}
+
+.caseComparison dt {
+  display: grid;
+  gap: 5px;
+}
+
+.caseComparison dt b {
+  color: #b9cbbd;
+  font: 700 10px/1.4 var(--font-geist-mono), monospace;
+}
+
+.caseComparison dt span {
+  color: #d0dbd1;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.caseComparison dd {
+  margin: 0;
+  color: #f3f0e5;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.comparisonSignal {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1.35fr;
+  gap: 14px;
+  align-items: stretch;
+  margin-top: 36px;
+}
+
+.comparisonSignal > div {
+  display: grid;
+  align-content: center;
+  gap: 7px;
+  min-height: 110px;
+  padding: 18px;
+  border-block: 1px solid rgba(243, 240, 229, 0.2);
+}
+
+.comparisonSignal > div[data-result] {
+  border-color: rgba(216, 255, 62, 0.5);
+}
+
+.comparisonSignal > i {
+  align-self: center;
+  color: #d8ff3e;
+  font-style: normal;
+}
+
+.metricEvidenceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 56px;
+}
+
+.metricEvidenceGrid figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.metricEvidenceLabel {
+  display: block;
+  margin-bottom: 10px;
+  color: #d8ff3e;
+  font: 700 11px/1.4 var(--font-geist-mono), monospace;
+  letter-spacing: 0.08em;
+}
+
+.metricEvidenceImage {
+  display: grid;
+  grid-template-rows: 70px 126px;
+  overflow: hidden;
+  border: 1px solid rgba(243, 240, 229, 0.22);
+  background: rgba(243, 240, 229, 0.92);
+}
+
+.metricHeaderCrop,
+.metricRowCrop {
+  position: relative;
+  overflow: hidden;
+}
+
+.metricHeaderCrop {
+  border-bottom: 1px solid rgba(15, 25, 20, 0.18);
+}
+
+.metricHeaderCrop img,
+.metricRowCrop img {
+  position: absolute;
+  left: -200%;
+  display: block;
+  width: 300%;
+  max-width: none;
+  height: auto;
+}
+
+.metricHeaderCrop img {
+  top: 0;
+}
+
+.metricEvidenceGrid figure[data-crop="fires"] .metricRowCrop img {
+  top: -54px;
+}
+
+.metricEvidenceGrid figure[data-crop="rina"] .metricRowCrop img {
+  top: -350px;
+}
+
+.metricEvidenceGrid figcaption {
+  margin-top: 13px;
+  color: #b9cbbd;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.signalBranch {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 48px;
+}
+
+.branchRoot {
+  grid-column: 1 / -1;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 18px;
+  border-block: 1px solid rgba(216, 255, 62, 0.38);
+}
+
+.signalBranch article {
+  border-top: 1px solid rgba(243, 240, 229, 0.22);
+  border-left: 1px solid rgba(243, 240, 229, 0.18);
+  background: rgba(15, 25, 20, 0.16);
+}
+
+.signalBranch header,
+.signalBranch article p {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 17px;
+  border-right: 1px solid rgba(243, 240, 229, 0.18);
+  border-bottom: 1px solid rgba(243, 240, 229, 0.18);
+}
+
+.signalBranch article p b {
+  color: #b9cbbd;
+  font: 700 10px/1.4 var(--font-geist-mono), monospace;
+}
+
+.performanceEnding > p {
+  margin: 0;
+  color: #d8ff3e;
+  font-size: clamp(24px, 3vw, 42px);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.performanceEnding > .liveProcess {
+  margin-top: 48px;
+}
+
+.performanceClosing {
+  margin-top: 48px;
+}
+
+@media (max-width: 980px) {
+  .signalBranch {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .performanceNarrative {
+    margin-top: 48px;
+  }
+
+  .performanceIntro,
+  .performanceClosing,
+  .diagramSummary,
+  .caseComparison,
+  .metricEvidenceGrid,
+  .signalBranch {
+    grid-template-columns: 1fr;
+  }
+
+  .performanceBlock,
+  .performanceEnding {
+    margin-top: 88px;
+  }
+
+  .performanceBlock > h3 {
+    font-size: 26px;
+  }
+
+  .performanceBlock > h3 br {
+    display: none;
+  }
+
+  .loopDiagram {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .loopCenter,
+  .loopNode,
+  .loopNode[data-position] {
+    grid-area: auto;
+    min-height: 104px;
+  }
+
+  .comparisonSignal {
+    grid-template-columns: 1fr;
+  }
+
+  .comparisonSignal > i {
+    justify-self: center;
+  }
+
+  .metricEvidenceImage {
+    grid-template-rows: 62px 112px;
+  }
+
+  .metricEvidenceGrid figure[data-crop="fires"] .metricRowCrop img {
+    top: -48px;
+  }
+
+  .metricEvidenceGrid figure[data-crop="rina"] .metricRowCrop img {
+    top: -310px;
+  }
+}
+
 .valueNarrative {
   max-width: 800px;
   margin: 72px 0 0 80px;

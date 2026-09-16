@@ -13,6 +13,7 @@ export const INVADER_PROJECT = {
     { id: "value", number: "01", title: "Product Planning", summary: "강사의 전문성을 ‘팔리는 교육상품’으로 구체화하다" },
     { id: "experience", number: "02", title: "Live Content Planning & Rehearsal", summary: "정보를 전달하는 강의에서 ‘결제를 설득하는 흐름’으로" },
     { id: "signal", number: "03", title: "Live Operation & CRM", summary: "무료강의 전후의 고객 접점을 하나의 운영 Flow로 관리했습니다" },
+    { id: "performance", number: "04", title: "Performance & Iteration", summary: "성과를 기록하는 데서 끝내지 않고, 다음 Product를 다시 설계했습니다" },
   ],
 } as const;
 

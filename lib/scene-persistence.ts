@@ -16,7 +16,7 @@ type RestorableSceneId = (typeof RESTORABLE_SCENES)[number];
 
 const DETAIL_SECTIONS: Readonly<Record<ProjectId, readonly string[]>> = {
   harubareun: ["strategy", "product", "commerce", "go-to-market", "final-overview"],
-  "project-02": ["value", "experience", "signal"],
+  "project-02": ["value", "experience", "signal", "performance"],
   fitmate: ["contribution", "validation", "foundation"],
 };
 

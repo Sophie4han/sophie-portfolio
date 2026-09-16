@@ -49,16 +49,17 @@ export function InvaderProjectDetail({ transition, onBackToFocus, onBackToWorld 
 
       <div className={styles.detailContent}>
         {section ? (
-          <section className={`${styles.strategyDetail} ${section.id === "value" ? invader.planningDetail : section.id === "experience" ? invader.liveDetail : section.id === "signal" ? invader.operationDetail : ""}`} aria-labelledby="invader-detail-title">
+          <section className={`${styles.strategyDetail} ${section.id === "value" ? invader.planningDetail : section.id === "experience" ? invader.liveDetail : section.id === "signal" ? invader.operationDetail : invader.performanceDetail}`} aria-labelledby="invader-detail-title">
             <button type="button" className={styles.summaryReturn} onClick={() => selectSection(null)}>← PROJECT SUMMARY</button>
             <div className={styles.strategyHeading}>
               <span className={styles.eyebrow}>{section.number}</span>
               <h1 id="invader-detail-title">{section.title}</h1>
             </div>
-            <h2 className={section.id === "value" ? `${styles.productLead} ${invader.valueTitle}` : section.id === "experience" ? `${styles.productLead} ${invader.experienceTitle}` : `${styles.productLead} ${invader.operationTitle}`}>{section.summary}</h2>
+            <h2 className={section.id === "value" ? `${styles.productLead} ${invader.valueTitle}` : section.id === "experience" ? `${styles.productLead} ${invader.experienceTitle}` : section.id === "signal" ? `${styles.productLead} ${invader.operationTitle}` : `${styles.productLead} ${invader.performanceTitle}`}>{section.summary}</h2>
             {section.id === "value" && <ProductValueBody />}
             {section.id === "experience" && <PurchaseExperienceBody />}
             {section.id === "signal" && <FunnelSignalBody />}
+            {section.id === "performance" && <PerformanceBody />}
           </section>
         ) : (
           <InvaderSummary onSelectSection={selectSection} />
@@ -415,4 +416,72 @@ function FunnelSignalBody() {
       <footer className={invader.operationEnding}>신청부터 라이브, 결제, 온보딩과 콘텐츠 전달까지<br />Customer Operation Flow 전체를 연결해 운영했습니다.</footer>
     </div>
   );
+}
+
+const performanceCases = [
+  { name: "FIRES / BRAND COMMERCE", description: "브랜드 커머스 무료강의", values: [["CHAT ENTRY", "톡방 입장률", "81.3%"], ["APPLICATION → LIVE", "신청 대비 LIVE 시청", "20.4%"], ["CHAT → LIVE", "톡방 대비 LIVE 시청", "25.1%"], ["LIVE → PAYMENT", "LIVE 시청 대비 결제 전환", "11.3%"], ["RETENTION", "결제 이후 잔존", "99.59%"]] },
+  { name: "RINA / HOSPITALITY", description: "숙박업 무료강의", values: [["CHAT ENTRY", "톡방 입장률", "79.4%"], ["APPLICATION → LIVE", "신청 대비 LIVE 시청", "20.5%"], ["CHAT → LIVE", "톡방 대비 LIVE 시청", "25.8%"], ["LIVE → PAYMENT", "LIVE 시청 대비 결제 전환", "5.7%"], ["RETENTION", "결제 이후 잔존", "98.92%"]] },
+] as const;
+
+function PerformanceBody() {
+  return (
+    <div className={invader.performanceNarrative}>
+      <div className={invader.performanceIntro}>
+        <p className={styles.bodyCopy} data-reading-focus>무료강의 운영 이후에는 신청부터 LIVE, 결제와 잔존까지 Funnel 단위로 결과를 확인했습니다.</p>
+        <p className={styles.bodyCopy} data-reading-focus>어디에서 고객의 이동이 끊겼는지 파악하고, 그 결과를 다음 회차의 콘텐츠·CRM·LIVE 운영에 다시 반영했습니다.</p>
+      </div>
+
+      <PerformanceBlock label="01 / REPEATABLE PRODUCT FUNNEL" description="반복 가능한 Product 운영 구조" title={<>기획부터 성과 확인까지,<br />하나의 Product Funnel로 연결했습니다.</>}>
+        <LoopDiagram items={[["PRODUCT PLANNING", "상품과 핵심 메시지 정의"], ["CONTENT", "사전 콘텐츠와 구매 판단 구조 설계"], ["OPERATION", "CRM · LIVE · 온보딩 실행"], ["PERFORMANCE", "단계별 전환과 이탈 확인"], ["ITERATION", "병목을 다음 수정안으로 전환"]]} centerTitle="REPEATABLE PRODUCT FUNNEL" centerCopy="반복 가능한 Product 운영 구조" />
+        <DiagramSummary><p>각 업무를 개별 Task로 보지 않고 하나의 연속된 Funnel로 관리했습니다.</p><p>운영 결과는 마지막 성과 보고가 아니라 다음 Product Planning으로 돌아가는 입력값이 되었고, 이를 기준으로 회차별 수정과 실행을 반복했습니다.</p></DiagramSummary>
+      </PerformanceBlock>
+
+      <PerformanceBlock label="02 / FUNNEL TRACKING" description="고객 이동 단계 추적" title={<>결과 하나가 아니라,<br />고객이 어디까지 이동했는지를 봤습니다.</>}>
+        <ProcessDiagram items={[["APPLICATION", "무료강의 신청"], ["CHAT ROOM", "톡방 입장 · 톡방 입장률"], ["LIVE VIEW", "실제 LIVE 시청 · 신청/톡방 → LIVE 전환율"], ["PAYMENT", "정규강의 결제 · LIVE → 결제 전환율"], ["RETENTION", "결제 이후 잔존 · 환불률/잔존율"]]} label="고객 이동 단계 Funnel" />
+        <DiagramSummary><p>단순 신청자 수나 결제자 수만 보는 대신, 고객이 각 단계에서 얼마나 다음 단계로 이동했는지를 확인했습니다.</p><p>이를 통해 성과가 낮은 경우에도 유입의 문제인지, LIVE 시청의 문제인지, 결제 전환의 문제인지 구분할 수 있었습니다.</p></DiagramSummary>
+      </PerformanceBlock>
+
+      <PerformanceBlock label="03 / CASE COMPARISON" description="회차별 Funnel 비교" title={<>유입은 비슷했지만,<br />차이는 LIVE 이후에 벌어졌습니다.</>}>
+        <div className={invader.caseComparison}>{performanceCases.map((item) => <article key={item.name}><header><strong>{item.name}</strong><span>{item.description}</span></header><dl>{item.values.map(([label, copy, value]) => <div key={label}><dt><b>{label}</b><span>{copy}</span></dt><dd>{value}</dd></div>)}</dl></article>)}</div>
+        <div className={invader.comparisonSignal}><div><strong>SIMILAR ENTRY</strong><span>유사한 유입</span></div><i>+</i><div><strong>SIMILAR LIVE VIEW</strong><span>유사한 LIVE 시청 흐름</span></div><i>↓</i><div data-result><strong>DIFFERENT PAYMENT CONVERSION</strong><span>다르게 나타난 결제 전환</span></div></div>
+        <DiagramSummary><p>두 회차는 톡방 입장과 LIVE 시청까지의 흐름이 상당히 유사했습니다.</p><p>반면 LIVE 이후 결제 전환에서 차이가 나타났기 때문에, 단순 모객 규모보다는 LIVE 내부의 설득 구조와 Closing 구간을 별도로 점검해야 한다고 판단했습니다.</p></DiagramSummary>
+        <div className={invader.metricEvidenceGrid}>
+          <MetricEvidence src="/images/projects/invader/performance/fires-live-metrics.png" width={1230} height={310} alt="김준서 회차 Funnel 비율 기록" label="FIRES" crop="fires" />
+          <MetricEvidence src="/images/projects/invader/performance/rina-live-metrics.png" width={1064} height={322} alt="리나쌤 회차 Funnel 비율 기록" label="RINA" crop="rina" />
+        </div>
+      </PerformanceBlock>
+
+      <PerformanceBlock label="04 / SIGNAL → DIAGNOSIS → ACTION" description="지표에서 문제를 찾고 액션으로 연결" title={<>지표가 떨어진 위치에 따라<br />다시 봐야 할 문제도 달랐습니다.</>}>
+        <div className={invader.signalBranch}><div className={invader.branchRoot}><strong>FUNNEL SIGNAL</strong><span>Funnel 이상 신호</span></div>{[["ENTRY RATE ↓", "톡방 입장률 하락", ["CRM TIMING|CRM 발송 시점", "MESSAGE|메시지 설계", "ENTRY FLOW|입장 동선"]], ["LIVE RATE ↓", "LIVE 시청 전환 하락", ["PRE-LIVE CONTENT|사전 콘텐츠", "REMINDER|리마인드 운영", "HOOK|초반 후킹"]], ["PAYMENT RATE ↓", "결제 전환 하락", ["EVIDENCE|성과와 신뢰 근거", "OBJECTION|고객 반론 대응", "CTA / CLOSING|결제 제안과 마감 구조"]], ["RETENTION ↓", "결제 이후 잔존 하락", ["EXPECTATION|사전 기대치", "ONBOARDING|수강 시작 경험", "PRODUCT EXPERIENCE|실제 강의 경험"]]].map(([title, copy, actions]) => <article key={title as string}><header><strong>{title as string}</strong><span>{copy as string}</span></header><div>{(actions as string[]).map((action) => { const [label, description] = action.split("|"); return <p key={label}><b>{label}</b><span>{description}</span></p>; })}</div></article>)}</div>
+        <DiagramSummary><p>같은 “성과 하락”이라도 발생한 Funnel Stage에 따라 다시 점검해야 할 원인은 달랐습니다.</p><p>그래서 숫자 자체보다 어느 단계에서 하락했는지를 먼저 보고, 해당 단계와 연결된 콘텐츠·CRM·LIVE 운영 요소를 점검했습니다.</p></DiagramSummary>
+      </PerformanceBlock>
+
+      <PerformanceBlock label="05 / ITERATION LOOP" description="성과를 다음 회차로 연결하는 개선 Loop" title={<>측정값은 다음 회차의<br />Input이 되었습니다.</>}>
+        <LoopDiagram items={[["TRACK", "Funnel 결과 기록"], ["READ", "전환 차이 확인"], ["DIAGNOSE", "병목 구간 정의"], ["ADJUST", "콘텐츠 · CRM · LIVE 수정"], ["NEXT LIVE", "다음 회차 실행"]]} centerTitle="ADJUST" centerCopy="CONTENT · CRM · LIVE" />
+        <DiagramSummary><p>한 번의 무료강의를 독립적인 이벤트로 끝내지 않았습니다.</p><p>성과를 기록하고 병목을 정의한 뒤, 콘텐츠와 CRM, LIVE 운영을 수정해 다음 회차에서 다시 검증하는 반복 구조로 운영했습니다.</p></DiagramSummary>
+      </PerformanceBlock>
+
+      <footer className={invader.performanceEnding}>
+        <p>성과는 결과가 아니라,<br />다음 Product의 Brief가 되었습니다.</p>
+        <ProcessDiagram items={[["PLAN", "기획"], ["BUILD", "콘텐츠 구축"], ["OPERATE", "실행"], ["MEASURE", "측정"], ["IMPROVE", "개선"]]} label="기획부터 개선까지의 compact loop" />
+        <div className={invader.performanceClosing}><p className={styles.bodyCopy} data-reading-focus>Product Planning부터 Content, Operation, Performance Tracking까지 하나의 흐름으로 연결했습니다.</p><p className={styles.bodyCopy} data-reading-focus>결과를 다시 다음 기획에 반영하며, 무료강의를 일회성 운영이 아니라 반복적으로 개선할 수 있는 Product Funnel로 관리했습니다.</p></div>
+      </footer>
+    </div>
+  );
+}
+
+function PerformanceBlock({ label, description, title, children }: { label: string; description: string; title: ReactNode; children: ReactNode }) {
+  return <section className={invader.performanceBlock}><div><span className={styles.eyebrow}>{label}</span><small>{description}</small></div><h3>{title}</h3>{children}</section>;
+}
+
+function DiagramSummary({ children }: { children: ReactNode }) {
+  return <div className={invader.diagramSummary} data-reading-focus>{children}</div>;
+}
+
+function LoopDiagram({ items, centerTitle, centerCopy }: { items: readonly (readonly [string, string])[]; centerTitle: string; centerCopy: string }) {
+  return <div className={invader.loopDiagram}><div className={invader.loopCenter}><strong>{centerTitle}</strong><span>{centerCopy}</span></div>{items.map(([title, copy], index) => <div className={invader.loopNode} data-position={index + 1} key={title}><strong>{title}</strong><span>{copy}</span></div>)}</div>;
+}
+
+function MetricEvidence({ src, width, height, alt, label, crop }: { src: string; width: number; height: number; alt: string; label: string; crop: "fires" | "rina" }) {
+  return <figure data-crop={crop}><strong className={invader.metricEvidenceLabel}>{label}</strong><div className={invader.metricEvidenceImage}><div className={invader.metricHeaderCrop}><Image src={src} width={width} height={height} alt={alt} sizes="(max-width: 760px) 276vw, 138vw" /></div><div className={invader.metricRowCrop}><Image src={src} width={width} height={height} alt="" sizes="(max-width: 760px) 276vw, 138vw" /></div></div><figcaption>실제 회차별 Funnel 기록</figcaption></figure>;
 }
