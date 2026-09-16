@@ -1254,6 +1254,539 @@
   }
 }
 
+.liveDetail {
+  width: 100%;
+}
+
+.liveDetail > .experienceTitle {
+  width: 100%;
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.liveNarrative {
+  width: 100%;
+  margin-top: 64px;
+  word-break: keep-all;
+}
+
+.liveIntro {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 48px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(243, 240, 229, 0.28);
+}
+
+.liveIntro p,
+.liveBody p {
+  margin: 0;
+}
+
+.liveBlock,
+.liveEnding {
+  margin-top: 112px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(243, 240, 229, 0.28);
+}
+
+.liveBlock > h3 {
+  max-width: 940px;
+  margin: 20px 0 0;
+  color: #f3f0e5;
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+.liveBody {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 34px;
+}
+
+.liveProcess {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  margin: 48px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(243, 240, 229, 0.22);
+  border-left: 1px solid rgba(243, 240, 229, 0.18);
+}
+
+.liveProcess li {
+  position: relative;
+  display: grid;
+  grid-template-rows: 34px auto;
+  align-content: start;
+  gap: 12px;
+  min-height: 156px;
+  padding: 24px 18px;
+  border-right: 1px solid rgba(243, 240, 229, 0.18);
+  border-bottom: 1px solid rgba(243, 240, 229, 0.18);
+  background: rgba(15, 25, 20, 0.16);
+}
+
+.liveProcess li + li::before {
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  z-index: 1;
+  content: "→";
+  color: #d8ff3e;
+  transform: translateY(-50%);
+}
+
+.liveProcess strong,
+.checkpointGrid strong,
+.frameworkGrid strong,
+.pendingEvidenceGrid strong {
+  color: #d8ff3e;
+  font: 700 10px/1.4 var(--font-geist-mono), monospace;
+  letter-spacing: 0.06em;
+}
+
+.liveProcess span {
+  color: #d0dbd1;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.liveNarrative .objectionTable td {
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.liveProcessVertical {
+  grid-template-columns: 1fr;
+  max-width: 720px;
+}
+
+.liveProcessVertical li {
+  min-height: 104px;
+}
+
+.liveProcessVertical li + li::before {
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.liveEvidenceGrid,
+.salesEvidenceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 56px 28px;
+}
+
+.liveEvidenceGrid .evidencePanel,
+.salesEvidenceGrid .evidencePanel {
+  margin-top: 64px;
+}
+
+.liveEvidenceGrid .evidencePanel > div,
+.liveEvidenceGrid .evidencePanel img {
+  max-height: 440px;
+}
+
+.salesEvidenceGrid .evidencePanel > div,
+.salesEvidenceGrid .evidencePanel img {
+  max-height: 520px;
+}
+
+.liveTakeaway,
+.liveEnding > p {
+  margin: 56px 0 0;
+  color: #d8ff3e;
+  font-size: clamp(22px, 2.3vw, 34px);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.contentDecisionDiagram {
+  display: grid;
+  grid-template-columns: 0.8fr 1.25fr 0.8fr;
+  margin-top: 48px;
+  border-top: 1px solid rgba(243, 240, 229, 0.22);
+  border-left: 1px solid rgba(243, 240, 229, 0.18);
+  background: rgba(15, 25, 20, 0.16);
+}
+
+.contentDecisionDiagram > div {
+  padding: 22px;
+  border-right: 1px solid rgba(243, 240, 229, 0.18);
+  border-bottom: 1px solid rgba(243, 240, 229, 0.18);
+}
+
+.contentDecisionDiagram span {
+  color: #d8ff3e;
+  font: 700 10px/1.4 var(--font-geist-mono), monospace;
+  letter-spacing: 0.08em;
+}
+
+.contentDecisionDiagram h4 {
+  margin: 18px 0 22px;
+  color: #f3f0e5;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.contentDecisionDiagram p {
+  margin: 0;
+  padding: 13px 0;
+  border-top: 1px solid rgba(243, 240, 229, 0.14);
+  color: #d0dbd1;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.interventionColumn p {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 14px;
+}
+
+.interventionColumn b {
+  color: #d8ff3e;
+  font: 700 10px/1.5 var(--font-geist-mono), monospace;
+}
+
+.interventionColumn i {
+  font-style: normal;
+}
+
+.liveSupportingCopy {
+  margin: 42px 0 0;
+}
+
+.checkpointGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 48px;
+  border-top: 1px solid rgba(243, 240, 229, 0.22);
+  border-left: 1px solid rgba(243, 240, 229, 0.18);
+}
+
+.checkpointGrid article {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-height: 170px;
+  padding: 20px;
+  border-right: 1px solid rgba(243, 240, 229, 0.18);
+  border-bottom: 1px solid rgba(243, 240, 229, 0.18);
+  background: rgba(15, 25, 20, 0.16);
+}
+
+.checkpointGrid article > span {
+  color: #91a99b;
+  font: 700 10px/1.4 var(--font-geist-mono), monospace;
+}
+
+.checkpointGrid p,
+.frameworkGrid p {
+  margin: 4px 0 0;
+  color: #d0dbd1;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.frameworkGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.frameworkGrid article {
+  border-top: 1px solid rgba(243, 240, 229, 0.22);
+  border-left: 1px solid rgba(243, 240, 229, 0.18);
+  background: rgba(15, 25, 20, 0.16);
+}
+
+.frameworkGrid h4,
+.frameworkGrid article > div {
+  margin: 0;
+  padding: 20px;
+  border-right: 1px solid rgba(243, 240, 229, 0.18);
+  border-bottom: 1px solid rgba(243, 240, 229, 0.18);
+}
+
+.frameworkGrid h4 {
+  color: #f3f0e5;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.pendingEvidenceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 42px;
+}
+
+.pendingEvidenceGrid .evidencePanel {
+  margin-top: 0;
+}
+
+.pendingEvidenceGrid .evidencePanel > div,
+.pendingEvidenceGrid .evidencePanel img {
+  max-height: 360px;
+}
+
+.liveBridge {
+  margin: 42px 0 0;
+}
+
+.liveEnding > p {
+  margin-top: 0;
+}
+
+.liveEnding > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-top: 34px;
+  color: #f3f0e5;
+  font: 600 12px/1.6 var(--font-geist-mono), monospace;
+}
+
+.liveEnding i {
+  color: #d8ff3e;
+  font-style: normal;
+}
+
+@media (max-width: 980px) {
+  .liveIntro,
+  .liveBody {
+    grid-template-columns: 1fr;
+  }
+
+  .liveProcess {
+    grid-template-columns: 1fr;
+  }
+
+  .liveProcess li {
+    min-height: 104px;
+  }
+
+  .liveProcess li + li::before {
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .liveNarrative {
+    margin-top: 48px;
+  }
+
+  .liveBlock,
+  .liveEnding {
+    margin-top: 88px;
+  }
+
+  .liveBlock > h3 {
+    font-size: 26px;
+  }
+
+  .liveBlock > h3 br {
+    display: none;
+  }
+
+  .liveEvidenceGrid,
+  .salesEvidenceGrid,
+  .contentDecisionDiagram,
+  .checkpointGrid,
+  .frameworkGrid,
+  .pendingEvidenceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .interventionColumn p {
+    grid-template-columns: 86px minmax(0, 1fr);
+  }
+}
+
+.operationDetail {
+  width: 100%;
+}
+
+.operationDetail > .operationTitle {
+  width: 100%;
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.operationNarrative {
+  width: 100%;
+  margin-top: 64px;
+  word-break: keep-all;
+}
+
+.operationIntro {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(243, 240, 229, 0.28);
+}
+
+.operationIntro p {
+  margin: 0;
+}
+
+.operationBody {
+  margin: 34px 0 0;
+}
+
+.crmDiagram {
+  margin-top: 48px;
+}
+
+.crmChannels {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid rgba(243, 240, 229, 0.22);
+  border-left: 1px solid rgba(243, 240, 229, 0.18);
+}
+
+.crmChannels span {
+  padding: 18px;
+  border-right: 1px solid rgba(243, 240, 229, 0.18);
+  border-bottom: 1px solid rgba(243, 240, 229, 0.18);
+  background: rgba(15, 25, 20, 0.16);
+  color: #f3f0e5;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.65;
+  text-align: left;
+}
+
+.crmConnector {
+  padding: 15px 0;
+  color: #d8ff3e;
+  text-align: center;
+}
+
+.crmDiagram .liveProcess {
+  margin-top: 0;
+}
+
+.crmEvidenceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.crmEvidenceCard {
+  min-width: 0;
+  margin: 0;
+}
+
+.crmEvidenceFrame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid rgba(243, 240, 229, 0.22);
+  background: rgba(243, 240, 229, 0.92);
+}
+
+.crmEvidenceFrame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.crmEvidenceFrame[data-mask="sms"]::before,
+.crmEvidenceFrame[data-mask="open"]::before,
+.crmEvidenceFrame[data-mask="open"]::after {
+  position: absolute;
+  z-index: 1;
+  content: "";
+  background: #f7f6f4;
+  box-shadow: 0 0 8px 5px #f7f6f4;
+}
+
+.crmEvidenceFrame[data-mask="sms"]::before {
+  top: 41%;
+  left: 7%;
+  width: 48%;
+  height: 6%;
+}
+
+.crmEvidenceFrame[data-mask="open"]::before {
+  top: 34%;
+  left: 7%;
+  width: 78%;
+  height: 6%;
+}
+
+.crmEvidenceFrame[data-mask="open"]::after {
+  right: 7%;
+  bottom: 2%;
+  width: 78%;
+  height: 6%;
+}
+
+.crmEvidenceCard figcaption {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.crmEvidenceCard figcaption strong {
+  color: #d8ff3e;
+  font: 700 10px/1.4 var(--font-geist-mono), monospace;
+  letter-spacing: 0.08em;
+}
+
+.crmEvidenceCard figcaption span {
+  color: #b9cbbd;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.operationEnding {
+  margin-top: 112px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(243, 240, 229, 0.28);
+  color: #d8ff3e;
+  font-size: clamp(22px, 2.3vw, 34px);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .operationNarrative {
+    margin-top: 48px;
+  }
+
+  .operationIntro,
+  .crmChannels,
+  .crmEvidenceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .operationIntro {
+    gap: 24px;
+  }
+
+  .operationEnding {
+    margin-top: 88px;
+  }
+}
+
 .valueNarrative {
   max-width: 800px;
   margin: 72px 0 0 80px;

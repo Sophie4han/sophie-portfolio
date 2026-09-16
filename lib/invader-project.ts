@@ -11,8 +11,8 @@ export const INVADER_PROJECT = {
   ],
   sections: [
     { id: "value", number: "01", title: "Product Planning", summary: "강사의 전문성을 ‘팔리는 교육상품’으로 구체화하다" },
-    { id: "experience", number: "02", title: "구매 경험", summary: "시장을 바꿀 수 없다면 구매 경험을 바꿨다" },
-    { id: "signal", number: "03", title: "Funnel Signal", summary: "Funnel Signal을 Product Perception 문제로 해석" },
+    { id: "experience", number: "02", title: "Live Content Planning & Rehearsal", summary: "정보를 전달하는 강의에서 ‘결제를 설득하는 흐름’으로" },
+    { id: "signal", number: "03", title: "Live Operation & CRM", summary: "무료강의 전후의 고객 접점을 하나의 운영 Flow로 관리했습니다" },
   ],
 } as const;
 

@@ -49,13 +49,13 @@ export function InvaderProjectDetail({ transition, onBackToFocus, onBackToWorld 
 
       <div className={styles.detailContent}>
         {section ? (
-          <section className={`${styles.strategyDetail} ${section.id === "value" ? invader.planningDetail : ""}`} aria-labelledby="invader-detail-title">
+          <section className={`${styles.strategyDetail} ${section.id === "value" ? invader.planningDetail : section.id === "experience" ? invader.liveDetail : section.id === "signal" ? invader.operationDetail : ""}`} aria-labelledby="invader-detail-title">
             <button type="button" className={styles.summaryReturn} onClick={() => selectSection(null)}>← PROJECT SUMMARY</button>
             <div className={styles.strategyHeading}>
               <span className={styles.eyebrow}>{section.number}</span>
               <h1 id="invader-detail-title">{section.title}</h1>
             </div>
-            <h2 className={section.id === "value" ? `${styles.productLead} ${invader.valueTitle}` : section.id === "experience" ? `${styles.productLead} ${invader.experienceTitle}` : styles.productLead}>{section.summary}</h2>
+            <h2 className={section.id === "value" ? `${styles.productLead} ${invader.valueTitle}` : section.id === "experience" ? `${styles.productLead} ${invader.experienceTitle}` : `${styles.productLead} ${invader.operationTitle}`}>{section.summary}</h2>
             {section.id === "value" && <ProductValueBody />}
             {section.id === "experience" && <PurchaseExperienceBody />}
             {section.id === "signal" && <FunnelSignalBody />}
@@ -269,99 +269,150 @@ function EvidenceFigure({ src, width, height, alt, caption }: { src: string; wid
 
 function PurchaseExperienceBody() {
   return (
-    <div className={invader.experienceNarrative}>
-      <section aria-labelledby="invader-rina-title">
-        <h3 id="invader-rina-title" className={invader.experienceCaseTitle}>리나쌤</h3>
-        <p className={invader.experienceContext}>기존 N차 Product였지만 부동산 시장과 고객수요가 이전과 달라진 상황이었다.</p>
-        <ol className={invader.experienceSteps} role="list" aria-label="구매 경험 개선 과정">
-          <li><h4>Detail Page</h4><p><span aria-hidden="true">→</span> 전면 교체</p></li>
-          <li><h4>CRM</h4><p><span aria-hidden="true">→</span> 고객 유입 흐름에 맞춰 Timeline 조정</p></li>
-          <li><h4>Live Sales</h4><p><span aria-hidden="true">→</span> 실시간 고객 반응에 따라 Closing Sequence 변경</p></li>
-        </ol>
-      </section>
+    <div className={invader.liveNarrative}>
+      <div className={invader.liveIntro}>
+        <p className={styles.bodyCopy} data-reading-focus>무료강의는 단순히 많은 정보를 전달하는 자리가 아니었습니다.</p>
+        <p className={styles.bodyCopy} data-reading-focus>시청자가 어느 지점에서 흥미를 잃고, 어떤 질문 때문에 구매를 망설이는지를 기준으로 강의 전후의 콘텐츠 흐름을 함께 점검했습니다.</p>
+        <p className={styles.bodyCopy} data-reading-focus>강사 인터뷰를 통해 실제 경험과 성과를 먼저 정리하고, 카페 콘텐츠와 상세페이지를 통해 강사의 전문성과 상품 메시지를 사전에 전달했습니다.</p>
+        <p className={styles.bodyCopy} data-reading-focus>이후 리허설에서는 도입부의 후킹, 강사의 신뢰도, 실제 성과와 수익 Evidence, 경쟁 방식과 예상 반론을 다시 배치하며 고객의 이해 → 신뢰 → 확신 → 행동으로 이어지는 흐름을 구체화했습니다.</p>
+      </div>
 
-      <section className={invader.experienceLoop} aria-labelledby="invader-working-loop-title">
-        <h3 id="invader-working-loop-title" className={styles.eyebrow}>WORKING LOOP</h3>
-        <ol className={invader.valueFlow} role="list" aria-label="Working Loop">
-          <li>Observe</li>
-          <li>Identify</li>
-          <li>Intervene</li>
-          <li>Evaluate</li>
-        </ol>
-      </section>
+      <LiveBlock label="01 / PRE-LIVE INTERVIEW" title={<>강의를 시작하기 전에,<br />먼저 ‘왜 이 강사의 이야기를 들어야 하는가’를 정리했습니다.</>}>
+        <div className={invader.liveBody}><p className={styles.bodyCopy} data-reading-focus>무료강의 이전에는 강사 인터뷰를 통해 경력, 실제 성과, 사업 경험과 강의에서 강조할 핵심 노하우를 먼저 정리했습니다.</p><p className={styles.bodyCopy} data-reading-focus>강사가 가진 경험을 그대로 나열하기보다, 고객이 신뢰의 근거로 받아들일 수 있는 정보와 무료강의의 도입부에서 활용할 메시지를 선별했습니다.</p></div>
+        <ProcessDiagram items={[["INTERVIEW", "강사의 경험"], ["EXTRACT", "경력 · 성과 · 노하우"], ["SELECT", "고객에게 신뢰가 되는 근거"], ["MESSAGE", "무료강의와 사전 콘텐츠의 핵심 메시지"]]} label="사전 인터뷰 메시지 선별 과정" />
+      </LiveBlock>
 
-      <p className={invader.experienceConclusion}>시장환경 자체를 통제하기보다<br />고객이 Product를 이해하고 구매결정을 내리는 과정에서<br />통제 가능한 요소를 개선했다.</p>
+      <LiveBlock label="02 / PRE-LIVE CONTENT" title={<>강의 당일 처음 신뢰를 만드는 것이 아니라,<br />강의 전부터 기대와 맥락을 만들었습니다.</>}>
+        <div className={invader.liveBody}><p className={styles.bodyCopy} data-reading-focus>강사 인터뷰에서 정리한 내용을 바탕으로 카페에 강사 소개와 사전 콘텐츠를 발행했습니다.</p><p className={styles.bodyCopy} data-reading-focus>고객이 라이브에 입장하기 전에 강사의 배경, 전문성, 실제 경험과 문제 해결 방식을 먼저 접하도록 하여 무료강의가 시작되는 시점에는 이미 일정 수준의 신뢰와 기대가 형성되도록 했습니다.</p></div>
+        <ProcessDiagram items={[["INTERVIEW", "강사 인터뷰"], ["CONTENT", "강사 소개 / 성공 경험 / 문제 해결 콘텐츠"], ["COMMUNITY", "카페 게시"], ["EXPECTATION", "무료강의 기대 형성"], ["LIVE", "라이브 진입"]]} label="사전 콘텐츠에서 라이브 진입까지의 흐름" />
+        <div className={invader.liveEvidenceGrid}>
+          <EvidenceFigure src="/images/projects/invader/live-content/fires-cafe-opening.png" width={1064} height={1440} alt="파이어스 강사 소개 카페 게시글" caption="강사의 경력과 실제 운영 경험을 먼저 노출해 무료강의 전 신뢰의 근거를 만들었습니다." />
+          <EvidenceFigure src="/images/projects/invader/live-content/fires-cafe-intro.png" width={1340} height={1102} alt="파이어스 카페 사전 질문 콘텐츠" caption="일방적인 소개보다 고객이 실제로 궁금해할 질문을 중심으로 강사의 관점과 노하우를 먼저 경험하게 했습니다." />
+          <EvidenceFigure src="/images/projects/invader/live-content/yubunyeodeul-cafe-opening.png" width={1120} height={1248} alt="유부녀들 강의 카페 사전 게시글" caption="새로운 강의 역시 강사와 상품을 먼저 소개하고 고객이 참여할 이유를 사전 콘텐츠에서 형성했습니다." />
+          <EvidenceFigure src="/images/projects/invader/live-content/yubunyeodeul-success-qa.png" width={1112} height={686} alt="유부녀들 성공 비결 Q&A 콘텐츠" caption="강사의 전문성을 선언하는 대신, 고객 질문에 답하는 형식으로 핵심 메시지를 전달했습니다." />
+        </div>
+        <p className={invader.liveTakeaway}>무료강의의 설득은<br />라이브가 시작되는 순간부터 시작되지 않았습니다.</p>
+      </LiveBlock>
+
+      <LiveBlock label="03 / SALES MESSAGE" title={<>고객이 실제로 묻는 질문을<br />강의와 상세페이지의 메시지로 먼저 바꿨습니다.</>}>
+        <div className={invader.liveBody}><p className={styles.bodyCopy} data-reading-focus>강사의 장점을 그대로 나열하기보다 고객이 먼저 떠올릴 질문과 불안을 기준으로 세일즈 메시지를 구성했습니다.</p><p className={styles.bodyCopy} data-reading-focus>특히 가격, 난이도, 시간, 시장성처럼 구매를 망설이게 하는 질문을 먼저 제시하고 실제 성과와 시스템으로 답하도록 구조화했습니다.</p></div>
+        <div className={invader.salesEvidenceGrid}>
+          <EvidenceFigure src="/images/projects/invader/live-content/fires-sales-page.png" width={410} height={744} alt="파이어스 상세페이지 세일즈 메시지 기획" caption="마진 · 시간 · 난이도처럼 실제 고객이 먼저 묻는 질문을 성과와 운영 방식으로 바로 답하는 구조를 설계했습니다." />
+          <EvidenceFigure src="/images/projects/invader/live-content/yubunyeodeul-sales-page.png" width={416} height={564} alt="유부녀들 상세페이지 진입 장벽 메시지" caption="진입 장벽을 숨기지 않고 먼저 제시한 뒤, AI 자동화와 실제 경험으로 가능성을 설명했습니다." />
+        </div>
+        <ProcessDiagram vertical items={[["CUSTOMER QUESTION", "“나도 가능할까?”"], ["BARRIER", "시간 · 비용 · 난이도 · 경험 부족"], ["EVIDENCE", "실제 수치 · 운영 사례"], ["METHOD", "강사의 실행 방식"], ["CONFIDENCE", "구매 확신"]]} label="고객 질문을 구매 확신으로 바꾸는 흐름" />
+      </LiveBlock>
+
+      <LiveBlock label="04 / CONTENT STRUCTURE" title={<>무엇을 더 설명할지가 아니라,<br />고객이 어떤 순서로 납득해야 하는지를 설계했습니다.</>}>
+        <div className={invader.contentDecisionDiagram}>
+          <div><span>BEFORE</span><h4>강사 중심 설명</h4>{["정보 나열", "전문 용어", "강사의 경험", "노하우 전달"].map((item) => <p key={item} data-reading-focus>{item}</p>)}</div>
+          <div className={invader.interventionColumn}><span>INTERVENTION</span>{[["HOOK", "왜 지금 들어야 하는가"], ["TRUST", "왜 이 강사인가"], ["EVIDENCE", "실제 결과가 있는가"], ["VALUE", "나에게 어떤 이점이 있는가"], ["OBJECTION", "무엇이 불안한가"], ["CTA", "그래서 무엇을 해야 하는가"]].map(([title, copy]) => <p key={title}><b>{title}</b><i data-reading-focus>{copy}</i></p>)}</div>
+          <div><span>AFTER</span><h4>고객 의사결정 중심 강의</h4>{["이해", "신뢰", "확신", "행동"].map((item) => <p key={item} data-reading-focus>{item}</p>)}</div>
+        </div>
+        <p className={`${invader.liveSupportingCopy} ${styles.bodyCopy}`} data-reading-focus>강사의 지식 순서가 아니라, 고객의 의사결정 순서에 맞춰 콘텐츠의 위치와 강조점을 다시 정리했습니다.</p>
+      </LiveBlock>
+
+      <LiveBlock label="05 / REHEARSAL" title={<>리허설은 발표 연습이 아니라,<br />Product Message를 검증하는 과정이었습니다.</>}>
+        <div className={invader.liveBody}><p className={styles.bodyCopy} data-reading-focus>실제 리허설에서는 말의 속도나 표현만 수정하지 않았습니다. 강의 초반에 상품의 필요성이 충분히 전달되는지, 강사의 성과가 신뢰로 연결되는지, 고객이 가질 반론이 결제 전에 해소되는지를 기준으로 콘텐츠를 반복해서 점검했습니다.</p><p className={styles.bodyCopy} data-reading-focus>어려운 용어는 초보자도 이해할 수 있는 표현으로 바꾸고, 추상적인 장점은 실제 수치와 사례로 구체화했습니다.</p></div>
+        <div className={invader.checkpointGrid}>{[["01", "HOOK", "카테고리의 수요와 필요성을 초반에 강조"], ["02", "TRUST", "강사의 실제 경험과 성과를 신뢰의 근거로 배치"], ["03", "EVIDENCE", "수익 · 운영 결과를 구체적 수치로 설명"], ["04", "ACCESSIBILITY", "전문 용어를 초보자도 이해하는 언어로 변환"], ["05", "SYSTEM", "개인의 감각보다 따라할 수 있는 운영 방식 강조"], ["06", "COMMUNICATION", "딱딱한 강의보다 친근하고 쉽게 이해되는 전달 방식으로 조정"]].map(([number, title, copy]) => <article key={number}><span>{number}</span><strong>{title}</strong><p data-reading-focus>{copy}</p></article>)}</div>
+      </LiveBlock>
+
+      <LiveBlock label="06 / CUSTOMER OBJECTION" title={<>고객이 묻기 전에,<br />결제를 막는 질문부터 찾았습니다.</>}>
+        <div className={invader.liveBody}><p className={styles.bodyCopy} data-reading-focus>고객의 질문은 단순한 Q&amp;A가 아니라 구매를 보류하게 만드는 원인이었습니다.</p><p className={styles.bodyCopy} data-reading-focus>예상되는 우려를 사전에 정리하고, 강의 안에서 Evidence와 실제 방법론으로 답할 수 있도록 구성했습니다.</p></div>
+        <ObjectionTable rows={[["MARKET SATURATION", "이미 파는 사람이 많지 않나요?", "시장 구조와 실제 운영 사례"], ["KNOW-HOW", "브랜드나 유행을 몰라도 가능한가요?", "초보자 관점의 실행 방식"], ["NEW ENTRY", "리뷰 없는 신규 상품도 팔리나요?", "신규 등록과 실제 판매 방식"], ["RISK", "가품 문제는 어떻게 해결하나요?", "소싱 기준과 리스크 관리"], ["LEGAL / REPORT", "브랜드 상품 판매가 문제없나요?", "실무 기준과 오해 요소 해소"]]} />
+        <p className={invader.liveTakeaway}>질문을 없애는 것이 아니라,<br />구매 전에 답을 먼저 제공했습니다.</p>
+      </LiveBlock>
+
+      <LiveBlock label="07 / REPEATABLE FRAMEWORK" title={<>상품은 달라도,<br />고객의 구매 결정을 설계하는 기준은 같았습니다.</>}>
+        <div className={invader.frameworkGrid}>
+          <FrameworkCase title="FIRES / BRAND COMMERCE" concerns="마진 · 시간 · 난이도 · 시장 포화 · 가품 · 브랜드 이해도" response="실제 수익 구조 · 운영 시스템 · 성과 Evidence · 소싱 방식 · 실무 기준" />
+          <FrameworkCase title="YUBUNYEODEUL / AI YOUTUBE" concerns="일본어 · 영상 편집 · 초보자 · 성공 가능성" response="AI 자동화 · 실제 강사 경험 · 진입 가능성 · 방향성과 데이터" />
+        </div>
+        <p className={invader.liveTakeaway}>카테고리마다 다른 질문을 다뤘지만,<br />고객의 불안을 먼저 발견하고 Evidence로 해소하는 원칙은 동일했습니다.</p>
+      </LiveBlock>
+
+      <LiveBlock label="08 / LIVE READY" title={<>기획된 강의는<br />실제 운영 플로우로 이어졌습니다.</>}>
+        <p className={`${invader.liveSupportingCopy} ${styles.bodyCopy}`} data-reading-focus>강의 콘텐츠와 세일즈 메시지가 확정되면 이를 실제 고객 접점에서 오류 없이 실행하기 위한 운영 단계로 연결했습니다.</p>
+        <ProcessDiagram items={[["INTERVIEW", "강사 인터뷰"], ["PRE-LIVE CONTENT", "카페 콘텐츠 / 사전 신뢰 형성"], ["SALES MESSAGE", "상세페이지 / 고객 반론"], ["CONTENT PLANNING", "무료강의 구조"], ["REHEARSAL", "후킹 · Evidence · 반론 점검"], ["LIVE READY", "CRM · 바이럴 · 페이지 · 입장 환경 준비"], ["LIVE SALES", "무료강의 진행"], ["POST LIVE", "정규강의방 · 수강생 온보딩"]]} label="인터뷰에서 라이브 이후까지의 실행 흐름" />
+        <div className={invader.pendingEvidenceGrid}>
+          <EvidenceFigure src="/images/projects/invader/live-content/live-day-checklist.png" width={1920} height={1080} alt="무료강의 당일 운영 체크리스트" caption="무료강의 당일 필요한 CS, 입장 환경, CRM, 바이럴과 페이지 공개 항목을 체크리스트로 관리했습니다." />
+          <EvidenceFigure src="/images/projects/invader/live-content/post-live-checklist.png" width={1920} height={1080} alt="무료강의 후 운영 체크리스트" caption="무료강의 후 정규강의방 개설, 수강생 초대와 트래킹, 수강기간 설정을 후속 운영 항목으로 관리했습니다." />
+        </div>
+        <p className={`${invader.liveBridge} ${styles.bodyCopy}`} data-reading-focus>강의 콘텐츠가 확정된 이후에는 이를 실제 고객 접점에서 실행하는 Live Operation &amp; CRM 단계로 연결했습니다.</p>
+      </LiveBlock>
+
+      <footer className={invader.liveEnding}>
+        <p>무료강의를 ‘정보 전달’이 아니라,<br />고객의 구매 결정을 돕는 Product Experience로 설계했습니다.</p>
+        <div>Interview <i>→</i> Content <i>→</i> Sales Message <i>→</i> Rehearsal <i>→</i> Objection <i>→</i> Evidence <i>→</i> Decision <i>→</i> Live</div>
+      </footer>
     </div>
   );
 }
 
+function LiveBlock({ label, title, children }: { label: string; title: ReactNode; children: ReactNode }) {
+  return <section className={invader.liveBlock}><span className={styles.eyebrow}>{label}</span><h3>{title}</h3>{children}</section>;
+}
+
+function ProcessDiagram({ items, label, vertical = false }: { items: readonly (readonly [string, string])[]; label: string; vertical?: boolean }) {
+  return <ol className={`${invader.liveProcess} ${vertical ? invader.liveProcessVertical : ""}`} aria-label={label}>{items.map(([title, copy]) => <li key={title}><strong>{title}</strong><span data-reading-focus>{copy}</span></li>)}</ol>;
+}
+
+function ObjectionTable({ rows }: { rows: readonly (readonly [string, string, string])[] }) {
+  return <div className={invader.objectionTableWrap}><table className={invader.objectionTable}><thead><tr><th scope="col">TYPE</th><th scope="col">CUSTOMER QUESTION</th><th scope="col">RESPONSE</th></tr></thead><tbody>{rows.map(([title, question, answer]) => <tr key={title}><th scope="row">{title}</th><td><span data-reading-focus>{question}</span></td><td><span data-reading-focus>{answer}</span></td></tr>)}</tbody></table></div>;
+}
+
+function FrameworkCase({ title, concerns, response }: { title: string; concerns: string; response: string }) {
+  return <article><h4>{title}</h4><div><strong>CUSTOMER CONCERN</strong><p data-reading-focus>{concerns}</p></div><div><strong>RESPONSE</strong><p data-reading-focus>{response}</p></div></article>;
+}
+
+function CrmEvidenceFigure({ src, width, height, alt, label, caption, mask }: { src: string; width: number; height: number; alt: string; label: string; caption: string; mask: "channel" | "sms" | "open" }) {
+  return <figure className={invader.crmEvidenceCard}><div className={invader.crmEvidenceFrame} data-mask={mask}><Image src={src} alt={alt} width={width} height={height} sizes="(max-width: 760px) 92vw, 30vw" /></div><figcaption><strong>{label}</strong><span data-reading-focus>{caption}</span></figcaption></figure>;
+}
+
 function FunnelSignalBody() {
   return (
-    <div className={invader.signalNarrative}>
-      <section className={invader.signalSection} aria-labelledby="invader-signal-fires-title">
-        <h3 id="invader-signal-fires-title">FIRES</h3>
-        <p>상세페이지에서 높은 이탈 흐름을 확인했다.</p>
-        <p>단순 Creative 문제가 아니라 전형적인 강의 판매방식에 대한 고객의 거부 가능성을 Hypothesis로 설정했다.</p>
-        <ol className={invader.valueFlow} role="list" aria-label="Product Language 변경">
-          <li>수강생 인증</li>
-          <li>컨설팅 후기</li>
-        </ol>
-      </section>
+    <div className={invader.operationNarrative}>
+      <div className={invader.operationIntro}>
+        <p className={styles.bodyCopy} data-reading-focus>무료강의 신청 이후 고객이 실제 라이브에 입장하고, 결제 후 정규강의를 시작하기까지의 흐름을 운영했습니다.</p>
+        <p className={styles.bodyCopy} data-reading-focus>문자·알림톡·채널톡·오픈톡을 시점별로 운영하고, 라이브 당일의 실행부터 결제 이후 수강생 온보딩과 콘텐츠 전달까지 하나의 운영 Flow로 연결했습니다.</p>
+      </div>
 
-      <section className={invader.signalSection} aria-labelledby="invader-iteration-title">
-        <h3 id="invader-iteration-title">Iteration</h3>
-        <ol className={invader.valueFlow} role="list" aria-label="Iteration">
-          <li>Funnel Signal</li>
-          <li>Hypothesis</li>
-          <li>Product Language</li>
-          <li>Observe</li>
-        </ol>
-        <p>데이터를 결과로만 보는 것이 아니라 Product를 다시 판단하기 위한 Signal로 활용했습니다.</p>
-      </section>
+      <ProcessDiagram items={[["신청", "고객 신청"], ["CRM", "시점별 메시지"], ["LIVE 유입", "라이브 입장"], ["실시간 운영", "진행 및 응대"], ["결제", "구매 전환"], ["수강생 관리", "명단과 입장"], ["콘텐츠 전달", "VOD 제공"], ["수강 시작", "강의 이용"]]} label="신청부터 수강 시작까지의 메인 운영 흐름" />
 
-      <section className={invader.signalSection} aria-labelledby="invader-funnel-management-title">
-        <h3 id="invader-funnel-management-title">Funnel Management</h3>
-        <p>대표적으로 김준서 1기에서 공동 PM으로 Product Launch 및 Funnel 운영에 참여했다.</p>
-        <ol className={invader.signalFunnel} role="list" aria-label="김준서 1기 고객 Funnel">
-          <li><strong>2,166</strong><span>Applicants</span></li>
-          <li><strong>1,760</strong><span>Live Entrants</span></li>
-          <li><strong>441</strong><span>Peak Viewers</span></li>
-          <li><strong>50</strong><span>Purchasers</span></li>
-        </ol>
-        <p className={invader.signalConversion}><strong>11.3%</strong><span>Viewer → Purchase Conversion</span></p>
-        <p>※ 공동 담당 PM 성과이며 개인 단독 성과로 표현하지 않는다.</p>
-      </section>
+      <LiveBlock label="01 / LIVE DAY OPERATION" title={<>라이브 당일의 운영 요소를<br />하나의 체크리스트로 관리했습니다.</>}>
+        <p className={`${invader.operationBody} ${styles.bodyCopy}`} data-reading-focus>CS 응대 준비부터 CRM 타임라인, 카카오 콘텐츠, 바이럴, 무료·유료 페이지 전환까지 라이브 진행과 동시에 필요한 업무를 사전에 정리해 운영했습니다.</p>
+        <ProcessDiagram items={[["PREP", "사전 준비"], ["CRM", "메시지 발송"], ["LIVE", "라이브 진행"], ["SALES", "결제 안내"], ["FOLLOW-UP", "후속 운영"]]} label="라이브 당일 운영 흐름" />
+      </LiveBlock>
 
-      <section className={invader.signalSection} aria-labelledby="invader-lifecycle-title">
-        <h3 id="invader-lifecycle-title">Product Lifecycle</h3>
-        <ol className={invader.signalLifecycle} role="list" aria-label="Product Lifecycle">
-          <li>Source Expert</li>
-          <li>Productize</li>
-          <li>Launch</li>
-          <li>Measure</li>
-          <li>Iterate</li>
-          <li>Continue / Improve / Drop</li>
-        </ol>
-        <p>상품의 최종 지속 여부는 회사 차원의 사업적 판단이었다.</p>
-        <p>담당 PM으로 Product Performance와 운영 데이터를 관리하며 지속·개선 판단에 필요한 실무를 수행했다.</p>
-      </section>
+      <LiveBlock label="02 / MULTI-CHANNEL CRM" title={<>채널마다 역할과 발송 시점을 나눠<br />고객의 라이브 유입을 관리했습니다.</>}>
+        <div className={invader.liveBody}><p className={styles.bodyCopy} data-reading-focus>무료강의 전후로 문자·알림톡·채널톡·오픈톡을 병행했습니다.</p><p className={styles.bodyCopy} data-reading-focus>강의 전에는 입장 리마인드, 라이브 중에는 실시간 유입과 결제 안내, 종료 후에는 다시보기·Q&amp;A·마감 안내까지 고객의 단계에 맞춰 메시지를 이어갔습니다.</p></div>
+        <div className={invader.crmDiagram} aria-label="채널별 CRM 운영 흐름">
+          <div className={invader.crmChannels}>{["문자", "알림톡", "채널톡", "오픈톡"].map((channel) => <span key={channel}>{channel}</span>)}</div>
+          <div className={invader.crmConnector} aria-hidden="true">↓</div>
+          <ProcessDiagram items={[["PRE-LIVE", "입장 리마인드"], ["LIVE", "실시간 유입"], ["SALES", "결제 안내"], ["FOLLOW-UP", "다시보기 · Q&A · 마감"]]} label="CRM 시점별 역할" />
+        </div>
+        <div className={invader.crmEvidenceGrid}>
+          <CrmEvidenceFigure src="/images/projects/invader/live-content/channel-talk.png" width={1014} height={1214} alt="사전 관심 형성을 위한 채널톡 메시지 기획" label="CHANNEL TALK" caption="사전 사례와 강의 메시지를 통해 관심과 참여를 유도" mask="channel" />
+          <CrmEvidenceFigure src="/images/projects/invader/live-content/sms.png" width={1018} height={966} alt="라이브 직전 입장을 안내하는 문자 메시지 기획" label="SMS" caption="라이브 직전 핵심 메시지와 입장 CTA 전달" mask="sms" />
+          <CrmEvidenceFigure src="/images/projects/invader/live-content/open-talk.png" width={1004} height={802} alt="강의 중 실시간 유입을 위한 오픈톡 메시지 기획" label="OPEN TALK" caption="강의 시작 전후 5분 간격으로 실시간 유입 메시지 운영" mask="open" />
+        </div>
+      </LiveBlock>
 
-      <section className={invader.signalSection} aria-labelledby="invader-outcome-title">
-        <h3 id="invader-outcome-title">Outcome</h3>
-        <ul className={invader.signalOutcomes}>
-          <li>신규 강사 Expertise → Product Value 구조화</li>
-          <li>기존 Product Repositioning</li>
-          <li>상세페이지 / CRM / Live Sales Optimization</li>
-          <li>End-to-End Customer Funnel Management</li>
-          <li>대표 프로젝트 2,166명 신청 / 50명 결제 / Viewer Conversion 11.3%</li>
-        </ul>
-        <p>※ 공동 담당 PM 성과이며 개인 단독 성과로 표현하지 않는다.</p>
-      </section>
+      <LiveBlock label="03 / POST-LIVE OPERATION" title={<>무료강의 종료 후에도<br />실제 수강이 시작될 때까지 이어서 관리했습니다.</>}>
+        <div className={invader.liveBody}><p className={styles.bodyCopy} data-reading-focus>결제 이후에는 수강생 명단을 기준으로 정규강의 그룹을 구분하고, 초대 여부와 입장 상태, 수강기간을 관리했습니다.</p><p className={styles.bodyCopy} data-reading-focus>추가 결제나 환불 등 상태 변경 사항도 구분해 후속 운영에 반영했습니다.</p></div>
+        <ProcessDiagram items={[["PAYMENT", "결제"], ["STUDENT LIST", "수강생 명단"], ["INVITE", "그룹 초대"], ["ACCESS CHECK", "입장 상태"], ["COURSE PERIOD", "수강기간"]]} label="결제 이후 수강생 운영 흐름" />
+      </LiveBlock>
 
-      <section className={invader.signalLearning} aria-labelledby="invader-learning-title">
-        <h3 id="invader-learning-title" className={styles.eyebrow}>LEARNING</h3>
-        <p>Product는 출시하는 순간 완성되는 것이 아니라, 고객이 어디에서 반응하고 이탈하는지를 관찰하고 통제 가능한 요소를 수정하면서 계속 다시 정의된다는 것을 배웠습니다.</p>
-      </section>
+      <LiveBlock label="04 / CONTENT DELIVERY" title={<>수강생이 실제 콘텐츠를 시청할 수 있도록<br />VOD 전달 과정까지 운영했습니다.</>}>
+        <p className={`${invader.operationBody} ${styles.bodyCopy}`} data-reading-focus>강의 녹화본 또는 VOD는 Vimeo에 업로드해 시청 링크를 생성하고, 관리자 페이지에 등록해 수강생이 실제 강의를 시청할 수 있도록 운영했습니다.</p>
+        <ProcessDiagram items={[["COURSE RECORDING", "강의 녹화본"], ["VIMEO UPLOAD", "영상 업로드"], ["VIDEO LINK", "시청 링크"], ["ADMIN PUBLISH", "관리자 등록"], ["STUDENT VIEW", "수강생 시청"]]} label="VOD 콘텐츠 전달 흐름" />
+      </LiveBlock>
+
+      <LiveBlock label="05 / END-TO-END OPERATION" title={<>라이브 하나가 아니라,<br />신청부터 수강 시작까지의 전체 경험을 운영했습니다.</>}>
+        <ProcessDiagram items={[["ACQUISITION", "신청"], ["CRM", "고객 유입"], ["LIVE", "무료강의"], ["CONVERSION", "결제"], ["ONBOARDING", "수강생 관리"], ["DELIVERY", "VOD 제공"], ["COURSE", "수강 시작"]]} label="End-to-End Customer Operation Flow" />
+      </LiveBlock>
+
+      <footer className={invader.operationEnding}>신청부터 라이브, 결제, 온보딩과 콘텐츠 전달까지<br />Customer Operation Flow 전체를 연결해 운영했습니다.</footer>
     </div>
   );
 }
