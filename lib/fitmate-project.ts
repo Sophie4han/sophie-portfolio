@@ -6,9 +6,10 @@ export const FITMATE_PROJECT = {
   projectType: "iOS Bootcamp Team Project · App Store Released",
   introduction: "운동 메이트 경험을 iOS 앱으로 직접 구현하고 App Store 출시까지 경험했으며, 사용자 테스트를 통해 실제 사용과정의 문제를 발견하고 개선했습니다.",
   sections: [
-    { id: "contribution", number: "01", title: "구현 범위", summary: "My Contribution / User Flow" },
-    { id: "validation", number: "02", title: "검증과 개선", summary: "User Testing / Iteration" },
-    { id: "foundation", number: "03", title: "기술적 기반", summary: "Technical Foundation / Outcome / Learning" },
+    { id: "product-strategy", number: "01", title: "Product Strategy", summary: "Core Product Loop / MVP Prioritization" },
+    { id: "design-technical-flow", number: "02", title: "Design System & Technical Flow", summary: "Visual Rules / Product State / Data Flow" },
+    { id: "test-iteration", number: "03", title: "Test & Iteration", summary: "User Test / Issue Validation / Product Improvement" },
+    { id: "from-plan-to-product", number: "04", title: "From Plan to Product", summary: "Product Thinking / Technical Translation / Execution" },
   ],
 } as const;
 

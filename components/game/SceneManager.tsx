@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useReducer, useSyncExternalStore } from "react";
+import { useEffect, useLayoutEffect, useReducer, useSyncExternalStore } from "react";
 import { SceneDebugPanel } from "@/components/game/SceneDebugPanel";
 import { SceneTransitionLayer } from "@/components/game/SceneTransitionLayer";
 import { SceneViewport } from "@/components/game/SceneViewport";
@@ -17,6 +17,17 @@ const getHydratedSnapshot = () => true;
 const getServerSnapshot = () => false;
 
 function createInitialState(initialState: SceneMachineState): SceneMachineState {
+  if (typeof window !== "undefined") {
+    const navigation = window.performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
+    if (navigation?.type === "reload") {
+      return sceneMachineReducer(initialState, {
+        type: "RESTORE_SESSION",
+        sceneId: "world-overview",
+        projectId: null,
+      });
+    }
+  }
+
   const snapshot = loadJourneySnapshot();
   if (!snapshot) return initialState;
 
@@ -40,6 +51,22 @@ export function SceneManager() {
   );
   const { scene } = state;
   const transition = useTransitionCoordinator(state, dispatch);
+
+  useLayoutEffect(() => {
+    const previousRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+
+    return () => {
+      window.history.scrollRestoration = previousRestoration;
+    };
+  }, []);
+
+  useLayoutEffect(() => {
+    if (scene.phase === "entering") {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+  }, [scene.phase, scene.sceneId]);
 
   useEffect(() => {
     if (hydrationComplete && scene.phase === "active" && scene.sceneId === "boot") {
