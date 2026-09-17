@@ -689,6 +689,13 @@
   font-weight: 400;
 }
 
+.worldHud .worldIdentity {
+  color: #657d79;
+  font: 600 9px/1.4 var(--font-geist-mono), monospace;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+
 .worldHud small {
   color: #b3c5ba;
   font-size: 10px;

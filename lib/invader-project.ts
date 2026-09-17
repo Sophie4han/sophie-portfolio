@@ -5,7 +5,7 @@ export const INVADER_PROJECT = {
   lead: "From Expertise to Marketable Product",
   introduction: "강사의 전문성을 판매 가능한 교육 Product로 구조화하고, 상세페이지·CRM·Live Sales·본강의까지 고객 Funnel을 운영하며 시장 반응에 따라 Product를 개선했습니다.",
   facts: [
-    { label: "역할", value: "Content Product PM" },
+    { label: "역할", value: "Education Product PM" },
     { label: "범위", value: "Planning & Operations" },
     { label: "고객 Funnel", value: "상세페이지 · CRM · Live Sales · 본강의" },
   ],

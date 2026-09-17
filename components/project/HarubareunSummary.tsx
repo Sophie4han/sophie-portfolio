@@ -96,7 +96,7 @@ export function HarubareunSummary({ products }: { products: SummaryProduct[] }) 
     <header className={s.hero}>
       <span className={`${shared.eyebrow} ${s.label}`}>01 / BUILD</span>
       <h1 id="harubareun-detail-title" className={s.heroTitle}>HARUBAREUN</h1>
-      <p className={s.lead}>From Product Opportunity to Launch-ready</p>
+      <p className={s.lead}>From Product Opportunity to Launch-Ready Product</p>
       <h2 className={s.mainStatement} data-reading-focus>시장성이 확인된 제품 후보를,<br />서로 다른 구매 이유를 가진<br />4개의 Consumer Product로 기획했습니다.</h2>
       <div className={s.heroBody}>
         <Body>제품 후보가 있다는 것만으로는 실제 사업이 되지 않습니다. 누구에게 필요한 제품인지, 이미 존재하는 선택지와 무엇이 다른지, 어떤 언어로 고객에게 설득할 것인지부터 다시 정의해야 했습니다.</Body>

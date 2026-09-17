@@ -60,12 +60,11 @@ export function WorldScene({
         progress={progression.progress}
         total={progression.total}
       />
-      <nav className={styles.utilityNav} aria-label="Portfolio">
-        <button type="button" aria-current={!focusedIsland ? "page" : undefined} disabled={scene.phase !== "active"} onClick={() => { if (focusedIsland) dispatch({ type: "BACK_TO_WORLD" }); }}>WORLD</button>
-        <span aria-disabled="true" title="Projects page is not available yet">PROJECTS · SOON</span>
-        <span aria-disabled="true" title="About page is not available yet">ABOUT</span>
-        <span aria-disabled="true" title="Experience page is not available yet">EXPERIENCE</span>
-      </nav>
+      {focusedIsland && (
+        <nav className={styles.utilityNav} aria-label="Portfolio">
+          <button type="button" disabled={scene.phase !== "active"} onClick={() => dispatch({ type: "BACK_TO_WORLD" })}>WORLD</button>
+        </nav>
+      )}
       {focusedIsland && focusedStatus && scene.phase === "active" && (
         <>
           <ProjectHud
@@ -93,6 +92,7 @@ function WorldHud({
   return (
     <aside className={styles.worldHud} aria-label="World progress">
       <strong>MOVE ON</strong>
+      <span className={styles.worldIdentity}>HAN YEOJEONG · PRODUCT / BUSINESS</span>
       <span>Select a project to explore</span>
       <small>{progress === total ? "WORLD COMPLETE" : `${String(progress).padStart(2, "0")} / ${String(total).padStart(2, "0")} completed`}</small>
     </aside>

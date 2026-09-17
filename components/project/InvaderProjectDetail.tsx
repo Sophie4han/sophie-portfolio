@@ -108,7 +108,7 @@ function InvaderSummary({ onSelectSection }: { onSelectSection: (sectionId: Inva
       <section className={invader.summaryHero} aria-labelledby="invader-detail-title">
         <div className={invader.heroBrand}>
           <InvaderSchoolLogo />
-          <span className={styles.eyebrow}>INVADER SCHOOL · CONTENT PRODUCT</span>
+          <span className={styles.eyebrow}>INVADER SCHOOL · EDUCATION PRODUCT</span>
         </div>
         <div className={invader.heroHeadline}>
           <h1 id="invader-detail-title">From Expertise to Marketable Product</h1>
@@ -117,7 +117,7 @@ function InvaderSummary({ onSelectSection }: { onSelectSection: (sectionId: Inva
 
         <div className={invader.heroColumns}>
           <div className={invader.heroCopy}>
-          <div className={invader.role}>Content Product PM · Planning &amp; Operations</div>
+          <div className={invader.role}>Education Product PM · Planning &amp; Operations</div>
           <p className={`${invader.oneLineSummary} ${styles.bodyCopy}`} data-reading-focus>강사의 전문성을 고객이 구매할 수 있는 교육 Product로 구체화하고, 기획부터 무료강의·CRM·Live Sales·본강의 전환까지 Product Funnel을 운영했습니다.</p>
           <div className={invader.introCopy}>
             <p className={styles.bodyCopy} data-reading-focus>강사가 가진 경력과 노하우가 그대로 상품이 되는 것은 아니었습니다. 기획 미팅을 통해 강사의 실제 경쟁력과 고객에게 전달할 핵심 가치를 정리하고, 이를 무료강의와 상세페이지의 세일즈 메시지로 구체화했습니다.</p>
@@ -421,8 +421,8 @@ function FunnelSignalBody() {
 }
 
 const performanceCases = [
-  { name: "FIRES / BRAND COMMERCE", description: "브랜드 커머스 무료강의", values: [["CHAT ENTRY", "톡방 입장률", "81.3%"], ["APPLICATION → LIVE", "신청 대비 LIVE 시청", "20.4%"], ["CHAT → LIVE", "톡방 대비 LIVE 시청", "25.1%"], ["LIVE → PAYMENT", "LIVE 시청 대비 결제 전환", "11.3%"], ["RETENTION", "결제 이후 잔존", "99.59%"]] },
-  { name: "RINA / HOSPITALITY", description: "숙박업 무료강의", values: [["CHAT ENTRY", "톡방 입장률", "79.4%"], ["APPLICATION → LIVE", "신청 대비 LIVE 시청", "20.5%"], ["CHAT → LIVE", "톡방 대비 LIVE 시청", "25.8%"], ["LIVE → PAYMENT", "LIVE 시청 대비 결제 전환", "5.7%"], ["RETENTION", "결제 이후 잔존", "98.92%"]] },
+  { name: "FIRES / BRAND COMMERCE", description: "브랜드 커머스 무료강의", values: [["CHAT ENTRY", "톡방 입장률", "81.3%"], ["APPLICATION → LIVE", "신청 대비 LIVE 시청", "20.4%"], ["CHAT → LIVE", "톡방 대비 LIVE 시청", "25.1%"], ["LIVE → PAYMENT", "LIVE 시청 대비 결제 전환", "11.3%"], ["RETENTION", "결제 이후 잔존 · 환불 반영 기준", "99.59%"]] },
+  { name: "RINA / HOSPITALITY", description: "숙박업 무료강의", values: [["CHAT ENTRY", "톡방 입장률", "79.4%"], ["APPLICATION → LIVE", "신청 대비 LIVE 시청", "20.5%"], ["CHAT → LIVE", "톡방 대비 LIVE 시청", "25.8%"], ["LIVE → PAYMENT", "LIVE 시청 대비 결제 전환", "5.7%"], ["RETENTION", "결제 이후 잔존 · 환불 반영 기준", "98.92%"]] },
 ] as const;
 
 function PerformanceBody() {
