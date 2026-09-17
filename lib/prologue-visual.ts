@@ -5,11 +5,10 @@ import type { CSSProperties } from "react";
  * Mobile reframes this same plane; scenery and actor cannot drift apart.
  */
 export const PROLOGUE_ANCHORS = {
-  greeting: { x: 60, y: 65 },
-  reaction: { x: 60, y: 65 },
-  turned: { x: 60, y: 65 },
-  approach: { x: 69, y: 57 },
-  entry: { x: 72, y: 52 },
+  greeting: { x: 47.5, y: 74 },
+  reaction: { x: 47.5, y: 74 },
+  turned: { x: 47.5, y: 74 },
+  approach: { x: 55.5, y: 68 },
   gate: { x: 72, y: 52 },
 } as const;
 

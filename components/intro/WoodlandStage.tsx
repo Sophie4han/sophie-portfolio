@@ -1,16 +1,19 @@
 import Image, { getImageProps } from "next/image";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect, type CSSProperties } from "react";
 import { PROLOGUE_ANCHOR_STYLE } from "@/lib/prologue-visual";
+import { CHOONI_MOTION } from "@/lib/chooni-motion";
 import type { ChooniIntent } from "@/types/game";
 import type { TransitionRuntimeState } from "@/types/transition";
 import type { ProloguePhase } from "./IntroScene";
 import styles from "./intro-scene.module.css";
 
+const Chooni3D = lazy(() => import("@/components/character/Chooni3D").then((module) => ({ default: module.Chooni3D })));
+
 const ACTOR_STAGE = {
   "intro-greeting": "greeting",
-  "intro-follow": "reaction-and-turn",
-  "intro-gate": "approach",
-  "enter-world": "entry",
+  "intro-follow": "happy",
+  "intro-gate": "portal-reaction",
+  "enter-world": "departure",
 } as const;
 
 const GATE_IMAGE = {
@@ -19,10 +22,11 @@ const GATE_IMAGE = {
 };
 const { props: gatePreload } = getImageProps(GATE_IMAGE);
 
-export function WoodlandStage({ sceneId, intent, transition }: {
+export function WoodlandStage({ sceneId, intent, transition, onChooniEntranceComplete }: {
   sceneId: ProloguePhase;
   intent: ChooniIntent | null;
   transition: TransitionRuntimeState;
+  onChooniEntranceComplete: () => void;
 }) {
   // Warm the responsive candidate during Greeting without mounting a visible gate.
   useEffect(() => {
@@ -51,23 +55,16 @@ export function WoodlandStage({ sceneId, intent, transition }: {
           </div>
         )}
         <div className={styles.actor} data-actor-stage={ACTOR_STAGE[sceneId]}
+          style={{ "--departure-ms": `${CHOONI_MOTION.departureMs}ms` } as CSSProperties}
           data-chooni-intent={intent ?? "none"} data-ground-anchor="feet">
           <span className={styles.actorShadow} aria-hidden="true" />
-          <ChooniPlaceholder />
+          <Suspense fallback={null}>
+            <Chooni3D motion={ACTOR_STAGE[sceneId]} reducedMotion={transition.reducedMotion}
+              className={styles.chooniSlot}
+              onEntranceComplete={onChooniEntranceComplete} />
+          </Suspense>
         </div>
       </div>
-    </div>
-  );
-}
-
-/** Replace this renderer only with final artwork. Its bottom-center is (0, 0)
- * of the feet anchor. Keep travel, shadow, scene events and timers outside it.
- * Production sprites with transparent foot padding must normalize that padding.
- */
-function ChooniPlaceholder() {
-  return (
-    <div className={styles.chooniSlot} role="img" aria-label="Chooni, your guide. Character artwork pending.">
-      <span className={styles.chooniPlaceholder} aria-hidden="true" />
     </div>
   );
 }

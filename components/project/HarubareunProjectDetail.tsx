@@ -6,7 +6,9 @@ import { loadDetailSection, saveDetailSection } from "@/lib/scene-persistence";
 import type { TransitionRuntimeState } from "@/types/transition";
 import { ProjectDetailNavigation } from "./ProjectDetailNavigation";
 import { useReadingFocus } from "./use-reading-focus";
+import { useDetailNavigationScroll } from "./use-detail-navigation-scroll";
 import styles from "./harubareun-project-detail.module.css";
+import { HarubareunSummary } from "./HarubareunSummary";
 
 type SectionId = "strategy" | "product" | "commerce" | "go-to-market" | "final-overview";
 
@@ -61,6 +63,13 @@ const sections: Array<{
 ];
 
 const sectionIds = sections.map((section) => section.id);
+const detailTitleIds: Record<SectionId, string> = {
+    strategy: "strategy-detail-title",
+    product: "product-detail-title",
+    commerce: "commerce-detail-title",
+    "go-to-market": "go-to-market-title",
+    "final-overview": "final-overview-title",
+};
 
 interface HarubareunProjectDetailProps {
     transition: TransitionRuntimeState;
@@ -77,8 +86,7 @@ export function HarubareunProjectDetail({
         loadDetailSection("harubareun", sectionIds),
     );
     const detailSceneRef = useReadingFocus<HTMLElement>(activeSection, styles.isReading);
-    const activeDetail = sections.find((section) => section.id === activeSection);
-    const projectImages: string[] = [];
+    useDetailNavigationScroll(activeSection, detailSceneRef);
 
     const selectSection = (section: SectionId | null) => {
         setActiveSection(section);
@@ -90,7 +98,7 @@ export function HarubareunProjectDetail({
             ref={detailSceneRef}
             className={styles.detailScene}
             data-transition-phase={transition.phase}
-            aria-labelledby="harubareun-detail-title"
+            aria-labelledby={activeSection ? detailTitleIds[activeSection] : "harubareun-detail-title"}
         >
             <div className={styles.atmosphere} aria-hidden="true">
                 <Image
@@ -114,24 +122,6 @@ export function HarubareunProjectDetail({
                 </div>
             </div>
 
-            <div className={styles.islandHotspots} aria-label="Explore HARUBAREUN island sections">
-                {sections.map((section) => (
-                    <button
-                        type="button"
-                        key={section.id}
-                        className={`${styles.islandHotspot} ${styles[`islandHotspot${section.number}`]}`}
-                        data-active={activeSection === section.id}
-                        aria-label={`${section.number} ${section.title}`}
-                        onClick={() => selectSection(section.id)}
-                    >
-                        <span className={styles.hotspotLabel} aria-hidden="true">
-                            <strong>{section.number}</strong>
-                            <span>{section.title}</span>
-                        </span>
-                    </button>
-                ))}
-            </div>
-
             <ProjectDetailNavigation
                 projectName="HARUBAREUN"
                 disabled={transition.phase !== "idle"}
@@ -152,84 +142,10 @@ export function HarubareunProjectDetail({
                     <FinalOverviewDetail onBack={() => selectSection(null)} />
                 ) : (
                     <>
-                        <div className={styles.eyebrow}>01 / BUILD</div>
-                        <h1 id="harubareun-detail-title" className={styles.summaryTitle}>HARUBAREUN</h1>
-                        <p className={styles.lead}>From Product Opportunity to Launch-ready</p>
-                        <p className={`${styles.introduction} ${styles.summaryIntroduction} ${styles.bodyCopy} ${styles.readableOnVisual}`} data-reading-focus>
-                            시장성이 확인된 제품 후보를 차별화된 Consumer Product로 구체화하고,
-                            제품 전략부터 D2C 판매환경까지 구축했습니다.
-                        </p>
-
-                        <dl className={styles.projectFacts}>
-                            <div><dt>기간</dt><dd>2026.06–08</dd></div>
-                            <div><dt>역할</dt><dd>New Business TF<br />Product Planning &amp; Commerce Execution</dd></div>
-                            <div><dt>범위</dt><dd>4 Consumer Products<br />Product → Sales-ready</dd></div>
-                        </dl>
-
-                        <section className={styles.summaryEvidence} aria-label="HARUBAREUN project evidence">
-                            <figure className={styles.brandIdentity}>
-                                <figcaption className={styles.evidenceLabel}>BRAND IDENTITY</figcaption>
-                                <div className={styles.brandIdentityFrame}>
-                                    <Image
-                                        src="/images/projects/harubareun/summary/harubareun-brand-identity.jpg"
-                                        alt="HARUBAREUN 로고가 적용된 공간 외관 목업"
-                                        width={3000}
-                                        height={4000}
-                                        sizes="(max-width: 760px) calc(100vw - 44px), min(1320px, calc(100vw - 96px))"
-                                        className={styles.brandIdentityImage}
-                                    />
-                                </div>
-                            </figure>
-
-                            <section className={styles.finalProduction} aria-labelledby="final-production-title">
-                                <div className={styles.productionHeading}>
-                                    <div>
-                                        <h2 id="final-production-title" className={styles.evidenceLabel}>FINAL PRODUCTION</h2>
-                                        <p className={styles.evidenceSubLabel}>4 CONSUMER PRODUCTS</p>
-                                    </div>
-                                    <p className={`${styles.productionCopy} ${styles.bodyCopy} ${styles.readableOnVisual}`}>
-                                        브랜드 전략과 제품별 포지셔닝을 실제 패키지와 판매 준비 단계까지 연결했습니다.
-                                    </p>
-                                </div>
-                                <div className={styles.productEvidenceGrid}>
-                                    {[
-                                        ["recellvine", "Recellvine 최종 생산 패키지"],
-                                        ["babi-cut", "BABI CUT 최종 생산 패키지"],
-                                        ["lemonde-oli", "LEMONDE OLI 최종 생산 패키지"],
-                                        ["sori-black", "SORI BLACK 최종 생산 패키지"],
-                                    ].map(([fileName, alt]) => (
-                                        <div className={styles.productEvidenceCard} key={fileName}>
-                                            <Image
-                                                className={fileName === "sori-black" ? styles.soriBlackImage : styles.productionImage}
-                                                src={`/images/projects/harubareun/summary/${fileName}.jpeg`}
-                                                alt={alt}
-                                                width={3024}
-                                                height={4032}
-                                                sizes="(max-width: 760px) calc((100vw - 56px) / 2), calc((min(1320px, 100vw - 96px) - 36px) / 4)"
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                            </section>
-                        </section>
+                        <HarubareunSummary products={summaryProducts} />
 
                         <SectionNavigation activeSection={activeSection} onSelect={selectSection} />
 
-                        {activeDetail && (
-                            <section className={styles.detailReveal} aria-live="polite" aria-labelledby={`detail-${activeDetail.id}`}>
-                                <div className={styles.detailRevealHeading}>
-                                    <span>{activeDetail.number}</span>
-                                    <h2 id={`detail-${activeDetail.id}`}>{activeDetail.title}</h2>
-                                </div>
-                                <p>{activeDetail.detail}</p>
-                                <span className={styles.contribution}>{activeDetail.contribution}</span>
-                                {projectImages.length > 0 && (
-                                    <div className={styles.evidenceGallery}>
-                                        {projectImages.map((src) => <Image key={src} src={src} alt="" width={1600} height={900} />)}
-                                    </div>
-                                )}
-                            </section>
-                        )}
                     </>
                 )}
             </div>
@@ -448,7 +364,7 @@ function ProductEvidenceCase({
 
             <figure className={styles.sourceEvidence}>
                 <figcaption>ORIGINAL PLANNING / USP DOCUMENT</figcaption>
-                <Image src={imageSrc} alt={imageAlt} width={imageWidth} height={imageHeight} sizes="(max-width: 760px) calc(100vw - 44px), 800px" />
+                <Image src={imageSrc} alt={imageAlt} width={imageWidth} height={imageHeight} sizes="(max-width: 760px) calc(100vw - 44px), (max-width: 1199px) 55vw, 700px" />
             </figure>
 
             <div className={styles.caseAnalysis}>
@@ -465,7 +381,7 @@ function ProductEvidenceCase({
             <figure className={styles.uspDetail}>
                 <figcaption>USP DETAIL / SAME SOURCE</figcaption>
                 <div className={styles.uspCrop}>
-                    <Image className={styles.uspCropImage} src={imageSrc} alt={`${name} 기획 자료의 USP 핵심 영역 확대`} width={imageWidth} height={imageHeight} sizes="(max-width: 760px) calc(100vw - 44px), 800px" loading="eager" />
+                    <Image className={styles.uspCropImage} src={imageSrc} alt={`${name} 기획 자료의 USP 핵심 영역 확대`} width={imageWidth} height={imageHeight} sizes="(max-width: 760px) calc(100vw - 44px), 1200px" loading="eager" />
                 </div>
             </figure>
         </article>
@@ -626,7 +542,7 @@ function GoToMarketDetail({ onBack }: { onBack: () => void }) {
                             alt="Meta 광고, YouTube PPL, 블로그 및 인플루언서 시딩의 역할을 정리한 마케팅 채널 전략 회의 기록"
                             width={954}
                             height={1232}
-                            sizes="(max-width: 760px) calc(100vw - 44px), 880px"
+                            sizes="(max-width: 760px) calc(100vw - 44px), 1200px"
                         />
                     </div>
                     <figcaption>MARKETING CHANNEL STRATEGY / MEETING EVIDENCE</figcaption>
@@ -642,11 +558,11 @@ function GoToMarketDetail({ onBack }: { onBack: () => void }) {
                 </div>
                 <div className={styles.partnerEvidenceGrid}>
                     <figure>
-                        <div><Image src="/images/projects/harubareun/go-to-market/partner-media-strategy.png" alt="Meta 우선 집행 후 성과에 따라 Google과 GFA로 확장하는 운영 매체 전략" width={982} height={156} sizes="(max-width: 760px) calc(100vw - 44px), 440px" /></div>
+                        <div><Image src="/images/projects/harubareun/go-to-market/partner-media-strategy.png" alt="Meta 우선 집행 후 성과에 따라 Google과 GFA로 확장하는 운영 매체 전략" width={982} height={156} sizes="(max-width: 760px) calc(100vw - 44px), 600px" /></div>
                         <figcaption>OPERATING MEDIA STRATEGY</figcaption>
                     </figure>
                     <figure>
-                        <div><Image src="/images/projects/harubareun/go-to-market/partner-next-actions.png" alt="외부 마케팅 파트너와 자사의 향후 일정 및 Action Item" width={786} height={422} sizes="(max-width: 760px) calc(100vw - 44px), 440px" /></div>
+                        <div><Image src="/images/projects/harubareun/go-to-market/partner-next-actions.png" alt="외부 마케팅 파트너와 자사의 향후 일정 및 Action Item" width={786} height={422} sizes="(max-width: 760px) calc(100vw - 44px), 600px" /></div>
                         <figcaption>NEXT ACTION ALIGNMENT</figcaption>
                     </figure>
                 </div>
@@ -730,6 +646,25 @@ const finalProducts = [
     },
 ] as const;
 
+const summaryProducts = ([
+    ["RECELLVINE", "recellvine"],
+    ["BABI CUT", "babi-cut"],
+    ["LEMONDE OLI", "lemonde-oli"],
+    ["SORI BLACK", "sori-black"],
+] as const).map(([name, fileName]) => {
+    const product = finalProducts.find((item) => item.name === name);
+    const storefront = storefronts.find((item) => item.name === name);
+    if (!product || !storefront) throw new Error(`Missing HARUBAREUN product evidence: ${name}`);
+    return {
+        name,
+        image: `/images/projects/harubareun/summary/${fileName}.jpeg`,
+        alt: `${name} 최종 생산 패키지`,
+        positioning: storefront.positioning,
+        customerValue: product.paragraphs[0],
+        communication: product.paragraphs[1],
+    };
+});
+
 function FinalOverviewDetail({ onBack }: { onBack: () => void }) {
     return (
         <section className={styles.finalOverview} aria-labelledby="final-overview-title">
@@ -744,7 +679,7 @@ function FinalOverviewDetail({ onBack }: { onBack: () => void }) {
                 {finalProducts.map((product, index) => (
                     <article className={styles.finalProduct} data-reverse={index % 2 === 1} data-reading-focus key={product.name}>
                         <figure className={styles.finalProductImage}>
-                            <Image src={product.image} alt={product.alt} width={product.width} height={product.height} sizes="(max-width: 760px) calc(100vw - 44px), 560px" />
+                            <Image src={product.image} alt={product.alt} width={product.width} height={product.height} sizes="(max-width: 760px) calc(100vw - 44px), 760px" />
                         </figure>
                         <div className={styles.finalProductCopy}>
                             <span className={styles.eyebrow}>{product.number}</span>

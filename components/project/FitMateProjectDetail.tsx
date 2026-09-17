@@ -10,6 +10,7 @@ import navigation from "./project-detail-navigation.module.css";
 import fitmate from "./fitmate-project-detail.module.css";
 import invader from "./invader-project-detail.module.css";
 import { useReadingFocus } from "./use-reading-focus";
+import { useDetailNavigationScroll } from "./use-detail-navigation-scroll";
 import { ProductStrategySection } from "./FitMateStrategySections";
 import { DesignTechnicalSection } from "./FitMateTechnicalSection";
 import { FitMateTestIterationSection } from "./FitMateTestIterationSection";
@@ -28,9 +29,9 @@ export function FitMateProjectDetail({ transition, onBackToFocus, onBackToWorld 
   );
   const section = FITMATE_PROJECT.sections.find((item) => item.id === activeSection);
   const detailSceneRef = useReadingFocus<HTMLElement>(activeSection, styles.isReading);
+  useDetailNavigationScroll(activeSection, detailSceneRef);
   const disabled = transition.phase !== "idle";
   const selectSection = (sectionId: FitMateSectionId | null) => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     setActiveSection(sectionId);
     saveDetailSection("fitmate", sectionId);
   };

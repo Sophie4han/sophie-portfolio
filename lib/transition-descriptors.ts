@@ -8,10 +8,10 @@ import type {
 
 export const TRANSITION_DESCRIPTORS: Readonly<Record<TransitionId, TransitionDescriptor>> = {
   none: descriptor("none", 0, 0, "scene"),
-  "prologue-response": descriptor("prologue-response", 360, 80, "actor"),
+  "prologue-response": descriptor("prologue-response", 480, 80, "actor"),
   "gate-reveal": descriptor("gate-reveal", 560, 100, "environment"),
   "gate-entry": descriptor("gate-entry", 520, 100, "actor"),
-  "world-enter": descriptor("world-enter", 680, 120, "overlay"),
+  "world-enter": descriptor("world-enter", 1_600, 120, "overlay"),
   "scene-default": descriptor("scene-default", 240, 60, "scene"),
 };
 
@@ -19,19 +19,19 @@ export const AUTO_SCENE_ADVANCES: Partial<Readonly<Record<SceneId, AutoSceneAdva
   "intro-follow": {
     sceneId: "intro-follow",
     event: { type: "FOLLOW_COMPLETE" },
-    delayMs: 1_100,
+    delayMs: 500,
     reducedMotionDelayMs: 120,
   },
   "intro-gate": {
     sceneId: "intro-gate",
     event: { type: "ENTER_WORLD" },
-    delayMs: 760,
+    delayMs: 780,
     reducedMotionDelayMs: 120,
   },
   "enter-world": {
     sceneId: "enter-world",
     event: { type: "WORLD_ENTRY_COMPLETE" },
-    delayMs: 620,
+    delayMs: 1_200,
     reducedMotionDelayMs: 120,
   },
 };

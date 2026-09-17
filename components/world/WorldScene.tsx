@@ -109,7 +109,7 @@ function ProjectHud({
   const projectImage: string | null = null;
 
   return (
-    <aside className={styles.projectHud} aria-labelledby="focused-project-title">
+    <aside className={styles.projectHud} data-project-id={island.projectId} aria-labelledby="focused-project-title">
       <p>{island.capability}</p>
       <h2 id="focused-project-title">{island.projectName}</h2>
       <p>{island.outcome}</p>

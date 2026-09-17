@@ -10,6 +10,7 @@ import styles from "./harubareun-project-detail.module.css";
 import navigation from "./project-detail-navigation.module.css";
 import invader from "./invader-project-detail.module.css";
 import { useReadingFocus } from "./use-reading-focus";
+import { useDetailNavigationScroll } from "./use-detail-navigation-scroll";
 
 interface InvaderProjectDetailProps {
   transition: TransitionRuntimeState;
@@ -24,6 +25,7 @@ export function InvaderProjectDetail({ transition, onBackToFocus, onBackToWorld 
   );
   const section = INVADER_PROJECT.sections.find((item) => item.id === activeSection);
   const detailSceneRef = useReadingFocus<HTMLElement>(activeSection, styles.isReading);
+  useDetailNavigationScroll(activeSection, detailSceneRef);
   const disabled = transition.phase !== "idle";
   const selectSection = (sectionId: InvaderSectionId | null) => {
     setActiveSection(sectionId);

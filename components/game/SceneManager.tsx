@@ -10,6 +10,7 @@ import {
   sceneMachineReducer,
 } from "@/lib/scene-machine";
 import { loadJourneySnapshot, saveSceneSnapshot } from "@/lib/scene-persistence";
+import { resetNavigationScroll } from "@/lib/navigation-scroll";
 import type { SceneEvent, SceneMachineState } from "@/types/scene";
 
 const subscribeToHydration = () => () => undefined;
@@ -17,17 +18,6 @@ const getHydratedSnapshot = () => true;
 const getServerSnapshot = () => false;
 
 function createInitialState(initialState: SceneMachineState): SceneMachineState {
-  if (typeof window !== "undefined") {
-    const navigation = window.performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
-    if (navigation?.type === "reload") {
-      return sceneMachineReducer(initialState, {
-        type: "RESTORE_SESSION",
-        sceneId: "world-overview",
-        projectId: null,
-      });
-    }
-  }
-
   const snapshot = loadJourneySnapshot();
   if (!snapshot) return initialState;
 
@@ -55,7 +45,7 @@ export function SceneManager() {
   useLayoutEffect(() => {
     const previousRestoration = window.history.scrollRestoration;
     window.history.scrollRestoration = "manual";
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    resetNavigationScroll(document.querySelector("main"));
 
     return () => {
       window.history.scrollRestoration = previousRestoration;
@@ -64,7 +54,7 @@ export function SceneManager() {
 
   useLayoutEffect(() => {
     if (scene.phase === "entering") {
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      resetNavigationScroll(document.querySelector("main"));
     }
   }, [scene.phase, scene.sceneId]);
 

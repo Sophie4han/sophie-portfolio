@@ -1,6 +1,9 @@
 import type { CSSProperties } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import Image from "next/image";
+import { CHOONI_MOTION, type ChooniMotion } from "@/lib/chooni-motion";
 import { WORLD_MANIFEST, worldPointToPercent } from "@/lib/world-manifest";
+import { WORLD_CHOONI_PRESETS, WORLD_CHOONI_SUMMON_MS } from "@/lib/world-chooni-presets";
 import type {
   CameraPreset,
   JourneyProjectStatus,
@@ -8,6 +11,8 @@ import type {
 } from "@/types/game";
 import type { IslandRegion, IslandStatuses } from "@/types/world";
 import styles from "./world.module.css";
+
+const Chooni3D = lazy(() => import("@/components/character/Chooni3D").then((module) => ({ default: module.Chooni3D })));
 
 interface WorldRendererProps {
   cameraPreset: CameraPreset;
@@ -74,7 +79,7 @@ export function WorldRenderer({
         >
           <WorldEnvironmentLayers />
           <IslandVisuals statuses={statuses} focusedIslandId={focusedIslandId} />
-          {destination && <FocusChooni key={destination.projectId} island={destination} />}
+          {destination && <FocusChooni key={destination.projectId} island={destination} reducedMotion={reducedMotion} />}
           <SemanticInteractionOverlay
             statuses={statuses}
             focusedIslandId={focusedIslandId}
@@ -225,27 +230,60 @@ function positionStyle(point: { x: number; y: number }): CSSProperties {
   return { left: `${point.x}%`, top: `${point.y}%` };
 }
 
-function FocusChooni({ island }: { island: IslandRegion }) {
-  const spawnPoint = worldPointToPercent(island.focusChooniSpawn);
-  const size = `${((island.visualBounds?.width ?? 280) * 0.18 / WORLD_MANIFEST.canvas.width) * 100}%`;
+function FocusChooni({ island, reducedMotion }: { island: IslandRegion; reducedMotion: boolean }) {
+  const [ready, setReady] = useState(false);
+  const [motionState, setMotionState] = useState<ChooniMotion>("enter");
+  const preset = WORLD_CHOONI_PRESETS[island.projectId];
+  const desktop = worldPointToPercent({
+    x: island.focusChooniSpawn.x + preset.desktop.offsetX,
+    y: island.focusChooniSpawn.y + preset.desktop.offsetY,
+  });
+  const mobile = worldPointToPercent({
+    x: island.focusChooniSpawn.x + preset.mobile.offsetX,
+    y: island.focusChooniSpawn.y + preset.mobile.offsetY,
+  });
+  const placement = {
+    "--focus-chooni-x": `${desktop.x}%`,
+    "--focus-chooni-y": `${desktop.y}%`,
+    "--focus-chooni-width": `${preset.desktop.width / WORLD_MANIFEST.canvas.width * 100}%`,
+    "--focus-chooni-height": `${preset.desktop.height / WORLD_MANIFEST.canvas.height * 100}%`,
+    "--focus-chooni-mobile-x": `${mobile.x}%`,
+    "--focus-chooni-mobile-y": `${mobile.y}%`,
+    "--focus-chooni-mobile-width": `${preset.mobile.width / WORLD_MANIFEST.canvas.width * 100}%`,
+    "--focus-chooni-mobile-height": `${preset.mobile.height / WORLD_MANIFEST.canvas.height * 100}%`,
+    "--focus-chooni-summon-ms": `${WORLD_CHOONI_SUMMON_MS}ms`,
+  } as CSSProperties;
+
+  useEffect(() => {
+    if (motionState !== "greeting") return;
+    const timer = window.setTimeout(() => setMotionState("idle"), CHOONI_MOTION.greetingMs);
+    return () => window.clearTimeout(timer);
+  }, [motionState]);
 
   return (
     <div
       className={styles.focusChooni}
       data-block-island-entry="true"
+      data-ready={ready}
+      data-motion={motionState}
       role="img"
       aria-label="Chooni has arrived at this project island."
-      style={{ left: `${spawnPoint.x}%`, top: `${spawnPoint.y}%`, width: size, aspectRatio: "1" }}
+      style={placement}
     >
       <span className={styles.focusChooniSparkle} aria-hidden="true" />
       <span className={styles.focusChooniDust} aria-hidden="true" />
       <span className={styles.focusChooniFragments} aria-hidden="true">
         <i /><i /><i /><i /><i />
       </span>
-      <span className={styles.focusChooniSprite} aria-hidden="true">
-        <Image src="/images/pixel/chooni/prologue-greeting/body-base.png" alt="" width={128} height={128} className={styles.focusChooniLayer} />
-        <Image src="/images/pixel/chooni/prologue-greeting/arm-right-wave.png" alt="" width={128} height={128} className={styles.focusChooniLayer} />
-        <Image src="/images/pixel/chooni/prologue-greeting/face-smile.png" alt="" width={128} height={128} className={styles.focusChooniLayer} />
+      <span className={styles.focusChooniVisual} aria-hidden="true">
+        <Suspense fallback={null}>
+          <Chooni3D motion={motionState} reducedMotion={reducedMotion}
+            className={styles.focusChooniModel}
+            entranceDelayMs={WORLD_CHOONI_SUMMON_MS}
+            greetingAfterLandingMs={0}
+            onReady={() => setReady(true)}
+            onEntranceComplete={() => setMotionState(reducedMotion ? "idle" : "greeting")} />
+        </Suspense>
       </span>
     </div>
   );

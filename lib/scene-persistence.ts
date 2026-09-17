@@ -1,4 +1,6 @@
 import { PROJECT_SEQUENCE, type ProjectId, type SceneId } from "@/types/game";
+import { INVADER_PROJECT } from "@/lib/invader-project";
+import { FITMATE_PROJECT } from "@/lib/fitmate-project";
 
 const STORAGE_KEY = "move-on:journey-scene:v1";
 
@@ -16,8 +18,8 @@ type RestorableSceneId = (typeof RESTORABLE_SCENES)[number];
 
 const DETAIL_SECTIONS: Readonly<Record<ProjectId, readonly string[]>> = {
   harubareun: ["strategy", "product", "commerce", "go-to-market", "final-overview"],
-  "project-02": ["value", "experience", "signal", "performance"],
-  fitmate: ["contribution", "validation", "foundation"],
+  "project-02": INVADER_PROJECT.sections.map((section) => section.id),
+  fitmate: FITMATE_PROJECT.sections.map((section) => section.id),
 };
 
 interface JourneySnapshot {
@@ -42,7 +44,17 @@ export function loadJourneySnapshot(): JourneySnapshot | null {
 
   try {
     const value: unknown = JSON.parse(stored);
-    return isJourneySnapshot(value) ? value : WORLD_FALLBACK;
+    if (!isJourneySnapshot(value)) return WORLD_FALLBACK;
+
+    if (value.detailSectionId !== null && (
+      value.sceneId !== "island-entry" ||
+      value.projectId === null ||
+      !DETAIL_SECTIONS[value.projectId].includes(value.detailSectionId)
+    )) {
+      return { ...value, detailSectionId: null };
+    }
+
+    return value;
   } catch {
     return WORLD_FALLBACK;
   }
@@ -107,12 +119,7 @@ function isJourneySnapshot(value: unknown): value is JourneySnapshot {
   const needsProject = candidate.sceneId === "island-focus" || candidate.sceneId === "island-entry";
   if (needsProject ? candidate.projectId === null : candidate.projectId !== null) return false;
 
-  if (candidate.detailSectionId === null) return true;
-  return (
-    candidate.sceneId === "island-entry" &&
-    candidate.projectId !== null &&
-    DETAIL_SECTIONS[candidate.projectId].includes(candidate.detailSectionId)
-  );
+  return true;
 }
 
 function isRestorableScene(sceneId: unknown): sceneId is RestorableSceneId {

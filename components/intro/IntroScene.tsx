@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { CHOONI_MOTION } from "@/lib/chooni-motion";
+import { TRANSITION_DESCRIPTORS } from "@/lib/transition-descriptors";
 import type { ChooniIntent, SceneId } from "@/types/game";
 import type { SceneEvent } from "@/types/scene";
 import type { TransitionRuntimeState } from "@/types/transition";
@@ -29,11 +31,40 @@ export function isProloguePhase(sceneId: SceneId): sceneId is ProloguePhase {
 
 export function IntroScene({ sceneId, chooniIntent, transition, dispatch }: IntroSceneProps) {
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const [fastPathNoticeVisible, setFastPathNoticeVisible] = useState(false);
+  const replyAcceptedRef = useRef(false);
+  const [greetingCardVisible, setGreetingCardVisible] = useState(false);
+  const revealTimerRef = useRef<number | null>(null);
+
+  const handleChooniEntranceComplete = () => {
+    if (revealTimerRef.current !== null) return;
+    revealTimerRef.current = window.setTimeout(
+      () => setGreetingCardVisible(true),
+      transition.reducedMotion ? 0 : CHOONI_MOTION.speechDelayMs,
+    );
+  };
+
+  useEffect(() => () => {
+    if (revealTimerRef.current !== null) window.clearTimeout(revealTimerRef.current);
+  }, []);
 
   useEffect(() => {
-    headingRef.current?.focus({ preventScroll: true });
-  }, [sceneId]);
+    if (sceneId === "intro-greeting" && greetingCardVisible) {
+      headingRef.current?.focus({ preventScroll: true });
+    }
+  }, [sceneId, greetingCardVisible]);
+
+  const replyExiting = sceneId === "intro-greeting"
+    && transition.id === "prologue-response"
+    && transition.phase === "exiting";
+  const replyExitMs = (transition.reducedMotion
+    ? TRANSITION_DESCRIPTORS["prologue-response"].reducedMotionDurationMs
+    : TRANSITION_DESCRIPTORS["prologue-response"].durationMs) / 2;
+
+  const handleReply = () => {
+    if (transition.phase !== "idle" || replyAcceptedRef.current) return;
+    replyAcceptedRef.current = true;
+    dispatch({ type: "INTRO_ACCEPTED" });
+  };
 
   return (
     <main
@@ -42,81 +73,55 @@ export function IntroScene({ sceneId, chooniIntent, transition, dispatch }: Intr
       data-transition-id={transition.id}
       data-transition-phase={transition.phase}
     >
-      <WoodlandStage sceneId={sceneId} intent={chooniIntent} transition={transition} />
+      <WoodlandStage sceneId={sceneId} intent={chooniIntent} transition={transition}
+        onChooniEntranceComplete={handleChooniEntranceComplete} />
       <header className={styles.sceneHud} aria-label="MOVE ON prologue">
         <strong>MOVE ON</strong>
         <span>PROLOGUE · WOODLAND GATEWAY</span>
       </header>
 
       <div className={styles.conversation}>
-        <SpeechBubble sceneId={sceneId}>
-          {sceneId === "intro-greeting" && (
+        {sceneId === "intro-greeting" && greetingCardVisible && <SpeechBubble
+          replyExiting={replyExiting}
+          style={{
+            "--speech-reveal-ms": `${CHOONI_MOTION.speechRevealMs}ms`,
+            "--speech-exit-ms": `${replyExitMs}ms`,
+          } as CSSProperties}>
             <>
               <p className={styles.kicker}>CHOONI</p>
-              <h1 ref={headingRef} tabIndex={-1}>Hi! 👋 I’m Chooni, your little guide.</h1>
-              <p>Want me to show you around?</p>
+              <h1 ref={headingRef} tabIndex={-1}>안녕! 나는 춘이야!</h1>
+              <p>포폴 보러 가볼까?</p>
               <ReplyChoices>
-                <button type="button" disabled={transition.phase !== "idle"} onClick={() => dispatch({ type: "INTRO_ACCEPTED" })}>
-                  Sounds good!
-                </button>
-                <button
-                  type="button"
-                  className={styles.secondaryReply}
-                  data-future-href="/projects"
-                  onClick={() => setFastPathNoticeVisible(true)}
-                >
-                  I’ll explore myself
+                <button type="button" aria-disabled={replyExiting} onClick={handleReply}>
+                  그래 가자!
                 </button>
               </ReplyChoices>
-              {fastPathNoticeVisible && (
-                <p className={styles.fastPathNotice} role="status">
-                  The project index will open here once the approved `/projects` route is implemented.
-                </p>
-              )}
             </>
-          )}
-
-          {sceneId === "intro-follow" && (
-            <>
-              <p className={styles.kicker}>CHOONI</p>
-              <h1 ref={headingRef} tabIndex={-1}>Great! Follow me.</h1>
-              <p className={styles.status} role="status">Chooni is leading the way…</p>
-            </>
-          )}
-
-          {sceneId === "intro-gate" && (
-            <>
-              <p className={styles.kicker}>THE GATE APPEARS</p>
-              <h1 ref={headingRef} tabIndex={-1}>This way.</h1>
-              <p className={styles.status} role="status">Chooni is approaching the gate…</p>
-            </>
-          )}
-
-          {sceneId === "enter-world" && (
-            <>
-              <p className={styles.kicker}>ENTERING MOVE ON</p>
-              <h1 ref={headingRef} tabIndex={-1}>Let’s move on.</h1>
-              <p className={styles.status} role="status">Chooni is opening the way to the next world…</p>
-            </>
-          )}
-        </SpeechBubble>
+        </SpeechBubble>}
+        {sceneId === "intro-follow" && <span className={styles.srOnly} role="status">춘이가 기뻐하고 있어요.</span>}
+        {sceneId === "intro-gate" && <span className={styles.srOnly} role="status">춘이가 문을 바라보고 있어요.</span>}
+        {sceneId === "enter-world" && <span className={styles.srOnly} role="status">춘이가 문으로 이동하고 있어요.</span>}
       </div>
     </main>
   );
 }
 
 function SpeechBubble({
-  sceneId,
+  replyExiting,
   children,
+  style,
 }: {
-  sceneId: ProloguePhase;
+  replyExiting: boolean;
   children: React.ReactNode;
+  style?: CSSProperties;
 }) {
   return (
     <section
       className={styles.speechBubble}
+      style={style}
       data-speaker="chooni"
-      data-bubble-placement={sceneId}
+      data-bubble-placement="intro-greeting"
+      data-reply-exiting={replyExiting}
       aria-label="Chooni says"
     >
       {children}
@@ -125,10 +130,11 @@ function SpeechBubble({
   );
 }
 
+
 function ReplyChoices({ children }: { children: React.ReactNode }) {
   return (
     <div className={styles.replies} aria-label="Choose your reply">
-      <p className={styles.replyPrompt}>Your reply</p>
+      <p className={styles.replyPrompt}>답장</p>
       {children}
     </div>
   );
