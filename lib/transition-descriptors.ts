@@ -1,4 +1,5 @@
 import type { SceneId } from "../types/game";
+import { CHOONI_MOTION } from "./chooni-motion";
 import type {
   AutoSceneAdvance,
   GateVisibility,
@@ -31,7 +32,7 @@ export const AUTO_SCENE_ADVANCES: Partial<Readonly<Record<SceneId, AutoSceneAdva
   "enter-world": {
     sceneId: "enter-world",
     event: { type: "WORLD_ENTRY_COMPLETE" },
-    delayMs: 1_200,
+    delayMs: CHOONI_MOTION.departureMs - TRANSITION_DESCRIPTORS["gate-entry"].durationMs / 2,
     reducedMotionDelayMs: 120,
   },
 };

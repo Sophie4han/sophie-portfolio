@@ -132,19 +132,22 @@ export function Chooni3D({
         const enter = Math.max(0, Math.min(1, 1 - (now - mountedAt - entranceDelayMs) / motion.enterMs));
         const happy = state === "happy" ? Math.max(0, 1 - elapsed / motion.happyMs) : 0;
         const greet = state === "greeting" ? Math.max(0, 1 - elapsed / motion.greetingMs) : 0;
-        const leave = state === "departure" ? Math.min(1, elapsed / motion.departureMs) : 0;
+        const leave = state === "departure" ? Math.min(1, elapsed / motion.departureMoveMs) : 0;
         const portal = state === "portal-reaction" || state === "departure";
         const turnProgress = state === "departure" ? 1 : Math.min(1,
           Math.max(0, elapsed - motion.portalTurnDelayMs) / motion.portalTurnMs);
         const easedTurn = turnProgress * turnProgress * (3 - 2 * turnProgress);
-        const easedLeave = leave * leave * (3 - 2 * leave);
+        const scaleProgress = Math.min(1, Math.max(0,
+          (leave - motion.departureScaleStartRatio) /
+          (motion.departureScaleEndRatio - motion.departureScaleStartRatio)));
+        const easedScale = scaleProgress * scaleProgress * (3 - 2 * scaleProgress);
         const sway = portal ? 0 : quiet * motion.idleSwayRadians * Math.sin(t * 1.1);
         const breath = portal ? 0 : quiet * motion.idleBreath * Math.sin(t * 1.6);
         const greetingBounce = quiet * greet * motion.greetingBounce * Math.abs(Math.sin(elapsed / 160));
         const happyBounce = quiet * happy * motion.happyBounce * Math.abs(Math.sin(elapsed / 95));
         const departureHop = quiet * motion.departureHop * Math.sin(Math.PI * 2 * leave) ** 2;
         const targetY = quiet * enter * 0.16 + greetingBounce + happyBounce + departureHop;
-        const targetScale = (1 - easedLeave * (1 - motion.departureScale)) *
+        const targetScale = (1 - easedScale * (1 - motion.departureScale)) *
           (1 + breath + quiet * happy * motion.happyScale * Math.abs(Math.sin(elapsed / 95)));
 
         poseGroup.position.y = THREE.MathUtils.lerp(poseGroup.position.y, targetY, ease);

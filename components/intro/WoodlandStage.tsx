@@ -55,7 +55,7 @@ export function WoodlandStage({ sceneId, intent, transition, onChooniEntranceCom
           </div>
         )}
         <div className={styles.actor} data-actor-stage={ACTOR_STAGE[sceneId]}
-          style={{ "--departure-ms": `${CHOONI_MOTION.departureMs}ms` } as CSSProperties}
+          style={{ "--departure-move-ms": `${CHOONI_MOTION.departureMoveMs}ms` } as CSSProperties}
           data-chooni-intent={intent ?? "none"} data-ground-anchor="feet">
           <span className={styles.actorShadow} aria-hidden="true" />
           <Suspense fallback={null}>

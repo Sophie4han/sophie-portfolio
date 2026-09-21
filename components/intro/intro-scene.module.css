@@ -73,8 +73,8 @@
 .actor { position: absolute; z-index: 3; left: var(--greeting-x); top: var(--greeting-y); width: 0; height: 0; pointer-events: none; }
 .actorShadow { position: absolute; width: 90px; height: 20px; left: 0; top: 0; transform: translate(-50%, -45%); border-radius: 50%; background: #273c3652; filter: blur(4px); }
 .chooniSlot { position: absolute; bottom: -4.3dvh; left: 0; width: 40dvh; height: 47dvh; transform: translateX(-50%); }
-.actor[data-actor-stage="departure"] { animation: chooni-departure var(--departure-ms) cubic-bezier(.4,0,.5,1) both; }
-.actor[data-actor-stage="departure"] .actorShadow { animation: chooni-shadow-departure var(--departure-ms) ease-in both; }
+.actor[data-actor-stage="departure"] { animation: chooni-departure var(--departure-move-ms) cubic-bezier(.4,0,.5,1) both; }
+.actor[data-actor-stage="departure"] .actorShadow { animation: chooni-shadow-departure var(--departure-move-ms) ease-in both; }
 .gate {
   position: absolute; z-index: 2; left: var(--gate-x); top: var(--gate-y);
   width: 19%; aspect-ratio: 1; transform: translate(-50%, -90%);
@@ -138,7 +138,7 @@
   .bubbleTail { top: -10px; right: 64%; width: 18px; height: 12px; clip-path: polygon(0 100%,50% 0,100% 100%); }
   .scene::after { content: ''; position: absolute; z-index: 1; pointer-events: none; inset: 48% 0 0; background: linear-gradient(transparent, #d8dfcd 42%); }
   .replies { margin-top: 18px; }
-  .actor { --greeting-x: 57.5%; --greeting-y: 68%; --approach-x: 59%; --approach-y: 71%; }
+  .actor { --greeting-x: 57.5%; --greeting-y: 68%; }
   .actorShadow { width: 60px; height: 15px; }
   .chooniSlot { width: 220px; height: 258px; bottom: -24px; }
 }
