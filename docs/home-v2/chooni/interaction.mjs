@@ -1,0 +1,23 @@
+import fs from 'node:fs/promises';
+const pause=ms=>new Promise(r=>setTimeout(r,ms));
+async function check(width,height,mode='normal') {
+const target=await(await fetch('http://127.0.0.1:9230/json/new?about:blank',{method:'PUT'})).json();const ws=new WebSocket(target.webSocketDebuggerUrl);await new Promise(r=>ws.addEventListener('open',r,{once:true}));let id=0;const pending=new Map();const errors=[];
+ws.addEventListener('message',e=>{const m=JSON.parse(e.data);if(m.id){pending.get(m.id)(m);pending.delete(m.id)}if(m.method==='Runtime.exceptionThrown')errors.push(m.params)});
+const send=(method,params={})=>new Promise((resolve,reject)=>{pending.set(++id,m=>m.error?reject(m.error):resolve(m.result));ws.send(JSON.stringify({id,method,params}))});
+const run=async expression=>{const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails));return r.result.value};
+await send('Runtime.enable');await send('Page.enable');await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
+if(mode==='reduced')await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+await send('Page.navigate',{url:'http://localhost:3036'});await pause(1200);
+await run(`(()=>{const n=document.querySelector('[data-chooni]'),h=n.closest('section');window.qa={events:[],collisions:0,outside:0,frames:0,initial:n.getBoundingClientRect().toJSON(),safe:n.dataset.pathSafe};const t=performance.now();new MutationObserver(()=>{qa.events.push({t:performance.now()-t,state:n.dataset.state,blink:n.dataset.blink,hello:n.dataset.hello,button:!!h.querySelector('[data-down-slot] a')})}).observe(h,{subtree:true,attributes:true,attributeFilter:['data-state','data-blink','data-hello'],childList:true});function sample(){const a=n.getBoundingClientRect(),r=h.getBoundingClientRect();const z=[...h.querySelectorAll('h1,[data-intro] p,[data-positioning]')].map(e=>e.getBoundingClientRect());if(z.some(b=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top))qa.collisions++;if(a.left<r.left||a.right>r.right||a.top<r.top||a.bottom>r.bottom)qa.outside++;qa.frames++;if(performance.now()-t<36500)requestAnimationFrame(sample)}sample();})()`);
+await pause(2000);
+if(mode==='early')await run('scrollTo(0,650)');
+if(mode==='mid')await run(`new MutationObserver((m,o)=>{if(document.querySelector('[data-chooni]').dataset.state==='crawling'){o.disconnect();setTimeout(()=>scrollTo(0,innerHeight+20),500)}}).observe(document.querySelector('[data-chooni]'),{attributes:true,attributeFilter:['data-state']})`);
+if(width>1000&&mode==='normal'){
+const r=await run(`document.querySelector('[data-chooni]').getBoundingClientRect().toJSON()`);await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:r.x+r.width/2,y:r.y+r.height/2});await pause(300);await run(`qa.hoverSmile=getComputedStyle(document.querySelector('[data-chooni] svg g g:nth-last-of-type(1)')).opacity;qa.helloVisible=!!document.querySelector('[data-hello]')`);await pause(1500);await run(`qa.helloHiddenWhileHover=!document.querySelector('[data-hello]')`);
+}
+await pause(34000);
+const result=await run(`(()=>{const n=document.querySelector('[data-chooni]'),h=n.closest('section'),b=h.querySelector('[data-down-slot] a');const a=n.getBoundingClientRect(),r=b?.getBoundingClientRect();return {...qa,finalState:n.dataset.state,button:!!b,gap:r?r.left-a.right:null,height:h.clientHeight,scrollHeight:h.scrollHeight,animationCount:n.getAnimations({subtree:true}).filter(a=>a.playState==='running').length}})()`);
+result.errors=errors;await fs.writeFile(`docs/home-v2/chooni/${width}-${mode}-final.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));ws.close();return [`${width}x${height}-${mode}`,result];
+}
+const entries=await Promise.all([[1440,900],[1366,768],[768,1024],[390,844],[320,568],[390,844,'early'],[1440,900,'mid'],[390,844,'reduced']].map(args=>check(...args)));
+await fs.writeFile('docs/home-v2/chooni/interaction.json',JSON.stringify(Object.fromEntries(entries),null,2));console.log(JSON.stringify(Object.fromEntries(entries.map(([k,v])=>[k,{safe:v.safe,collisions:v.collisions,outside:v.outside,finalState:v.finalState,gap:v.gap,button:v.button,overflow:v.scrollHeight>v.height,helloVisible:v.helloVisible,helloHidden:v.helloHiddenWhileHover,events:v.events,errors:v.errors} ])),null,2));

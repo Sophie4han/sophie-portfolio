@@ -1,0 +1,38 @@
+{
+  "before": {
+    "button": false,
+    "locked": "true"
+  },
+  "locked": {
+    "scroll": 0,
+    "locked": "true",
+    "events": [
+      {
+        "key": "walking",
+        "t": 9561.60000000149
+      },
+      {
+        "key": "button",
+        "t": 9567.900000002235
+      },
+      {
+        "key": "arrived",
+        "t": 13202.199999999255
+      }
+    ],
+    "workInert": true
+  },
+  "clicked": {
+    "scroll": 872,
+    "locked": "false",
+    "workInert": false
+  },
+  "reload": {
+    "scroll": 0,
+    "locked": "true",
+    "button": false
+  },
+  "duration": 3640.599999997765,
+  "sync": 6.300000000745058,
+  "errors": []
+}

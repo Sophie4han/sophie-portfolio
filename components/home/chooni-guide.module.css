@@ -1,0 +1,55 @@
+.actor { position:absolute; top:0; left:0; width:60px; height:70px; color:var(--ink); visibility:hidden; z-index:1; }
+.actor svg { display:block; width:100%; height:100%; overflow:visible; }
+.hello { position:absolute; left:100%; top:50%; font-size:13px; font-weight:300; color:var(--ink); opacity:0; transform:translate(4px,-50%); pointer-events:none; transition:opacity 180ms,transform 180ms; }
+.actor[data-hello] .hello { opacity:1; transform:translate(6px,-50%); }
+.gaze { transform-origin:82px 34px; transition:transform 180ms; }
+.mouth { transform-origin:77px 44px; transition:transform 180ms; }
+.actor[data-hello] .gaze { transform:translateY(-.3px) scaleY(.85); }
+.actor[data-hello] .mouth { transform:rotate(-1deg); }
+.actor[data-state="arrived"] .gaze { transform:translate(.25px,.65px); }
+.eyes > g { transform-box:fill-box; transform-origin:center; }
+.actor[data-blink] .eyes > g { animation:blink 180ms 1; }
+.actor [data-limb="front-right"] { transform-origin:62px 90px; }
+.actor [data-limb="front-left"] { transform-origin:86px 105px; }
+.actor [data-limb="rear-right"] { transform-origin:31px 112px; }
+.actor [data-limb="rear-left"] { transform-origin:61px 119px; }
+.body { transform-origin:65px 95px; }
+.tail { transform-origin:35px 95px; }
+@keyframes blink { 50% { transform:scaleY(.08); } }
+@media(max-width:1023px) { .actor { width:44px; height:51.333px; } }
+@media(max-width:767px) { .actor { width:22px; height:25.667px; } }
+@media(prefers-reduced-motion:reduce) { .actor *, .actor { animation:none!important; transition:none!important; } }
+@media(max-width:359px) and (max-height:650px) { .actor { width:18px; height:21px; } }
+
+
+.hello { white-space:nowrap; font-size:12px; }
+.explore { display:none; }
+.actor[data-state="arrived"] .hello { opacity:1; transform:translate(6px,-50%); }
+.actor[data-state="arrived"] .greeting { display:none; }
+.actor[data-state="arrived"] .explore { display:inline; }
+@media(max-width:767px) { .hello { font-size:10.5px; } }
+
+/* Flip the illustration, never the editorial label or travel wrapper. */
+.facing { width:100%; height:100%; transform-origin:center; transform:scaleX(1); }
+.actor[data-direction="left"] .facing { transform:scaleX(-1); }
+.actor[data-direction="down"] .gaze { transform:translate(.25px,.9px); }
+/* The original 400ms diagonal A/B gait runs until native travel completes. */
+.actor[data-state="crawling"] .body { animation:bodyBob 400ms ease-in-out infinite; }
+.actor[data-state="crawling"] .legA { animation:legStep 400ms steps(1,end) infinite; }
+.actor[data-state="crawling"] .legB { animation:legStepOpposite 400ms steps(1,end) infinite; }
+.actor[data-state="crawling"] .tail { animation:tailSway 400ms ease-in-out infinite; }
+@keyframes bodyBob { 0%,100% { transform:translateY(0) rotate(-.5deg); } 50% { transform:translateY(1.5px) rotate(.5deg); } }
+@keyframes legStep { 0%,100% { transform:translate(8px,-2px) rotate(-9deg); } 50% { transform:translate(-8px,0) rotate(9deg); } }
+@keyframes legStepOpposite { 0%,100% { transform:translate(-8px,0) rotate(9deg); } 50% { transform:translate(8px,-2px) rotate(-9deg); } }
+@keyframes tailSway { 0%,100% { transform:rotate(0); } 25% { transform:rotate(-2deg); } 75% { transform:rotate(2deg); } }
+
+.actor[data-state="arrived"] .hello { left:auto; right:100%; transform:translate(-8px,-50%); }
+
+.actor[data-state="crawling"] { will-change:transform; }
+
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  .actor:not([data-state="crawling"]):hover .eyes > g { animation:hoverBlink 200ms 1; }
+  .actor:not([data-state="crawling"]):hover .hello { translate:0 -3px; }
+}
+.hello { transition:opacity 180ms,transform 180ms,translate 200ms; }
+@keyframes hoverBlink { 50% { transform:scaleY(.08); } }

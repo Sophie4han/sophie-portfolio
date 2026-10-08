@@ -1,0 +1,51 @@
+{
+  "before": {
+    "time": 11123.60000000149,
+    "state": "crawling",
+    "pose": "b",
+    "scroll": 0,
+    "heroBottom": 900,
+    "svg": {
+      "x": 967.6609497070312,
+      "y": 194.3543243408203,
+      "width": 59.99993896484375,
+      "height": 69.99998474121094,
+      "top": 194.3543243408203,
+      "right": 1027.660888671875,
+      "bottom": 264.35430908203125,
+      "left": 967.6609497070312
+    }
+  },
+  "after": {
+    "time": 11227.300000000745,
+    "state": "arrived",
+    "scroll": 12,
+    "heroBottom": 888,
+    "svg": {
+      "x": 596,
+      "y": 776.5,
+      "width": 60,
+      "height": 70,
+      "top": 776.5,
+      "right": 656,
+      "bottom": 846.5,
+      "left": 596
+    }
+  },
+  "final": {
+    "time": 17430.10000000149,
+    "state": "arrived",
+    "scroll": 12,
+    "heroBottom": 888,
+    "svg": {
+      "x": 596,
+      "y": 776.5,
+      "width": 60,
+      "height": 70,
+      "top": 776.5,
+      "right": 656,
+      "bottom": 846.5,
+      "left": 596
+    }
+  }
+}

@@ -1,0 +1,401 @@
+{
+  "1440x900-normal": {
+    "events": [
+      {
+        "t": 1415,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 2027.800000000745,
+        "state": "idle",
+        "blink": "true",
+        "hello": "true",
+        "button": false
+      },
+      {
+        "t": 3128.7000000011176,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 29410.599999999627,
+        "state": "idle",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 29811.599999999627,
+        "state": "crawling",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 32240.900000000373,
+        "state": "arrived",
+        "blink": "true",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 2185,
+    "initial": {
+      "x": 48,
+      "y": 484.515625,
+      "width": 80,
+      "height": 48,
+      "top": 484.515625,
+      "right": 128,
+      "bottom": 532.515625,
+      "left": 48
+    },
+    "safe": "true",
+    "hoverSmile": "1",
+    "helloVisible": true,
+    "helloHiddenWhileHover": true,
+    "finalState": "arrived",
+    "button": true,
+    "gap": 28,
+    "height": 900,
+    "scrollHeight": 900,
+    "animationCount": 0,
+    "errors": []
+  },
+  "1366x768-normal": {
+    "events": [
+      {
+        "t": 1424.800000000745,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 2028.9000000003725,
+        "state": "idle",
+        "blink": "true",
+        "hello": "true",
+        "button": false
+      },
+      {
+        "t": 3129.7000000011176,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 29424.599999999627,
+        "state": "idle",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 29827.099999999627,
+        "state": "crawling",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 32243.400000000373,
+        "state": "arrived",
+        "blink": "true",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 2193,
+    "initial": {
+      "x": 48,
+      "y": 409.734375,
+      "width": 80,
+      "height": 48,
+      "top": 409.734375,
+      "right": 128,
+      "bottom": 457.734375,
+      "left": 48
+    },
+    "safe": "true",
+    "hoverSmile": "1",
+    "helloVisible": true,
+    "helloHiddenWhileHover": true,
+    "finalState": "arrived",
+    "button": true,
+    "gap": 28,
+    "height": 768,
+    "scrollHeight": 768,
+    "animationCount": 0,
+    "errors": []
+  },
+  "768x1024-normal": {
+    "events": [
+      {
+        "t": 1881.2000000011176,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 29880.900000000373,
+        "state": "idle",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 30282.599999999627,
+        "state": "crawling",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 32705.800000000745,
+        "state": "arrived",
+        "blink": "true",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 2161,
+    "initial": {
+      "x": 32,
+      "y": 465.09375,
+      "width": 56,
+      "height": 33.59375,
+      "top": 465.09375,
+      "right": 88,
+      "bottom": 498.6875,
+      "left": 32
+    },
+    "safe": "true",
+    "finalState": "arrived",
+    "button": true,
+    "gap": 28,
+    "height": 1024,
+    "scrollHeight": 1024,
+    "animationCount": 0,
+    "errors": []
+  },
+  "390x844-normal": {
+    "events": [
+      {
+        "t": 1999.4000000003725,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 29995.400000000373,
+        "state": "idle",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 30397.900000000373,
+        "state": "crawling",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 32816.5,
+        "state": "arrived",
+        "blink": "true",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 2163,
+    "initial": {
+      "x": 5,
+      "y": 365.84375,
+      "width": 32,
+      "height": 19.1875,
+      "top": 365.84375,
+      "right": 37,
+      "bottom": 385.03125,
+      "left": 5
+    },
+    "safe": "true",
+    "finalState": "arrived",
+    "button": true,
+    "gap": 28,
+    "height": 844,
+    "scrollHeight": 844,
+    "animationCount": 0,
+    "errors": []
+  },
+  "320x568-normal": {
+    "events": [
+      {
+        "t": 1914.7999999988824,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 29914.699999999255,
+        "state": "idle",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 30315.299999998882,
+        "state": "crawling",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 32747.900000000373,
+        "state": "arrived",
+        "blink": "true",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 2162,
+    "initial": {
+      "x": 5,
+      "y": 203.78125,
+      "width": 32,
+      "height": 19.1875,
+      "top": 203.78125,
+      "right": 37,
+      "bottom": 222.96875,
+      "left": 5
+    },
+    "safe": "true",
+    "finalState": "arrived",
+    "button": true,
+    "gap": 28,
+    "height": 568,
+    "scrollHeight": 568,
+    "animationCount": 0,
+    "errors": []
+  },
+  "390x844-early": {
+    "events": [
+      {
+        "t": 1959.5,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 2018.5,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 29961.199999999255,
+        "state": "idle",
+        "blink": "true",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 2161,
+    "initial": {
+      "x": 5,
+      "y": 365.84375,
+      "width": 32,
+      "height": 19.1875,
+      "top": 365.84375,
+      "right": 37,
+      "bottom": 385.03125,
+      "left": 5
+    },
+    "safe": "true",
+    "finalState": "idle",
+    "button": true,
+    "gap": 129,
+    "height": 844,
+    "scrollHeight": 844,
+    "animationCount": 0,
+    "errors": []
+  },
+  "1440x900-mid": {
+    "events": [
+      {
+        "t": 1610.2999999988824,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 29612.599999999627,
+        "state": "idle",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 30014.599999999627,
+        "state": "crawling",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 30517.599999999627,
+        "state": "idle",
+        "blink": "true",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 2163,
+    "initial": {
+      "x": 48,
+      "y": 484.515625,
+      "width": 80,
+      "height": 48,
+      "top": 484.515625,
+      "right": 128,
+      "bottom": 532.515625,
+      "left": 48
+    },
+    "safe": "true",
+    "finalState": "idle",
+    "button": true,
+    "gap": 556,
+    "height": 900,
+    "scrollHeight": 900,
+    "animationCount": 0,
+    "errors": []
+  },
+  "390x844-reduced": {
+    "events": [
+      {
+        "t": 29383.599999999627,
+        "state": "idle",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 2163,
+    "initial": {
+      "x": 5,
+      "y": 365.84375,
+      "width": 32,
+      "height": 19.1875,
+      "top": 365.84375,
+      "right": 37,
+      "bottom": 385.03125,
+      "left": 5
+    },
+    "safe": "true",
+    "finalState": "idle",
+    "button": true,
+    "gap": 129,
+    "height": 844,
+    "scrollHeight": 844,
+    "animationCount": 0,
+    "errors": []
+  }
+}

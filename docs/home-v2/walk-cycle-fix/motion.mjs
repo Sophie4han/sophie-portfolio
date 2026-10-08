@@ -1,0 +1,24 @@
+import fs from 'node:fs/promises';
+const pause=ms=>new Promise(r=>setTimeout(r,ms));
+async function check(width,height,mode='normal') {
+const target=await(await fetch('http://127.0.0.1:9230/json/new?about:blank',{method:'PUT'})).json();const ws=new WebSocket(target.webSocketDebuggerUrl);await new Promise(r=>ws.addEventListener('open',r,{once:true}));let id=0;const pending=new Map();const errors=[];
+ws.addEventListener('message',e=>{const m=JSON.parse(e.data);if(m.id){pending.get(m.id)(m);pending.delete(m.id)}if(m.method==='Runtime.exceptionThrown'||(m.method==='Runtime.consoleAPICalled'&&m.params.type==='error'))errors.push(m.params)});
+const send=(method,params={})=>new Promise((resolve,reject)=>{pending.set(++id,m=>m.error?reject(m.error):resolve(m.result));ws.send(JSON.stringify({id,method,params}))});
+const run=async expression=>{const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails));return r.result.value};
+await send('Runtime.enable');await send('Page.enable');await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
+await send('Page.addScriptToEvaluateOnNewDocument',{source:`const original=window.setTimeout;window.setTimeout=function(fn,delay,...args){if(delay>=9500&&delay<=10000)window.introDeadline=performance.now()+delay;return original.call(this,fn,delay,...args)};`});
+if(mode==='reduced')await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+await send('Page.navigate',{url:'http://localhost:3036'});await send('Page.bringToFront');
+for(let i=0;i<50;i++){if(await run(`!!window.introDeadline&&!!document.querySelector('[data-chooni]')`))break;await pause(150)}
+await run(`(()=>{const n=document.querySelector('[data-chooni]'),h=n.closest('section'),slot=h.querySelector('[data-down-slot]');window.qa={events:[],collisions:0,outside:0,frames:0,lockedScrollViolations:0,prematureButton:0};function sample(){const locked=slot.dataset.introStage==='introLocked';if(locked&&scrollY>0)qa.lockedScrollViolations++;if(performance.now()<introDeadline-10&&!!slot.querySelector('a'))qa.prematureButton++;if(getComputedStyle(n).visibility==='visible'){const a=n.getBoundingClientRect(),r=h.getBoundingClientRect();const z=[...h.querySelectorAll('[data-intro] p,[data-positioning],h1 svg')].map(e=>e.getBoundingClientRect());const w=document.createTreeWalker(h.querySelector('h1'),NodeFilter.SHOW_TEXT);while(w.nextNode()){if(!w.currentNode.textContent.trim())continue;const t=document.createRange();t.selectNodeContents(w.currentNode);for(const b of t.getClientRects()){if(h.querySelector('[data-toward]').contains(w.currentNode)){const inset=parseFloat(getComputedStyle(h.querySelector('[data-toward]')).fontSize)*.22;z.push(new DOMRect(b.x,b.y+inset,b.width,b.height-inset))}else z.push(b)}}if(z.some(b=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top))qa.collisions++;if(a.left<r.left||a.right>r.right||a.top<r.top||a.bottom>r.bottom)qa.outside++;qa.frames++;}if(performance.now()<introDeadline+3500)requestAnimationFrame(sample)}sample();new MutationObserver(()=>qa.events.push({ms:performance.now()-introDeadline+10000,stage:slot.dataset.introStage,state:n.dataset.state,button:!!slot.querySelector('a'),overflow:getComputedStyle(document.documentElement).overflow})).observe(h,{subtree:true,attributes:true,attributeFilter:['data-state','data-intro-stage'],childList:true});})()`);
+await run(`(()=>{window.gait=[];function tick(){const n=document.querySelector('[data-chooni]');if(n.dataset.state==='crawling')gait.push({time:performance.now(),position:getComputedStyle(n).transform,legs:[...n.querySelectorAll('[data-limb]')].map(e=>({name:e.dataset.limb,transform:getComputedStyle(e).transform,box:e.getBoundingClientRect().toJSON()}))});if(n.dataset.state!=='arrived')requestAnimationFrame(tick)}requestAnimationFrame(tick)})()`);
+await run(`new Promise(resolve=>{function tick(){if(document.querySelector('[data-chooni]').dataset.state==='crawling')resolve();else requestAnimationFrame(tick)}tick()})`);
+for(let i=0;i<3;i++){
+ await fs.writeFile(`docs/home-v2/walk-cycle-fix/frame-${i+1}.png`,Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+ await pause(170);
+}
+await pause(1800);
+const result=await run(`({samples:gait,qa,final:document.querySelector('[data-chooni]').dataset.state,rest:[...document.querySelectorAll('[data-limb]')].map(e=>getComputedStyle(e).transform),running:document.querySelector('[data-chooni]').getAnimations({subtree:true}).filter(a=>a.playState==='running').length})`);
+result.errors=errors;await fs.writeFile('docs/home-v2/walk-cycle-fix/motion.json',JSON.stringify(result,null,2));console.log(JSON.stringify({frames:result.samples.length,final:result.final,rest:result.rest,running:result.running,errors}));ws.close();
+}
+await check(1440,900);

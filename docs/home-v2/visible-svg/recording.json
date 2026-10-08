@@ -1,0 +1,51 @@
+{
+  "frames": 232,
+  "duration": 8.584334135055542,
+  "moments": [
+    {
+      "state": "idle",
+      "key": "start",
+      "time": 1791424578823
+    },
+    {
+      "state": "crawling",
+      "segment": "1",
+      "pose": "a",
+      "key": "1",
+      "time": 1791424581165
+    },
+    {
+      "state": "crawling",
+      "segment": "2",
+      "pose": "b",
+      "key": "2",
+      "time": 1791424581747
+    },
+    {
+      "state": "crawling",
+      "segment": "3",
+      "pose": "a",
+      "key": "3",
+      "time": 1791424582883
+    },
+    {
+      "state": "crawling",
+      "segment": "4",
+      "pose": "b",
+      "key": "4",
+      "time": 1791424585281
+    },
+    {
+      "state": "crawling",
+      "segment": "5",
+      "pose": "a",
+      "key": "5",
+      "time": 1791424586111
+    },
+    {
+      "state": "arrived",
+      "key": "final",
+      "time": 1791424587286
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "result": {
+    "hello": "true",
+    "blink": "true",
+    "legs": 4,
+    "pupils": 2,
+    "labelOpacity": "0.983462"
+  },
+  "errors": []
+}

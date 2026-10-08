@@ -1,0 +1,26 @@
+{
+  "joints": [
+    {
+      "limb": "rear-far",
+      "transform": "matrix(0.999818, -0.0190839, 0.0190839, 0.999818, 0, 0)",
+      "origin": "61px 119px"
+    },
+    {
+      "limb": "front-far",
+      "transform": "matrix(0.999818, 0.0190839, -0.0190839, 0.999818, 0, 0)",
+      "origin": "86px 105px"
+    },
+    {
+      "limb": "rear-near",
+      "transform": "matrix(0.999818, 0.0190839, -0.0190839, 0.999818, 0, 0)",
+      "origin": "31px 112px"
+    },
+    {
+      "limb": "front-near",
+      "transform": "matrix(0.999818, -0.0190839, 0.0190839, 0.999818, 0, 0)",
+      "origin": "62px 90px"
+    }
+  ],
+  "head": "none",
+  "runningAfter": 0
+}

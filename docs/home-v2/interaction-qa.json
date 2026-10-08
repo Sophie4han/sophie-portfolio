@@ -1,0 +1,10 @@
+{
+  "hoverStable": true,
+  "drag": {
+    "number": "02 / 03",
+    "stillHome": true
+  },
+  "verticalWheel": true,
+  "swipe": "02 / 03",
+  "errors": []
+}

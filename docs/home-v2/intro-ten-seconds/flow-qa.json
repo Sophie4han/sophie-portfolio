@@ -1,0 +1,589 @@
+{
+  "1440x900-normal": {
+    "events": [
+      {
+        "ms": 10007.10000000149,
+        "stage": "navigationReady",
+        "state": "idle",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 10360.5,
+        "stage": "navigationReady",
+        "state": "crawling",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 10367.400000002235,
+        "stage": "chooniWalking",
+        "state": "crawling",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 12534.800000000745,
+        "stage": "chooniWalking",
+        "state": "arrived",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 12544.300000000745,
+        "stage": "chooniArrived",
+        "state": "arrived",
+        "button": true,
+        "overflow": "visible"
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 407,
+    "lockedScrollViolations": 0,
+    "prematureButton": 0,
+    "lockedInputs": {
+      "scroll": 0,
+      "overflow": "hidden",
+      "button": false,
+      "workInert": true
+    },
+    "programmaticPinned": true,
+    "nearDeadline": {
+      "ms": 9930.60000000149,
+      "button": false,
+      "scroll": 0,
+      "stage": "introLocked"
+    },
+    "stage": "chooniArrived",
+    "finalState": "arrived",
+    "label": "Let's explore! Let's explore!",
+    "gap": 28,
+    "height": 900,
+    "scrollHeight": 900,
+    "horizontal": false,
+    "dashes": [
+      3,
+      3
+    ],
+    "underlines": 0,
+    "htmlOverflow": "",
+    "bodyOverflow": "",
+    "workInert": false,
+    "running": 0,
+    "unlockedWheel": true,
+    "reentry": {
+      "state": "arrived",
+      "stage": "chooniArrived",
+      "button": true
+    },
+    "down": {
+      "focus": "work",
+      "scroll": 872
+    },
+    "carousel": "02 / 03",
+    "detail": "HARUBAREUN",
+    "clientReturn": {
+      "state": "arrived",
+      "stage": "chooniArrived",
+      "overflow": ""
+    },
+    "errors": []
+  },
+  "1366x768-normal": {
+    "events": [
+      {
+        "ms": 10006,
+        "stage": "navigationReady",
+        "state": "idle",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 10358,
+        "stage": "navigationReady",
+        "state": "crawling",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 10361.60000000149,
+        "stage": "chooniWalking",
+        "state": "crawling",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 12385,
+        "stage": "chooniWalking",
+        "state": "arrived",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 12393.10000000149,
+        "stage": "chooniArrived",
+        "state": "arrived",
+        "button": true,
+        "overflow": "visible"
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 743,
+    "lockedScrollViolations": 0,
+    "prematureButton": 0,
+    "lockedInputs": {
+      "scroll": 0,
+      "overflow": "hidden",
+      "button": false,
+      "workInert": true
+    },
+    "programmaticPinned": true,
+    "nearDeadline": {
+      "ms": 9901.60000000149,
+      "button": false,
+      "scroll": 0,
+      "stage": "introLocked"
+    },
+    "stage": "chooniArrived",
+    "finalState": "arrived",
+    "label": "Let's explore! Let's explore!",
+    "gap": 28,
+    "height": 768,
+    "scrollHeight": 768,
+    "horizontal": false,
+    "dashes": [
+      3,
+      3
+    ],
+    "underlines": 0,
+    "htmlOverflow": "",
+    "bodyOverflow": "",
+    "workInert": false,
+    "running": 0,
+    "unlockedWheel": true,
+    "reentry": {
+      "state": "arrived",
+      "stage": "chooniArrived",
+      "button": true
+    },
+    "down": {
+      "focus": "work",
+      "scroll": 740
+    },
+    "carousel": "02 / 03",
+    "errors": []
+  },
+  "768x1024-normal": {
+    "events": [
+      {
+        "ms": 10006.800000000745,
+        "stage": "navigationReady",
+        "state": "idle",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 10359,
+        "stage": "navigationReady",
+        "state": "crawling",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 10362.70000000298,
+        "stage": "chooniWalking",
+        "state": "crawling",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 12385.300000000745,
+        "stage": "chooniWalking",
+        "state": "arrived",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 12391.400000002235,
+        "stage": "chooniArrived",
+        "state": "arrived",
+        "button": true,
+        "overflow": "visible"
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 742,
+    "lockedScrollViolations": 0,
+    "prematureButton": 0,
+    "lockedInputs": {
+      "scroll": 0,
+      "overflow": "hidden",
+      "button": false,
+      "workInert": true
+    },
+    "programmaticPinned": true,
+    "nearDeadline": {
+      "ms": 9901.60000000149,
+      "button": false,
+      "scroll": 0,
+      "stage": "introLocked"
+    },
+    "stage": "chooniArrived",
+    "finalState": "arrived",
+    "label": "Let's explore! Let's explore!",
+    "gap": 28,
+    "height": 1024,
+    "scrollHeight": 1024,
+    "horizontal": false,
+    "dashes": [
+      3,
+      3
+    ],
+    "underlines": 0,
+    "htmlOverflow": "",
+    "bodyOverflow": "",
+    "workInert": false,
+    "running": 0,
+    "unlockedWheel": true,
+    "reentry": {
+      "state": "arrived",
+      "stage": "chooniArrived",
+      "button": true
+    },
+    "down": {
+      "focus": "work",
+      "scroll": 996
+    },
+    "carousel": "02 / 03",
+    "errors": []
+  },
+  "390x844-normal": {
+    "events": [
+      {
+        "ms": 10007,
+        "stage": "navigationReady",
+        "state": "idle",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 10360.5,
+        "stage": "navigationReady",
+        "state": "crawling",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 10365.199999999255,
+        "stage": "chooniWalking",
+        "state": "crawling",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 12382,
+        "stage": "chooniWalking",
+        "state": "arrived",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 12386.599999997765,
+        "stage": "chooniArrived",
+        "state": "arrived",
+        "button": true,
+        "overflow": "visible"
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 744,
+    "lockedScrollViolations": 0,
+    "prematureButton": 0,
+    "lockedInputs": {
+      "scroll": 0,
+      "overflow": "hidden",
+      "button": false,
+      "workInert": true
+    },
+    "programmaticPinned": true,
+    "nearDeadline": {
+      "ms": 9901.699999999255,
+      "button": false,
+      "scroll": 0,
+      "stage": "introLocked"
+    },
+    "stage": "chooniArrived",
+    "finalState": "arrived",
+    "label": "Let's explore! Let's explore!",
+    "gap": 28,
+    "height": 844,
+    "scrollHeight": 844,
+    "horizontal": false,
+    "dashes": [
+      3,
+      3
+    ],
+    "underlines": 0,
+    "htmlOverflow": "",
+    "bodyOverflow": "",
+    "workInert": false,
+    "running": 0,
+    "unlockedWheel": true,
+    "reentry": {
+      "state": "arrived",
+      "stage": "chooniArrived",
+      "button": true
+    },
+    "down": {
+      "focus": "work",
+      "scroll": 816
+    },
+    "carousel": "02 / 03",
+    "errors": []
+  },
+  "320x568-normal": {
+    "events": [
+      {
+        "ms": 10009.39999999851,
+        "stage": "navigationReady",
+        "state": "idle",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 10361.5,
+        "stage": "navigationReady",
+        "state": "crawling",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 10365,
+        "stage": "chooniWalking",
+        "state": "crawling",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 12392.199999999255,
+        "stage": "chooniWalking",
+        "state": "arrived",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 12397.199999999255,
+        "stage": "chooniArrived",
+        "state": "arrived",
+        "button": true,
+        "overflow": "visible"
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 744,
+    "lockedScrollViolations": 0,
+    "prematureButton": 0,
+    "lockedInputs": {
+      "scroll": 0,
+      "overflow": "hidden",
+      "button": false,
+      "workInert": true
+    },
+    "programmaticPinned": true,
+    "nearDeadline": {
+      "ms": 9901.800000000745,
+      "button": false,
+      "scroll": 0,
+      "stage": "introLocked"
+    },
+    "stage": "chooniArrived",
+    "finalState": "arrived",
+    "label": "Let's explore! Let's explore!",
+    "gap": 28,
+    "height": 568,
+    "scrollHeight": 568,
+    "horizontal": false,
+    "dashes": [
+      3,
+      3
+    ],
+    "underlines": 0,
+    "htmlOverflow": "",
+    "bodyOverflow": "",
+    "workInert": false,
+    "running": 0,
+    "unlockedWheel": true,
+    "reentry": {
+      "state": "arrived",
+      "stage": "chooniArrived",
+      "button": true
+    },
+    "down": {
+      "focus": "work",
+      "scroll": 540
+    },
+    "carousel": "02 / 03",
+    "errors": []
+  },
+  "390x844-reduced": {
+    "events": [
+      {
+        "ms": 10011.29999999702,
+        "stage": "navigationReady",
+        "state": "arrived",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 10017.199999999255,
+        "stage": "chooniArrived",
+        "state": "arrived",
+        "button": true,
+        "overflow": "visible"
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 744,
+    "lockedScrollViolations": 0,
+    "prematureButton": 0,
+    "lockedInputs": {
+      "scroll": 0,
+      "overflow": "hidden",
+      "button": false,
+      "workInert": true
+    },
+    "programmaticPinned": true,
+    "nearDeadline": {
+      "ms": 9900.39999999851,
+      "button": false,
+      "scroll": 0,
+      "stage": "introLocked"
+    },
+    "stage": "chooniArrived",
+    "finalState": "arrived",
+    "label": "Let's explore! Let's explore!",
+    "gap": 28,
+    "height": 844,
+    "scrollHeight": 844,
+    "horizontal": false,
+    "dashes": [
+      3,
+      3
+    ],
+    "underlines": 0,
+    "htmlOverflow": "",
+    "bodyOverflow": "",
+    "workInert": false,
+    "running": 0,
+    "unlockedWheel": true,
+    "reentry": {
+      "state": "arrived",
+      "stage": "chooniArrived",
+      "button": true
+    },
+    "down": {
+      "focus": "work",
+      "scroll": 816
+    },
+    "carousel": "02 / 03",
+    "errors": []
+  },
+  "390x844-mid": {
+    "events": [
+      {
+        "ms": 10006.699999999255,
+        "stage": "navigationReady",
+        "state": "idle",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 10359.5,
+        "stage": "navigationReady",
+        "state": "crawling",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 10363.800000000745,
+        "stage": "chooniWalking",
+        "state": "crawling",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 10774.300000000745,
+        "stage": "chooniWalking",
+        "state": "arrived",
+        "button": true,
+        "overflow": "visible"
+      },
+      {
+        "ms": 10778.699999999255,
+        "stage": "chooniArrived",
+        "state": "arrived",
+        "button": true,
+        "overflow": "visible"
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 743,
+    "lockedScrollViolations": 0,
+    "prematureButton": 0,
+    "lockedInputs": {
+      "scroll": 0,
+      "overflow": "hidden",
+      "button": false,
+      "workInert": true
+    },
+    "programmaticPinned": true,
+    "nearDeadline": {
+      "ms": 9901.599999997765,
+      "button": false,
+      "scroll": 0,
+      "stage": "introLocked"
+    },
+    "stage": "chooniArrived",
+    "finalState": "arrived",
+    "label": "Let's explore! Let's explore!",
+    "gap": 28,
+    "height": 844,
+    "scrollHeight": 844,
+    "horizontal": false,
+    "dashes": [
+      3,
+      3
+    ],
+    "underlines": 0,
+    "htmlOverflow": "",
+    "bodyOverflow": "",
+    "workInert": false,
+    "running": 0,
+    "unlockedWheel": true,
+    "reentry": {
+      "state": "arrived",
+      "stage": "chooniArrived",
+      "button": true
+    },
+    "down": {
+      "focus": "work",
+      "scroll": 816
+    },
+    "carousel": "02 / 03",
+    "errors": []
+  },
+  "1440-cleanup": {
+    "detail": true,
+    "lockMarker": false,
+    "htmlOverflow": "",
+    "bodyOverflow": "",
+    "errors": []
+  }
+}

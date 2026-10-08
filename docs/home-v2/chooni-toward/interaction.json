@@ -1,0 +1,524 @@
+{
+  "1440x900-normal": {
+    "events": [
+      {
+        "t": 2140.699999999255,
+        "state": "idle",
+        "hello": "true",
+        "button": false
+      },
+      {
+        "t": 2449.699999999255,
+        "state": "idle",
+        "blink": "true",
+        "hello": "true",
+        "button": false
+      },
+      {
+        "t": 3242.0999999996275,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 30442.89999999851,
+        "state": "idle",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 30794.199999999255,
+        "state": "crawling",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 32622.799999998882,
+        "state": "arrived",
+        "blink": "true",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 2039,
+    "initial": {
+      "x": 0,
+      "y": 0,
+      "width": 60,
+      "height": 70,
+      "top": 0,
+      "right": 60,
+      "bottom": 70,
+      "left": 0
+    },
+    "hoverSmile": "1",
+    "helloVisible": true,
+    "helloHiddenWhileHover": true,
+    "joints": [
+      {
+        "limb": "rear-far",
+        "transform": "matrix(0.999705, 0.0243083, -0.0243083, 0.999705, 0, 0)",
+        "origin": "61px 119px"
+      },
+      {
+        "limb": "front-far",
+        "transform": "matrix(0.999913, 0.0132012, -0.0132012, 0.999913, 0, 0)",
+        "origin": "86px 105px"
+      },
+      {
+        "limb": "rear-near",
+        "transform": "matrix(0.999913, 0.0132012, -0.0132012, 0.999913, 0, 0)",
+        "origin": "31px 112px"
+      },
+      {
+        "limb": "front-near",
+        "transform": "matrix(0.999705, 0.0243083, -0.0243083, 0.999705, 0, 0)",
+        "origin": "62px 90px"
+      }
+    ],
+    "headTransform": "none",
+    "finalState": "arrived",
+    "button": true,
+    "gap": 28,
+    "height": 900,
+    "scrollHeight": 900,
+    "animationCount": 0,
+    "errors": []
+  },
+  "1366x768-normal": {
+    "events": [
+      {
+        "t": 747.4000000003725,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 2027.9000000003725,
+        "state": "idle",
+        "blink": "true",
+        "hello": "true",
+        "button": false
+      },
+      {
+        "t": 3128.300000000745,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 28745.300000000745,
+        "state": "idle",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 29096.400000000373,
+        "state": "crawling",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 30926.400000000373,
+        "state": "arrived",
+        "blink": "true",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 1956,
+    "initial": {
+      "x": 881.0515747070312,
+      "y": 122.328125,
+      "width": 60,
+      "height": 70,
+      "top": 122.328125,
+      "right": 941.0515747070312,
+      "bottom": 192.328125,
+      "left": 881.0515747070312
+    },
+    "safe": "true",
+    "hoverSmile": "1",
+    "helloVisible": true,
+    "helloHiddenWhileHover": true,
+    "joints": [
+      {
+        "limb": "rear-far",
+        "transform": "matrix(0.999704, 0.0243129, -0.0243129, 0.999704, 0, 0)",
+        "origin": "61px 119px"
+      },
+      {
+        "limb": "front-far",
+        "transform": "matrix(0.999913, 0.0131951, -0.0131951, 0.999913, 0, 0)",
+        "origin": "86px 105px"
+      },
+      {
+        "limb": "rear-near",
+        "transform": "matrix(0.999913, 0.0131951, -0.0131951, 0.999913, 0, 0)",
+        "origin": "31px 112px"
+      },
+      {
+        "limb": "front-near",
+        "transform": "matrix(0.999704, 0.0243129, -0.0243129, 0.999704, 0, 0)",
+        "origin": "62px 90px"
+      }
+    ],
+    "headTransform": "none",
+    "finalState": "arrived",
+    "button": true,
+    "gap": 28,
+    "height": 768,
+    "scrollHeight": 768,
+    "animationCount": 0,
+    "errors": []
+  },
+  "768x1024-normal": {
+    "events": [
+      {
+        "t": 2625.5999999996275,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 30625.599999999627,
+        "state": "idle",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 30977.199999999255,
+        "state": "crawling",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 32796.59999999963,
+        "state": "arrived",
+        "blink": "true",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 2053,
+    "initial": {
+      "x": 0,
+      "y": 0,
+      "width": 44,
+      "height": 51.328125,
+      "top": 0,
+      "right": 44,
+      "bottom": 51.328125,
+      "left": 0
+    },
+    "joints": [
+      {
+        "limb": "rear-far",
+        "transform": "matrix(0.999705, 0.0242903, -0.0242903, 0.999705, 0, 0)",
+        "origin": "61px 119px"
+      },
+      {
+        "limb": "front-far",
+        "transform": "matrix(0.999913, 0.0132245, -0.0132245, 0.999913, 0, 0)",
+        "origin": "86px 105px"
+      },
+      {
+        "limb": "rear-near",
+        "transform": "matrix(0.999913, 0.0132245, -0.0132245, 0.999913, 0, 0)",
+        "origin": "31px 112px"
+      },
+      {
+        "limb": "front-near",
+        "transform": "matrix(0.999705, 0.0242903, -0.0242903, 0.999705, 0, 0)",
+        "origin": "62px 90px"
+      }
+    ],
+    "headTransform": "none",
+    "finalState": "arrived",
+    "button": true,
+    "gap": 28,
+    "height": 1024,
+    "scrollHeight": 1024,
+    "animationCount": 0,
+    "errors": []
+  },
+  "390x844-normal": {
+    "events": [
+      {
+        "t": 2753.9000000003725,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 30753.099999999627,
+        "state": "idle",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 31103.900000000373,
+        "state": "crawling",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 32935.300000000745,
+        "state": "arrived",
+        "blink": "true",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 2071,
+    "initial": {
+      "x": 0,
+      "y": 0,
+      "width": 22,
+      "height": 25.65625,
+      "top": 0,
+      "right": 22,
+      "bottom": 25.65625,
+      "left": 0
+    },
+    "joints": [
+      {
+        "limb": "rear-far",
+        "transform": "matrix(0.999705, 0.024299, -0.024299, 0.999705, 0, 0)",
+        "origin": "61px 119px"
+      },
+      {
+        "limb": "front-far",
+        "transform": "matrix(0.999913, 0.0132132, -0.0132132, 0.999913, 0, 0)",
+        "origin": "86px 105px"
+      },
+      {
+        "limb": "rear-near",
+        "transform": "matrix(0.999913, 0.0132132, -0.0132132, 0.999913, 0, 0)",
+        "origin": "31px 112px"
+      },
+      {
+        "limb": "front-near",
+        "transform": "matrix(0.999705, 0.024299, -0.024299, 0.999705, 0, 0)",
+        "origin": "62px 90px"
+      }
+    ],
+    "headTransform": "none",
+    "finalState": "arrived",
+    "button": true,
+    "gap": 28,
+    "height": 844,
+    "scrollHeight": 844,
+    "animationCount": 0,
+    "errors": []
+  },
+  "320x568-normal": {
+    "events": [
+      {
+        "t": 2769.800000000745,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 30770,
+        "state": "idle",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 31120.800000000745,
+        "state": "crawling",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 32947.300000000745,
+        "state": "arrived",
+        "blink": "true",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 2008,
+    "initial": {
+      "x": 0,
+      "y": 0,
+      "width": 18,
+      "height": 21,
+      "top": 0,
+      "right": 18,
+      "bottom": 21,
+      "left": 0
+    },
+    "joints": [
+      {
+        "limb": "rear-far",
+        "transform": "matrix(0.999705, 0.0242891, -0.0242891, 0.999705, 0, 0)",
+        "origin": "61px 119px"
+      },
+      {
+        "limb": "front-far",
+        "transform": "matrix(0.999913, 0.013226, -0.013226, 0.999913, 0, 0)",
+        "origin": "86px 105px"
+      },
+      {
+        "limb": "rear-near",
+        "transform": "matrix(0.999913, 0.013226, -0.013226, 0.999913, 0, 0)",
+        "origin": "31px 112px"
+      },
+      {
+        "limb": "front-near",
+        "transform": "matrix(0.999705, 0.0242891, -0.0242891, 0.999705, 0, 0)",
+        "origin": "62px 90px"
+      }
+    ],
+    "headTransform": "none",
+    "finalState": "arrived",
+    "button": true,
+    "gap": 28,
+    "height": 568,
+    "scrollHeight": 568,
+    "animationCount": 0,
+    "errors": []
+  },
+  "390x844-early": {
+    "events": [
+      {
+        "t": 2008.4000000003725,
+        "state": "idle",
+        "button": false
+      },
+      {
+        "t": 31008.5,
+        "state": "idle",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 1991,
+    "initial": {
+      "x": 0,
+      "y": 0,
+      "width": 22,
+      "height": 25.65625,
+      "top": 0,
+      "right": 22,
+      "bottom": 25.65625,
+      "left": 0
+    },
+    "finalState": "idle",
+    "button": true,
+    "gap": -136.4390640258789,
+    "height": 844,
+    "scrollHeight": 844,
+    "animationCount": 0,
+    "errors": []
+  },
+  "1440x900-mid": {
+    "events": [
+      {
+        "t": 3367.4000000003725,
+        "state": "idle",
+        "blink": "true",
+        "button": false
+      },
+      {
+        "t": 31366.200000001118,
+        "state": "idle",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 31718,
+        "state": "crawling",
+        "blink": "true",
+        "button": true
+      },
+      {
+        "t": 32228.599999999627,
+        "state": "idle",
+        "blink": "true",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 2000,
+    "initial": {
+      "x": 0,
+      "y": 0,
+      "width": 60,
+      "height": 70,
+      "top": 0,
+      "right": 60,
+      "bottom": 70,
+      "left": 0
+    },
+    "joints": [
+      {
+        "limb": "rear-far",
+        "transform": "matrix(0.999704, 0.0243196, -0.0243196, 0.999704, 0, 0)",
+        "origin": "61px 119px"
+      },
+      {
+        "limb": "front-far",
+        "transform": "matrix(0.999913, 0.0131865, -0.0131865, 0.999913, 0, 0)",
+        "origin": "86px 105px"
+      },
+      {
+        "limb": "rear-near",
+        "transform": "matrix(0.999913, 0.0131865, -0.0131865, 0.999913, 0, 0)",
+        "origin": "31px 112px"
+      },
+      {
+        "limb": "front-near",
+        "transform": "matrix(0.999704, 0.0243196, -0.0243196, 0.999704, 0, 0)",
+        "origin": "62px 90px"
+      }
+    ],
+    "headTransform": "none",
+    "finalState": "idle",
+    "button": true,
+    "gap": 175.16717529296875,
+    "height": 900,
+    "scrollHeight": 900,
+    "animationCount": 0,
+    "errors": []
+  },
+  "390x844-reduced": {
+    "events": [
+      {
+        "t": 30754.700000001118,
+        "state": "idle",
+        "button": true
+      }
+    ],
+    "collisions": 0,
+    "outside": 0,
+    "frames": 2095,
+    "initial": {
+      "x": 0,
+      "y": 0,
+      "width": 22,
+      "height": 25.65625,
+      "top": 0,
+      "right": 22,
+      "bottom": 25.65625,
+      "left": 0
+    },
+    "finalState": "idle",
+    "button": true,
+    "gap": -136.4390640258789,
+    "height": 844,
+    "scrollHeight": 844,
+    "animationCount": 0,
+    "errors": []
+  }
+}

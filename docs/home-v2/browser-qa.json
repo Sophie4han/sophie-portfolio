@@ -1,0 +1,43 @@
+{
+  "320": {
+    "overflow": false,
+    "h1": "I started\nwith \ndesign\ndesign\n,\nthen kept moving toward\nthe \nquestions\nquestions\n behind it.",
+    "links": 3
+  },
+  "390": {
+    "overflow": false,
+    "h1": "I started\nwith \ndesign\ndesign\n,\nthen kept moving toward\nthe \nquestions\nquestions\n behind it.",
+    "links": 3
+  },
+  "768": {
+    "overflow": false,
+    "h1": "I started with \ndesign\ndesign\n,\nthen kept moving toward\nthe \nquestions\nquestions\n behind it.",
+    "links": 3
+  },
+  "1440": {
+    "overflow": false,
+    "h1": "I started with \ndesign\ndesign\n,\nthen kept moving toward\nthe \nquestions\nquestions\n behind it.",
+    "links": 3
+  },
+  "down": {
+    "focused": "work",
+    "top": 27.859375
+  },
+  "next": "02 / 03",
+  "keyboard": "03 / 03",
+  "reduced": "none",
+  "harubareun": {
+    "heading": "HARUBAREUN",
+    "home": true
+  },
+  "project-02": {
+    "heading": "From Expertise to Marketable Product",
+    "home": true
+  },
+  "fitmate": {
+    "heading": "운동 메이트와 함께 기록하고,경쟁하고, 성장하는 피트니스 앱",
+    "home": true
+  },
+  "returnHome": true,
+  "errors": []
+}
