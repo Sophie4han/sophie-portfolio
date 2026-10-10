@@ -1,184 +1,86 @@
 "use client";
 
 import Image from "next/image";
-import type { ReactNode } from "react";
-import { useRef, useState } from "react";
-import { INVADER_PROJECT, type InvaderSectionId } from "@/lib/invader-project";
-import { loadDetailSection, saveDetailSection } from "@/lib/scene-persistence";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { TransitionRuntimeState } from "@/types/transition";
-import styles from "./harubareun-project-detail.module.css";
-import navigation from "./project-detail-navigation.module.css";
 import invader from "./invader-project-detail.module.css";
-import { useReadingFocus } from "./use-reading-focus";
-import { useDetailNavigationScroll } from "./use-detail-navigation-scroll";
 
-interface InvaderProjectDetailProps {
-  transition: TransitionRuntimeState;
-  onBackToFocus: () => void;
-  onBackToWorld: () => void;
-}
-
-export function InvaderProjectDetail({ transition, onBackToFocus, onBackToWorld }: InvaderProjectDetailProps) {
-  const sectionIds = INVADER_PROJECT.sections.map((section) => section.id);
-  const [activeSection, setActiveSection] = useState<InvaderSectionId | null>(() =>
-    loadDetailSection("project-02", sectionIds),
-  );
-  const section = INVADER_PROJECT.sections.find((item) => item.id === activeSection);
-  const detailSceneRef = useReadingFocus<HTMLElement>(activeSection, styles.isReading);
-  useDetailNavigationScroll(activeSection, detailSceneRef);
-  const disabled = transition.phase !== "idle";
-  const selectSection = (sectionId: InvaderSectionId | null) => {
-    setActiveSection(sectionId);
-    saveDetailSection("project-02", sectionId);
-  };
-
-  return (
-    <main ref={detailSceneRef} className={styles.detailScene} data-transition-phase={transition.phase} aria-labelledby="invader-detail-title">
-      <div className={`${styles.atmosphere} ${invader.atmosphere}`} aria-hidden="true">
-        <Image src="/images/pixel/world/shared/world-background-floating-v02.png" alt="" fill priority sizes="100vw" className={styles.atmosphereBackground} />
-        <div className={styles.atmosphereIslandWrap}>
-          <Image src="/images/pixel/world/islands/invader/island-invader-base.png" alt="" width={1920} height={1080} priority sizes="min(78vw, 1180px)" className={styles.atmosphereIsland} />
-        </div>
-      </div>
-
-      <header className={navigation.header}>
-        <nav className={`${navigation.actions} ${invader.navigationActions}`} aria-label="Project navigation">
-          <button type="button" disabled={disabled} onClick={onBackToFocus} aria-label="Back to INVADER Focus">← BACK TO FOCUS</button>
-          <button type="button" disabled={disabled} onClick={onBackToWorld}>WORLD</button>
-        </nav>
-        <span>INVADER / PROJECT DETAIL</span>
-      </header>
-
-      <div className={styles.detailContent}>
-        {section ? (
-          <section className={`${styles.strategyDetail} ${section.id === "value" ? invader.planningDetail : section.id === "experience" ? invader.liveDetail : section.id === "signal" ? invader.operationDetail : invader.performanceDetail}`} aria-labelledby="invader-detail-title">
-            <button type="button" className={styles.summaryReturn} onClick={() => selectSection(null)}>← PROJECT SUMMARY</button>
-            <div className={styles.strategyHeading}>
-              <span className={styles.eyebrow}>{section.number}</span>
-              <h1 id="invader-detail-title">{section.title}</h1>
-            </div>
-            <h2 className={section.id === "value" ? `${styles.productLead} ${invader.valueTitle}` : section.id === "experience" ? `${styles.productLead} ${invader.experienceTitle}` : section.id === "signal" ? `${styles.productLead} ${invader.operationTitle}` : `${styles.productLead} ${invader.performanceTitle}`}>{section.summary}</h2>
-            {section.id === "value" && <ProductValueBody />}
-            {section.id === "experience" && <PurchaseExperienceBody />}
-            {section.id === "signal" && <FunnelSignalBody />}
-            {section.id === "performance" && <PerformanceBody />}
-          </section>
-        ) : (
-          <InvaderSummary onSelectSection={selectSection} />
-        )}
-      </div>
-    </main>
-  );
-}
-
-const lectures = [
-  { category: "AIRBNB / HOSPITALITY", name: "월세여왕 리나쌤", image: "/images/projects/invader/summary/rina-airbnb.jpg" },
-  { category: "AI YOUTUBE", name: "유부녀들", image: "/images/projects/invader/summary/yubunyeodeul-ai-youtube.jpg" },
-  { category: "BRAND COMMERCE", name: "파이어스 김준서", image: "/images/projects/invader/summary/fires-brand-commerce.png" },
+const styles = invader;
+const flow = [
+  ["context", "EXPERTISE", "경험과 고객의 간극"], ["value", "PRODUCT", "구매할 이유 정의"],
+  ["offer", "CONTENT", "이해와 설득의 순서"], ["funnel", "CONVERSION", "신청에서 결제까지"],
+  ["operation", "OPERATION", "수강 시작까지"], ["signal", "TRACKING", "단계별 반응 확인"],
 ] as const;
-
-function InvaderSchoolLogo() {
-  return <Image className={invader.schoolLogo} src="/images/projects/invader/summary/invader-school-logo-white.png" alt="인베이더스쿨" width={2069} height={555} priority />;
+const lectures = [
+  ["월세여왕 리나쌤", "rina-airbnb.jpg", "HOSPITALITY"],
+  ["유부녀들", "yubunyeodeul-ai-youtube.jpg", "AI YOUTUBE"],
+  ["파이어스 김준서", "fires-brand-commerce.png", "BRAND COMMERCE"],
+] as const;
+interface InvaderProjectDetailProps {
+  transition?: TransitionRuntimeState;
+  onBackToFocus?: () => void;
+  onBackToWorld?: () => void;
 }
-
-function InvaderSummary({ onSelectSection }: { onSelectSection: (sectionId: InvaderSectionId) => void }) {
-  const [activeLecture, setActiveLecture] = useState(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
-
-  const moveTo = (nextIndex: number) => {
-    const index = (nextIndex + lectures.length) % lectures.length;
-    setActiveLecture(index);
-    carouselRef.current?.children[index]?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-  };
-
-  const updateActiveFromScroll = () => {
-    const track = carouselRef.current;
-    if (!track) return;
-    const center = track.scrollLeft + track.clientWidth / 2;
-    const cards = Array.from(track.children) as HTMLElement[];
-    const nearest = cards.reduce((best, card, index) => {
-      const distance = Math.abs(card.offsetLeft + card.offsetWidth / 2 - center);
-      return distance < best.distance ? { index, distance } : best;
-    }, { index: activeLecture, distance: Number.POSITIVE_INFINITY });
-    setActiveLecture(nearest.index);
-  };
-
-  return (
-    <div className={invader.summary}>
-      <section className={invader.summaryHero} aria-labelledby="invader-detail-title">
-        <div className={invader.heroBrand}>
-          <InvaderSchoolLogo />
-          <span className={styles.eyebrow}>INVADER SCHOOL · EDUCATION PRODUCT</span>
-        </div>
-        <div className={invader.heroHeadline}>
-          <h1 id="invader-detail-title">From Expertise to Marketable Product</h1>
-        </div>
-        <div className={invader.heroDivider} aria-hidden="true" />
-
-        <div className={invader.heroColumns}>
-          <div className={invader.heroCopy}>
-          <div className={invader.role}>Education Product PM · Planning &amp; Operations</div>
-          <p className={`${invader.oneLineSummary} ${styles.bodyCopy}`} data-reading-focus>강사의 전문성을 고객이 구매할 수 있는 교육 Product로 구체화하고, 기획부터 무료강의·CRM·Live Sales·본강의 전환까지 Product Funnel을 운영했습니다.</p>
-          <div className={invader.introCopy}>
-            <p className={styles.bodyCopy} data-reading-focus>강사가 가진 경력과 노하우가 그대로 상품이 되는 것은 아니었습니다. 기획 미팅을 통해 강사의 실제 경쟁력과 고객에게 전달할 핵심 가치를 정리하고, 이를 무료강의와 상세페이지의 세일즈 메시지로 구체화했습니다.</p>
-            <p className={styles.bodyCopy} data-reading-focus>이후 리허설을 통해 고객이 궁금해하거나 망설일 지점을 점검하고, CRM·Live Sales·수강생 온보딩까지 이어지는 운영 플로우를 관리했습니다. 강의 이후에는 신청자·시청자·결제자 등 주요 전환 지표를 동일한 기준으로 트래킹했습니다.</p>
-          </div>
-          </div>
-
-          <div className={invader.carouselColumn}>
-          <div className={invader.carousel} ref={carouselRef} onScroll={updateActiveFromScroll} tabIndex={0} role="region" aria-label="강의 사례 carousel" onKeyDown={(event) => {
-            if (event.key === "ArrowLeft") { event.preventDefault(); moveTo(activeLecture - 1); }
-            if (event.key === "ArrowRight") { event.preventDefault(); moveTo(activeLecture + 1); }
-          }}>
-            {lectures.map((lecture, index) => (
-              <figure className={invader.lectureCard} data-active={activeLecture === index} key={lecture.name}>
-                <Image src={lecture.image} alt={`${lecture.name} 강의 썸네일`} width={1200} height={775} sizes="(max-width: 760px) 78vw, 430px" priority={index === 0} />
-                <figcaption><span>{lecture.category}</span><strong>{lecture.name}</strong></figcaption>
-              </figure>
-            ))}
-          </div>
-          <div className={invader.carouselControls}>
-            <button type="button" onClick={() => moveTo(activeLecture - 1)} aria-label="이전 강의">←</button>
-            <span>{String(activeLecture + 1).padStart(2, "0")} / 03</span>
-            <button type="button" onClick={() => moveTo(activeLecture + 1)} aria-label="다음 강의">→</button>
-          </div>
-          <p className={invader.carouselStatement}><strong>Multiple Categories, One Product Framework</strong><span>서로 다른 강사와 시장을 하나의 교육상품 기획·운영 구조로 연결했습니다.</span></p>
-          </div>
-        </div>
-      </section>
-
-      <section className={`${invader.summarySection} ${invader.challengeSection}`} aria-labelledby="invader-challenge-title">
-        <span className={styles.eyebrow}>CHALLENGE</span>
-        <h2 id="invader-challenge-title">전문성을 가진 강사를<br />‘구매할 이유가 있는 Product’로 만드는 것.</h2>
-        <p className={`${invader.sectionIntro} ${styles.bodyCopy}`} data-reading-focus>같은 교육상품이라도 강사의 강점, 시장, 고객의 우려는 모두 달랐습니다. 새로운 상품에서는 강사의 핵심 경쟁력을 발견하고, 기존 상품에서는 고객이 이해하지 못하거나 망설이는 지점을 다시 정리해야 했습니다.</p>
-        <div className={invader.challengeGrid}>
-          <article><span>01 / NEW PRODUCT</span><h3>강사의 실제 경쟁력을 어떻게 발견하고<br />고객이 이해하는 구매 이유로 만들 것인가?</h3><p>Expertise → USP → Product Message</p></article>
-          <article><span>02 / EXISTING PRODUCT</span><h3>이미 존재하는 강의에서<br />고객이 망설이는 지점을 무엇부터 다시 설계할 것인가?</h3><p>Customer Objection → Content Revision → Sales Flow</p></article>
-        </div>
-      </section>
-
-      <section className={invader.summarySection} aria-labelledby="invader-product-flow-title">
-        <span className={styles.eyebrow}>PRODUCT FLOW</span>
-        <h2 id="invader-product-flow-title" className={invader.visuallyHidden}>교육 상품 기획과 운영 흐름</h2>
-        <ol className={invader.productFlow}>
-          {[["EXPERTISE", "강사의 경험과 성과"], ["PRODUCT", "상품 아이템 · USP"], ["CONTENT", "상세페이지 · 무료강의"], ["CONVERSION", "CRM · LIVE SALES"], ["OPERATION", "결제 · 수강생 온보딩"], ["TRACKING", "신청 · 시청 · 결제 지표"]].map(([title, copy]) => <li key={title}><i aria-hidden="true" /><strong>{title}</strong><span>{copy}</span></li>)}
-        </ol>
-      </section>
-
-      <section className={invader.summarySection} aria-labelledby="invader-scope-title">
-        <span className={styles.eyebrow}>MY SCOPE</span>
-        <h2 id="invader-scope-title" className={invader.visuallyHidden}>프로젝트 담당 범위</h2>
-        <div className={invader.scopeGrid}>
-          {[["Product Planning", "강사 분석 · 아이템 정리 · 핵심 메시지 기획"], ["Sales Content", "상세페이지 · 무료강의 구성 · 리허설 피드백"], ["CRM & Live Operation", "문자 · 채널톡 · 오픈톡 · 라이브 세일즈 운영"], ["Performance Tracking", "신청 · 톡방 입장 · 시청 · 결제 데이터 관리"]].map(([title, copy], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p className={styles.bodyCopy} data-reading-focus>{copy}</p></article>)}
-        </div>
-      </section>
-
-      <nav className={styles.exploration} aria-label="INVADER detailed sections">
-        <div className={styles.explorationHeader}>EXPLORE THE PROJECT</div>
-        <div className={styles.sectionList}>{INVADER_PROJECT.sections.map((item) => <button type="button" key={item.id} className={styles.sectionItem} onClick={() => onSelectSection(item.id)}><span className={styles.sectionNumber}>{item.number}</span><span className={styles.sectionCopy}><strong>{item.title}</strong><span>{item.summary}</span></span><span className={styles.sectionArrow} aria-hidden="true">↗</span></button>)}</div>
-      </nav>
+function Chapter({ id, label, title, children, stage }: { id:string; label:string; title:string; children:ReactNode; stage?:string }) {
+  return <section id={id} className={invader.chapter} data-chapter data-flow-stage={stage} aria-labelledby={`${id}-title`}>
+    <header className={invader.chapterHeading}><span className={invader.eyebrow}>{label}</span><h2 id={`${id}-title`}>{title}</h2></header>{children}
+  </section>;
+}
+export function InvaderProjectDetail({ transition }: InvaderProjectDetailProps = {}) {
+  const root = useRef<HTMLElement>(null);
+  const [active, setActive] = useState("context");
+  useEffect(() => {
+    const node = root.current;
+    if (!node) return;
+    const targets = node.querySelectorAll<HTMLElement>("[data-chapter], [data-flow-stage], [data-metric]");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.setAttribute("data-seen", "true");
+          const stage = (entry.target as HTMLElement).dataset.flowStage;
+          if (stage) setActive(stage);
+        }
+        if (entry.target.hasAttribute("data-metric")) entry.target.setAttribute("data-active", String(entry.isIntersecting));
+      });
+    }, { rootMargin:"-15% 0px -35% 0px", threshold:0 });
+    targets.forEach(target => observer.observe(target));
+    return () => observer.disconnect();
+  }, []);
+  return <main ref={root} className={invader.page} data-transition-phase={transition?.phase} aria-labelledby="invader-detail-title">
+    <header className={invader.hero}>
+      <span className={invader.eyebrow}>INVADER SCHOOL / EDUCATION PRODUCT PM</span>
+      <h1 id="invader-detail-title">Turning expertise into a<br /><em>repeatable</em><br />product funnel.</h1>
+      <div className={invader.heroNote}><span>VALUE → OFFER → FUNNEL</span><p>강사의 전문성을 교육상품으로 구체화하고, 고객의 신청부터 수강 시작까지 운영했습니다. 회차가 끝나면 단계별 반응을 확인해 다음 기획에 반영했습니다.</p></div>
+      <dl className={invader.facts}><div><dt>MY ROLE</dt><dd>Education Product PM</dd></div><div><dt>SCOPE</dt><dd>상품 기획 · Sales Content · CRM<br />Live 운영 · Performance Tracking</dd></div><div><dt>WORKING UNIT</dt><dd>강의 한 번보다,<br />다음 회차에 다시 쓸 수 있는 흐름</dd></div></dl>
+    </header>
+    <div className={invader.flowRail} aria-label="Education product flow">{flow.map(([id,label,copy],index)=><a key={id} href={`#${id}`} aria-current={active===id?"step":undefined}><small>{String(index+1).padStart(2,"0")}</small><strong>{label}</strong><span>{copy}</span></a>)}</div>
+    <div className={invader.content}>
+      <Chapter id="context" label="01 / CONTEXT" title="강사가 잘하는 것과 고객이 사고 싶은 것은 같지 않았습니다." stage="context">
+        <p>새로운 상품에서는 강사의 핵심 경쟁력을 찾아야 했고, 기존 상품에서는 고객이 이해하지 못하거나 망설이는 지점을 다시 정리해야 했습니다. 같은 교육상품이라도 강사의 경험과 시장, 고객의 우려는 달랐습니다.</p>
+        <div className={invader.lectureStrip}>{lectures.map(([name,file,category])=><figure key={name}><Image src={`/images/projects/invader/summary/${file}`} alt={`${name} 교육상품 썸네일`} width={1200} height={775} sizes="(max-width:760px) 85vw, 30vw" /><figcaption><span>{category}</span><strong>{name}</strong></figcaption></figure>)}</div>
+        <div className={invader.scopeGrid}>{[["Product Planning","강사 분석 · 아이템 정리 · 핵심 메시지 기획"],["Sales Content","상세페이지 · 무료강의 구성 · 리허설 피드백"],["CRM & Live","문자 · 채널톡 · 오픈톡 · 라이브 세일즈 운영"],["Tracking","신청 · 톡방 입장 · 시청 · 결제 데이터 관리"]].map(([title,copy])=><div key={title}><h3>{title}</h3><p>{copy}</p></div>)}</div>
+      </Chapter>
+      <Chapter id="value" label="02 / DEFINE THE VALUE" title="무엇을 가르치는지가 아니라, 왜 이 사람에게 배워야 하는지를 정리했습니다." stage="value">
+        <p className={invader.note}>아래 판매 성과와 경력은 강사의 전문성을 검토한 자료입니다. 제 개인 매출이나 프로젝트 성과와 구분합니다.</p>
+        <ProductValueBody />
+      </Chapter>
+      <Chapter id="offer" label="03 / BUILD THE OFFER" title="고객이 결제하기 전에 무엇을 먼저 이해해야 하는지 순서를 다시 짰습니다." stage="offer"><PurchaseExperienceBody /></Chapter>
+      <Chapter id="funnel" label="04 / OPERATE THE FUNNEL" title="신청부터 수강 시작까지, 고객이 끊기지 않도록 운영했습니다." stage="funnel"><FunnelSignalBody /></Chapter>
+      <Chapter id="signal" label="05 / READ THE SIGNAL" title="결과 하나보다, 고객이 어디에서 멈췄는지를 봤습니다." stage="signal"><PerformanceBody /></Chapter>
+      <Chapter id="iterate" label="06 / ITERATE" title="성과는 보고서가 아니라 다음 Product의 Brief가 되었습니다." stage="signal"><IterationBody /></Chapter>
+      <Chapter id="result" label="07 / RESULT" title="다음 회차에도 사용할 수 있는 기획·운영 기준을 남겼습니다." stage="signal">
+        <p>강사 분석, 무료강의 구성, CRM, 라이브 운영과 온보딩을 하나의 흐름으로 관리했습니다. 신청·시청·결제·잔존을 같은 기준으로 기록해 회차별로 비교할 수 있게 했습니다.</p>
+        <div className={invader.resultLine}><span>PLANNING</span><b>→</b><span>OPERATION</span><b>→</b><span>TRACKING</span><b>→</b><span>NEXT BRIEF</span></div>
+        <p>FIRES와 RINA의 LIVE 시청 대비 결제 전환은 각각 11.3%, 5.7%였습니다. 이 차이를 LIVE 내부의 설득 구조와 Closing을 점검할 단서로 삼았으며, 서로 다른 상품의 차이를 특정 수정의 효과로 단정하지 않았습니다.</p>
+        <p className={invader.note}>위 수치는 회차별 운영 기록입니다. 개선 전후의 동일 조건 비교나 인과효과를 뜻하지 않습니다.</p>
+      </Chapter>
+      <Chapter id="reflection" label="08 / REFLECTION" title="운영을 마친 뒤에야, 다음 기획에서 물어야 할 질문이 보였습니다.">
+        <p>강사의 경험을 빠짐없이 설명하는 것과 고객이 구매 이유를 이해하는 것은 달랐습니다. 리허설에서는 정보량을 늘리기보다 고객의 질문이 해소되는 순서를 먼저 확인했습니다.</p>
+        <p>결제 전환이 다를 때도 모객 규모만으로 판단하지 않았습니다. 어느 단계에서 흐름이 달라졌는지 확인하고, 그 단계의 메시지·콘텐츠·운영을 다음 회차에서 다시 점검하는 방식으로 일했습니다.</p>
+      </Chapter>
     </div>
-  );
+    <footer className={invader.marquee} aria-label="Thanks for reading!"><div aria-hidden="true">{[0,1].map(group=><span key={group}>{[0,1,2,3].map(item=><span key={item}>Thanks for <em>reading!</em> <b>♥</b></span>)}</span>)}</div></footer>
+  </main>;
 }
 
 function ProductValueBody() {
@@ -352,8 +254,8 @@ function PurchaseExperienceBody() {
   );
 }
 
-function LiveBlock({ label, title, children }: { label: string; title: ReactNode; children: ReactNode }) {
-  return <section className={invader.liveBlock}><span className={styles.eyebrow}>{label}</span><h3>{title}</h3>{children}</section>;
+function LiveBlock({ label, title, children, id, stage }: { label: string; title: ReactNode; children: ReactNode; id?:string; stage?:string }) {
+  return <section id={id} data-flow-stage={stage} className={invader.liveBlock}><span className={styles.eyebrow}>{label}</span><h3>{title}</h3>{children}</section>;
 }
 
 function ProcessDiagram({ items, label, vertical = false }: { items: readonly (readonly [string, string])[]; label: string; vertical?: boolean }) {
@@ -401,7 +303,7 @@ function FunnelSignalBody() {
         </div>
       </LiveBlock>
 
-      <LiveBlock label="03 / POST-LIVE OPERATION" title={<>무료강의 종료 후에도<br />실제 수강이 시작될 때까지 이어서 관리했습니다.</>}>
+      <LiveBlock id="operation" stage="operation" label="03 / POST-LIVE OPERATION" title={<>무료강의 종료 후에도<br />실제 수강이 시작될 때까지 이어서 관리했습니다.</>}>
         <div className={invader.liveBody}><p className={styles.bodyCopy} data-reading-focus>결제 이후에는 수강생 명단을 기준으로 정규강의 그룹을 구분하고, 초대 여부와 입장 상태, 수강기간을 관리했습니다.</p><p className={styles.bodyCopy} data-reading-focus>추가 결제나 환불 등 상태 변경 사항도 구분해 후속 운영에 반영했습니다.</p></div>
         <ProcessDiagram items={[["PAYMENT", "결제"], ["STUDENT LIST", "수강생 명단"], ["INVITE", "그룹 초대"], ["ACCESS CHECK", "입장 상태"], ["COURSE PERIOD", "수강기간"]]} label="결제 이후 수강생 운영 흐름" />
       </LiveBlock>
@@ -444,7 +346,15 @@ function PerformanceBody() {
       </PerformanceBlock>
 
       <PerformanceBlock label="03 / CASE COMPARISON" description="회차별 Funnel 비교" title={<>유입은 비슷했지만,<br />차이는 LIVE 이후에 벌어졌습니다.</>}>
-        <div className={invader.caseComparison}>{performanceCases.map((item) => <article key={item.name}><header><strong>{item.name}</strong><span>{item.description}</span></header><dl>{item.values.map(([label, copy, value]) => <div key={label}><dt><b>{label}</b><span>{copy}</span></dt><dd>{value}</dd></div>)}</dl></article>)}</div>
+        <div className={invader.metricsWrap} tabIndex={0} role="region" aria-label="FIRES와 RINA 동일 단계 지표 비교">
+          <table className={invader.metricsTable}>
+            <caption>동일 단계 · 동일 분모 기준 / 회차별 운영 기록</caption>
+            <thead><tr><th scope="col">FUNNEL STAGE</th><th scope="col">FIRES<br /><small>브랜드 커머스</small></th><th scope="col">RINA<br /><small>숙박업</small></th></tr></thead>
+            <tbody>{performanceCases[0].values.map(([label,copy,value], index) => <tr key={label} data-metric>
+              <th scope="row"><span>{label}</span><small>{copy}</small></th><td>{value}</td><td>{performanceCases[1].values[index][2]}</td>
+            </tr>)}</tbody>
+          </table>
+        </div>
         <div className={invader.comparisonSignal}><div><strong>SIMILAR ENTRY</strong><span>유사한 유입</span></div><i>+</i><div><strong>SIMILAR LIVE VIEW</strong><span>유사한 LIVE 시청 흐름</span></div><i>↓</i><div data-result><strong>DIFFERENT PAYMENT CONVERSION</strong><span>다르게 나타난 결제 전환</span></div></div>
         <DiagramSummary><p>두 회차는 톡방 입장과 LIVE 시청까지의 흐름이 상당히 유사했습니다.</p><p>반면 LIVE 이후 결제 전환에서 차이가 나타났기 때문에, 단순 모객 규모보다는 LIVE 내부의 설득 구조와 Closing 구간을 별도로 점검해야 한다고 판단했습니다.</p></DiagramSummary>
         <div className={invader.metricEvidenceGrid}>
@@ -453,6 +363,12 @@ function PerformanceBody() {
         </div>
       </PerformanceBlock>
 
+    </div>
+  );
+}
+
+function IterationBody() {
+  return ( <div className={invader.performanceNarrative}>
       <PerformanceBlock label="04 / SIGNAL → DIAGNOSIS → ACTION" description="지표에서 문제를 찾고 액션으로 연결" title={<>지표가 떨어진 위치에 따라<br />다시 봐야 할 문제도 달랐습니다.</>}>
         <div className={invader.signalBranch}><div className={invader.branchRoot}><strong>FUNNEL SIGNAL</strong><span>Funnel 이상 신호</span></div>{[["ENTRY RATE ↓", "톡방 입장률 하락", ["CRM TIMING|CRM 발송 시점", "MESSAGE|메시지 설계", "ENTRY FLOW|입장 동선"]], ["LIVE RATE ↓", "LIVE 시청 전환 하락", ["PRE-LIVE CONTENT|사전 콘텐츠", "REMINDER|리마인드 운영", "HOOK|초반 후킹"]], ["PAYMENT RATE ↓", "결제 전환 하락", ["EVIDENCE|성과와 신뢰 근거", "OBJECTION|고객 반론 대응", "CTA / CLOSING|결제 제안과 마감 구조"]], ["RETENTION ↓", "결제 이후 잔존 하락", ["EXPECTATION|사전 기대치", "ONBOARDING|수강 시작 경험", "PRODUCT EXPERIENCE|실제 강의 경험"]]].map(([title, copy, actions]) => <article key={title as string}><header><strong>{title as string}</strong><span>{copy as string}</span></header><div>{(actions as string[]).map((action) => { const [label, description] = action.split("|"); return <p key={label}><b>{label}</b><span>{description}</span></p>; })}</div></article>)}</div>
         <DiagramSummary><p>같은 “성과 하락”이라도 발생한 Funnel Stage에 따라 다시 점검해야 할 원인은 달랐습니다.</p><p>그래서 숫자 자체보다 어느 단계에서 하락했는지를 먼저 보고, 해당 단계와 연결된 콘텐츠·CRM·LIVE 운영 요소를 점검했습니다.</p></DiagramSummary>

@@ -1,11 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import dynamic from "next/dynamic";
 import { saveDetailSection, saveSceneSnapshot } from "@/lib/scene-persistence";
 import type { ProjectId } from "@/types/game";
 import styles from "./home.module.css";
+import { FitMateProjectDetail } from "@/components/project/FitMateProjectDetail";
+import { InvaderProjectDetail } from "@/components/project/InvaderProjectDetail";
+import { HarubareunProjectDetail } from "@/components/project/HarubareunProjectDetail";
+import { ProjectNavigation } from "@/components/project/ProjectNavigation";
+import navigation from "@/components/project/project-navigation.module.css";
 
 const GameShell = dynamic(() => import("@/components/game/GameShell").then((module) => module.GameShell), { ssr: false });
 
@@ -21,8 +25,13 @@ export function ProjectEntry({ projectId }: { projectId?: ProjectId }) {
     const frame = requestAnimationFrame(() => setReady(true));
     return () => cancelAnimationFrame(frame);
   }, [projectId]);
-  return <div className={styles.detailEntry}>
-    <Link className={styles.homeReturn} href="/#work">← HOME</Link>
-    {ready ? <GameShell /> : <p role="status" className={styles.loading}>Opening selected work…</p>}
+  const content = projectId === "harubareun" ? <HarubareunProjectDetail />
+    : projectId === "project-02" ? <InvaderProjectDetail />
+    : projectId === "fitmate" ? <FitMateProjectDetail />
+    : ready ? <GameShell /> : <p role="status" className={styles.loading}>Opening selected work…</p>;
+  if (!projectId) return <div className={styles.detailEntry}>{content}</div>;
+  return <div className={navigation.shell}>
+    <ProjectNavigation projectId={projectId} />
+    <div className={navigation.content} data-project-content>{content}</div>
   </div>;
 }

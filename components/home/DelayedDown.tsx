@@ -3,6 +3,7 @@
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { ChooniGuide } from "./ChooniGuide";
 import styles from "./home.module.css";
+import { RETURN_TO_WORK_KEY } from "@/components/project/ProjectNavigation";
 
 type IntroStage = "introLocked" | "navigationReady" | "unlocked";
 
@@ -16,6 +17,16 @@ export function DelayedDown() {
   }, []);
 
   useLayoutEffect(() => {
+    // A project Back link restores work; ordinary HOME entry keeps its intro lock.
+    if (location.hash === "#work" && sessionStorage.getItem(RETURN_TO_WORK_KEY) === "true") {
+      const frame = requestAnimationFrame(() => {
+        sessionStorage.removeItem(RETURN_TO_WORK_KEY);
+        advance("unlocked");
+        if (slot.current) slot.current.dataset.scrollLocked = "false";
+        document.getElementById("work")?.scrollIntoView({ behavior: "instant" });
+      });
+      return () => cancelAnimationFrame(frame);
+    }
     const remaining = Math.max(0, revealAt - Date.now());
     const hero = slot.current?.closest("section");
     if (!hero) return;

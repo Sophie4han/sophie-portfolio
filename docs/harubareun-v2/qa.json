@@ -1,0 +1,73 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "overflow": false,
+      "sections": [
+        "context",
+        "decision",
+        "making",
+        "commerce",
+        "launch",
+        "result",
+        "reflection"
+      ],
+      "h1": 1,
+      "background": "rgb(247, 246, 241)",
+      "explore": false,
+      "font": "32px"
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "sections": [
+        "context",
+        "decision",
+        "making",
+        "commerce",
+        "launch",
+        "result",
+        "reflection"
+      ],
+      "h1": 1,
+      "background": "rgb(247, 246, 241)",
+      "explore": false,
+      "font": "23px"
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "sections": [
+        "context",
+        "decision",
+        "making",
+        "commerce",
+        "launch",
+        "result",
+        "reflection"
+      ],
+      "h1": 1,
+      "background": "rgb(247, 246, 241)",
+      "explore": false,
+      "font": "23px"
+    },
+    {
+      "width": 320,
+      "overflow": false,
+      "sections": [
+        "context",
+        "decision",
+        "making",
+        "commerce",
+        "launch",
+        "result",
+        "reflection"
+      ],
+      "h1": 1,
+      "background": "rgb(247, 246, 241)",
+      "explore": false,
+      "font": "23px"
+    }
+  ],
+  "errors": []
+}

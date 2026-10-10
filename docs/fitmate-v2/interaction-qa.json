@@ -1,0 +1,100 @@
+{
+  "sequences": [
+    {
+      "selector": "#fitmate-core [data-sequence]",
+      "states": [
+        "01\nCONNECT\n메이트 연결",
+        "02\nCHOOSE\n종목 · 목표 · 모드 선택",
+        "03\nMOVE TOGETHER\n협력 또는 대결",
+        "04\nFEEDBACK\n실시간 진행 상태 확인",
+        "05\nRECORD\n운동 결과와 기록",
+        "06\nREWARD\n포인트 · 아바타 · 성장",
+        "07\nNEXT EXERCISE\n다시 메이트와 운동하기"
+      ]
+    },
+    {
+      "selector": "#fitmate-mvp > [data-sequence]",
+      "states": [
+        "CORE MVP / FIRST\n먼저, 끝까지\n완결되는 흐름.\n01\nAUTHENTICATION\nSocial Login · Nickname · Terms\n02\nMATE CONNECTION\nInvite Code · Mate State\n03\nMAIN EXPERIENCE\nMate / No Mate State\n04\nEXERCISE SETUP\nSport · Mode · Goal\n05\nREAL-TIME EXERCISE\nCooperate · Compete\n06\nRESULT / HISTORY\n완료와 기록 확인",
+        "EXPANSION / NEXT\n그 다음,\n다시 돌아올 이유.\n01\nREWARD\n02\nSHOP\n03\nAVATAR\n04\nADDITIONAL EXERCISE\n05\nUX REFINEMENT\n\n핵심 경험을 구현한 뒤 보상과 커스터마이징, 운동 종목과 사용성을 확장했습니다."
+      ]
+    },
+    {
+      "selector": "#fitmate-system > div[data-sequence]",
+      "states": [
+        "NO MATE\n초대 / 입력",
+        "CONNECTED\n운동 진입",
+        "ACTIVE\n실시간 진행",
+        "PAUSED\n중단 상태 공유",
+        "COMPLETED\n결과 / 보상"
+      ]
+    },
+    {
+      "selector": "#fitmate-test [class*=implementation] [data-sequence]",
+      "states": [
+        "UT / INTERNAL TEST",
+        "ISSUE DEFINITION",
+        "TASK / ISSUE",
+        "IMPLEMENTATION",
+        "PULL REQUEST",
+        "REVIEW / MERGE",
+        "NEXT VALIDATION"
+      ]
+    }
+  ],
+  "images": [
+    {
+      "alt": "메이트 시스템, 운동 기록, 마이페이지, 협동 목표, 대결 목표의 FitMate 앱 화면",
+      "loaded": true
+    },
+    {
+      "alt": "FitMate 입력 필드, 목표, 진행률, 탐색, 알림, 기록, 보상, 버튼 및 로그인 컴포넌트 시스템",
+      "loaded": true
+    },
+    {
+      "alt": "FitMate 라임, 퍼플, 그레이 색상 시스템 원본",
+      "loaded": true
+    },
+    {
+      "alt": "FitMate Pretendard와 DungGeunMo 타이포그래피 규칙 원본",
+      "loaded": true
+    },
+    {
+      "alt": "FitMate GitHub README의 핵심 기능 및 기술 스택 표",
+      "loaded": true
+    },
+    {
+      "alt": "초대 코드 공유, 입력, 메이트 연결 상태에 따라 메인 화면과 운동 선택으로 이어지는 FitMate 화면 흐름",
+      "loaded": true
+    },
+    {
+      "alt": "운동 로딩 이후 협력과 대결 모드의 실시간 진행 상태로 이어지는 FitMate 화면 흐름",
+      "loaded": true
+    },
+    {
+      "alt": "운동 결과와 코인 보상에서 상점 진입, 아바타 구매와 화면 반영까지 이어지는 FitMate 화면 흐름",
+      "loaded": true
+    },
+    {
+      "alt": "운동 기록 화면에서 마이페이지의 운동별 누적 통계로 이어지는 FitMate 화면 흐름",
+      "loaded": true
+    },
+    {
+      "alt": "FitMate 팀 Pull Request 목록: 레이아웃, 알림, 메인 화면, 초대 요청, 오류 수정 등 초기 개선 작업",
+      "loaded": true
+    },
+    {
+      "alt": "FitMate 팀 Pull Request 목록: 코인 보상, 상점, 아바타 구매와 화면 간 상태 연동, UT 수정 작업",
+      "loaded": true
+    }
+  ],
+  "reduced": {
+    "marquee": "none",
+    "images": true
+  },
+  "back": {
+    "url": "http://localhost:3036/#work",
+    "workVisible": false
+  },
+  "errors": []
+}

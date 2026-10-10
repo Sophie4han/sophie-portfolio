@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';
+const target=await(await fetch('http://127.0.0.1:9230/json/new?about:blank',{method:'PUT'})).json();
+const ws=new WebSocket(target.webSocketDebuggerUrl);await new Promise(r=>ws.addEventListener('open',r,{once:true}));let id=0;const pending=new Map();const errors=[];
+ws.addEventListener('message',e=>{const m=JSON.parse(e.data);if(m.id){pending.get(m.id)(m);pending.delete(m.id)}if(m.method==='Runtime.exceptionThrown')errors.push(m.params)});
+const send=(method,params={})=>new Promise((resolve,reject)=>{pending.set(++id,m=>m.error?reject(m.error):resolve(m.result));ws.send(JSON.stringify({id,method,params}))});
+const run=async expression=>{const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails));return r.result.value};
+const pause=ms=>new Promise(r=>setTimeout(r,ms));
+await send('Runtime.enable');await send('Page.enable');
+
+
+const results=[];for(const [width,height] of [[1440,900],[768,1024],[390,844],[320,568]]){await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});await send('Page.navigate',{url:'http://localhost:3036/?project=harubareun'});await send('Page.bringToFront');await pause(2500);const result=await run(`({width:innerWidth,overflow:document.documentElement.scrollWidth>innerWidth,sections:[...document.querySelectorAll('[data-chapter]')].map(e=>e.id),h1:document.querySelectorAll('h1').length,background:getComputedStyle(document.querySelector('main')).backgroundColor,explore:document.body.innerText.includes('EXPLORE THE PROJECT'),font:getComputedStyle(document.querySelector('main p')).fontSize})`);await fs.writeFile('docs/harubareun-v2/hero-'+width+'.png',Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));results.push(result);console.log(result)}
+await run(`document.getElementById('commerce').scrollIntoView()`);await pause(1500);console.log(await run(`({active:[...document.querySelectorAll('a[aria-current="step"]')].map(e=>e.textContent),reel:!!document.querySelector('[aria-label="4개 자사몰 화면, 좌우로 스크롤"]')})`));await fs.writeFile('docs/harubareun-v2/qa.json',JSON.stringify({results,errors},null,2));ws.close();if(results.some(r=>r.overflow||r.h1!==1||r.sections.length!==7||r.explore)||errors.length)throw Error('Case study QA failed');

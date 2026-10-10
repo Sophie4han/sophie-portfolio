@@ -51,8 +51,8 @@ export function SelectedWork() {
     }} onDragStart={(event) => event.preventDefault()}>
       {HOME_PROJECTS.map((project, index) => <article key={project.id} className={styles.project} aria-label={`${index + 1} / 3: ${project.title}`}>
         <Link href={`/?project=${project.id}`} prefetch={false} className={styles.projectLink} onFocus={() => go(index)}>
-          <div className={`${styles.imageFrame} ${project.id === "fitmate" ? styles.fitmate : ""}`}><Image src={project.image} alt={project.alt} fill sizes="(max-width: 767px) 88vw, 74vw" draggable={false} /><span className={styles.viewProject}>View project ↗</span></div>
-          <div className={styles.projectInfo}><div><h3>{project.title}<span aria-hidden="true">↗</span></h3>{project.subtitle && <p className={styles.subtitle}>{project.subtitle}</p>}<p className={styles.category}>{project.category}</p></div><p className={styles.period}>{project.period}</p></div>
+          <div className={`${styles.imageFrame} ${project.id === "fitmate" ? styles.fitmate : ""}`}><Image src={project.image} alt={project.alt} fill sizes="(max-width: 767px) 88vw, 60vw" draggable={false} /><span className={styles.viewProject}>View project ↗</span></div>
+          <div className={styles.projectInfo}><div><h3>{project.title}<span aria-hidden="true">↗</span></h3>{project.subtitle && <p className={styles.subtitle}>{project.subtitle}</p>}<p className={styles.category}>{project.category}</p></div></div>
         </Link>
       </article>)}
     </div>

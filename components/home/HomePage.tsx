@@ -1,7 +1,6 @@
 import { HomeHoverEffects } from "./HomeHoverEffects";
 import { DelayedDown } from "./DelayedDown";
 import { SelectedWork } from "./SelectedWork";
-import { HomeAnchor } from "./HomeAnchor";
 import styles from "./home.module.css";
 
 function SerifWord({ children, raspberry = false }: { children: string; raspberry?: boolean }) {
@@ -36,14 +35,14 @@ export function HomePage() {
         <DelayedDown />
       </section>
       <SelectedWork />
-      <section id="about" className={styles.about} aria-labelledby="about-title">
-        <h2 className={styles.eyebrow} id="about-title">ABOUT</h2>
-        <div><p className={styles.aboutLead}>결과 뒤의 선택을 이야기합니다.</p><p className={styles.aboutCopy}>각 프로젝트에서 어떤 문제를 발견하고, 무엇을 결정했는지.<br />작업의 맥락과 직접 맡은 역할을 케이스 스터디에 담았습니다.</p><HomeAnchor href="#work" className={styles.aboutLink}>Explore my work <span aria-hidden="true">↗</span></HomeAnchor></div>
-      </section>
     </main>
-    <footer id="contact" className={styles.footer}>
-      <p className={styles.footerLogo}>MOVE ON<span aria-hidden="true">↗</span></p>
-      <div className={styles.footerBottom}><div className={styles.contacts}><span>Email <small>[주소 확인 필요]</small></span><span>LinkedIn <small>[주소 확인 필요]</small></span><span>Instagram <small>[주소 확인 필요]</small></span></div><p>SEOUL · 2026</p></div>
+    <footer className={styles.marqueeFooter} aria-label="Thanks for reading!">
+      <span className={styles.marqueeLabel}>Thanks for reading!</span>
+      <div className={styles.marqueeTrack} aria-hidden="true">
+        {[0, 1].map(group => <div className={styles.marqueeGroup} key={group}>
+          {[0, 1, 2, 3].map(item => <span key={item}>Thanks for <em>reading!</em><b>♥</b></span>)}
+        </div>)}
+      </div>
     </footer>
   </div>;
 }

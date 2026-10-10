@@ -6,7 +6,7 @@ export default async function Home({ searchParams }: PageProps<"/">) {
   const query = await searchParams;
   const project = HOME_PROJECTS.find((item) => item.id === query.project);
   if (project || query.experience === "world") {
-    return <ProjectEntry projectId={project?.id} />;
+    return <ProjectEntry key={project?.id ?? "world"} projectId={project?.id} />;
   }
   return <HomePage />;
 }

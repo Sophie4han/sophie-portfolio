@@ -1,0 +1,17 @@
+{
+  "url": "http://localhost:3036/#work",
+  "work": {
+    "x": 0,
+    "y": 900,
+    "width": 1440,
+    "height": 738.734375,
+    "top": 900,
+    "right": 1440,
+    "bottom": 1638.734375,
+    "left": 0
+  },
+  "scroll": 0,
+  "stage": "navigationReady",
+  "key": null,
+  "title": "I started with \ndesign\n,\nthen kept moving toward\nthe \nquestions\n behind it."
+}

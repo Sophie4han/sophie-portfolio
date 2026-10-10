@@ -1,0 +1,117 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "h1": 1,
+      "chapters": [
+        "fitmate-problem",
+        "fitmate-core",
+        "fitmate-mvp",
+        "fitmate-system",
+        "fitmate-design-states",
+        "fitmate-build",
+        "fitmate-test",
+        "fitmate-shipped",
+        "fitmate-result",
+        "fitmate-reflection"
+      ],
+      "overflow": false,
+      "legacy": false,
+      "navigation": [
+        [
+          "←\nBack to work",
+          "/#work"
+        ],
+        [
+          "Back to work\n→",
+          "/#work"
+        ]
+      ]
+    },
+    {
+      "width": 768,
+      "h1": 1,
+      "chapters": [
+        "fitmate-problem",
+        "fitmate-core",
+        "fitmate-mvp",
+        "fitmate-system",
+        "fitmate-design-states",
+        "fitmate-build",
+        "fitmate-test",
+        "fitmate-shipped",
+        "fitmate-result",
+        "fitmate-reflection"
+      ],
+      "overflow": false,
+      "legacy": false,
+      "navigation": [
+        [
+          "←\nBack to work",
+          "/#work"
+        ],
+        [
+          "Back to work\n→",
+          "/#work"
+        ]
+      ]
+    },
+    {
+      "width": 390,
+      "h1": 1,
+      "chapters": [
+        "fitmate-problem",
+        "fitmate-core",
+        "fitmate-mvp",
+        "fitmate-system",
+        "fitmate-design-states",
+        "fitmate-build",
+        "fitmate-test",
+        "fitmate-shipped",
+        "fitmate-result",
+        "fitmate-reflection"
+      ],
+      "overflow": false,
+      "legacy": false,
+      "navigation": [
+        [
+          "←\nBack to work",
+          "/#work"
+        ],
+        [
+          "Back to work\n→",
+          "/#work"
+        ]
+      ]
+    },
+    {
+      "width": 320,
+      "h1": 1,
+      "chapters": [
+        "fitmate-problem",
+        "fitmate-core",
+        "fitmate-mvp",
+        "fitmate-system",
+        "fitmate-design-states",
+        "fitmate-build",
+        "fitmate-test",
+        "fitmate-shipped",
+        "fitmate-result",
+        "fitmate-reflection"
+      ],
+      "overflow": false,
+      "legacy": false,
+      "navigation": [
+        [
+          "←\nBack to work",
+          "/#work"
+        ],
+        [
+          "Back to work\n→",
+          "/#work"
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}
