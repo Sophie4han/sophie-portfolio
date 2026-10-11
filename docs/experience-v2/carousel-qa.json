@@ -1,0 +1,49 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "cards": 4,
+      "href": "/experience",
+      "imageCount": 0,
+      "counter": "04 / 04",
+      "nextDisabled": true,
+      "fits": true,
+      "frame": [
+        864,
+        454.734375
+      ]
+    },
+    {
+      "route": "/experience",
+      "intro": true
+    },
+    {
+      "width": 390,
+      "cards": 4,
+      "href": "/experience",
+      "imageCount": 0,
+      "counter": "04 / 04",
+      "nextDisabled": true,
+      "fits": true,
+      "frame": [
+        343.1875,
+        180.625
+      ]
+    },
+    {
+      "route": "/experience",
+      "intro": true
+    }
+  ],
+  "lastProject": [
+    {
+      "label": "←\nBack to work",
+      "href": "/#work"
+    },
+    {
+      "label": "Back to work\n→",
+      "href": "/#work"
+    }
+  ],
+  "errors": []
+}

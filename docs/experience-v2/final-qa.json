@@ -1,0 +1,37 @@
+{
+  "reduced": {
+    "intro": true,
+    "marquee": "none",
+    "links": [
+      "/#work",
+      "#dado",
+      "#kanna",
+      "#29cm",
+      "#yic",
+      "#invader",
+      "#harubareun-tf",
+      "/?project=project-02",
+      "/?project=harubareun",
+      "/?project=fitmate",
+      "/#work"
+    ]
+  },
+  "navigation": {
+    "url": "http://localhost:3036/experience",
+    "atIntro": true,
+    "firstCaseTop": 844
+  },
+  "finalCases": [
+    {
+      "id": "yic",
+      "height": 768,
+      "fits": true
+    },
+    {
+      "id": "harubareun-tf",
+      "height": 768,
+      "fits": true
+    }
+  ],
+  "errors": []
+}

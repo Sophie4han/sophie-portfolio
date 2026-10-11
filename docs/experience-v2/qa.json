@@ -1,0 +1,293 @@
+{
+  "results": [
+    {
+      "initial": {
+        "width": 1440,
+        "height": 900,
+        "introHeight": 900,
+        "firstCaseTop": 900,
+        "overflow": false,
+        "introTextFits": true
+      },
+      "cases": [
+        {
+          "id": "dado",
+          "height": 900,
+          "contentFits": true,
+          "active": "#dado"
+        },
+        {
+          "id": "kanna",
+          "height": 900,
+          "contentFits": true,
+          "active": "#kanna"
+        },
+        {
+          "id": "29cm",
+          "height": 900,
+          "contentFits": true,
+          "active": "#29cm"
+        },
+        {
+          "id": "yic",
+          "height": 900,
+          "contentFits": true,
+          "active": "#yic"
+        },
+        {
+          "id": "invader",
+          "height": 900,
+          "contentFits": true,
+          "active": "#invader"
+        },
+        {
+          "id": "harubareun-tf",
+          "height": 900,
+          "contentFits": true,
+          "active": "#harubareun-tf"
+        }
+      ]
+    },
+    {
+      "initial": {
+        "width": 1366,
+        "height": 768,
+        "introHeight": 768,
+        "firstCaseTop": 768,
+        "overflow": false,
+        "introTextFits": true
+      },
+      "cases": [
+        {
+          "id": "dado",
+          "height": 768,
+          "contentFits": true,
+          "active": "#dado"
+        },
+        {
+          "id": "kanna",
+          "height": 768,
+          "contentFits": true,
+          "active": "#kanna"
+        },
+        {
+          "id": "29cm",
+          "height": 768,
+          "contentFits": true,
+          "active": "#29cm"
+        },
+        {
+          "id": "yic",
+          "height": 768,
+          "contentFits": true,
+          "active": "#yic"
+        },
+        {
+          "id": "invader",
+          "height": 768,
+          "contentFits": true,
+          "active": "#invader"
+        },
+        {
+          "id": "harubareun-tf",
+          "height": 768,
+          "contentFits": true,
+          "active": "#harubareun-tf"
+        }
+      ]
+    },
+    {
+      "initial": {
+        "width": 1280,
+        "height": 720,
+        "introHeight": 720,
+        "firstCaseTop": 720,
+        "overflow": false,
+        "introTextFits": true
+      },
+      "cases": [
+        {
+          "id": "dado",
+          "height": 720,
+          "contentFits": true,
+          "active": "#dado"
+        },
+        {
+          "id": "kanna",
+          "height": 720,
+          "contentFits": true,
+          "active": "#kanna"
+        },
+        {
+          "id": "29cm",
+          "height": 720,
+          "contentFits": true,
+          "active": "#29cm"
+        },
+        {
+          "id": "yic",
+          "height": 720,
+          "contentFits": true,
+          "active": "#yic"
+        },
+        {
+          "id": "invader",
+          "height": 720,
+          "contentFits": true,
+          "active": "#invader"
+        },
+        {
+          "id": "harubareun-tf",
+          "height": 720,
+          "contentFits": true,
+          "active": "#harubareun-tf"
+        }
+      ]
+    },
+    {
+      "initial": {
+        "width": 768,
+        "height": 1024,
+        "introHeight": 1024,
+        "firstCaseTop": 1024,
+        "overflow": false,
+        "introTextFits": true
+      },
+      "cases": [
+        {
+          "id": "dado",
+          "height": 1024,
+          "contentFits": true,
+          "active": "#dado"
+        },
+        {
+          "id": "kanna",
+          "height": 1024,
+          "contentFits": true,
+          "active": "#kanna"
+        },
+        {
+          "id": "29cm",
+          "height": 1024,
+          "contentFits": true,
+          "active": "#29cm"
+        },
+        {
+          "id": "yic",
+          "height": 1024,
+          "contentFits": true,
+          "active": "#yic"
+        },
+        {
+          "id": "invader",
+          "height": 1024,
+          "contentFits": true,
+          "active": "#invader"
+        },
+        {
+          "id": "harubareun-tf",
+          "height": 1024,
+          "contentFits": true,
+          "active": "#harubareun-tf"
+        }
+      ]
+    },
+    {
+      "initial": {
+        "width": 390,
+        "height": 844,
+        "introHeight": 844,
+        "firstCaseTop": 844,
+        "overflow": false,
+        "introTextFits": true
+      },
+      "cases": [
+        {
+          "id": "dado",
+          "height": 850.359375,
+          "contentFits": true,
+          "active": "#dado"
+        },
+        {
+          "id": "kanna",
+          "height": 844,
+          "contentFits": true,
+          "active": "#kanna"
+        },
+        {
+          "id": "29cm",
+          "height": 1006.796875,
+          "contentFits": true,
+          "active": "#29cm"
+        },
+        {
+          "id": "yic",
+          "height": 844,
+          "contentFits": true,
+          "active": "#yic"
+        },
+        {
+          "id": "invader",
+          "height": 844,
+          "contentFits": true,
+          "active": "#invader"
+        },
+        {
+          "id": "harubareun-tf",
+          "height": 983.5,
+          "contentFits": true,
+          "active": "#harubareun-tf"
+        }
+      ]
+    },
+    {
+      "initial": {
+        "width": 320,
+        "height": 568,
+        "introHeight": 568,
+        "firstCaseTop": 568,
+        "overflow": false,
+        "introTextFits": true
+      },
+      "cases": [
+        {
+          "id": "dado",
+          "height": 943.5,
+          "contentFits": true,
+          "active": "#dado"
+        },
+        {
+          "id": "kanna",
+          "height": 861.921875,
+          "contentFits": true,
+          "active": "#kanna"
+        },
+        {
+          "id": "29cm",
+          "height": 1130.4375,
+          "contentFits": true,
+          "active": "#29cm"
+        },
+        {
+          "id": "yic",
+          "height": 837.34375,
+          "contentFits": true,
+          "active": "#yic"
+        },
+        {
+          "id": "invader",
+          "height": 868.6875,
+          "contentFits": true,
+          "active": "#invader"
+        },
+        {
+          "id": "harubareun-tf",
+          "height": 1051.046875,
+          "contentFits": true,
+          "active": "#harubareun-tf"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
