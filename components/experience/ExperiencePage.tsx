@@ -6,8 +6,12 @@ import { CAREER_CASES, type CareerCase } from "@/lib/experience";
 import { RETURN_TO_WORK_KEY } from "@/components/project/ProjectNavigation";
 import home from "@/components/home/home.module.css";
 import s from "./experience.module.css";
+import { HandwrittenIntro } from "./HandwrittenIntro";
 
-const intro = ["디자인으로 시작했고","만들다 보니 이유가 궁금해졌고","고객을 만나며 반응을 보게 됐고","운영하면서 구조를 보기 시작했고","결국 제품과 사업까지 왔습니다."];
+const intro = [
+  "디자인으로 시작했고 만들다 보니 이유가 궁금해졌고 고객을 만나며 반응을 보게 됐습니다.",
+  "그리고 운영하면서 구조를 보기 시작했고 그렇게 제품을 기획하고 운영하고자 하는 단계에 섰습니다."
+];
 
 function Diagram({ nodes, kind }: { nodes: readonly string[]; kind?: CareerCase["kind"] }) {
   return <ol className={s.diagram} data-diagram data-kind={kind ?? "flow"} aria-label={nodes.join(kind === "exchange" ? " ↔ " : " → ")}>
@@ -58,15 +62,15 @@ export function ExperiencePage() {
     return ()=>{cancelAnimationFrame(frame);reveal.disconnect();resize.disconnect();window.removeEventListener("scroll",schedule);window.removeEventListener("resize",schedule);};
   },[]);
   return <div ref={root} className={s.page}>
+    <Link className={s.back} href="/#work" onClick={()=>sessionStorage.setItem(RETURN_TO_WORK_KEY,"true")}><span aria-hidden="true">←</span><span className={s.backText}> Back to work</span><span className={s.srOnly}> HOME Selected Work</span></Link>
     <main>
       <section className={s.intro} aria-labelledby="experience-title">
         <h1 id="experience-title" className={s.srOnly}>Experience — 경력의 흐름</h1>
         <p className={s.caption}>started with design, then kept moving toward the questions behind it.</p>
-        <ol className={s.phrases}>{intro.map((phrase,index)=><li key={phrase} style={{"--phrase":index} as CSSProperties}>{phrase}</li>)}</ol>
+        <HandwrittenIntro phrases={intro} className={s.phrases} />
       </section>
       <div className={s.journey}>
         <aside className={s.rail}>
-          <Link className={s.back} href="/#work" onClick={()=>sessionStorage.setItem(RETURN_TO_WORK_KEY,"true")}><span aria-hidden="true">←</span><span className={s.backText}> Back to work</span><span className={s.srOnly}> HOME Selected Work</span></Link>
           <nav aria-label="Career progression"><ol>{CAREER_CASES.map(item=><li key={item.id} data-current={active===item.id} data-branch={item.kind==="branch" || undefined}><Link href={`#${item.id}`} aria-current={active===item.id?"step":undefined} aria-label={`${item.company} — ${item.stage}`}><i aria-hidden="true" /><span>{item.stage}</span></Link></li>)}</ol></nav>
         </aside>
         <div>{CAREER_CASES.map(item=><Career key={item.id} item={item} />)}</div>

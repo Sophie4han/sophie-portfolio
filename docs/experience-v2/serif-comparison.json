@@ -1,0 +1,7 @@
+{
+  "writingInkWithinOnePixelOfNative": 1,
+  "note": "Canvas contour tracing and native font rasterization use different antialiasing. Comparison uses one CSS pixel tolerance.",
+  "sentenceMs": 5800,
+  "gapMs": 700,
+  "crossfadeMs": 250
+}
