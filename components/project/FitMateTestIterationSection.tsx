@@ -96,13 +96,13 @@ export function FitMateTestIterationSection() {
       <p className={s.subStatement} data-reading-focus>화면 단위가 아니라, 화면과 화면 사이의 상태 변화까지 검증했습니다.</p>
     </Chapter>
 
-    <Chapter id="fitmate-issue-definition" label="07-03 / ISSUE DEFINITION" title={<>피드백을 바로 기능으로 바꾸지 않고,<br />제품 문제로 다시 정의했습니다.</>}>
+    <Chapter id="fitmate-issue-definition" label="07-03 / ISSUE DEFINITION" title={<>피드백을 그대로 기능으로 옮기지 않고,<br />실제로 어디에서 막혔는지부터 다시 봤습니다.</>}>
       <Flow vertical label="피드백에서 관찰, 문제 정의, 우선순위, 개선, 재검증까지" steps={[
         { title: "USER FEEDBACK" }, { title: "OBSERVATION", detail: "어디에서 막혔는가?", tone: "purple" },
         { title: "ISSUE", detail: "왜 문제가 되는가?", tone: "purple" }, { title: "PRIORITY", detail: "Core Flow에 영향을 주는가?" },
         { title: "IMPROVEMENT", detail: "UI · State · Logic", tone: "lime" }, { title: "VALIDATION", detail: "실제 Flow에서 재확인", tone: "lime" },
       ]} />
-      <Body>사용자의 의견 자체를 정답으로 받아들이기보다 반복되는 문제인지, 주요 행동을 방해하는지, 현재 제품 단계에서 해결할 가치가 있는지를 기준으로 개선 우선순위를 판단했습니다.</Body>
+      <Body>사용자가 말한 내용을 그대로 고치기보다, 같은 문제가 반복되는지와 핵심 흐름을 막고 있는지를 먼저 확인했습니다. 지금 단계에서 바로 고쳐야 할 문제인지도 함께 판단했습니다.</Body>
       <Statement>FEEDBACK IS INPUT,<br />NOT THE ANSWER.</Statement>
       <p className={s.subStatement} data-reading-focus>피드백은 답이 아니라, 제품 판단을 위한 입력값으로 사용했습니다.</p>
     </Chapter>
@@ -144,16 +144,6 @@ export function FitMateTestIterationSection() {
       </div>
     </Chapter>
 
-    <Chapter id="fitmate-iteration-principle" label="07-08 / PRODUCT ITERATION PRINCIPLE" title={<>모든 피드백을,<br />기능으로 만들지는 않았습니다.</>}>
-      <Body>사용자 의견을 그대로 기능 요구사항으로 옮기기보다 반복되는 문제인지, Core Flow를 방해하는지, 현재 제품 단계에서 해결할 가치가 있는지를 기준으로 우선순위를 판단했습니다.</Body>
-      <Flow vertical label="사용자 피드백의 우선순위 판단 기준" steps={[
-        { title: "USER FEEDBACK" }, { title: "FREQUENCY", detail: "반복되는가?" },
-        { title: "IMPACT", detail: "핵심 Flow를 방해하는가?" }, { title: "FEASIBILITY", detail: "현재 단계에서 해결 가능한가?" },
-        { title: "PRIORITY", detail: "FIX / IMPROVE / LATER", tone: "lime" },
-      ]} />
-      <Statement>FEEDBACK IS INPUT,<br />NOT THE ANSWER.</Statement>
-      <p className={s.subStatement} data-reading-focus>검증 → 판단 → 구현 → 재검증</p>
-    </Chapter>
   </FitMateChapter>;
 }
 

@@ -10,7 +10,7 @@ import { HandwrittenIntro } from "./HandwrittenIntro";
 
 const intro = [
   "디자인으로 시작했고 만들다 보니 이유가 궁금해졌고 고객을 만나며 반응을 보게 됐습니다.",
-  "그리고 운영하면서 구조를 보기 시작했고 그렇게 제품을 기획하고 운영하고자 하는 단계에 섰습니다."
+  "그리고 운영하면서 구조를 보기 시작했고, 지금은 제품을 기획하고 운영하는 쪽으로 다음 커리어를 이어가려 합니다."
 ];
 
 function Diagram({ nodes, kind }: { nodes: readonly string[]; kind?: CareerCase["kind"] }) {

@@ -28,8 +28,8 @@ export function HomePage() {
           <span className={styles.line}><span>the <SerifWord raspberry>questions</SerifWord> behind it.</span></span>
         </h1>
         <div className={styles.copy} data-intro>
-          <p>저는 정해진 길보다 납득할 수 있는 방향을 개척하고 선택해왔습니다. 디자인으로 시작했지만 화면을 만드는 일에 머무르기보다, 왜 만드는지, 누구에게 필요한지, 실제로 어떻게 움직이는지가 궁금해졌습니다.</p>
-          <p>그렇게 검색 운영과 서비스 기획, 브랜드와 상품까지 경험을 넓혀왔습니다. 하나의 역할에 저를 맞추기보다, 필요한 문제를 발견하면 직접 배우고 부딪히며 해결합니다.</p>
+          <p>저는 정해진 길을 따라가기보다, 일을 하면서 궁금해진 쪽으로 계속 움직여왔습니다. 디자인으로 시작했지만 화면을 만드는 일에 머무르기보다, 왜 만드는지, 누구에게 필요한지, 실제로 어떻게 돌아가는지가 궁금해졌습니다.</p>
+          <p>그렇게 검색 운영과 서비스 기획, 브랜드와 상품까지 일을 넓혀왔습니다. 필요한 일이 생기면 역할을 먼저 나누기보다, 직접 배우고 해보면서 답을 찾는 편입니다.</p>
         </div>
         <p className={styles.positioning} data-positioning><span>Product · Brand · Commerce</span><span>그 접점에서 다음 일을 찾고 있습니다.</span></p>
         <DelayedDown />

@@ -90,7 +90,7 @@ function ProductValueBody() {
         <div>
           <h3 id="planning-intro-title" className={invader.visuallyHidden}>Product Planning 소개</h3>
           <div className={invader.planningBody}>
-            <p className={styles.bodyCopy} data-reading-focus>강사의 경력과 성과를 그대로 나열하는 것만으로는 고객의 구매 이유가 되지 않았습니다. 기획 미팅을 통해 실제 경쟁력과 운영 방식, 고객이 매력을 느낄 요소를 정리하고, 이를 상품 메시지와 무료강의 구조로 구체화했습니다.</p>
+            <p className={styles.bodyCopy} data-reading-focus>강사의 경력과 성과를 그대로 나열하는 것만으로는 고객이 왜 이 강의를 들어야 하는지 설명하기 어려웠습니다. 기획 미팅을 통해 실제 강점과 운영 경험을 정리하고, 고객이 이해하기 쉬운 상품 메시지와 무료강의 구성으로 풀어냈습니다.</p>
             <p className={styles.bodyCopy} data-reading-focus>이후 리허설에서는 고객이 궁금해하거나 망설이는 지점을 기준으로 후킹, 사례, 비교 포인트, 예상 반론의 순서를 조정하며 세일즈 흐름을 다듬었습니다.</p>
           </div>
         </div>
@@ -98,7 +98,7 @@ function ProductValueBody() {
           {[["RAW EXPERTISE", "강사의 실제 성과와 운영 경험 정리"], ["PRODUCT MESSAGE", "무엇을 팔 것인지 한 문장으로 정의"], ["OBJECTION HANDLING", "고객이 망설이는 이유를 먼저 구조화"], ["REHEARSAL REFINEMENT", "결제되는 강의 흐름으로 재정렬"]].map(([title, copy]) => <article key={title}><strong>{title}</strong><span data-reading-focus>{copy}</span></article>)}
         </div>
       </section>
-      <p className={invader.planningBridge}>경력 소개를 넘어, 고객이 이해하고 결제할 수 있는 Product 구조를 설계했습니다.</p>
+      <p className={invader.planningBridge}>강사의 경력을 나열하는 데서 끝내지 않고, 고객이 왜 이 사람에게 배워야 하는지 이해할 수 있도록 상품 메시지로 바꿨습니다.</p>
 
       <PlanningBlock label="01 / RAW EXPERTISE" title={<>강사가 잘하는 것을 그대로 나열하지 않고,<br />무엇이 고객에게 구매 이유가 되는지 다시 분해했습니다.</>}>
         <p className={styles.bodyCopy} data-reading-focus>김준서님은 단순히 브랜드 상품을 판매해본 셀러가 아니라, 디자인·마케팅 경험과 실제 판매 성과, 그리고 운영 시스템까지 함께 설명할 수 있는 강사였습니다. 상품 기획 단계에서는 이러한 강점 중 무엇을 전면에 세우고, 무엇을 고객 언어로 재해석할지 정리하는 작업이 먼저 필요했습니다.</p>
@@ -110,7 +110,7 @@ function ProductValueBody() {
 
       <section className={invader.planningDiagram} aria-label="강사의 전문성을 교육 상품으로 전환하는 과정">
         <ol>{[["EXPERTISE", "강사의 경험과 성과"], ["PROOF", "실제 판매 성과와 운영 경험"], ["ADVANTAGE", "타 부업 대비 강점"], ["CUSTOMER VALUE", "고객이 얻는 실질 이점"], ["PRODUCT MESSAGE", "브랜드 셀링 교육상품"]].map(([title, copy]) => <li key={title}><strong>{title}</strong><span data-reading-focus>{copy}</span></li>)}</ol>
-        <p>경력 소개가 아니라,<br />고객이 이해할 수 있는 Product 구조로 번역했습니다.</p>
+        <p>경력 소개가 아니라,<br />고객이 이해할 수 있는 상품의 이유로 바꿨습니다.</p>
       </section>
 
       <div className={invader.planningTwoColumn}>
@@ -134,7 +134,7 @@ function ProductValueBody() {
           <div className={invader.miniPointGrid}>{[["VS 중국 사입", "최소 주문 수량과 초기비용 부담이 큼"], ["VS 구매대행", "반품·불량 리스크와 손실 가능성 존재"], ["브랜드 셀링의 강점", "검증된 상품, 낮은 진입장벽, 빠른 전환"], ["운영 구조", "직접 포장·재고 부담 없이 시스템 중심 운영"]].map(([title, copy]) => <article key={title}><strong>{title}</strong><span data-reading-focus>{copy}</span></article>)}</div>
         </PlanningBlock>
         <PlanningBlock label="05 / CUSTOMER OBJECTION" title={<>무엇을 가르칠까보다,<br />왜 아직 결제하지 않을까를 먼저 봤습니다.</>}>
-          <p className={styles.bodyCopy} data-reading-focus>리허설 전후로는 고객이 가장 자주 가질 질문을 미리 구조화해 무료강의 안에서 자연스럽게 해소되도록 순서를 조정했습니다. 이 과정은 단순한 Q&amp;A 준비가 아니라, 결제를 방해하는 인식을 먼저 다루는 상품 설계에 가까웠습니다.</p>
+          <p className={styles.bodyCopy} data-reading-focus>리허설 전후에는 고객이 가장 많이 망설일 질문을 먼저 정리하고, 무료강의 안에서 자연스럽게 답이 나오도록 순서를 바꿨습니다. 단순히 Q&amp;A를 준비한 게 아니라, 결제를 망설이게 하는 이유를 강의 안에서 먼저 풀어주려 했습니다.</p>
           <EvidenceFigure src="/images/projects/invader/product-planning/customer-objections.png" width={942} height={578} alt="무료강의 Q&A 및 예상 반박 구성 자료" caption="시장 포화, 노하우, 신규 진입, 리스크와 판매 관련 오해를 사전에 다루도록 질문을 정리했다." />
           <div className={invader.objectionTableWrap}>
             <table className={invader.objectionTable}>
@@ -243,11 +243,11 @@ function PurchaseExperienceBody() {
           <EvidenceFigure src="/images/projects/invader/live-content/live-day-checklist.png" width={1920} height={1080} alt="무료강의 당일 운영 체크리스트" caption="무료강의 당일 필요한 CS, 입장 환경, CRM, 바이럴과 페이지 공개 항목을 체크리스트로 관리했습니다." />
           <EvidenceFigure src="/images/projects/invader/live-content/post-live-checklist.png" width={1920} height={1080} alt="무료강의 후 운영 체크리스트" caption="무료강의 후 정규강의방 개설, 수강생 초대와 트래킹, 수강기간 설정을 후속 운영 항목으로 관리했습니다." />
         </div>
-        <p className={`${invader.liveBridge} ${styles.bodyCopy}`} data-reading-focus>강의 콘텐츠가 확정된 이후에는 이를 실제 고객 접점에서 실행하는 Live Operation &amp; CRM 단계로 연결했습니다.</p>
+        <p className={`${invader.liveBridge} ${styles.bodyCopy}`} data-reading-focus>강의 구성이 정해진 뒤에는 문자·알림톡·채널톡과 라이브 운영까지 이어서 맡았습니다.</p>
       </LiveBlock>
 
       <footer className={invader.liveEnding}>
-        <p>무료강의를 ‘정보 전달’이 아니라,<br />고객의 구매 결정을 돕는 Product Experience로 설계했습니다.</p>
+        <p>무료강의를 단순한 정보 전달이 아니라,<br />고객이 구매 여부를 판단하는 과정으로 봤습니다.</p>
         <div>Interview <i>→</i> Content <i>→</i> Sales Message <i>→</i> Rehearsal <i>→</i> Objection <i>→</i> Evidence <i>→</i> Decision <i>→</i> Live</div>
       </footer>
     </div>
@@ -279,7 +279,7 @@ function FunnelSignalBody() {
     <div className={invader.operationNarrative}>
       <div className={invader.operationIntro}>
         <p className={styles.bodyCopy} data-reading-focus>무료강의 신청 이후 고객이 실제 라이브에 입장하고, 결제 후 정규강의를 시작하기까지의 흐름을 운영했습니다.</p>
-        <p className={styles.bodyCopy} data-reading-focus>문자·알림톡·채널톡·오픈톡을 시점별로 운영하고, 라이브 당일의 실행부터 결제 이후 수강생 온보딩과 콘텐츠 전달까지 하나의 운영 Flow로 연결했습니다.</p>
+        <p className={styles.bodyCopy} data-reading-focus>문자·알림톡·채널톡·오픈톡을 시점별로 운영하고, 라이브 당일부터 결제 이후 수강생 안내와 콘텐츠 전달까지 이어서 관리했습니다.</p>
       </div>
 
       <ProcessDiagram items={[["신청", "고객 신청"], ["CRM", "시점별 메시지"], ["LIVE 유입", "라이브 입장"], ["실시간 운영", "진행 및 응대"], ["결제", "구매 전환"], ["수강생 관리", "명단과 입장"], ["콘텐츠 전달", "VOD 제공"], ["수강 시작", "강의 이용"]]} label="신청부터 수강 시작까지의 메인 운영 흐름" />
@@ -317,7 +317,7 @@ function FunnelSignalBody() {
         <ProcessDiagram items={[["ACQUISITION", "신청"], ["CRM", "고객 유입"], ["LIVE", "무료강의"], ["CONVERSION", "결제"], ["ONBOARDING", "수강생 관리"], ["DELIVERY", "VOD 제공"], ["COURSE", "수강 시작"]]} label="End-to-End Customer Operation Flow" />
       </LiveBlock>
 
-      <footer className={invader.operationEnding}>신청부터 라이브, 결제, 온보딩과 콘텐츠 전달까지<br />Customer Operation Flow 전체를 연결해 운영했습니다.</footer>
+      <footer className={invader.operationEnding}>신청부터 라이브, 결제, 수강생 안내와 콘텐츠 전달까지<br />고객이 수강을 시작하는 전 과정을 운영했습니다.</footer>
     </div>
   );
 }
@@ -331,13 +331,13 @@ function PerformanceBody() {
   return (
     <div className={invader.performanceNarrative}>
       <div className={invader.performanceIntro}>
-        <p className={styles.bodyCopy} data-reading-focus>무료강의 운영 이후에는 신청부터 LIVE, 결제와 잔존까지 Funnel 단위로 결과를 확인했습니다.</p>
+        <p className={styles.bodyCopy} data-reading-focus>무료강의가 끝난 뒤에는 신청, 라이브 시청, 결제, 잔존까지 단계별로 결과를 확인했습니다.</p>
         <p className={styles.bodyCopy} data-reading-focus>어디에서 고객의 이동이 끊겼는지 파악하고, 그 결과를 다음 회차의 콘텐츠·CRM·LIVE 운영에 다시 반영했습니다.</p>
       </div>
 
       <PerformanceBlock label="01 / REPEATABLE PRODUCT FUNNEL" description="반복 가능한 Product 운영 구조" title={<>기획부터 성과 확인까지,<br />하나의 Product Funnel로 연결했습니다.</>}>
         <LoopDiagram items={[["PRODUCT PLANNING", "상품과 핵심 메시지 정의"], ["CONTENT", "사전 콘텐츠와 구매 판단 구조 설계"], ["OPERATION", "CRM · LIVE · 온보딩 실행"], ["PERFORMANCE", "단계별 전환과 이탈 확인"], ["ITERATION", "병목을 다음 수정안으로 전환"]]} centerTitle="REPEATABLE PRODUCT FUNNEL" centerCopy="반복 가능한 Product 운영 구조" />
-        <DiagramSummary><p>각 업무를 개별 Task로 보지 않고 하나의 연속된 Funnel로 관리했습니다.</p><p>운영 결과는 마지막 성과 보고가 아니라 다음 Product Planning으로 돌아가는 입력값이 되었고, 이를 기준으로 회차별 수정과 실행을 반복했습니다.</p></DiagramSummary>
+        <DiagramSummary><p>기획, 콘텐츠, 운영, 성과 확인을 따로 떼어보지 않고 한 회차의 흐름으로 같이 봤습니다.</p><p>운영 결과는 보고서로 끝내지 않고, 다음 회차에서 무엇을 바꿀지 정하는 데 다시 사용했습니다.</p></DiagramSummary>
       </PerformanceBlock>
 
       <PerformanceBlock label="02 / FUNNEL TRACKING" description="고객 이동 단계 추적" title={<>결과 하나가 아니라,<br />고객이 어디까지 이동했는지를 봤습니다.</>}>
@@ -356,7 +356,7 @@ function PerformanceBody() {
           </table>
         </div>
         <div className={invader.comparisonSignal}><div><strong>SIMILAR ENTRY</strong><span>유사한 유입</span></div><i>+</i><div><strong>SIMILAR LIVE VIEW</strong><span>유사한 LIVE 시청 흐름</span></div><i>↓</i><div data-result><strong>DIFFERENT PAYMENT CONVERSION</strong><span>다르게 나타난 결제 전환</span></div></div>
-        <DiagramSummary><p>두 회차는 톡방 입장과 LIVE 시청까지의 흐름이 상당히 유사했습니다.</p><p>반면 LIVE 이후 결제 전환에서 차이가 나타났기 때문에, 단순 모객 규모보다는 LIVE 내부의 설득 구조와 Closing 구간을 별도로 점검해야 한다고 판단했습니다.</p></DiagramSummary>
+        <DiagramSummary><p>두 회차는 톡방 입장과 LIVE 시청까지의 흐름이 상당히 유사했습니다.</p><p>반면 라이브 이후 결제 전환에서 차이가 났기 때문에, 모객 수보다 라이브 안에서 어떤 내용이 구매 판단에 영향을 줬는지를 다시 봐야 한다고 판단했습니다.</p></DiagramSummary>
         <div className={invader.metricEvidenceGrid}>
           <MetricEvidence src="/images/projects/invader/performance/fires-live-metrics.png" width={1230} height={310} alt="김준서 회차 Funnel 비율 기록" label="FIRES" crop="fires" />
           <MetricEvidence src="/images/projects/invader/performance/rina-live-metrics.png" width={1064} height={322} alt="리나쌤 회차 Funnel 비율 기록" label="RINA" crop="rina" />
@@ -371,18 +371,18 @@ function IterationBody() {
   return ( <div className={invader.performanceNarrative}>
       <PerformanceBlock label="04 / SIGNAL → DIAGNOSIS → ACTION" description="지표에서 문제를 찾고 액션으로 연결" title={<>지표가 떨어진 위치에 따라<br />다시 봐야 할 문제도 달랐습니다.</>}>
         <div className={invader.signalBranch}><div className={invader.branchRoot}><strong>FUNNEL SIGNAL</strong><span>Funnel 이상 신호</span></div>{[["ENTRY RATE ↓", "톡방 입장률 하락", ["CRM TIMING|CRM 발송 시점", "MESSAGE|메시지 설계", "ENTRY FLOW|입장 동선"]], ["LIVE RATE ↓", "LIVE 시청 전환 하락", ["PRE-LIVE CONTENT|사전 콘텐츠", "REMINDER|리마인드 운영", "HOOK|초반 후킹"]], ["PAYMENT RATE ↓", "결제 전환 하락", ["EVIDENCE|성과와 신뢰 근거", "OBJECTION|고객 반론 대응", "CTA / CLOSING|결제 제안과 마감 구조"]], ["RETENTION ↓", "결제 이후 잔존 하락", ["EXPECTATION|사전 기대치", "ONBOARDING|수강 시작 경험", "PRODUCT EXPERIENCE|실제 강의 경험"]]].map(([title, copy, actions]) => <article key={title as string}><header><strong>{title as string}</strong><span>{copy as string}</span></header><div>{(actions as string[]).map((action) => { const [label, description] = action.split("|"); return <p key={label}><b>{label}</b><span>{description}</span></p>; })}</div></article>)}</div>
-        <DiagramSummary><p>같은 “성과 하락”이라도 발생한 Funnel Stage에 따라 다시 점검해야 할 원인은 달랐습니다.</p><p>그래서 숫자 자체보다 어느 단계에서 하락했는지를 먼저 보고, 해당 단계와 연결된 콘텐츠·CRM·LIVE 운영 요소를 점검했습니다.</p></DiagramSummary>
+        <DiagramSummary><p>같은 성과 하락이라도 어느 단계에서 떨어졌는지에 따라 다시 봐야 할 문제는 달랐습니다.</p><p>그래서 숫자만 보기보다 고객이 어디에서 멈췄는지를 먼저 보고, 그 단계의 콘텐츠와 CRM, 라이브 운영을 다시 확인했습니다.</p></DiagramSummary>
       </PerformanceBlock>
 
-      <PerformanceBlock label="05 / ITERATION LOOP" description="성과를 다음 회차로 연결하는 개선 Loop" title={<>측정값은 다음 회차의<br />Input이 되었습니다.</>}>
+      <PerformanceBlock label="05 / ITERATION LOOP" description="성과를 다음 회차로 연결하는 개선 Loop" title={<>측정값은 다음 회차를<br />고치는 근거가 됐습니다.</>}>
         <LoopDiagram items={[["TRACK", "Funnel 결과 기록"], ["READ", "전환 차이 확인"], ["DIAGNOSE", "병목 구간 정의"], ["ADJUST", "콘텐츠 · CRM · LIVE 수정"], ["NEXT LIVE", "다음 회차 실행"]]} centerTitle="ADJUST" centerCopy="CONTENT · CRM · LIVE" />
-        <DiagramSummary><p>한 번의 무료강의를 독립적인 이벤트로 끝내지 않았습니다.</p><p>성과를 기록하고 병목을 정의한 뒤, 콘텐츠와 CRM, LIVE 운영을 수정해 다음 회차에서 다시 검증하는 반복 구조로 운영했습니다.</p></DiagramSummary>
+        <DiagramSummary><p>한 번의 무료강의를 독립적인 이벤트로 끝내지 않았습니다.</p><p>성과를 기록하고 문제가 생긴 구간을 찾은 뒤, 콘텐츠와 CRM, 라이브 운영을 수정해 다음 회차에서 다시 확인했습니다.</p></DiagramSummary>
       </PerformanceBlock>
 
       <footer className={invader.performanceEnding}>
-        <p>성과는 결과가 아니라,<br />다음 Product의 Brief가 되었습니다.</p>
+        <p>운영 결과를 보고,<br />다음 회차를 다시 짰습니다.</p>
         <ProcessDiagram items={[["PLAN", "기획"], ["BUILD", "콘텐츠 구축"], ["OPERATE", "실행"], ["MEASURE", "측정"], ["IMPROVE", "개선"]]} label="기획부터 개선까지의 compact loop" />
-        <div className={invader.performanceClosing}><p className={styles.bodyCopy} data-reading-focus>Product Planning부터 Content, Operation, Performance Tracking까지 하나의 흐름으로 연결했습니다.</p><p className={styles.bodyCopy} data-reading-focus>결과를 다시 다음 기획에 반영하며, 무료강의를 일회성 운영이 아니라 반복적으로 개선할 수 있는 Product Funnel로 관리했습니다.</p></div>
+        <div className={invader.performanceClosing}><p className={styles.bodyCopy} data-reading-focus>상품 기획부터 콘텐츠, 운영, 성과 확인까지 한 회차 안에서 함께 봤습니다.</p><p className={styles.bodyCopy} data-reading-focus>한 번 운영하고 끝내지 않고, 결과를 확인한 뒤 다음 회차에서 다시 고치는 방식으로 일했습니다.</p></div>
       </footer>
     </div>
   );

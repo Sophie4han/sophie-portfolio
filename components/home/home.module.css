@@ -187,9 +187,9 @@
 .imageFrame:has(.experienceCover) { container-type:inline-size; background:var(--paper); border:1px solid #d7d8cc; }
 .experienceCover { position:absolute; inset:0; padding:5% 6%; display:flex; flex-direction:column; justify-content:center; gap:5cqw; transition:transform 450ms; }
 .coverCaption { max-width:82%; font-family:Georgia,'Times New Roman',serif; font-style:italic; color:#686e60; font-size:2.5cqw; line-height:1.3; }
-.coverPhrases { display:flex; flex-direction:column; gap:1.9cqw; font-size:3.35cqw; font-weight:300; line-height:1.3; letter-spacing:-.055em; }
+.coverPhrases { display:flex; flex-direction:column; gap:.7cqw; font-size:3.35cqw; font-weight:300; line-height:1.3; letter-spacing:-.055em; }
 .coverPhrases span:nth-child(2) { margin-left:10%; }
-.coverPhrases span:nth-child(3) { margin-left:3%; }
+.coverPhrases span:nth-child(3) { margin-left:3%; margin-top:2.1cqw; }
 .coverPhrases span:nth-child(4) { margin-left:16%; color:var(--leaf-text); }
 .coverPhrases span:first-child { color:var(--raspberry); }
 @media(hover:hover) { .projectLink:hover .experienceCover { transform:scale(1.03); } }

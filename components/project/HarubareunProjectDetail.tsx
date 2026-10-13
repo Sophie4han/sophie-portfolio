@@ -56,7 +56,7 @@ export function HarubareunProjectDetail({ onBackToWorld, onBackToFocus }: Haruba
     </header>
     <nav className={styles.process} aria-label="Case study process">{chapters.map(([id,label],index)=><a key={id} href={`#${id}`} aria-current={active===id?"step":undefined}><small>{String(index+1).padStart(2,"0")}</small>{label}</a>)}</nav>
     <div className={styles.content}>
-      <Chapter id="context" label="01 / CONTEXT" title="제품 후보는 있었지만, 팔아야 할 이유는 더 구체적이어야 했습니다.">
+      <Chapter id="context" label="01 / CONTEXT" title="제품 후보는 있었지만, 고객이 살 이유는 아직 정리되지 않았습니다.">
         <p>시작점은 로고나 패키지 시안이 아니었습니다. 각 후보가 누구에게 필요한지, 이미 있는 선택지와 무엇이 다른지부터 정리해야 했습니다.</p>
         <p>같은 건강식품이어도 원료와 타깃, 제품을 찾는 상황은 달랐습니다. 네 제품에 같은 메시지를 반복하기보다, 고객이 선택할 이유를 각각 정하는 데서 시작했습니다.</p>
         <div className={styles.questions}><div><span>WHO</span><h3>누구를 위한 제품인가</h3><p>타깃의 관심사와 사용 상황</p></div><div><span>WHY</span><h3>왜 이 제품이어야 하는가</h3><p>원료의 특성과 구매 이유</p></div><div><span>HOW</span><h3>어떻게 선택하게 할 것인가</h3><p>제품명부터 실제 구매환경까지</p></div></div>
@@ -66,14 +66,14 @@ export function HarubareunProjectDetail({ onBackToWorld, onBackToFocus }: Haruba
         <ProductDetail />
       </Chapter>
       <Chapter id="making" label="03 / MAKING IT REAL" title="기획한 제품을 실제로 만들기까지.">
-        <p>제품의 방향을 정한 뒤에는 제조사와 소통하고 생산 일정을 조율하는 업무를 맡았습니다. 제품 기획과 제작을 별개로 두지 않고, 생산으로 이어지는 과정까지 관여했습니다.</p>
+        <p>제품 방향을 정한 뒤 제조사와 계속 소통하면서 실제 제작과 생산 일정까지 함께 챙겼습니다.</p>
         <ol className={styles.makingFlow}><li><span>01 / DEFINE</span><h3>제품 방향 구체화</h3><p>타깃 · 핵심 가치 · 원료 근거 · 제품별 메시지</p></li><li><span>02 / COORDINATE</span><h3>제조사 커뮤니케이션</h3><p>제조사와 제품 제작 관련 소통</p></li><li><span>03 / SCHEDULE</span><h3>생산 일정 조율</h3><p>실제 제품이 만들어지는 일정 조율</p></li></ol>
         <p>제품명과 패키지에서 전달한 내용이 상세페이지와 판매환경에서도 이어지도록 구성했습니다. 아래 사진은 기존 자료에 남아 있는 최종 생산 패키지입니다.</p>
         <div className={styles.packageGrid}>{summaryProducts.map(product=><figure key={product.name}><Image src={product.image} alt={product.alt} width={3024} height={4032} sizes="(max-width: 700px) 90vw, 40vw" /><figcaption>{product.name} / FINAL PACKAGE</figcaption></figure>)}</div>
-        <p className={styles.note}>제조사 협의 내역과 생산 일정표는 현재 포트폴리오 자료에 포함되어 있지 않습니다. 패키지 사진과 협의 과정의 증빙은 구분해 제시합니다.</p>
+        <p className={styles.note}>※ 제조사 협의·일정 자료는 미포함이며, 아래에는 최종 패키지 결과물만 담았습니다.</p>
       </Chapter>
       <Chapter id="commerce" label="04 / COMMERCE" title="제품을 설명하는 데서, 구매할 수 있는 환경까지.">
-        <p>제품별 D2C 자사몰을 구축하고, SmartStore·Coupang 채널 경험을 함께 쌓았습니다. 아래 evidence는 자사몰과 카카오 연동 화면이며, SmartStore·Coupang의 운영 화면이나 성과 자료는 포함되어 있지 않습니다.</p>
+        <p>제품별 D2C 자사몰을 구축하고, SmartStore·Coupang 채널 경험을 함께 쌓았습니다. ※ SmartStore·Coupang 세팅 경험은 포함하되, 현재 보유한 화면 자료는 자사몰·카카오 연동 기준입니다.</p>
         <CommerceDetail />
       </Chapter>
       <Chapter id="launch" label="05 / LAUNCH" title="출시 일정에 맞춰, 고객을 만날 순서를 준비했습니다.">
@@ -81,14 +81,14 @@ export function HarubareunProjectDetail({ onBackToWorld, onBackToFocus }: Haruba
         <GoToMarketDetail />
       </Chapter>
       <Chapter id="result" label="06 / RESULT" title="4개 제품과 판매환경으로 남은 결과.">
-        <p>제품마다 다른 구매 이유를 정하고, 이를 패키지·상세페이지·자사몰로 구현했습니다. 확인 가능한 결과는 4개 제품의 기획·제작 산출물과 4개 D2C 판매환경이며, 매출·전환율 성과는 제시하지 않았습니다.</p>
+        <p>제품마다 다른 구매 이유를 정하고, 이를 패키지·상세페이지·자사몰로 구현했습니다. 확인 가능한 결과는 4개 제품의 기획·제작 산출물과 4개 D2C 판매환경입니다. 매출·전환 데이터는 보유하지 않아 결과에서 제외했습니다.</p>
         <FinalOverviewDetail />
         <figure className={styles.brandEvidence}><Image src="/images/projects/harubareun/summary/harubareun-brand-identity.jpg" alt="HARUBAREUN 브랜드 아이덴티티를 적용한 외관 목업" width={3000} height={4000} sizes="(max-width: 700px) 90vw, 700px" /><figcaption>BRAND IDENTITY / 외관 적용 목업</figcaption></figure>
       </Chapter>
       <Chapter id="reflection" label="07 / REFLECTION" title="상품기획은 판매환경에 닿을 때까지 이어졌습니다.">
         <p>처음 정한 브랜드 구조를 유지하는 것보다, 달라진 사업 방향에 맞춰 다시 판단하는 일이 중요했습니다. 제품별로 시장성을 확인하려는 사업 방식에 맞춰 브랜드 구조도 바꿨습니다.</p>
         <p>원료의 특성을 정리하는 일과 고객에게 설명하는 일은 달랐습니다. 원료 정보와 완제품의 효능을 구분하면서, 확인할 수 있는 내용을 구매 이유로 풀어내는 기준을 배웠습니다.</p>
-        <p>제품 기획, 제조사 소통, 콘텐츠, 판매환경을 함께 다루면서 앞 단계의 결정이 뒤 단계에 어떤 영향을 주는지 경험했습니다. 이후에도 기획안을 만드는 데서 멈추지 않고, 실제 판매 가능한 상태까지 확인하는 방식으로 일하고자 합니다.</p>
+        <p>제품 기획, 제조사 소통, 콘텐츠, 판매환경을 함께 다루면서 앞 단계의 결정이 뒤 단계에 어떤 영향을 주는지 경험했습니다. 앞으로도 기획안을 만드는 데서 끝내지 않고, 실제로 팔 수 있는 상태까지 챙기는 쪽으로 일하고 싶습니다.</p>
       </Chapter>
     </div>
     <footer className={styles.marqueeFooter} aria-label="Thanks for reading!">
@@ -111,7 +111,7 @@ function StrategyDetail() {
             </div>
             <span className={styles.strategyLabel}>PROJECT CONTEXT</span>
             <p className={`${styles.strategyContext} ${styles.bodyCopy} ${styles.readableOnVisual}`} data-reading-focus>
-                시장성이 확인된 제품 후보를 차별화된 Consumer Product로 구체화하고, 제품 전략부터 D2C 판매환경까지 구축했습니다.
+                이미 후보로 정해진 제품을 그대로 내놓기보다, 누구에게 어떤 이유로 팔지부터 다시 정리했습니다. 이후 제품별 메시지와 브랜드, 판매환경까지 하나씩 맞춰갔습니다.
             </p>
             <div className={styles.strategyQuestion} data-reading-focus>
                 어떤 제품을 사업화하고,<br />무엇을 다르게 만들며,<br />그 차이를 고객에게 어떻게 전달할 것인가

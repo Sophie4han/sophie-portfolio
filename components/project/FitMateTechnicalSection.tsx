@@ -114,9 +114,9 @@ export function FitMateBuildSection() {
         <Body>운동 완료 이후 획득한 보상이 상점과 아바타 선택 경험으로 이어지고, 변경된 상태가 메인·마이페이지·운동 화면에 일관되게 반영되도록 연결했습니다.</Body>
       </Block>
     <section className={`${tech.major} ${tech.footer}`} aria-labelledby="fitmate-tech-stack-title">
-      <div><span className={tech.kicker} data-reading-focus>C / TECH STACK</span><h3 id="fitmate-tech-stack-title" data-reading-focus>기술 자체보다, 각 기술이 어떤 사용자 경험을 가능하게 하는지에 집중했습니다.</h3>
+      <div><span className={tech.kicker} data-reading-focus>C / TECH STACK</span><h3 id="fitmate-tech-stack-title" data-reading-focus>기술을 나열하기보다, 실제 기능을 만들 때 각각 어디에 쓰였는지를 보여주려 했습니다.</h3>
         <p className={tech.stack} data-reading-focus>Swift · UIKit · SnapKit · MVVM · RxSwift · Firebase Auth · Firestore · FCM · CoreLocation · CoreMotion · Lottie · GitHub</p>
-        <Body>Architecture, Database, Sensor, UI Framework를 각각 독립적인 기술 선택으로 보기보다 실시간 운동 경험을 구현하기 위한 하나의 시스템으로 연결했습니다.</Body>
+        <Body>Swift, Firebase, CoreLocation 같은 기술을 따로 배운 항목으로 보지 않고, 로그인·실시간 운동·상태 동기화 같은 기능을 만들면서 어떻게 함께 쓰이는지 익혔습니다.</Body>
       </div>
       <Evidence className={tech.readmeEvidence} src="/images/projects/fitmate/design-system/github-readme.png" alt="FitMate GitHub README의 핵심 기능 및 기술 스택 표" width={1298} height={900} caption="PROJECT README · Core Feature · Tech Stack · Architecture" />
     </section>
